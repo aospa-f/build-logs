@@ -30,7 +30,9 @@ build-logs/
 │   └── vendor_qcom_opensource_commonsys_fm.patch
 ├── prebuilts/
 │   └── Datura/                    # CalyxOS Datura firewall prebuilt package
+├── fresh_build.sh                 # 1-click master build launcher for fresh servers
 └── scripts/
+    ├── fresh_server_build.sh      # Complete 5-step automated bootstrap from clean server to ROM zip
     ├── setup_fresh_server.sh      # Installs all Ubuntu dependencies, ccache, repo tool
     ├── sync_manifest.sh           # Inits calcite manifest, deploys manifests, syncs & patches
     ├── apply_all_patches.sh       # Automatically applies all 14 patches with 3-way fallback
@@ -43,22 +45,45 @@ build-logs/
 
 ## 🚀 Quick Start on a Fresh ServerHive / Linux Server
 
-To build the ROM on a brand new, clean server without encountering any build errors:
+When you launch a brand new ServerHive or Ubuntu instance, building is completely automated.
 
-### 1. Configure the Environment
+### Option A: Complete 1-Command Automated Build (Recommended)
+Run this single command on a fresh server to configure packages, sync trees, apply patches, and compile the ROM:
 ```bash
-git clone https://github.com/dyruz10/build-logs.git ~/build-logs
+git clone https://github.com/aospa-faye/build-logs.git ~/build-logs && bash ~/build-logs/fresh_build.sh
+```
+
+---
+
+### Option B: Step-by-Step Manual Execution
+
+If you prefer to run each step manually:
+
+#### 1. Clone build tools & automated setup
+```bash
+git clone https://github.com/aospa-faye/build-logs.git ~/build-logs
+```
+
+#### 2. Run system setup (installs ccache, packages, python, repo)
+```bash
 bash ~/build-logs/scripts/setup_fresh_server.sh
 ```
 
-### 2. Sync and Patch the Tree
+#### 3. Initialize source tree and sync using your aospa-faye local manifests
 ```bash
-bash ~/build-logs/scripts/sync_manifest.sh ~/aospa
+mkdir -p ~/aospa && cd ~/aospa
+repo init -u https://github.com/AOSPA/manifest -b calcite --git-lfs
+git clone https://github.com/aospa-faye/local_manifests.git .repo/local_manifests
+repo sync -c -j$(nproc --all) --force-sync --no-clone-bundle --no-tags
 ```
 
-### 3. Run the Build
+#### 4. Apply prebuilts & minor platform patches
 ```bash
-cd ~/aospa
+bash ~/build-logs/scripts/apply_all_patches.sh ~/aospa
+```
+
+#### 5. Run the build
+```bash
 ./rom-build.sh giulia -v userdebug -t release
 ```
 

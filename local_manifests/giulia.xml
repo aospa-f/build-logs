@@ -15,7 +15,7 @@
 
   <!-- Debloated GMS (Maps included; YouTube, Photos, Drive, Chrome, Auto, FamilyLink, TalkBack, Files removed) -->
   <remove-project name="android_vendor_google_gms" />
-  <project path="vendor/google/gms" name="shefeak10/android_vendor_google_gms" revision="calcite" remote="github" clone-depth="1" />
+  <project path="vendor/google/gms" name="aospa-faye/android_vendor_google_gms" revision="calcite" remote="github" clone-depth="1" />
 
   <!-- Build System & Native Framework Patches from aospa-faye -->
   <remove-project name="AOSPA/android_build" />
