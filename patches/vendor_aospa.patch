@@ -1,0 +1,120 @@
+diff --git a/build/tasks/kernel.mk b/build/tasks/kernel.mk
+index e4ea0ef9..7d6eac25 100644
+--- a/build/tasks/kernel.mk
++++ b/build/tasks/kernel.mk
+@@ -677,7 +677,7 @@ MKDTBOIMG := $(HOST_OUT_EXECUTABLES)/mkdtboimg$(HOST_EXECUTABLE_SUFFIX)
+ $(INSTALLED_DTBIMAGE_TARGET): $(MKDTBOIMG)
+ endif
+ ifeq ($(BOARD_USES_QCOM_MERGE_DTBS_SCRIPT),true)
+-$(INSTALLED_DTBIMAGE_TARGET): $(HOST_OUT_EXECUTABLES)/fdtget $(HOST_OUT_EXECUTABLES)/fdtput $(HOST_OUT_EXECUTABLES)/fdtoverlay $(HOST_OUT_EXECUTABLES)/fdtoverlaymerge $(HOST_OUT_EXECUTABLES)/ufdt_apply_overlay $(DTBS_BASE) $(DTBS_OUT)
++$(INSTALLED_DTBIMAGE_TARGET): $(HOST_OUT_EXECUTABLES)/fdtget $(HOST_OUT_EXECUTABLES)/fdtput $(HOST_OUT_EXECUTABLES)/fdtoverlay $(HOST_OUT_EXECUTABLES)/ufdt_apply_overlay $(DTBS_BASE) $(DTBS_OUT)
+ endif
+ $(INSTALLED_DTBIMAGE_TARGET): $(DTC) $(DTB_OUT)
+ ifeq ($(TARGET_WANTS_EMPTY_DTB),true)
+@@ -694,8 +694,9 @@ else
+ ifeq ($(BOARD_USES_QCOM_MERGE_DTBS_SCRIPT),true)
+ 	$(hide) find $(DTBS_BASE) -type f -name "*.dtb*" | xargs rm -f
+ 	$(hide) find $(DTBS_OUT) -type f -name "*.dtb*" | xargs rm -f
+-	mv $(DTB_OUT)/arch/$(KERNEL_ARCH)/boot/dts/vendor/*/*.dtb $(DTB_OUT)/arch/$(KERNEL_ARCH)/boot/dts/vendor/*/*.dtbo $(DTBS_BASE)/
+-	PATH=$(abspath $(HOST_OUT_EXECUTABLES)):$${PATH} python3 $(BUILD_TOP)/vendor/aospa/build/tools/merge_dtbs.py --base $(DTBS_BASE) --techpack $(DTB_OUT)/arch/$(KERNEL_ARCH)/boot/dts/vendor --out $(DTBS_OUT)
++	mv $(DTB_OUT)/arch/$(KERNEL_ARCH)/boot/dts/vendor/*/*.dtb $(DTBS_BASE)/
++	mv $(DTB_OUT)/arch/$(KERNEL_ARCH)/boot/dts/vendor/*/*.dtbo $(DTBS_OUT)/ 2>/dev/null || true
++	PATH=$(abspath $(HOST_OUT_EXECUTABLES)):$${PATH} python3 $(BUILD_TOP)/vendor/aospa/build/tools/merge_dtbs.py --base $(DTBS_BASE) --techpack $(DTB_OUT)/arch/$(KERNEL_ARCH)/boot/dts/vendor/qcom --out $(DTBS_OUT)
+ 	cat $(shell find $(DTBS_OUT) -type f -name "${TARGET_MERGE_DTBS_WILDCARD}.dtb" | sort) > $@
+ else
+ 	@rm -f $@
+diff --git a/build/tools/merge_dtbs.py b/build/tools/merge_dtbs.py
+index 836be1a9..758952fe 100755
+--- a/build/tools/merge_dtbs.py
++++ b/build/tools/merge_dtbs.py
+@@ -363,7 +363,7 @@ class InnerMergedDeviceTree(DeviceTreeInfo):
+ 		if len(self.techpacks) == 0:
+ 			cmd = ['cp', self.base, out_file]
+ 		else:
+-			if ext == '.dtb':
++			if ext == '.dtb' or not shutil.which('fdtoverlaymerge'):
+ 				cmd = ['fdtoverlay']
+ 			else:
+ 				cmd = ['fdtoverlaymerge']
+diff --git a/products/platforms/pineapple.xml b/products/platforms/pineapple.xml
+index 8f706648..e1e0ba77 100644
+--- a/products/platforms/pineapple.xml
++++ b/products/platforms/pineapple.xml
+@@ -5,7 +5,6 @@
+ -->
+ <manifest>
+   <project path="hardware/qcom/display" name="AOSPA/android_hardware_qcom_display" remote="aospa" revision="calcite-8650" />
+-  <project path="hardware/qcom/gps" name="AOSPA/android_hardware_qcom_gps" remote="aospa" revision="calcite-8650" />
+   <project path="vendor/qcom/opensource/agm" name="AOSPA/android_vendor_qcom_opensource_agm" remote="aospa" revision="calcite-8650" />
+   <project path="vendor/qcom/opensource/audio-hal/primary-hal" name="AOSPA/android_hardware_qcom_audio" remote="aospa" revision="calcite-8650">
+     <linkfile dest="vendor/qcom/defs/product-defs/vendor/audio_vendor_product.mk" src="configs/audio_vendor_product.mk" />
+diff --git a/sepolicy/private/system_server.te b/sepolicy/private/system_server.te
+index e2eec2bd..b30ce573 100644
+--- a/sepolicy/private/system_server.te
++++ b/sepolicy/private/system_server.te
+@@ -30,8 +30,6 @@ add_service(system_server, obscura_service);
+ 
+ # PowerInsight
+ add_service(system_server, power_insight_service);
+-allow system_server sysfs_batteryinfo:dir r_dir_perms;
+-allow system_server sysfs_batteryinfo:file r_file_perms;
+ 
+ # Freeform
+ add_service(system_server, lmo_freeform_service);
+diff --git a/target/board/BoardConfigKernelLineage.mk b/target/board/BoardConfigKernelLineage.mk
+index 11bce138..5ddcceca 100644
+--- a/target/board/BoardConfigKernelLineage.mk
++++ b/target/board/BoardConfigKernelLineage.mk
+@@ -99,13 +99,13 @@ TOOLS_PATH_OVERRIDE := \
+ 
+ ifeq ($(TARGET_KERNEL_LIBC_SYSROOT_USE), host)
+     KERNEL_HOST_C_LD_FLAGS_SYSROOT :=
++    KERNEL_MAKE_FLAGS += HOSTCFLAGS="-I/usr/include"
++    KERNEL_MAKE_FLAGS += HOSTLDFLAGS="-L/usr/lib/x86_64-linux-gnu -fuse-ld=lld --rtlib=compiler-rt"
+ else
+     KERNEL_HOST_C_LD_FLAGS_SYSROOT := --sysroot=$(BUILD_TOP)/prebuilts/gcc/linux-x86/host/x86_64-linux-glibc2.17-4.8/sysroot
++    KERNEL_MAKE_FLAGS += HOSTCFLAGS="$(KERNEL_HOST_C_LD_FLAGS_SYSROOT) -I$(BUILD_TOP)/prebuilts/kernel-build-tools/linux-x86/include"
++    KERNEL_MAKE_FLAGS += HOSTLDFLAGS="$(KERNEL_HOST_C_LD_FLAGS_SYSROOT) -Wl,-rpath,$(BUILD_TOP)/prebuilts/kernel-build-tools/linux-x86/lib64 -L $(BUILD_TOP)/prebuilts/kernel-build-tools/linux-x86/lib64 -fuse-ld=lld --rtlib=compiler-rt"
+ endif
+-
+-KERNEL_MAKE_FLAGS += HOSTCFLAGS="$(KERNEL_HOST_C_LD_FLAGS_SYSROOT) -I$(BUILD_TOP)/prebuilts/kernel-build-tools/linux-x86/include"
+-KERNEL_MAKE_FLAGS += HOSTLDFLAGS="$(KERNEL_HOST_C_LD_FLAGS_SYSROOT) -Wl,-rpath,$(BUILD_TOP)/prebuilts/kernel-build-tools/linux-x86/lib64 -L $(BUILD_TOP)/prebuilts/kernel-build-tools/linux-x86/lib64 -fuse-ld=lld --rtlib=compiler-rt"
+-
+ TOOLS_PATH_OVERRIDE += PATH=$(BUILD_TOP)/prebuilts/tools-lineage/$(HOST_PREBUILT_TAG)/bin:$(TARGET_KERNEL_CLANG_PATH)/bin:$(BUILD_TOP)/prebuilts/rust-toolchain/$(HOST_PREBUILT_TAG)/$(TARGET_KERNEL_RUST_VERSION)/bin:$(BUILD_TOP)/prebuilts/clang-tools/$(HOST_PREBUILT_TAG)/bin:$$PATH
+ 
+ # Set DTBO image locations so the build system knows to build them
+@@ -138,7 +138,11 @@ KERNEL_MAKE_FLAGS += M4=$(BUILD_TOP)/prebuilts/build-tools/$(HOST_PREBUILT_TAG)/
+ TOOLS_PATH_OVERRIDE += BISON_PKGDATADIR=$(BUILD_TOP)/prebuilts/build-tools/common/bison
+ 
+ # Since Linux 5.10, pahole is required
+-KERNEL_MAKE_FLAGS += PAHOLE=$(BUILD_TOP)/prebuilts/kernel-build-tools/linux-x86/bin/pahole
++ifeq ($(wildcard $(BUILD_TOP)/prebuilts/kernel-build-tools/linux-x86/bin/pahole),)
++    KERNEL_MAKE_FLAGS += PAHOLE=pahole
++else
++    KERNEL_MAKE_FLAGS += PAHOLE=$(BUILD_TOP)/prebuilts/kernel-build-tools/linux-x86/bin/pahole
++endif
+ 
+ # Rust bindgen wants matching Clang and libclang versions
+ KERNEL_MAKE_FLAGS += LIBCLANG_PATH=$(TARGET_KERNEL_CLANG_PATH)/lib
+diff --git a/target/product/version.mk b/target/product/version.mk
+index 6ff0e802..2e8f7581 100644
+--- a/target/product/version.mk
++++ b/target/product/version.mk
+@@ -15,7 +15,7 @@
+ # This is the global AOSPA version flavor that determines the focal point
+ # behind our releases. This is bundled alongside $(AOSPA_MINOR_VERSION)
+ # and only changes per major Android releases.
+-AOSPA_MAJOR_VERSION := celerity
++AOSPA_MAJOR_VERSION := calcite
+ 
+ # The version code is the upgradable portion during the cycle of
+ # every major Android release. Each version code upgrade indicates
+@@ -60,7 +60,7 @@ endif
+ 
+ # Package basename. The device is appended by the build script, which is where it is known:
+ # this is inherited during product config, before the device has been resolved.
+-AOSPA_VERSION := PenguinOS-$(AOSPA_MAJOR_VERSION)-$(BUILD_DATE)
++AOSPA_VERSION := aospa-$(AOSPA_MAJOR_VERSION)-$(BUILD_DATE)
+ 
+ # Remove unwanted characters for zip naming
+ AOSPA_VERSION := $(shell echo -n $(AOSPA_VERSION) | tr -d '[:space:]')

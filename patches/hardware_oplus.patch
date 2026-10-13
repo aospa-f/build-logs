@@ -1,0 +1,12 @@
+diff --git a/sepolicy/qti/private/platform_app.te b/sepolicy/qti/private/platform_app.te
+index 178f2b0..9360a23 100644
+--- a/sepolicy/qti/private/platform_app.te
++++ b/sepolicy/qti/private/platform_app.te
+@@ -2,7 +2,6 @@
+ r_dir_file(platform_app, sysfs_zram)
+ 
+ # Allow SystemUI to read USB UVC webcam property
+-get_prop(platform_app, usb_uvc_enabled_prop)
+ 
+ # Allow SystemUI to read Bluetooth LE Audio property
+ get_prop(platform_app, bluetooth_lea_prop)

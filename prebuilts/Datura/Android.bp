@@ -1,0 +1,33 @@
+//
+// SPDX-FileCopyrightText: 2022 The Calyx Institute
+// SPDX-License-Identifier: Apache-2.0
+//
+
+prebuilt_etc {
+    name: "default-permissions_org.calyxos.datura",
+    system_ext_specific: true,
+    sub_dir: "default-permissions",
+    src: "default-permissions_org.calyxos.datura.xml",
+    filename_from_src: true,
+}
+
+prebuilt_etc {
+    name: "preinstalled-packages-org.calyxos.datura",
+    system_ext_specific: true,
+    sub_dir: "sysconfig",
+    src: "preinstalled-packages-org.calyxos.datura.xml",
+    filename_from_src: true,
+}
+
+android_app_import {
+    name: "Datura",
+    apk: "app-release.apk",
+    certificate: "platform",
+    system_ext_specific: true,
+    overrides: ["Firewall"],
+    optional_uses_libs: ["androidx.window.extensions", "androidx.window.sidecar"],
+    required: [
+        "default-permissions_org.calyxos.datura",
+        "preinstalled-packages-org.calyxos.datura",
+    ],
+}

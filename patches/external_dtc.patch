@@ -1,0 +1,20 @@
+diff --git a/Android.bp b/Android.bp
+index 53226e3..72116a3 100644
+--- a/Android.bp
++++ b/Android.bp
+@@ -127,6 +127,15 @@ cc_binary_host {
+     ],
+ }
+ 
++cc_binary_host {
++    name: "fdtput",
++    defaults: ["dt_defaults"],
++    srcs: [
++        "fdtput.c",
++        "util.c",
++    ],
++}
++
+ cc_binary_host {
+     name: "fdtoverlay",
+     defaults: ["dt_defaults"],
