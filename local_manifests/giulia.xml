@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <manifest>
-  <!-- Custom Frameworks and Settings -->
+  <!-- Custom Frameworks and Settings (AOSPA calcite with pure black AMOLED, silent gestures, clock & speed meter) -->
   <remove-project name="AOSPA/android_frameworks_base" />
-  <project path="frameworks/base" name="aospa-faye/frameworks_base" revision="celerity" remote="github" />
+  <project path="frameworks/base" name="aospa-faye/android_frameworks_base" revision="calcite" remote="github" />
 
   <remove-project name="AOSPA/android_packages_apps_Settings" />
-  <project path="packages/apps/Settings" name="aospa-faye/packages_apps_Settings" revision="celerity" remote="github" />
+  <project path="packages/apps/Settings" name="aospa-faye/android_packages_apps_Settings" revision="calcite" remote="github" />
 
   <!-- Cleaned AOSPA vendor (with LineageOS kernel build system & giulia product) -->
   <remove-project name="AOSPA/android_vendor_aospa" />
@@ -49,13 +49,13 @@
   <remove-project name="AOSPA/android_device_qcom_common" />
   <project path="device/qcom/common" name="aospa-faye/device_qcom_common" revision="celerity" remote="github" />
 
-  <!-- Device Trees (Synchronized in aospa-faye) -->
+  <!-- Device Trees (Synchronized in aospa-faye with all latest fixes and gesture support) -->
   <project path="device/oneplus/giulia" name="aospa-faye/android_device_oneplus_giulia" revision="calcite" remote="github" />
   <project path="device/oneplus/sm8650-common" name="aospa-faye/android_device_oneplus_sm8650-common" revision="calcite" remote="github" />
 
-  <!-- Proprietary Vendor Trees (Pre-extracted firmware, radio, and device blobs) -->
-  <project path="vendor/oneplus/giulia" name="TheMuppets/proprietary_vendor_oneplus_giulia" revision="lineage-23.2" remote="github" />
-  <project path="vendor/oneplus/sm8650-common" name="TheMuppets/proprietary_vendor_oneplus_sm8650-common" revision="lineage-24.0" remote="github" />
+  <!-- Proprietary Vendor Trees (Pre-patched with check_elf_files: false) -->
+  <project path="vendor/oneplus/giulia" name="aospa-faye/proprietary_vendor_oneplus_giulia" revision="lineage-23.2" remote="github" />
+  <project path="vendor/oneplus/sm8650-common" name="aospa-faye/proprietary_vendor_oneplus_sm8650-common" revision="lineage-24.0" remote="github" />
 
   <!-- Lineage Kernel & Devicetrees & Modules (Synchronized in aospa-faye) -->
   <project path="kernel/oneplus/sm8650" name="aospa-faye/android_kernel_oneplus_sm8650" revision="celerity" remote="github" />
@@ -67,7 +67,7 @@
   <remove-project name="AOSPA/android_hardware_qcom_thermal" />
   <project path="vendor/qcom/opensource/thermal-hal" name="aospa-faye/android_hardware_qcom_thermal" revision="celerity" remote="github" />
   <project path="vendor/qcom/opensource/libvmmem" name="aospa-faye/android_vendor_qcom_opensource_libvmmem" revision="celerity" remote="github" />
-  <project path="vendor/custom-preference" name="shefeak10/vendor_custom-preference" revision="celerity" remote="github" />
+  <project path="vendor/custom-preference" name="aospa-faye/vendor_custom-preference" revision="celerity" remote="github" />
 
   <!-- Proprietary Blobs (Camera, Audio, IR) -->
   <project path="vendor/oneplus/ir" name="aospa-faye/vendor_oneplus_ir" revision="celerity" remote="github" />
