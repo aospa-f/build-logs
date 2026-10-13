@@ -61,6 +61,7 @@
   <project path="kernel/oneplus/sm8650" name="aospa-faye/android_kernel_oneplus_sm8650" revision="celerity" remote="github" />
   <project path="kernel/oneplus/sm8650-devicetrees" name="aospa-faye/android_kernel_oneplus_sm8650-devicetrees" revision="celerity" remote="github" />
   <project path="kernel/oneplus/sm8650-modules" name="aospa-faye/android_kernel_oneplus_sm8650-modules" revision="celerity" remote="github" />
+  <project path="kernel/oneplus/sm8650/KernelSU" name="aospa-faye/BakaSU" revision="main" remote="github" />
 
   <!-- Hardware & Services (Synchronized in aospa-faye) -->
   <project path="hardware/oplus" name="aospa-faye/android_hardware_oplus" revision="calcite" remote="github" />

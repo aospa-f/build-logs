@@ -82,6 +82,14 @@ if [ -d "${PREBUILTS_DIR}/Datura" ]; then
     cp -r "${PREBUILTS_DIR}/Datura/"* "${AOSPA_DIR}/vendor/aospa/prebuilt/common/app/Datura/"
 fi
 
+# Ensure KernelSU driver symlink exists if KernelSU repository is present
+if [ -d "${AOSPA_DIR}/kernel/oneplus/sm8650/KernelSU/kernel" ]; then
+    if [ ! -L "${AOSPA_DIR}/kernel/oneplus/sm8650/drivers/kernelsu" ]; then
+        echo "[+] Ensuring KernelSU driver symlink in kernel/oneplus/sm8650/drivers/kernelsu..."
+        ln -sf ../KernelSU/kernel "${AOSPA_DIR}/kernel/oneplus/sm8650/drivers/kernelsu"
+    fi
+fi
+
 echo ""
 echo "[✓] All patches applied successfully!"
 echo "    Applied: ${APPLIED_COUNT} | Already present: ${SKIPPED_COUNT}"
