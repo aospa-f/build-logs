@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <manifest>
-  <!-- Custom Frameworks and Settings (AOSPA calcite with pure black AMOLED, silent gestures, clock & speed meter) -->
+  <!-- Custom Frameworks and Settings -->
   <remove-project name="AOSPA/android_frameworks_base" />
-  <project path="frameworks/base" name="dyruz10/android_frameworks_base" revision="calcite" remote="github" />
+  <project path="frameworks/base" name="aospa-faye/frameworks_base" revision="celerity" remote="github" />
 
   <remove-project name="AOSPA/android_packages_apps_Settings" />
-  <project path="packages/apps/Settings" name="dyruz10/android_packages_apps_Settings" revision="calcite" remote="github" />
+  <project path="packages/apps/Settings" name="aospa-faye/packages_apps_Settings" revision="celerity" remote="github" />
 
   <!-- Cleaned AOSPA vendor (with LineageOS kernel build system & giulia product) -->
   <remove-project name="AOSPA/android_vendor_aospa" />
-  <project path="vendor/aospa" name="dyruz10/android_vendor_aospa" revision="calcite" remote="github">
+  <project path="vendor/aospa" name="aospa-faye/android_vendor_aospa" revision="calcite" remote="github">
     <linkfile src="build.sh" dest="rom-build.sh" />
   </project>
 
   <!-- Debloated GMS (Maps included; YouTube, Photos, Drive, Chrome, Auto, FamilyLink, TalkBack, Files removed) -->
   <remove-project name="android_vendor_google_gms" />
-  <project path="vendor/google/gms" name="dyruz10/android_vendor_google_gms" revision="calcite" remote="github" clone-depth="1" />
+  <project path="vendor/google/gms" name="shefeak10/android_vendor_google_gms" revision="calcite" remote="github" clone-depth="1" />
 
-  <!-- Build System & Native Framework Patches from clo-for-giulia -->
+  <!-- Build System & Native Framework Patches from aospa-faye -->
   <remove-project name="AOSPA/android_build" />
-  <project path="build/make" name="clo-for-giulia/build_make" revision="celerity" remote="github">
+  <project path="build/make" name="aospa-faye/build_make" revision="celerity" remote="github">
     <linkfile src="CleanSpec.mk" dest="build/CleanSpec.mk" />
     <linkfile src="buildspec.mk.default" dest="build/buildspec.mk.default" />
     <linkfile src="core" dest="build/core" />
@@ -29,50 +29,50 @@
   </project>
 
   <remove-project name="AOSPA/android_build_soong" />
-  <project path="build/soong" name="clo-for-giulia/build_soong" revision="celerity" remote="github">
+  <project path="build/soong" name="aospa-faye/build_soong" revision="celerity" remote="github">
     <linkfile src="root.bp" dest="Android.bp" />
     <linkfile src="bootstrap.bash" dest="bootstrap.bash" />
   </project>
 
   <remove-project name="AOSPA/android_frameworks_av" />
-  <project path="frameworks/av" name="clo-for-giulia/frameworks_av" revision="celerity" remote="github" />
+  <project path="frameworks/av" name="aospa-faye/frameworks_av" revision="celerity" remote="github" />
 
   <remove-project name="AOSPA/android_frameworks_native" />
-  <project path="frameworks/native" name="clo-for-giulia/android_frameworks_native" revision="celerity" remote="github" />
+  <project path="frameworks/native" name="aospa-faye/android_frameworks_native" revision="celerity" remote="github" />
 
   <remove-project name="AOSPA/android_device_qcom_sepolicy_vndr" />
-  <project path="device/qcom/sepolicy_vndr" name="clo-for-giulia/android_device_qcom_sepolicy_vndr" revision="celerity" remote="github" />
+  <project path="device/qcom/sepolicy_vndr" name="aospa-faye/android_device_qcom_sepolicy_vndr" revision="celerity" remote="github" />
 
   <remove-project name="proprietary_vendor_qcom_common" />
-  <project path="vendor/qcom/common" name="clo-for-giulia/vendor_qcom_common" revision="celerity" remote="github" />
+  <project path="vendor/qcom/common" name="aospa-faye/vendor_qcom_common" revision="celerity" remote="github" />
 
   <remove-project name="AOSPA/android_device_qcom_common" />
-  <project path="device/qcom/common" name="clo-for-giulia/device_qcom_common" revision="celerity" remote="github" />
+  <project path="device/qcom/common" name="aospa-faye/device_qcom_common" revision="celerity" remote="github" />
 
-  <!-- Device Trees (Synchronized in dyruz10 with all latest clo-for-giulia commits) -->
-  <project path="device/oneplus/giulia" name="dyruz10/android_device_oneplus_giulia" revision="calcite" remote="github" />
-  <project path="device/oneplus/sm8650-common" name="dyruz10/android_device_oneplus_sm8650-common" revision="calcite" remote="github" />
+  <!-- Device Trees (Synchronized in aospa-faye) -->
+  <project path="device/oneplus/giulia" name="aospa-faye/android_device_oneplus_giulia" revision="calcite" remote="github" />
+  <project path="device/oneplus/sm8650-common" name="aospa-faye/android_device_oneplus_sm8650-common" revision="calcite" remote="github" />
 
   <!-- Proprietary Vendor Trees (Pre-extracted firmware, radio, and device blobs) -->
   <project path="vendor/oneplus/giulia" name="TheMuppets/proprietary_vendor_oneplus_giulia" revision="lineage-23.2" remote="github" />
   <project path="vendor/oneplus/sm8650-common" name="TheMuppets/proprietary_vendor_oneplus_sm8650-common" revision="lineage-24.0" remote="github" />
 
-  <!-- Lineage Kernel & Devicetrees & Modules (Synchronized in dyruz10) -->
-  <project path="kernel/oneplus/sm8650" name="dyruz10/android_kernel_oneplus_sm8650" revision="celerity" remote="github" />
-  <project path="kernel/oneplus/sm8650-devicetrees" name="clo-for-giulia/android_kernel_oneplus_sm8650-devicetrees" revision="celerity" remote="github" />
-  <project path="kernel/oneplus/sm8650-modules" name="clo-for-giulia/android_kernel_oneplus_sm8650-modules" revision="celerity" remote="github" />
+  <!-- Lineage Kernel & Devicetrees & Modules (Synchronized in aospa-faye) -->
+  <project path="kernel/oneplus/sm8650" name="aospa-faye/android_kernel_oneplus_sm8650" revision="celerity" remote="github" />
+  <project path="kernel/oneplus/sm8650-devicetrees" name="aospa-faye/android_kernel_oneplus_sm8650-devicetrees" revision="celerity" remote="github" />
+  <project path="kernel/oneplus/sm8650-modules" name="aospa-faye/android_kernel_oneplus_sm8650-modules" revision="celerity" remote="github" />
 
-  <!-- Hardware & Services (Synchronized in dyruz10) -->
-  <project path="hardware/oplus" name="dyruz10/android_hardware_oplus" revision="calcite" remote="github" />
+  <!-- Hardware & Services (Synchronized in aospa-faye) -->
+  <project path="hardware/oplus" name="aospa-faye/android_hardware_oplus" revision="calcite" remote="github" />
   <remove-project name="AOSPA/android_hardware_qcom_thermal" />
-  <project path="vendor/qcom/opensource/thermal-hal" name="clo-for-giulia/android_hardware_qcom_thermal" revision="celerity" remote="github" />
-  <project path="vendor/qcom/opensource/libvmmem" name="clo-for-giulia/android_vendor_qcom_opensource_libvmmem" revision="celerity" remote="github" />
-  <project path="vendor/custom-preference" name="dyruz10/vendor_custom-preference" revision="celerity" remote="github" />
+  <project path="vendor/qcom/opensource/thermal-hal" name="aospa-faye/android_hardware_qcom_thermal" revision="celerity" remote="github" />
+  <project path="vendor/qcom/opensource/libvmmem" name="aospa-faye/android_vendor_qcom_opensource_libvmmem" revision="celerity" remote="github" />
+  <project path="vendor/custom-preference" name="shefeak10/vendor_custom-preference" revision="celerity" remote="github" />
 
   <!-- Proprietary Blobs (Camera, Audio, IR) -->
-  <project path="vendor/oneplus/ir" name="clo-for-giulia/vendor_oneplus_ir" revision="celerity" remote="github" />
-  <project path="vendor/sony/dolby" name="clo-for-giulia/proprietary_vendor_sony_dolby" revision="celerity" remote="github" />
-  <project path="packages/apps/LunarisDolby" name="clo-for-giulia/android_packages_apps_LunarisDolby" revision="celerity" remote="github" />
+  <project path="vendor/oneplus/ir" name="aospa-faye/vendor_oneplus_ir" revision="celerity" remote="github" />
+  <project path="vendor/sony/dolby" name="aospa-faye/proprietary_vendor_sony_dolby" revision="celerity" remote="github" />
+  <project path="packages/apps/LunarisDolby" name="aospa-faye/android_packages_apps_LunarisDolby" revision="celerity" remote="github" />
 
   <!-- Power & Vibrator Features from YAAP -->
   <project path="packages/apps/BypassCharge" name="yaap/packages_apps_BypassCharge" revision="sixteen" remote="github" />
