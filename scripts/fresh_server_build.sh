@@ -84,7 +84,10 @@ repo sync -c -j"${THREADS}" --force-sync --no-clone-bundle --no-tags
 # Step 4: Apply Verified Fixes, Patches & Prebuilts
 # ------------------------------------------------------------------
 echo ""
-echo "[Step 4/5] Applying verified platform patches and prebuilts..."
+echo "[Step 4/5] Checking upstream status and applying verified platform patches..."
+if [ -f "${SCRIPT_DIR}/check_kernel_susfs_updates.sh" ]; then
+    bash "${SCRIPT_DIR}/check_kernel_susfs_updates.sh" || true
+fi
 bash "${SCRIPT_DIR}/apply_all_patches.sh" "${AOSPA_DIR}"
 
 # ------------------------------------------------------------------
