@@ -77,6 +77,7 @@
 
   <!-- Power & Vibrator Features from YAAP -->
   <project path="packages/apps/BypassCharge" name="yaap/packages_apps_BypassCharge" revision="sixteen" remote="github" />
+  <project path="packages/apps/GameAudio" name="aospa-faye/android_packages_apps_GameAudio" revision="calcite" remote="github" />
   <remove-project name="AOSPA/android_vendor_qcom-opensource_vibrator" />
   <project path="vendor/qcom/opensource/vibrator" name="yaap/vendor_qcom_opensource_vibrator" revision="sixteen" remote="github" />
 
