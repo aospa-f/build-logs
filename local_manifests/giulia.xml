@@ -75,9 +75,10 @@
   <project path="vendor/sony/dolby" name="aospa-faye/proprietary_vendor_sony_dolby" revision="celerity" remote="github" />
   <project path="packages/apps/LunarisDolby" name="aospa-faye/android_packages_apps_LunarisDolby" revision="celerity" remote="github" />
 
-  <!-- Power & Vibrator Features from YAAP -->
+  <!-- Power & Vibrator Features from YAAP & Gaming Tools -->
   <project path="packages/apps/BypassCharge" name="yaap/packages_apps_BypassCharge" revision="sixteen" remote="github" />
   <project path="packages/apps/GameAudio" name="aospa-faye/android_packages_apps_GameAudio" revision="calcite" remote="github" />
+  <project path="packages/apps/GameSpace" name="aospa-faye/android_packages_apps_GameSpace" revision="calcite" remote="github" />
   <remove-project name="AOSPA/android_vendor_qcom-opensource_vibrator" />
   <project path="vendor/qcom/opensource/vibrator" name="yaap/vendor_qcom_opensource_vibrator" revision="sixteen" remote="github" />
 
