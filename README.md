@@ -1,6 +1,6 @@
-# OnePlus 13R / Ace 5 (`giulia`) - AOSPA Calcite Build Environment & Logs
+# OnePlus 13R / Ace 5 (`giulia`) - AOSPA-Faye Build Environment & Logs
 
-Repository maintaining all initial build logs, verified fixes, patches, platform sync manifests, and automation scripts for building **Paranoid Android (AOSPA) Calcite** on the **OnePlus 13R / OnePlus Ace 5 (`giulia` / SM8650 `pineapple`)**.
+Repository maintaining all initial build logs, verified fixes, patches, platform sync manifests, and automation scripts for building **AOSPA-Faye (Calcite)** on the **OnePlus 13R / OnePlus Ace 5 (`giulia` / SM8650 `pineapple`)**.
 
 ---
 
@@ -88,7 +88,7 @@ bash ~/build-logs/scripts/apply_all_patches.sh ~/aospa
 ```
 
 Output package will be generated at:
-`~/aospa/out/target/product/giulia/aospa-calcite-<date>-gms-giulia.zip`
+`~/aospa/out/target/product/giulia/aospa-faye-calcite-<date>-gms-giulia.zip`
 
 ---
 

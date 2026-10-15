@@ -114,7 +114,7 @@ index 6ff0e802..2e8f7581 100644
  # Package basename. The device is appended by the build script, which is where it is known:
  # this is inherited during product config, before the device has been resolved.
 -AOSPA_VERSION := PenguinOS-$(AOSPA_MAJOR_VERSION)-$(BUILD_DATE)
-+AOSPA_VERSION := aospa-$(AOSPA_MAJOR_VERSION)-$(BUILD_DATE)
++AOSPA_VERSION := aospa-faye-$(AOSPA_MAJOR_VERSION)-$(BUILD_DATE)
  
  # Remove unwanted characters for zip naming
  AOSPA_VERSION := $(shell echo -n $(AOSPA_VERSION) | tr -d '[:space:]')
