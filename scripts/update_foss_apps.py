@@ -22,6 +22,7 @@ TRACKED_APPS = {
     "com.bnyro.contacts": "ConnectYou.apk",
     "helium314.keyboard": "HeliBoard.apk",
     "de.jeanlucmakiola.calendula": "Calendula.apk",
+    "com.afkanerd.deku": "DekuSMS.apk",
 }
 
 USER_AGENT = "AOSPA-Faye-Updater/1.0 (Linux; Android Rom Builder)"
