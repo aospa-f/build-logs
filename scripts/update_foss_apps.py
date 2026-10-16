@@ -15,7 +15,6 @@ import sys
 import urllib.request
 import urllib.error
 
-# Mapping of F-Droid package ID to local APK filename
 TRACKED_APPS = {
     "com.bnyro.clock": "BnyroClock.apk",
     "net.youapps.calcyou": "CalcYou.apk",
@@ -23,6 +22,15 @@ TRACKED_APPS = {
     "helium314.keyboard": "HeliBoard.apk",
     "de.jeanlucmakiola.calendula": "Calendula.apk",
     "com.afkanerd.deku": "DekuSMS.apk",
+}
+
+# Mapping of GitHub repositories to local APK filename
+GITHUB_APPS = {
+    "com.resukisu.resukisu": {
+        "repo": "Baka-SU/BakaSU",
+        "apk": "BakaSU.apk",
+        "asset_suffix": "arm64-v8a-release.apk",
+    }
 }
 
 USER_AGENT = "AOSPA-Faye-Updater/1.0 (Linux; Android Rom Builder)"
@@ -107,6 +115,76 @@ def check_and_update(target_dir: str, force: bool = False):
 
         except Exception as e:
             print(f"    [!] Warning: Failed to query/download {pkg_id}: {e}")
+            if apk_exists:
+                print(f"    [*] Keeping existing local {apk_name} without halting build.")
+            else:
+                print(f"    [!] Error: {apk_name} is missing and could not be downloaded.")
+
+    for pkg_id, info in GITHUB_APPS.items():
+        apk_name = info["apk"]
+        repo = info["repo"]
+        suffix = info["asset_suffix"]
+        apk_path = os.path.join(target_dir, apk_name)
+        apk_exists = os.path.exists(apk_path)
+
+        print(f"\n[•] Checking GitHub release: {pkg_id} ({apk_name} from {repo})...")
+        try:
+            api_url = f"https://api.github.com/repos/{repo}/releases/latest"
+            gh_headers = {"User-Agent": USER_AGENT}
+            token = os.environ.get("GITHUB_TOKEN")
+            if token:
+                gh_headers["Authorization"] = f"token {token}"
+            req = urllib.request.Request(api_url, headers=gh_headers)
+            with urllib.request.urlopen(req, timeout=15) as resp:
+                rel_data = json.loads(resp.read().decode("utf-8"))
+
+            tag_name = rel_data.get("tag_name", "unknown")
+            asset = next((a for a in rel_data.get("assets", []) if a.get("name", "").endswith(suffix)), None)
+            if not asset:
+                asset = next((a for a in rel_data.get("assets", []) if a.get("name", "").endswith(".apk")), None)
+
+            if not asset:
+                print(f"    [!] No suitable APK asset found for {pkg_id} in {tag_name}")
+                continue
+
+            download_url = asset["browser_download_url"]
+            cached_ver = current_versions.get(pkg_id, {}).get("versionName")
+
+            print(f"    Available on GitHub: {tag_name}")
+            print(f"    Local status:        {'present' if apk_exists else 'missing'} (cached: {cached_ver})")
+
+            needs_download = force or (not apk_exists) or (cached_ver != tag_name)
+            if not needs_download:
+                print(f"    [✓] {apk_name} is already at the latest release ({tag_name}).")
+                continue
+
+            print(f"    [↓] Downloading updated APK: {download_url} ...")
+            tmp_apk_path = apk_path + ".tmp"
+            dl_req = urllib.request.Request(download_url, headers=gh_headers)
+            with urllib.request.urlopen(dl_req, timeout=60) as dl_resp, open(tmp_apk_path, "wb") as out_f:
+                total_bytes = 0
+                while True:
+                    chunk = dl_resp.read(65536)
+                    if not chunk:
+                        break
+                    out_f.write(chunk)
+                    total_bytes += len(chunk)
+
+            with open(tmp_apk_path, "rb") as check_f:
+                magic = check_f.read(4)
+                if magic != b"PK\x03\x04":
+                    raise ValueError(f"Downloaded file is not a valid APK (magic: {magic})")
+
+            os.replace(tmp_apk_path, apk_path)
+            print(f"    [✓] Successfully installed {apk_name} ({total_bytes / (1024*1024):.2f} MB)")
+
+            current_versions[pkg_id] = {
+                "versionName": tag_name,
+                "apk": apk_name,
+            }
+            updated_any = True
+        except Exception as e:
+            print(f"    [!] Warning: Failed to check/download {pkg_id} from GitHub: {e}")
             if apk_exists:
                 print(f"    [*] Keeping existing local {apk_name} without halting build.")
             else:
