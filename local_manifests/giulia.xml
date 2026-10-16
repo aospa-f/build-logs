@@ -85,9 +85,10 @@
   <remove-project name="AOSPA/android_vendor_qcom-opensource_vibrator" />
   <project path="vendor/qcom/opensource/vibrator" name="yaap/vendor_qcom_opensource_vibrator" revision="sixteen" remote="github" />
 
-  <!-- Prebuilts & Default Apps: MiXplorer + Addons & Glimpse Gallery -->
+  <!-- Prebuilts & Default Apps: MiXplorer + Addons & Glimpse Gallery & FOSSApps -->
   <project path="packages/apps/MiXplorer" name="aospa-faye/android_packages_apps_MiXplorer" revision="calcite" remote="github" />
   <project path="packages/apps/Glimpse" name="aospa-faye/android_packages_apps_Glimpse" revision="calcite" remote="github" />
+  <project path="packages/apps/FOSSApps" name="aospa-faye/android_packages_apps_FOSSApps" revision="calcite" remote="github" />
 
   <!-- PenguinOS Dialer (Glass UI, iOS layout, Aurora in-call background) -->
   <remove-project name="platform/packages/apps/Dialer" />
