@@ -2,13 +2,12 @@ diff --git a/BoardConfigCommon.mk b/BoardConfigCommon.mk
 index c8256fc..d4dd3e3 100644
 --- a/BoardConfigCommon.mk
 +++ b/BoardConfigCommon.mk
-@@ -61,6 +61,9 @@ TARGET_BOOTLOADER_BOARD_NAME := pineapple
+@@ -61,6 +61,8 @@ TARGET_BOOTLOADER_BOARD_NAME := pineapple
  
  # Build
  BUILD_BROKEN_DUP_RULES := true
 +BUILD_BROKEN_DUP_SYSPROP := true
 +BUILD_BROKEN_MISSING_REQUIRED_MODULES := true
-+SELINUX_IGNORE_NEVERALLOWS := true
  
  # DTB / DTBO
  BOARD_INCLUDE_DTB_IN_BOOTIMG := true
