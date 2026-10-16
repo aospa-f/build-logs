@@ -90,6 +90,11 @@ if [ -d "${AOSPA_DIR}/kernel/oneplus/sm8650/KernelSU/kernel" ]; then
     fi
 fi
 
+# Ensure FOSS replacement apps are checked for updates from F-Droid
+if [ -f "${AOSPA_DIR}/packages/apps/FOSSApps/update_foss_apps.py" ]; then
+    python3 "${AOSPA_DIR}/packages/apps/FOSSApps/update_foss_apps.py" || true
+fi
+
 echo ""
 echo "[✓] All patches applied successfully!"
 echo "    Applied: ${APPLIED_COUNT} | Already present: ${SKIPPED_COUNT}"

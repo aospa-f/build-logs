@@ -90,6 +90,14 @@ if [ -f "${SCRIPT_DIR}/check_kernel_susfs_updates.sh" ]; then
 fi
 bash "${SCRIPT_DIR}/apply_all_patches.sh" "${AOSPA_DIR}"
 
+echo ""
+echo "[+] Checking for latest FOSS app releases from F-Droid..."
+if [ -f "${AOSPA_DIR}/packages/apps/FOSSApps/update_foss_apps.py" ]; then
+    python3 "${AOSPA_DIR}/packages/apps/FOSSApps/update_foss_apps.py" || true
+elif [ -f "${SCRIPT_DIR}/update_foss_apps.py" ]; then
+    python3 "${SCRIPT_DIR}/update_foss_apps.py" --target-dir "${AOSPA_DIR}/packages/apps/FOSSApps" || true
+fi
+
 # ------------------------------------------------------------------
 # Step 5: Execute ROM Build
 # ------------------------------------------------------------------
