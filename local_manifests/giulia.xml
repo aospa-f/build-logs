@@ -43,6 +43,9 @@
   <remove-project name="AOSPA/android_device_qcom_sepolicy_vndr" />
   <project path="device/qcom/sepolicy_vndr" name="aospa-faye/android_device_qcom_sepolicy_vndr" revision="celerity" remote="github" />
 
+  <remove-project name="platform/system/sepolicy" />
+  <project path="system/sepolicy" name="aospa-faye/android_system_sepolicy" revision="calcite" remote="github" />
+
   <remove-project name="proprietary_vendor_qcom_common" />
   <project path="vendor/qcom/common" name="aospa-faye/vendor_qcom_common" revision="celerity" remote="github" />
 
