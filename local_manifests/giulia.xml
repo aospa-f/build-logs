@@ -62,6 +62,18 @@
   <project path="vendor/oneplus/giulia" name="aospa-faye/proprietary_vendor_oneplus_giulia" revision="lineage-23.2" remote="github" />
   <project path="vendor/oneplus/sm8650-common" name="aospa-faye/proprietary_vendor_oneplus_sm8650-common" revision="lineage-24.0" remote="github" />
 
+  <!-- LineageOS Kernel Build System & Toolchains -->
+  <remove-project name="AOSPA/android_kernel_build" />
+
+  <remove-project name="platform/external/dtc" />
+  <project path="external/dtc" name="clo-for-giulia/android_external_dtc" remote="github" revision="calcite" />
+
+  <project path="prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9" name="LineageOS/android_prebuilts_gcc_linux-x86_aarch64_aarch64-linux-android-4.9" groups="pdk,linux,arm" clone-depth="1" revision="lineage-19.1" remote="github" />
+  <project path="prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.9" name="LineageOS/android_prebuilts_gcc_linux-x86_arm_arm-linux-androideabi-4.9" groups="pdk,linux,arm" clone-depth="1" revision="lineage-19.1" remote="github" />
+  <project path="prebuilts/gcc/linux-x86/x86/x86_64-linux-android-4.9" name="LineageOS/android_prebuilts_gcc_linux-x86_x86_x86_64-linux-android-4.9" groups="pdk,linux,x86" clone-depth="1" revision="lineage-19.1" remote="github" />
+  <project path="prebuilts/kernel-build-tools" name="kernel/prebuilts/build-tools" clone-depth="1" remote="aosp" revision="main-kernel-2025" />
+  <project path="prebuilts/tools-lineage" name="LineageOS/android_prebuilts_tools-lineage" clone-depth="1" revision="lineage-23.2" remote="github" />
+
   <!-- Lineage Kernel & Devicetrees & Modules (Synchronized in aospa-faye with BakaSU + SUSFS) -->
   <project path="kernel/oneplus/sm8650" name="aospa-faye/android_kernel_oneplus_sm8650" revision="calcite" remote="github" />
   <project path="kernel/oneplus/sm8650-devicetrees" name="aospa-faye/android_kernel_oneplus_sm8650-devicetrees" revision="calcite" remote="github" />
