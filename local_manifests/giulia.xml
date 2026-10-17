@@ -35,7 +35,7 @@
   </project>
 
   <remove-project name="AOSPA/android_frameworks_av" />
-  <project path="frameworks/av" name="clo-for-giulia/android_frameworks_av" revision="calcite" remote="github" />
+  <project path="frameworks/av" name="aospa-faye/frameworks_av" revision="calcite" remote="github" />
 
   <remove-project name="AOSPA/android_frameworks_native" />
   <project path="frameworks/native" name="aospa-faye/android_frameworks_native" revision="calcite" remote="github" />
