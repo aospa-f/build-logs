@@ -72,6 +72,7 @@
   <project path="hardware/oplus" name="aospa-faye/android_hardware_oplus" revision="calcite" remote="github" />
   <remove-project name="AOSPA/android_hardware_qcom_thermal" />
   <project path="vendor/qcom/opensource/thermal-hal" name="aospa-faye/android_hardware_qcom_thermal" revision="calcite" remote="github" />
+  <remove-project name="AOSPA/android_vendor_qcom_opensource_libvmmem" />
   <project path="vendor/qcom/opensource/libvmmem" name="aospa-faye/android_vendor_qcom_opensource_libvmmem" revision="calcite" remote="github" />
   <project path="vendor/custom-preference" name="aospa-faye/vendor_custom-preference" revision="celerity" remote="github" />
 
