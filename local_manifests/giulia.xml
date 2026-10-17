@@ -92,7 +92,7 @@
   <project path="vendor/oneplus/ir" name="aospa-faye/vendor_oneplus_ir" revision="calcite" remote="github" />
   <project path="vendor/sony/dolby" name="aospa-faye/proprietary_vendor_sony_dolby" revision="calcite" remote="github" />
   <project path="packages/apps/LunarisDolby" name="aospa-faye/android_packages_apps_LunarisDolby" revision="calcite" remote="github" />
-  <project path="vendor/oplus/camera" name="clo-for-giulia/proprietary_vendor_oplus_camera" revision="calcite" remote="github" />
+  <project path="vendor/oplus/camera" name="aospa-faye/proprietary_vendor_oplus_camera" revision="calcite" remote="github" />
 
 
   <!-- Power & Vibrator Features from YAAP & Gaming Tools -->
