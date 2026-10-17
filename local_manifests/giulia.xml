@@ -82,9 +82,6 @@
   <project path="packages/apps/LunarisDolby" name="aospa-faye/android_packages_apps_LunarisDolby" revision="calcite" remote="github" />
   <project path="vendor/oplus/camera" name="clo-for-giulia/proprietary_vendor_oplus_camera" revision="calcite" remote="github" />
 
-  <!-- Memory Allocator (jemalloc-new on calcite) -->
-  <remove-project name="AOSPA/android_external_jemalloc-new" />
-  <project path="external/jemalloc_new" name="ronardnx/android_external_jemalloc-new" revision="calcite" remote="github" />
 
   <!-- Power & Vibrator Features from YAAP & Gaming Tools -->
   <project path="packages/apps/BypassCharge" name="yaap/packages_apps_BypassCharge" revision="sixteen" remote="github" />
