@@ -58,6 +58,9 @@
   <project path="device/oneplus/giulia" name="aospa-faye/android_device_oneplus_giulia" revision="calcite" remote="github" />
   <project path="device/oneplus/sm8650-common" name="aospa-faye/android_device_oneplus_sm8650-common" revision="calcite" remote="github" />
 
+  <!-- Remove Qualcomm FM radio (Not present on OnePlus 13R / SM8650) -->
+  <remove-project name="platform/vendor/qcom-opensource/fm-commonsys" />
+
   <!-- Proprietary Vendor Trees (Pre-patched with check_elf_files: false) -->
   <project path="vendor/oneplus/giulia" name="aospa-faye/proprietary_vendor_oneplus_giulia" revision="lineage-23.2" remote="github" />
   <project path="vendor/oneplus/sm8650-common" name="aospa-faye/proprietary_vendor_oneplus_sm8650-common" revision="lineage-24.0" remote="github" />
