@@ -36,31 +36,6 @@ index 836be1a9..758952fe 100755
  				cmd = ['fdtoverlay']
  			else:
  				cmd = ['fdtoverlaymerge']
-diff --git a/products/platforms/pineapple.xml b/products/platforms/pineapple.xml
-index 8f706648..e1e0ba77 100644
---- a/products/platforms/pineapple.xml
-+++ b/products/platforms/pineapple.xml
-@@ -5,7 +5,6 @@
- -->
- <manifest>
-   <project path="hardware/qcom/display" name="AOSPA/android_hardware_qcom_display" remote="aospa" revision="calcite-8650" />
--  <project path="hardware/qcom/gps" name="AOSPA/android_hardware_qcom_gps" remote="aospa" revision="calcite-8650" />
-   <project path="vendor/qcom/opensource/agm" name="AOSPA/android_vendor_qcom_opensource_agm" remote="aospa" revision="calcite-8650" />
-   <project path="vendor/qcom/opensource/audio-hal/primary-hal" name="AOSPA/android_hardware_qcom_audio" remote="aospa" revision="calcite-8650">
-     <linkfile dest="vendor/qcom/defs/product-defs/vendor/audio_vendor_product.mk" src="configs/audio_vendor_product.mk" />
-diff --git a/sepolicy/private/system_server.te b/sepolicy/private/system_server.te
-index e2eec2bd..b30ce573 100644
---- a/sepolicy/private/system_server.te
-+++ b/sepolicy/private/system_server.te
-@@ -30,8 +30,6 @@ add_service(system_server, obscura_service);
- 
- # PowerInsight
- add_service(system_server, power_insight_service);
--allow system_server sysfs_batteryinfo:dir r_dir_perms;
--allow system_server sysfs_batteryinfo:file r_file_perms;
- 
- # Freeform
- add_service(system_server, lmo_freeform_service);
 diff --git a/target/board/BoardConfigKernelLineage.mk b/target/board/BoardConfigKernelLineage.mk
 index 11bce138..5ddcceca 100644
 --- a/target/board/BoardConfigKernelLineage.mk
@@ -96,25 +71,3 @@ index 11bce138..5ddcceca 100644
  
  # Rust bindgen wants matching Clang and libclang versions
  KERNEL_MAKE_FLAGS += LIBCLANG_PATH=$(TARGET_KERNEL_CLANG_PATH)/lib
-diff --git a/target/product/version.mk b/target/product/version.mk
-index 6ff0e802..2e8f7581 100644
---- a/target/product/version.mk
-+++ b/target/product/version.mk
-@@ -15,7 +15,7 @@
- # This is the global AOSPA version flavor that determines the focal point
- # behind our releases. This is bundled alongside $(AOSPA_MINOR_VERSION)
- # and only changes per major Android releases.
--AOSPA_MAJOR_VERSION := celerity
-+AOSPA_MAJOR_VERSION := calcite
- 
- # The version code is the upgradable portion during the cycle of
- # every major Android release. Each version code upgrade indicates
-@@ -60,7 +60,7 @@ endif
- 
- # Package basename. The device is appended by the build script, which is where it is known:
- # this is inherited during product config, before the device has been resolved.
--AOSPA_VERSION := PenguinOS-$(AOSPA_MAJOR_VERSION)-$(BUILD_DATE)
-+AOSPA_VERSION := aospa-faye-$(AOSPA_MAJOR_VERSION)-$(BUILD_DATE)
- 
- # Remove unwanted characters for zip naming
- AOSPA_VERSION := $(shell echo -n $(AOSPA_VERSION) | tr -d '[:space:]')

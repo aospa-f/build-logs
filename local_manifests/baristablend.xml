@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <manifest>
   <!-- Platform HAL overrides for OnePlus 13R (pineapple / SM8650) -->
-  <project path="hardware/qcom/display" name="aospa-faye/android_hardware_qcom_display" remote="github" revision="calcite-8650" />
+  <project path="hardware/qcom/display" name="AOSPA/android_hardware_qcom_display" remote="aospa" revision="calcite-8650" />
   <project path="vendor/qcom/opensource/agm" name="AOSPA/android_vendor_qcom_opensource_agm" remote="aospa" revision="calcite-8650" />
   <project path="vendor/qcom/opensource/audio-hal/primary-hal" name="AOSPA/android_hardware_qcom_audio" remote="aospa" revision="calcite-8650">
     <linkfile dest="vendor/qcom/defs/product-defs/vendor/audio_vendor_product.mk" src="configs/audio_vendor_product.mk" />

@@ -1,75 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <manifest>
-  <!-- Custom Frameworks and Settings (AOSPA calcite with pure black AMOLED, silent gestures, clock & speed meter) -->
+  <!-- Custom Frameworks and Settings (AOSPA calcite with pure black AMOLED, bypass charging, battery indicators) -->
   <remove-project name="AOSPA/android_frameworks_base" />
-  <project path="frameworks/base" name="aospa-faye/android_frameworks_base" revision="calcite" remote="github" />
+  <project path="frameworks/base" name="aospa-f/aospa_frameworks_base" revision="calcite" remote="github" />
 
   <remove-project name="AOSPA/android_packages_apps_Settings" />
-  <project path="packages/apps/Settings" name="aospa-faye/android_packages_apps_Settings" revision="calcite" remote="github" />
+  <project path="packages/apps/Settings" name="aospa-f/aospa_packages_apps_Settings" revision="calcite" remote="github" />
 
   <!-- Cleaned AOSPA vendor (with LineageOS kernel build system & giulia product) -->
   <remove-project name="AOSPA/android_vendor_aospa" />
-  <project path="vendor/aospa" name="aospa-faye/android_vendor_aospa" revision="calcite" remote="github">
+  <project path="vendor/aospa" name="aospa-f/aospa_vendor_aospa" revision="calcite" remote="github">
     <linkfile src="build.sh" dest="rom-build.sh" />
   </project>
 
-  <!-- Debloated GMS (Maps included; YouTube, Photos, Drive, Chrome, Auto, FamilyLink, TalkBack, Files removed) -->
+  <!-- Debloated GMS (Game Dashboard disabled; Maps included; YouTube, Photos, Drive, Chrome removed) -->
   <remove-project name="android_vendor_google_gms" />
-  <project path="vendor/google/gms" name="aospa-faye/android_vendor_google_gms" revision="calcite" remote="github" clone-depth="1" />
+  <project path="vendor/google/gms" name="aospa-f/android_vendor_google_gms" revision="calcite" remote="github" clone-depth="1" />
 
-  <!-- Build System & Native Framework Patches from clo-for-giulia & aospa-faye (rebased over calcite) -->
-  <remove-project name="AOSPA/android_build" />
-  <project path="build/make" name="clo-for-giulia/android_build" revision="calcite" remote="github">
-    <linkfile src="CleanSpec.mk" dest="build/CleanSpec.mk" />
-    <linkfile src="buildspec.mk.default" dest="build/buildspec.mk.default" />
-    <linkfile src="core" dest="build/core" />
-    <linkfile src="envsetup.sh" dest="build/envsetup.sh" />
-    <linkfile src="target" dest="build/target" />
-    <linkfile src="tools" dest="build/tools" />
-  </project>
-
-  <remove-project name="AOSPA/android_build_soong" />
-  <project path="build/soong" name="clo-for-giulia/android_build_soong" revision="calcite" remote="github">
-    <linkfile src="root.bp" dest="Android.bp" />
-    <linkfile src="bootstrap.bash" dest="bootstrap.bash" />
-  </project>
-
+  <!-- Native Frameworks and Sepolicy from aospa-f -->
   <remove-project name="AOSPA/android_frameworks_av" />
-  <project path="frameworks/av" name="aospa-faye/frameworks_av" revision="calcite" remote="github" />
+  <project path="frameworks/av" name="aospa-f/aospa_frameworks_av" revision="calcite" remote="github" />
 
   <remove-project name="AOSPA/android_frameworks_native" />
-  <project path="frameworks/native" name="aospa-faye/android_frameworks_native" revision="calcite" remote="github" />
+  <project path="frameworks/native" name="aospa-f/aospa_frameworks_native" revision="calcite" remote="github" />
 
   <remove-project name="AOSPA/android_device_qcom_sepolicy_vndr" />
-  <project path="device/qcom/sepolicy_vndr" name="aospa-faye/android_device_qcom_sepolicy_vndr" revision="calcite" remote="github" />
+  <project path="device/qcom/sepolicy_vndr" name="aospa-f/aospa_device_qcom_sepolicy_vndr" revision="calcite" remote="github" />
 
   <remove-project name="platform/system/sepolicy" />
-  <project path="system/sepolicy" name="aospa-faye/android_system_sepolicy" revision="calcite" remote="github" />
+  <project path="system/sepolicy" name="aospa-f/aospa_system_sepolicy" revision="calcite" remote="github" />
 
+  <!-- Device Trees (Synchronized in aospa-f) -->
+  <project path="device/oneplus/giulia" name="aospa-f/device_oneplus_giulia" revision="calcite" remote="github" />
+  <project path="device/oneplus/sm8650-common" name="aospa-f/device_oneplus_sm8650-common" revision="calcite" remote="github" />
+
+  <!-- Proprietary Vendor Trees & Latest OxygenOS 16 Firmware from TheMuppets (lineage-23.2: OOS 11.F.58 / 11.F.53) -->
+  <project path="vendor/oneplus/giulia" name="TheMuppets/proprietary_vendor_oneplus_giulia" revision="lineage-23.2" remote="github" />
+  <project path="vendor/oneplus/sm8650-common" name="TheMuppets/proprietary_vendor_oneplus_sm8650-common" revision="lineage-23.2" remote="github" />
+
+  <!-- Qualcomm Common Proprietary Blobs from ThankYouMario (AOSPA calcite) -->
   <remove-project name="proprietary_vendor_qcom_common" />
-  <project path="vendor/qcom/common" name="aospa-faye/vendor_qcom_common" revision="calcite" remote="github" />
-
-  <remove-project name="AOSPA/android_device_qcom_common" />
-  <project path="device/qcom/common" name="aospa-faye/device_qcom_common" revision="calcite" remote="github">
-    <linkfile dest="vendor/qcom/build/tasks/generate_extra_images.mk" src="generate_extra_images.mk"/>
-  </project>
-
-  <!-- Device Trees (Synchronized in aospa-faye with all latest fixes and gesture support) -->
-  <project path="device/oneplus/giulia" name="aospa-faye/android_device_oneplus_giulia" revision="calcite" remote="github" />
-  <project path="device/oneplus/sm8650-common" name="aospa-faye/android_device_oneplus_sm8650-common" revision="calcite" remote="github" />
+  <project path="vendor/qcom/common" name="ThankYouMario/proprietary_vendor_qcom_common" revision="calcite" remote="github" />
 
   <!-- Remove Qualcomm FM radio (Not present on OnePlus 13R / SM8650) -->
   <remove-project name="platform/vendor/qcom-opensource/fm-commonsys" />
 
-  <!-- Proprietary Vendor Trees (Pre-patched with check_elf_files: false) -->
-  <project path="vendor/oneplus/giulia" name="aospa-faye/proprietary_vendor_oneplus_giulia" revision="lineage-23.2" remote="github" />
-  <project path="vendor/oneplus/sm8650-common" name="aospa-faye/proprietary_vendor_oneplus_sm8650-common" revision="lineage-24.0" remote="github" />
-
   <!-- LineageOS Kernel Build System & Toolchains -->
   <remove-project name="AOSPA/android_kernel_build" />
-
-  <remove-project name="platform/external/dtc" />
-  <project path="external/dtc" name="clo-for-giulia/android_external_dtc" remote="github" revision="calcite" />
 
   <project path="prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9" name="LineageOS/android_prebuilts_gcc_linux-x86_aarch64_aarch64-linux-android-4.9" groups="pdk,linux,arm" clone-depth="1" revision="lineage-19.1" remote="github" />
   <project path="prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.9" name="LineageOS/android_prebuilts_gcc_linux-x86_arm_arm-linux-androideabi-4.9" groups="pdk,linux,arm" clone-depth="1" revision="lineage-19.1" remote="github" />
@@ -77,42 +54,26 @@
   <project path="prebuilts/kernel-build-tools" name="kernel/prebuilts/build-tools" clone-depth="1" remote="aosp" revision="main-kernel-2025" />
   <project path="prebuilts/tools-lineage" name="LineageOS/android_prebuilts_tools-lineage" clone-depth="1" revision="lineage-23.2" remote="github" />
 
-  <!-- Lineage Kernel & Devicetrees & Modules (Synchronized in aospa-faye with BakaSU + SUSFS) -->
-  <project path="kernel/oneplus/sm8650" name="aospa-faye/android_kernel_oneplus_sm8650" revision="calcite" remote="github" />
-  <project path="kernel/oneplus/sm8650-devicetrees" name="aospa-faye/android_kernel_oneplus_sm8650-devicetrees" revision="calcite" remote="github" />
-  <project path="kernel/oneplus/sm8650-modules" name="aospa-faye/android_kernel_oneplus_sm8650-modules" revision="calcite" remote="github" />
-  <project path="kernel/oneplus/sm8650/KernelSU" name="aospa-faye/BakaSU" revision="main" remote="github" />
+  <!-- Kernel & Devicetrees & Modules (Synchronized in aospa-f) -->
+  <project path="kernel/oneplus/sm8650" name="aospa-f/kernel_oneplus_sm8650" revision="calcite" remote="github" />
+  <project path="kernel/oneplus/sm8650-devicetrees" name="aospa-f/kernel_oneplus_sm8650-devicetrees" revision="calcite" remote="github" />
+  <project path="kernel/oneplus/sm8650-modules" name="aospa-f/kernel_oneplus_sm8650-modules" revision="calcite" remote="github" />
 
-  <!-- Hardware & Services (Synchronized in aospa-faye) -->
-  <project path="hardware/oplus" name="aospa-faye/android_hardware_oplus" revision="calcite" remote="github" />
-  <remove-project name="AOSPA/android_hardware_qcom_thermal" />
-  <project path="vendor/qcom/opensource/thermal-hal" name="aospa-faye/android_hardware_qcom_thermal" revision="calcite" remote="github" />
-  <remove-project name="AOSPA/android_vendor_qcom_opensource_libvmmem" />
-  <project path="vendor/qcom/opensource/libvmmem" name="aospa-faye/android_vendor_qcom_opensource_libvmmem" revision="calcite" remote="github" />
-  <project path="vendor/custom-preference" name="aospa-faye/vendor_custom-preference" revision="celerity" remote="github" />
+  <!-- Hardware & Services (Synchronized in aospa-f) -->
+  <project path="hardware/oplus" name="aospa-f/hardware_oplus" revision="calcite" remote="github" />
 
   <!-- Proprietary Blobs (Camera, Audio, IR) -->
-  <project path="vendor/oneplus/ir" name="aospa-faye/vendor_oneplus_ir" revision="calcite" remote="github" />
-  <project path="vendor/sony/dolby" name="aospa-faye/proprietary_vendor_sony_dolby" revision="calcite" remote="github" />
-  <project path="packages/apps/LunarisDolby" name="aospa-faye/android_packages_apps_LunarisDolby" revision="calcite" remote="github" />
-  <project path="vendor/oplus/camera" name="aospa-faye/proprietary_vendor_oplus_camera" revision="calcite" remote="github" />
+  <project path="vendor/oneplus/ir" name="aosp-for-giulia/vendor_oneplus_ir" revision="16" remote="github" />
+  <project path="vendor/sony/dolby" name="aosp-for-giulia/proprietary_vendor_sony_dolby" revision="16" remote="github" />
+  <project path="packages/apps/LunarisDolby" name="aosp-for-giulia/android_packages_apps_LunarisDolby" revision="16" remote="github" />
+  <project path="vendor/oplus/camera" name="aospa-f/vendor_oplus_camera" revision="calcite" remote="github" />
 
+  <!-- Bypass Charging (aospa-f with unplug broadcast receiver & battery indicators) -->
+  <project path="packages/apps/BypassCharge" name="aospa-f/packages_apps_BypassCharge" revision="sixteen" remote="github" />
 
-  <!-- Power & Vibrator Features from YAAP & Gaming Tools -->
-  <project path="packages/apps/BypassCharge" name="yaap/packages_apps_BypassCharge" revision="sixteen" remote="github" />
-  <project path="packages/apps/GameAudio" name="aospa-faye/android_packages_apps_GameAudio" revision="calcite" remote="github" />
-  <project path="packages/apps/GameSpace" name="aospa-faye/android_packages_apps_GameSpace" revision="calcite" remote="github" />
+  <!-- Vibrator Features from YAAP -->
   <remove-project name="AOSPA/android_vendor_qcom-opensource_vibrator" />
   <project path="vendor/qcom/opensource/vibrator" name="yaap/vendor_qcom_opensource_vibrator" revision="seventeen" remote="github">
     <linkfile dest="vendor/qcom/defs/product-defs/vendor/vibrator_product.mk" src="vibrator-vendor-product.mk"/>
   </project>
-
-  <!-- Prebuilts & Default Apps: MiXplorer + Addons & Glimpse Gallery & FOSSApps -->
-  <project path="packages/apps/MiXplorer" name="aospa-faye/android_packages_apps_MiXplorer" revision="calcite" remote="github" />
-  <project path="packages/apps/Glimpse" name="aospa-faye/android_packages_apps_Glimpse" revision="calcite" remote="github" />
-  <project path="packages/apps/FOSSApps" name="aospa-faye/android_packages_apps_FOSSApps" revision="calcite" remote="github" />
-
-  <!-- PenguinOS Dialer (Glass UI, iOS layout, Aurora in-call background) -->
-  <remove-project name="platform/packages/apps/Dialer" />
-  <project path="packages/apps/Dialer" name="Project-PenguinOS/penguin_packages_apps_Dialer" revision="celerity" remote="github" />
 </manifest>

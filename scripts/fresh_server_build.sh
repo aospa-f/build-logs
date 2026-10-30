@@ -23,7 +23,7 @@ echo "  Paranoid Android (AOSPA) Calcite - Fresh Server Build"
 echo "  Device:       ${DEVICE} (OnePlus 13R / Ace 5 SM8650)"
 echo "  Target Tree:  ${AOSPA_DIR}"
 echo "  Variant:      ${VARIANT} | Build Type: ${BUILD_TYPE}"
-echo "  Org:          aospa-faye (https://github.com/aospa-faye)"
+echo "  Org:          aospa-f (https://github.com/aospa-f)"
 echo "============================================================"
 echo ""
 
@@ -60,21 +60,14 @@ else
 fi
 
 # ------------------------------------------------------------------
-# Step 3: Install aospa-faye Local Manifests & Sync Source Tree
+# Step 3: Install aospa-f Local Manifests & Sync Source Tree
 # ------------------------------------------------------------------
 echo ""
 echo "[Step 3/5] Setting up local manifests and syncing repositories..."
-if [ ! -d ".repo/local_manifests/.git" ]; then
-    rm -rf .repo/local_manifests
-    git clone https://github.com/aospa-faye/local_manifests.git .repo/local_manifests
-else
-    echo "[+] Updating local_manifests from aospa-faye..."
-    git -C .repo/local_manifests pull origin main || true
-fi
-
-# Ensure local copies from build-logs take precedence if newer
+mkdir -p .repo/local_manifests
 if [ -d "${ROOT_DIR}/local_manifests" ]; then
-    cp -r "${ROOT_DIR}/local_manifests/"*.xml .repo/local_manifests/ 2>/dev/null || true
+    echo "[+] Deploying local manifests from build-logs..."
+    cp -r "${ROOT_DIR}/local_manifests/"*.xml .repo/local_manifests/
 fi
 
 echo "[+] Syncing source tree (${THREADS} threads)..."
