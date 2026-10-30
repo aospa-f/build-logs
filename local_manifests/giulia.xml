@@ -30,9 +30,8 @@
   <remove-project name="platform/system/sepolicy" />
   <project path="system/sepolicy" name="aospa-f/aospa_system_sepolicy" revision="calcite" remote="github" />
 
-  <!-- Device Trees (Synchronized in aospa-f) -->
-  <project path="device/oneplus/giulia" name="aospa-f/device_oneplus_giulia" revision="calcite" remote="github" />
-  <project path="device/oneplus/sm8650-common" name="aospa-f/device_oneplus_sm8650-common" revision="calcite" remote="github" />
+  <!-- Device Trees: Already declared in aospa-f/manifest oplus.xml — DO NOT redeclare here -->
+  <!-- device/oneplus/giulia, device/oneplus/sm8650-common are from aospa-f/manifest -->
 
   <!-- Proprietary Vendor Trees & Latest OxygenOS 16 Firmware from TheMuppets (lineage-23.2: OOS 11.F.58 / 11.F.53) -->
   <project path="vendor/oneplus/giulia" name="TheMuppets/proprietary_vendor_oneplus_giulia" revision="lineage-23.2" remote="github" />
@@ -54,22 +53,15 @@
   <project path="prebuilts/kernel-build-tools" name="kernel/prebuilts/build-tools" clone-depth="1" remote="aosp" revision="main-kernel-2025" />
   <project path="prebuilts/tools-lineage" name="LineageOS/android_prebuilts_tools-lineage" clone-depth="1" revision="lineage-23.2" remote="github" />
 
-  <!-- Kernel & Devicetrees & Modules (Synchronized in aospa-f) -->
-  <project path="kernel/oneplus/sm8650" name="aospa-f/kernel_oneplus_sm8650" revision="calcite" remote="github" />
-  <project path="kernel/oneplus/sm8650-devicetrees" name="aospa-f/kernel_oneplus_sm8650-devicetrees" revision="calcite" remote="github" />
-  <project path="kernel/oneplus/sm8650-modules" name="aospa-f/kernel_oneplus_sm8650-modules" revision="calcite" remote="github" />
+  <!-- Kernel & Devicetrees & Modules: Already declared in aospa-f/manifest oplus.xml — DO NOT redeclare here -->
+  <!-- kernel/oneplus/sm8650, sm8650-devicetrees, sm8650-modules are from aospa-f/manifest -->
 
-  <!-- Hardware & Services (Synchronized in aospa-f) -->
-  <project path="hardware/oplus" name="aospa-f/hardware_oplus" revision="calcite" remote="github" />
+  <!-- Hardware & Services: Already declared in aospa-f/manifest oplus.xml -->
+  <!-- hardware/oplus is from aospa-f/manifest -->
 
   <!-- Proprietary Blobs (Camera, Audio, IR) -->
-  <project path="vendor/oneplus/ir" name="aosp-for-giulia/vendor_oneplus_ir" revision="16" remote="github" />
-  <project path="vendor/sony/dolby" name="aosp-for-giulia/proprietary_vendor_sony_dolby" revision="16" remote="github" />
-  <project path="packages/apps/LunarisDolby" name="aosp-for-giulia/android_packages_apps_LunarisDolby" revision="16" remote="github" />
-  <project path="vendor/oplus/camera" name="aospa-f/vendor_oplus_camera" revision="calcite" remote="github" />
-
-  <!-- Bypass Charging (aospa-f with unplug broadcast receiver & battery indicators) -->
-  <project path="packages/apps/BypassCharge" name="aospa-f/packages_apps_BypassCharge" revision="sixteen" remote="github" />
+  <!-- vendor/oneplus/ir, vendor/sony/dolby, packages/apps/LunarisDolby, -->
+  <!-- vendor/oplus/camera, packages/apps/BypassCharge already in aospa-f/manifest oplus.xml — DO NOT redeclare -->
 
   <!-- Vibrator Features from YAAP -->
   <remove-project name="AOSPA/android_vendor_qcom-opensource_vibrator" />
