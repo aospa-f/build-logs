@@ -5796,3 +5796,61 @@ index 84d3aad..07e6c9b 100644
      vendor.oplus.hardware.camera.aon-service-impl \
      vendor.oplus.hardware.cammidasservice@1.0 \
      vendor.pixelworks.hardware.display-V2-ndk \
+
+diff --git a/Android.mk b/Android.mk
+index 4f3a593..0edb0c1 100644
+--- a/Android.mk
++++ b/Android.mk
+@@ -6,30 +6,30 @@ LOCAL_PATH := $(call my-dir)
+ 
+ ifeq ($(TARGET_DEVICE),giulia)
+ 
+-$(call add-radio-file-sha1-checked,radio/abl.img,d522cd2b867ecc600ba194f01e2da96d527bf354)
+-$(call add-radio-file-sha1-checked,radio/aop.img,44faa23dd939f7930da4a3ce3fafd448babbf76f)
+-$(call add-radio-file-sha1-checked,radio/aop_config.img,a287dffb8cd8beb4fba02f9db0d9b088ebc1810b)
+-$(call add-radio-file-sha1-checked,radio/bluetooth.img,58e966fe2522ce00891d2fc9390ef7e2237dc06d)
+-$(call add-radio-file-sha1-checked,radio/cpucp.img,b7ed69e24a22782d9bc5fc3bae3f475e276b2f7d)
+-$(call add-radio-file-sha1-checked,radio/cpucp_dtb.img,ac18d3cabdf21d6ac371fafec575102357058f44)
+-$(call add-radio-file-sha1-checked,radio/devcfg.img,b558869890c97ebfeb4b020235c8e26271cdc20a)
++$(call add-radio-file-sha1-checked,radio/abl.img,9d4041a8cb39c9c976a3db105a60c66ea49471f0)
++$(call add-radio-file-sha1-checked,radio/aop.img,616050171b772503368f0b491555964d355092f2)
++$(call add-radio-file-sha1-checked,radio/aop_config.img,4134843e5a902c08f80dcd7c313a2790e6f28bea)
++$(call add-radio-file-sha1-checked,radio/bluetooth.img,cf2e798f70ece855e46f90847e77a0d5aa45323c)
++$(call add-radio-file-sha1-checked,radio/cpucp.img,23a07b22d2b0fb8f9c13e6dd02e3d5e71180907a)
++$(call add-radio-file-sha1-checked,radio/cpucp_dtb.img,c87b30af1865995456b6f08466ce1708feb3d421)
++$(call add-radio-file-sha1-checked,radio/devcfg.img,cc6b0ff28aeeb8870b5dfec2968bc9e7218906ce)
+ $(call add-radio-file-sha1-checked,radio/dsp.img,72075bb397712d2b7753e2a8654cf8e5c2313602)
+-$(call add-radio-file-sha1-checked,radio/engineering_cdt.img,3692789049f05e2aa67f7bfcf42d6992303549f7)
+-$(call add-radio-file-sha1-checked,radio/featenabler.img,28a422f3a0682754b081562492d50c1b37d86ee3)
+-$(call add-radio-file-sha1-checked,radio/hyp.img,bb377dfe34034892f567776bf1e6dbc2cb92e8aa)
+-$(call add-radio-file-sha1-checked,radio/imagefv.img,c392359667252d3b3eb7fddbccfd7a71f9f5e3fe)
+-$(call add-radio-file-sha1-checked,radio/keymaster.img,1d73718164eb17a5e0935b71e48a05acf67bd9a2)
+-$(call add-radio-file-sha1-checked,radio/modem.img,14343ffdfb1e6705bf297d534bcc8a2c39d109b8)
++$(call add-radio-file-sha1-checked,radio/engineering_cdt.img,be3d02e87c06712bd699d5669125091a6807e0b6)
++$(call add-radio-file-sha1-checked,radio/featenabler.img,69c13579cd2499edd9eb799a90bc534d4fed991c)
++$(call add-radio-file-sha1-checked,radio/hyp.img,2d4c9be59862c046ada9a18717d6c8126db11396)
++$(call add-radio-file-sha1-checked,radio/imagefv.img,b4f27772b3d9d05d85da86830d3d246e46e14a23)
++$(call add-radio-file-sha1-checked,radio/keymaster.img,5b07c6957f32550aa8c0a90833fdc3a0498ef91c)
++$(call add-radio-file-sha1-checked,radio/modem.img,3aadc4ba2b2f3cc28a344a38013ffe820061d2e3)
+ $(call add-radio-file-sha1-checked,radio/oplus_sec.img,2a0a3bc41fa77874e80515aaee0a151fd7ea2756)
+-$(call add-radio-file-sha1-checked,radio/oplusstanvbk.img,4c771cd256e10df31b4a3f9f5087699c33aae2a7)
+-$(call add-radio-file-sha1-checked,radio/qupfw.img,8983d9990ca54a53bdbd7ff18946188e8954578f)
+-$(call add-radio-file-sha1-checked,radio/shrm.img,add0b43301fc7a37911312ee16b0fdff3c806d22)
++$(call add-radio-file-sha1-checked,radio/oplusstanvbk.img,e3bd9f80e930cbe0554d07e17cbad47463fc8b36)
++$(call add-radio-file-sha1-checked,radio/qupfw.img,227e4d9b13af10046deddfc22672b01f2247a327)
++$(call add-radio-file-sha1-checked,radio/shrm.img,10beaa53c822116103415736a13ee64ebaf33dbd)
+ $(call add-radio-file-sha1-checked,radio/splash.img,07e9cda27d7d55806370294443d78ef887e32d2b)
+-$(call add-radio-file-sha1-checked,radio/tz.img,63de967ec4f32839b4251a0f245d7dd9c1851e6c)
+-$(call add-radio-file-sha1-checked,radio/uefi.img,bddd807108593a34492dd016cb918d808dfc15b1)
+-$(call add-radio-file-sha1-checked,radio/uefisecapp.img,20960850d6fc3816b7544e2794aa9682f417e9bf)
+-$(call add-radio-file-sha1-checked,radio/xbl.img,e6198800a6ef6e152f66beb95fc2e6f4230686f4)
+-$(call add-radio-file-sha1-checked,radio/xbl_config.img,02415c7b41b84126096d6bc52b8a2d5286794c4a)
+-$(call add-radio-file-sha1-checked,radio/xbl_ramdump.img,6d6babfce436928c38e5dd1cfb7359480849f205)
++$(call add-radio-file-sha1-checked,radio/tz.img,4b67e844fa5f9d2cadf71664b95e1098c059ee3d)
++$(call add-radio-file-sha1-checked,radio/uefi.img,68a256a1147c32603aaa1513ab050f9f2f706bcd)
++$(call add-radio-file-sha1-checked,radio/uefisecapp.img,5cda058cf99c96ff7c2c22dfa42cabb3ad92fcb1)
++$(call add-radio-file-sha1-checked,radio/xbl.img,d9357c81715fc1a9ac696dd266df6fe08c62dccf)
++$(call add-radio-file-sha1-checked,radio/xbl_config.img,1240184d21ad29ed423734ef2c9215a68cb8df45)
++$(call add-radio-file-sha1-checked,radio/xbl_ramdump.img,2be6e829561fe1fbd113cf874f217f43b99e2705)
+ 
+ endif

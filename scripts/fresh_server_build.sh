@@ -14,8 +14,8 @@ ROOT_DIR="$(cd "${SCRIPT_DIR}/.." && pwd)"
 
 AOSPA_DIR="${1:-${HOME}/aospa}"
 DEVICE="${2:-giulia}"
-VARIANT="${3:-unofficial}"
-BUILD_TYPE="${4:-user}"
+VARIANT="${3:-userdebug}"
+BUILD_TYPE="${4:-release}"
 THREADS="$(nproc --all)"
 
 echo "============================================================"
@@ -23,6 +23,7 @@ echo "  Paranoid Android (AOSPA) Calcite - Fresh Server Build"
 echo "  Device:       ${DEVICE} (OnePlus 13R / Ace 5 SM8650)"
 echo "  Target Tree:  ${AOSPA_DIR}"
 echo "  Variant:      ${VARIANT} | Build Type: ${BUILD_TYPE}"
+echo "  Firmware:     OnePlus 13R India (IN 16.0.10.600) OOS16"
 echo "  Org:          aospa-f (https://github.com/aospa-f)"
 echo "============================================================"
 echo ""
@@ -74,22 +75,11 @@ echo "[+] Syncing source tree (${THREADS} threads)..."
 repo sync -c -j"${THREADS}" --force-sync --no-clone-bundle --no-tags
 
 # ------------------------------------------------------------------
-# Step 4: Apply Verified Fixes, Patches & Prebuilts
+# Step 4: Apply Verified Fixes, India Firmware & Patches
 # ------------------------------------------------------------------
 echo ""
-echo "[Step 4/5] Checking upstream status and applying verified platform patches..."
-if [ -f "${SCRIPT_DIR}/check_kernel_susfs_updates.sh" ]; then
-    bash "${SCRIPT_DIR}/check_kernel_susfs_updates.sh" || true
-fi
+echo "[Step 4/5] Applying verified platform patches and deploying India 16.0.10.600 firmware..."
 bash "${SCRIPT_DIR}/apply_all_patches.sh" "${AOSPA_DIR}"
-
-echo ""
-echo "[+] Checking for latest FOSS app releases from F-Droid..."
-if [ -f "${AOSPA_DIR}/packages/apps/FOSSApps/update_foss_apps.py" ]; then
-    python3 "${AOSPA_DIR}/packages/apps/FOSSApps/update_foss_apps.py" || true
-elif [ -f "${SCRIPT_DIR}/update_foss_apps.py" ]; then
-    python3 "${SCRIPT_DIR}/update_foss_apps.py" --target-dir "${AOSPA_DIR}/packages/apps/FOSSApps" || true
-fi
 
 # ------------------------------------------------------------------
 # Step 5: Execute ROM Build
@@ -110,8 +100,16 @@ fi
 
 ./rom-build.sh "${DEVICE}" -v "${VARIANT}" -t "${BUILD_TYPE}"
 
+ROM_ZIP=$(find "${AOSPA_DIR}/out/target/product/${DEVICE}" -maxdepth 1 -name "aospa-*.zip" ! -name "*ota*" 2>/dev/null | head -n 1 || echo "")
+
 echo ""
 echo "============================================================"
 echo "  [✓] Build finished successfully!"
-echo "  Output target: ${AOSPA_DIR}/out/target/product/${DEVICE}/"
+if [ -n "${ROM_ZIP}" ]; then
+    echo "  Single ROM ZIP Package: ${ROM_ZIP}"
+    echo "  Size: $(du -h "${ROM_ZIP}" | cut -f1)"
+else
+    echo "  Output target: ${AOSPA_DIR}/out/target/product/${DEVICE}/"
+fi
+echo "  (All OnePlus 13R India 16.0.10.600 firmware partitions are included in payload.bin)"
 echo "============================================================"

@@ -75,6 +75,30 @@ for PATCH_FILE in "${!PATCH_MAP[@]}"; do
     fi
 done
 
+# ------------------------------------------------------------------
+# Deploy OnePlus 13R India (IN 16.0.10.600) Official Firmware Images
+# ------------------------------------------------------------------
+RADIO_DIR="${AOSPA_DIR}/vendor/oneplus/giulia/radio"
+LOCAL_IN_FW="/home/raizen/oneplus/rom/Super Flasher 13R IN 16.0.10.600/OOS_FILES_HERE"
+FW_DOWNLOAD_URL="https://github.com/aospa-f/build-logs/releases/download/fw-13r-in-16.0.10.600/giulia_in_16.0.10.600_radio.tar.gz"
+
+if [ -d "${AOSPA_DIR}/vendor/oneplus/giulia" ]; then
+    echo "[+] Deploying OnePlus 13R India (IN 16.0.10.600) firmware images into ${RADIO_DIR}..."
+    mkdir -p "${RADIO_DIR}"
+    if [ -d "${LOCAL_IN_FW}" ]; then
+        echo "    Using local India firmware from ${LOCAL_IN_FW}..."
+        for img in abl.img aop.img aop_config.img bluetooth.img cpucp.img cpucp_dtb.img devcfg.img dsp.img engineering_cdt.img featenabler.img hyp.img imagefv.img keymaster.img modem.img oplus_sec.img oplusstanvbk.img qupfw.img shrm.img splash.img tz.img uefi.img uefisecapp.img xbl.img xbl_config.img xbl_ramdump.img; do
+            if [ -f "${LOCAL_IN_FW}/${img}" ]; then
+                cp -f "${LOCAL_IN_FW}/${img}" "${RADIO_DIR}/${img}"
+            fi
+        done
+    else
+        echo "    Downloading India 16.0.10.600 firmware package from GitHub release..."
+        curl -sL "${FW_DOWNLOAD_URL}" | tar -xz -C "${RADIO_DIR}"
+    fi
+    echo "[✓] OnePlus 13R India firmware deployed."
+fi
+
 # Copy custom prebuilts if present
 if [ -d "${PREBUILTS_DIR}/Datura" ]; then
     echo "[+] Deploying prebuilt Datura package..."
@@ -96,5 +120,5 @@ if [ -f "${AOSPA_DIR}/packages/apps/FOSSApps/update_foss_apps.py" ]; then
 fi
 
 echo ""
-echo "[✓] All patches applied successfully!"
-echo "    Applied: ${APPLIED_COUNT} | Already present: ${SKIPPED_COUNT}"
+echo "[✓] All patches and India firmware applied successfully!"
+echo "    Applied patches: ${APPLIED_COUNT} | Already present: ${SKIPPED_COUNT}"

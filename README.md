@@ -1,6 +1,15 @@
-# OnePlus 13R / Ace 5 (`giulia`) - AOSPA-F Build Environment & Automation
+# OnePlus 13R / Ace 5 (`giulia`) - AOSPA-F Build Automation & Environment
 
-Repository maintaining verified build automation, patches, platform manifests, and setup scripts for building **AOSPA-F (Calcite)** on the **OnePlus 13R / OnePlus Ace 5 (`giulia` / SM8650 `pineapple`)**.
+Repository maintaining verified build automation, platform manifests, patches, and setup scripts for building **AOSPA-F (Calcite)** on the **OnePlus 13R / OnePlus Ace 5 (`giulia` / SM8650 `pineapple`)**.
+
+---
+
+## 📱 Firmware & Blob Source: OnePlus 13R India (`IN 16.0.10.600`) OxygenOS 16
+
+The ROM is built with official **OnePlus 13R India (`IN 16.0.10.600`) OxygenOS 16** firmware:
+* **All-in-One Single ROM ZIP**: All India `16.0.10.600` firmware partitions (`abl`, `aop`, `aop_config`, `bluetooth`, `cpucp`, `cpucp_dtb`, `devcfg`, `dsp`, `engineering_cdt`, `featenabler`, `hyp`, `imagefv`, `keymaster`, `modem`, `oplus_sec`, `oplusstanvbk`, `qupfw`, `shrm`, `splash`, `tz`, `uefi`, `uefisecapp`, `xbl`, `xbl_config`, `xbl_ramdump`) are embedded directly into `payload.bin`.
+* **No Separate Firmware / Boot / Recovery Zips**: Flashing the single ROM ZIP flashes both Android and all India firmware in one pass.
+* **Zero ColorOS 17 Blobs**: Built strictly against OxygenOS 16 base (`TheMuppets` lineage-23.2 + local official India 16.0.10.600 images).
 
 ---
 
@@ -9,10 +18,8 @@ Repository maintaining verified build automation, patches, platform manifests, a
 ```
 build-logs/
 ├── README.md                      # Master build & setup documentation
-├── logs/
-│   └── 2026-10-13_initial_build_log.md  # Complete step-by-step initial build log & issue postmortem
 ├── local_manifests/
-│   ├── giulia.xml                 # Local manifest linking AOSPA, aospa-f trees, and TheMuppets OOS16 fw
+│   ├── giulia.xml                 # Local manifest linking aospa-f trees and TheMuppets OOS16
 │   └── baristablend.xml           # Qualcomm SM8650 audio/display HAL platform sync definitions
 ├── patches/                       # Verified discrete patches across modified projects
 │   ├── build_soong.patch
@@ -24,7 +31,7 @@ build-logs/
 │   ├── kernel_oneplus_sm8650.patch
 │   ├── packages_apps_Settings.patch
 │   ├── vendor_aospa.patch
-│   ├── vendor_oneplus_giulia.patch
+│   ├── vendor_oneplus_giulia.patch       # Includes SHA1 checks for India 16.0.10.600 radio images
 │   ├── vendor_oneplus_sm8650-common.patch
 │   ├── vendor_qcom_common.patch
 │   └── vendor_qcom_opensource_commonsys_fm.patch
@@ -35,20 +42,10 @@ build-logs/
     ├── fresh_server_build.sh      # Complete 5-step automated bootstrap from clean server to ROM zip
     ├── setup_fresh_server.sh      # Installs all Ubuntu dependencies, ccache, repo tool
     ├── sync_manifest.sh           # Inits calcite manifest, deploys manifests, syncs & patches
-    ├── apply_all_patches.sh       # Automatically applies all verified patches with 3-way fallback
+    ├── apply_all_patches.sh       # Automatically applies patches and deploys India 16.0.10.600 firmware
     ├── track_clo_upstream.sh      # Tracks & merges changes from clo-for-giulia upstream
-    ├── push_all_to_github.sh      # Creates/pushes build-logs repo & forks clo-for-giulia repos
     └── upload_gofile.py           # Automated uploader for fast ROM sharing via GoFile
 ```
-
----
-
-## 📱 Firmware & Blob Source: OxygenOS 16 (Not ColorOS)
-
-The proprietary vendor blobs and firmware images are sourced directly from **TheMuppets** on branch `lineage-23.2`:
-* **`vendor/oneplus/giulia`**: Sourced from `TheMuppets/proprietary_vendor_oneplus_giulia` (`lineage-23.2`), verified on latest **OxygenOS 16 (`OOS 11.F.53`)**. Includes full modem, bootloader, trustzone, DSP, and radio images extracted from `CPH2691_16.0.2.400(EX01)`.
-* **`vendor/oneplus/sm8650-common`**: Sourced from `TheMuppets/proprietary_vendor_oneplus_sm8650-common` (`lineage-23.2`), verified on latest **OxygenOS 16 (`OOS 11.F.58`)**.
-* **Zero ColorOS 17 blobs**: No `COS 17` or unverified Chinese ColorOS builds are used.
 
 ---
 
@@ -57,7 +54,7 @@ The proprietary vendor blobs and firmware images are sourced directly from **The
 When you launch a brand new ServerHive or Ubuntu instance, building is completely automated.
 
 ### Option A: Complete 1-Command Automated Build (Recommended)
-Run this single command on a fresh server to configure packages, sync trees, apply patches, and compile the ROM:
+Run this single command on a fresh server to configure packages, sync trees, apply patches, deploy India 16.0.10.600 firmware, and compile the single ROM zip:
 ```bash
 git clone https://github.com/aospa-f/build-logs.git ~/build-logs && bash ~/build-logs/fresh_build.sh
 ```
@@ -87,7 +84,7 @@ cp ~/build-logs/local_manifests/*.xml .repo/local_manifests/
 repo sync -c -j$(nproc --all) --force-sync --no-clone-bundle --no-tags
 ```
 
-#### 4. Apply prebuilts & verified platform patches
+#### 4. Apply prebuilts, platform patches & deploy India firmware
 ```bash
 bash ~/build-logs/scripts/apply_all_patches.sh ~/aospa
 ```
@@ -102,27 +99,6 @@ Output package will be generated at:
 
 ---
 
-## 🔄 Tracking `clo-for-giulia` Upstream
-
-When Ronard (`clo-for-giulia`) pushes new commits to device, vendor, or kernel trees:
-
-1. **Check status of incoming changes:**
-   ```bash
-   bash ~/build-logs/scripts/track_clo_upstream.sh ~/aospa status
-   ```
-
-2. **Inspect what changed:**
-   ```bash
-   bash ~/build-logs/scripts/track_clo_upstream.sh ~/aospa diff
-   ```
-
-3. **Fetch & Merge into your branch:**
-   ```bash
-   bash ~/build-logs/scripts/track_clo_upstream.sh ~/aospa merge
-   ```
-
----
-
 ## ⚡ Flashing the ROM (LFFF Tool)
 
 The recommended flashing method for the OnePlus 13R is using **LFFF (LibreFastbootFirmwareFlasher)**:
@@ -130,5 +106,5 @@ The recommended flashing method for the OnePlus 13R is using **LFFF (LibreFastbo
 * Guide: [Flashing custom ROMs on OnePlus 13R / Ace 5](https://github.com/yashaswee-exe/AndroidGuides/wiki/Flashing-custom-ROMs-on-a-OnePlus-13R-Ace5)
 
 1. Connect device in bootloader mode (`fastboot`).
-2. Open LFFF and select `aospa-calcite-*.zip` (or the extracted `payload.bin`).
-3. LFFF flashes boot partitions in `fastboot`, reboots to `fastbootd`, flashes all dynamic logical partitions (`system`, `system_ext`, `product`, `odm`, `vendor`), and formats data.
+2. Open LFFF and select the single generated `aospa-calcite-*.zip` (or the extracted `payload.bin`).
+3. LFFF flashes boot and India firmware partitions in `fastboot`, reboots to `fastbootd`, flashes all dynamic logical partitions (`system`, `system_ext`, `product`, `odm`, `vendor`), and formats data.
