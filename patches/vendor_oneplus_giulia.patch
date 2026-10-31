@@ -9,12 +9,12 @@ Removed 241 entries from /serverhive5/raizenftw/aospa/vendor/oneplus/sm8650-comm
 --- Deduplicating giulia ---
 Found 5 duplicate modules between giulia and active vendor/qcom/common.
 Found 0 associated symlink modules.
-Removed 5 module blocks from /serverhive5/raizenftw/aospa/vendor/oneplus/giulia/Android.bp
-Removed 5 entries from /serverhive5/raizenftw/aospa/vendor/oneplus/giulia/giulia-vendor.mk
+Removed 7 module blocks from /serverhive5/raizenftw/aospa/vendor/oneplus/giulia/Android.bp
+Removed 7 entries from /serverhive5/raizenftw/aospa/vendor/oneplus/giulia/giulia-vendor.mk
 
 Deduplication completed cleanly and accurately!
 diff --git a/Android.bp b/Android.bp
-index db4682a..1138128 100644
+index db4682a..7b9de1c 100644
 --- a/Android.bp
 +++ b/Android.bp
 @@ -4,10 +4,23 @@
@@ -43,7 +43,7 @@ index db4682a..1138128 100644
      ],
  }
  
-@@ -10986,124 +10999,6 @@ cc_prebuilt_library_shared {
+@@ -10986,217 +10999,6 @@ cc_prebuilt_library_shared {
      soc_specific: true,
  }
  
@@ -165,13 +165,71 @@ index db4682a..1138128 100644
 -    soc_specific: true,
 -}
 -
- cc_prebuilt_library_shared {
-     name: "vendor.display.color@1.4",
-     owner: "oneplus",
-@@ -11169,34 +11064,6 @@ cc_prebuilt_library_shared {
-     soc_specific: true,
- }
- 
+-cc_prebuilt_library_shared {
+-    name: "vendor.display.color@1.4",
+-    owner: "oneplus",
+-    strip: {
+-        none: true,
+-    },
+-    target: {
+-        android_arm64: {
+-            srcs: [
+-                "proprietary/vendor/lib64/vendor.display.color@1.4.so",
+-            ],
+-            shared_libs: [
+-                "vendor.display.color@1.0",
+-                "vendor.display.color@1.1",
+-                "vendor.display.color@1.2",
+-                "vendor.display.color@1.3",
+-                "libhidlbase",
+-                "liblog",
+-                "libutils",
+-                "libcutils",
+-                "libc++",
+-                "libc",
+-                "libm",
+-                "libdl",
+-            ],
+-        },
+-    },
+-    compile_multilib: "64",
+-    prefer: true,
+-    soc_specific: true,
+-}
+-
+-cc_prebuilt_library_shared {
+-    name: "vendor.display.color@1.5",
+-    owner: "oneplus",
+-    strip: {
+-        none: true,
+-    },
+-    target: {
+-        android_arm64: {
+-            srcs: [
+-                "proprietary/vendor/lib64/vendor.display.color@1.5.so",
+-            ],
+-            shared_libs: [
+-                "vendor.display.color@1.0",
+-                "vendor.display.color@1.1",
+-                "vendor.display.color@1.2",
+-                "vendor.display.color@1.3",
+-                "vendor.display.color@1.4",
+-                "libhidlbase",
+-                "liblog",
+-                "libutils",
+-                "libcutils",
+-                "libc++",
+-                "libc",
+-                "libm",
+-                "libdl",
+-            ],
+-        },
+-    },
+-    compile_multilib: "64",
+-    prefer: true,
+-    soc_specific: true,
+-}
+-
 -cc_prebuilt_library_shared {
 -    name: "vendor.display.postproc@1.0",
 -    owner: "oneplus",
@@ -261,10 +319,10 @@ index 4f3a593..0edb0c1 100644
  
  endif
 diff --git a/giulia-vendor.mk b/giulia-vendor.mk
-index 84d3aad..0d44e74 100644
+index 84d3aad..07e6c9b 100644
 --- a/giulia-vendor.mk
 +++ b/giulia-vendor.mk
-@@ -1433,13 +1433,8 @@ PRODUCT_PACKAGES += \
+@@ -1433,13 +1433,6 @@ PRODUCT_PACKAGES += \
      libvideoml \
      libvmfilexfer \
      sensors.qsh \
@@ -272,8 +330,8 @@ index 84d3aad..0d44e74 100644
 -    vendor.display.color@1.1 \
 -    vendor.display.color@1.2 \
 -    vendor.display.color@1.3 \
-     vendor.display.color@1.4 \
-     vendor.display.color@1.5 \
+-    vendor.display.color@1.4 \
+-    vendor.display.color@1.5 \
 -    vendor.display.postproc@1.0 \
      vendor.oplus.hardware.camera.aon-service-impl \
      vendor.oplus.hardware.cammidasservice@1.0 \

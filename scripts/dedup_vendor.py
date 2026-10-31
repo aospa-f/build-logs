@@ -77,6 +77,9 @@ def deduplicate_vendor_tree(bp_path, mk_path, tree_name):
     all_to_remove = set(duplicates).union(symlink_mods)
     if tree_name == 'sm8650-common':
         all_to_remove.add("vendor.qti.hardware.fm@1.0")
+    elif tree_name == 'giulia':
+        all_to_remove.add("vendor.display.color@1.4")
+        all_to_remove.add("vendor.display.color@1.5")
     if not all_to_remove:
         print("Nothing to remove.")
         return
