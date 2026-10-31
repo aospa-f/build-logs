@@ -1,18 +1,59 @@
-import re
+#!/usr/bin/env python3
 import os
+import re
 import sys
 
-qcom_dir = '/serverhive5/raizenftw/aospa/vendor/qcom/common'
+aosp_root = '/serverhive5/raizenftw/aospa'
+qcom_root = os.path.join(aosp_root, 'vendor/qcom/common')
 
-def get_modules(text):
+product_namespaces = set([
+    'device/oneplus/giulia',
+    'device/oneplus/sm8650-common',
+    'hardware/oplus',
+    'vendor/oneplus/sm8650-common',
+    'vendor/oneplus/giulia',
+    'vendor/google/gms',
+    'vendor/qcom/common/vendor/adreno/u',
+    'vendor/qcom/common/system/alarm',
+    'vendor/qcom/common/vendor/alarm',
+    'vendor/qcom/common/system/audio',
+    'vendor/qcom/common/system/av',
+    'vendor/qcom/common/system/bt',
+    'vendor/qcom/common/system/display',
+    'vendor/qcom/common/vendor/display',
+    'vendor/qcom/common/system/gps',
+    'vendor/qcom/common/system/perf',
+    'vendor/qcom/common/vendor/perf',
+    'vendor/qcom/common/system/telephony',
+    'vendor/qcom/common/system/wfd',
+    'vendor/qcom/common/vendor/wlan',
+])
+
+def get_namespace_for_dir(d):
+    curr = d
+    while curr and curr != aosp_root:
+        bp = os.path.join(curr, 'Android.bp')
+        if os.path.exists(bp):
+            with open(bp) as f:
+                if 'soong_namespace' in f.read():
+                    return os.path.relpath(curr, aosp_root)
+        curr = os.path.dirname(curr)
+    return '.'
+
+def get_modules_from_text(text):
     return set(re.findall(r'name:\s*"([^"]+)"', text))
 
-qcom_mods = set()
-for root, _, files in os.walk(qcom_dir):
+# Collect active modules from vendor/qcom/common
+active_qcom_modules = set()
+for root, _, files in os.walk(qcom_root):
     for f in files:
         if f.endswith('.bp'):
-            with open(os.path.join(root, f)) as f_in:
-                qcom_mods.update(get_modules(f_in.read()))
+            ns = get_namespace_for_dir(root)
+            if ns in product_namespaces:
+                with open(os.path.join(root, f)) as fin:
+                    active_qcom_modules.update(get_modules_from_text(fin.read()))
+
+print(f"Collected {len(active_qcom_modules)} active modules from vendor/qcom/common.")
 
 def deduplicate_vendor_tree(bp_path, mk_path, tree_name):
     print(f"\n--- Deduplicating {tree_name} ---")
@@ -23,9 +64,9 @@ def deduplicate_vendor_tree(bp_path, mk_path, tree_name):
     with open(bp_path, 'r') as f:
         bp_content = f.read()
 
-    common_mods = get_modules(bp_content)
-    duplicates = sorted(common_mods.intersection(qcom_mods))
-    print(f"Found {len(duplicates)} duplicate modules between {tree_name} and vendor/qcom/common.")
+    common_mods = get_modules_from_text(bp_content)
+    duplicates = sorted(common_mods.intersection(active_qcom_modules))
+    print(f"Found {len(duplicates)} duplicate modules between {tree_name} and active vendor/qcom/common.")
 
     symlink_mods = set()
     for mod in duplicates:
@@ -71,8 +112,42 @@ def deduplicate_vendor_tree(bp_path, mk_path, tree_name):
             i += 1
     print(f"Removed {removed_count} module blocks from {bp_path}")
 
+    # Update soong_namespace to import active QCOM namespaces
+    new_bp_text = "".join(out_lines)
+    if tree_name == 'sm8650-common':
+        ns_block = """soong_namespace {
+    imports: [
+        "device/oneplus/sm8650-common",
+        "hardware/oplus",
+        "vendor/qcom/common/vendor/adreno/u",
+        "vendor/qcom/common/vendor/perf",
+        "vendor/qcom/common/system/perf",
+        "vendor/qcom/common/system/telephony",
+        "vendor/qcom/common/system/display",
+        "vendor/qcom/common/vendor/display",
+        "vendor/qcom/common/system/av",
+    ],
+}"""
+        new_bp_text = re.sub(r'soong_namespace\s*\{[^}]*\}', ns_block, new_bp_text, count=1)
+    elif tree_name == 'giulia':
+        ns_block = """soong_namespace {
+    imports: [
+        "device/oneplus/giulia",
+        "hardware/oplus",
+        "vendor/oneplus/sm8650-common",
+        "vendor/qcom/common/vendor/adreno/u",
+        "vendor/qcom/common/vendor/perf",
+        "vendor/qcom/common/system/perf",
+        "vendor/qcom/common/system/telephony",
+        "vendor/qcom/common/system/display",
+        "vendor/qcom/common/vendor/display",
+        "vendor/qcom/common/system/av",
+    ],
+}"""
+        new_bp_text = re.sub(r'soong_namespace\s*\{[^}]*\}', ns_block, new_bp_text, count=1)
+
     with open(bp_path, 'w') as f:
-        f.write("".join(out_lines))
+        f.write(new_bp_text)
 
     if os.path.exists(mk_path):
         with open(mk_path, 'r') as f:
@@ -91,17 +166,20 @@ def deduplicate_vendor_tree(bp_path, mk_path, tree_name):
         with open(mk_path, 'w') as f:
             f.writelines(new_mk_lines)
 
+# Reset sm8650-common and giulia to HEAD before deduplicating
+os.system(f"git -C {aosp_root}/vendor/oneplus/sm8650-common checkout Android.bp sm8650-common-vendor.mk")
+os.system(f"git -C {aosp_root}/vendor/oneplus/giulia checkout Android.bp giulia-vendor.mk")
+
 deduplicate_vendor_tree(
-    '/serverhive5/raizenftw/aospa/vendor/oneplus/sm8650-common/Android.bp',
-    '/serverhive5/raizenftw/aospa/vendor/oneplus/sm8650-common/sm8650-common-vendor.mk',
+    os.path.join(aosp_root, 'vendor/oneplus/sm8650-common/Android.bp'),
+    os.path.join(aosp_root, 'vendor/oneplus/sm8650-common/sm8650-common-vendor.mk'),
     'sm8650-common'
 )
 
 deduplicate_vendor_tree(
-    '/serverhive5/raizenftw/aospa/vendor/oneplus/giulia/Android.bp',
-    '/serverhive5/raizenftw/aospa/vendor/oneplus/giulia/giulia-vendor.mk',
+    os.path.join(aosp_root, 'vendor/oneplus/giulia/Android.bp'),
+    os.path.join(aosp_root, 'vendor/oneplus/giulia/giulia-vendor.mk'),
     'giulia'
 )
 
-print("\nAll deduplications completed successfully!")
-
+print("\nDeduplication completed cleanly and accurately!")
