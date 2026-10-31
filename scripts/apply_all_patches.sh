@@ -27,7 +27,6 @@ declare -A PATCH_MAP=(
     ["hardware_qcom_display.patch"]="hardware/qcom/display"
     ["kernel_oneplus_sm8650.patch"]="kernel/oneplus/sm8650"
     ["vendor_aospa.patch"]="vendor/aospa"
-    ["vendor_oneplus_giulia.patch"]="vendor/oneplus/giulia"
     ["vendor_oneplus_sm8650-common.patch"]="vendor/oneplus/sm8650-common"
     ["vendor_qcom_opensource_commonsys_fm.patch"]="vendor/qcom/opensource/commonsys/fm"
 )
