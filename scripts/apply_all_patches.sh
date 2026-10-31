@@ -23,16 +23,12 @@ echo "[+] Applying all fixes to AOSPA tree at: ${AOSPA_DIR}"
 declare -A PATCH_MAP=(
     ["build_soong.patch"]="build/soong"
     ["device_oneplus_sm8650-common.patch"]="device/oneplus/sm8650-common"
-    ["device_qcom_sepolicy_vndr.patch"]="device/qcom/sepolicy_vndr"
     ["external_dtc.patch"]="external/dtc"
-    ["hardware_oplus.patch"]="hardware/oplus"
     ["hardware_qcom_display.patch"]="hardware/qcom/display"
     ["kernel_oneplus_sm8650.patch"]="kernel/oneplus/sm8650"
-    ["packages_apps_Settings.patch"]="packages/apps/Settings"
     ["vendor_aospa.patch"]="vendor/aospa"
     ["vendor_oneplus_giulia.patch"]="vendor/oneplus/giulia"
     ["vendor_oneplus_sm8650-common.patch"]="vendor/oneplus/sm8650-common"
-    ["vendor_qcom_common.patch"]="vendor/qcom/common"
     ["vendor_qcom_opensource_commonsys_fm.patch"]="vendor/qcom/opensource/commonsys/fm"
 )
 
