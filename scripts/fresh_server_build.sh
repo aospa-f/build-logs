@@ -71,8 +71,9 @@ if [ -d "${ROOT_DIR}/local_manifests" ]; then
     cp -r "${ROOT_DIR}/local_manifests/"*.xml .repo/local_manifests/
 fi
 
-echo "[+] Syncing source tree (${THREADS} threads)..."
-repo sync -c -j"${THREADS}" --force-sync --no-clone-bundle --no-tags
+SYNC_THREADS="$(( THREADS > 32 ? 32 : THREADS ))"
+echo "[+] Syncing source tree (${SYNC_THREADS} network threads)..."
+repo sync -c -j"${SYNC_THREADS}" --force-sync --no-clone-bundle --no-tags
 
 # ------------------------------------------------------------------
 # Step 4: Apply Verified Fixes, India Firmware & Patches
