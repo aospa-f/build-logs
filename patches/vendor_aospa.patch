@@ -1,29 +1,3 @@
-diff --git a/build/tasks/kernel.mk b/build/tasks/kernel.mk
-index e4ea0ef9..7d6eac25 100644
---- a/build/tasks/kernel.mk
-+++ b/build/tasks/kernel.mk
-@@ -677,7 +677,7 @@ MKDTBOIMG := $(HOST_OUT_EXECUTABLES)/mkdtboimg$(HOST_EXECUTABLE_SUFFIX)
- $(INSTALLED_DTBIMAGE_TARGET): $(MKDTBOIMG)
- endif
- ifeq ($(BOARD_USES_QCOM_MERGE_DTBS_SCRIPT),true)
--$(INSTALLED_DTBIMAGE_TARGET): $(HOST_OUT_EXECUTABLES)/fdtget $(HOST_OUT_EXECUTABLES)/fdtput $(HOST_OUT_EXECUTABLES)/fdtoverlay $(HOST_OUT_EXECUTABLES)/fdtoverlaymerge $(HOST_OUT_EXECUTABLES)/ufdt_apply_overlay $(DTBS_BASE) $(DTBS_OUT)
-+$(INSTALLED_DTBIMAGE_TARGET): $(HOST_OUT_EXECUTABLES)/fdtget $(HOST_OUT_EXECUTABLES)/fdtput $(HOST_OUT_EXECUTABLES)/fdtoverlay $(HOST_OUT_EXECUTABLES)/ufdt_apply_overlay $(DTBS_BASE) $(DTBS_OUT)
- endif
- $(INSTALLED_DTBIMAGE_TARGET): $(DTC) $(DTB_OUT)
- ifeq ($(TARGET_WANTS_EMPTY_DTB),true)
-diff --git a/build/tools/merge_dtbs.py b/build/tools/merge_dtbs.py
-index 836be1a9..758952fe 100755
---- a/build/tools/merge_dtbs.py
-+++ b/build/tools/merge_dtbs.py
-@@ -363,7 +363,7 @@ class InnerMergedDeviceTree(DeviceTreeInfo):
- 		if len(self.techpacks) == 0:
- 			cmd = ['cp', self.base, out_file]
- 		else:
--			if ext == '.dtb':
-+			if ext == '.dtb' or not shutil.which('fdtoverlaymerge'):
- 				cmd = ['fdtoverlay']
- 			else:
- 				cmd = ['fdtoverlaymerge']
 diff --git a/target/board/BoardConfigKernelLineage.mk b/target/board/BoardConfigKernelLineage.mk
 index 11bce138..5ddcceca 100644
 --- a/target/board/BoardConfigKernelLineage.mk
