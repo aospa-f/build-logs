@@ -23,7 +23,6 @@ echo "[+] Applying all fixes to AOSPA tree at: ${AOSPA_DIR}"
 declare -A PATCH_MAP=(
     ["build_soong.patch"]="build/soong"
     ["device_oneplus_sm8650-common.patch"]="device/oneplus/sm8650-common"
-    ["external_dtc.patch"]="external/dtc"
     ["hardware_qcom_display.patch"]="hardware/qcom/display"
     ["kernel_oneplus_sm8650.patch"]="kernel/oneplus/sm8650"
     ["vendor_aospa.patch"]="vendor/aospa"
