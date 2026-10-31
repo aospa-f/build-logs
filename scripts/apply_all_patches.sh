@@ -85,7 +85,12 @@ FW_DOWNLOAD_URL="https://github.com/aospa-f/build-logs/releases/download/fw-13r-
 if [ -d "${AOSPA_DIR}/vendor/oneplus/giulia" ]; then
     echo "[+] Deploying OnePlus 13R India (IN 16.0.10.600) firmware images into ${RADIO_DIR}..."
     mkdir -p "${RADIO_DIR}"
-    if [ -d "${LOCAL_IN_FW}" ]; then
+    if [ -f "${RADIO_DIR}/abl.img" ]; then
+        echo "    OnePlus 13R India firmware images already present in ${RADIO_DIR}."
+    elif [ -d "/serverhive5/raizenftw/giulia_radio_backup" ]; then
+        echo "    Using firmware backup from /serverhive5/raizenftw/giulia_radio_backup..."
+        cp -f /serverhive5/raizenftw/giulia_radio_backup/*.img "${RADIO_DIR}/"
+    elif [ -d "${LOCAL_IN_FW}" ]; then
         echo "    Using local India firmware from ${LOCAL_IN_FW}..."
         for img in abl.img aop.img aop_config.img bluetooth.img cpucp.img cpucp_dtb.img devcfg.img dsp.img engineering_cdt.img featenabler.img hyp.img imagefv.img keymaster.img modem.img oplus_sec.img oplusstanvbk.img qupfw.img shrm.img splash.img tz.img uefi.img uefisecapp.img xbl.img xbl_config.img xbl_ramdump.img; do
             if [ -f "${LOCAL_IN_FW}/${img}" ]; then
