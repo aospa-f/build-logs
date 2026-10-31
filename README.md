@@ -78,7 +78,7 @@ bash ~/build-logs/scripts/setup_fresh_server.sh
 #### 3. Initialize source tree and sync using aospa-f local manifests
 ```bash
 mkdir -p ~/aospa && cd ~/aospa
-repo init -u https://github.com/AOSPA/manifest -b calcite --git-lfs
+repo init -u https://github.com/aospa-f/manifest -b calcite --git-lfs
 mkdir -p .repo/local_manifests
 cp ~/build-logs/local_manifests/*.xml .repo/local_manifests/
 repo sync -c -j$(nproc --all) --force-sync --no-clone-bundle --no-tags

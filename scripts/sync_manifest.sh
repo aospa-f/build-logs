@@ -16,8 +16,8 @@ mkdir -p "${AOSPA_DIR}"
 cd "${AOSPA_DIR}"
 
 if [ ! -d ".repo" ]; then
-    echo "[+] Initializing AOSPA manifest (calcite)..."
-    repo init -u https://github.com/AOSPA/manifest -b calcite --git-lfs
+    echo "[+] Initializing AOSPA manifest (calcite from aospa-f)..."
+    repo init -u https://github.com/aospa-f/manifest -b calcite --git-lfs
 fi
 
 # Deploy local manifests

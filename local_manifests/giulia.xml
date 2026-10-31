@@ -1,71 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <manifest>
-  <!-- Custom Frameworks and Settings (AOSPA calcite with pure black AMOLED, bypass charging, battery indicators) -->
-  <remove-project name="AOSPA/android_frameworks_base" />
-  <project path="frameworks/base" name="aospa-f/aospa_frameworks_base" revision="calcite" remote="github" />
+  <!--
+    OnePlus 13R (giulia / SM8650) Local Manifest Additions & Overrides
+    Primary Manifest: https://github.com/aospa-f/manifest (calcite branch)
 
-  <remove-project name="AOSPA/android_packages_apps_Settings" />
-  <project path="packages/apps/Settings" name="aospa-f/aospa_packages_apps_Settings" revision="calcite" remote="github" />
+    Note: aospa-f/manifest ALREADY includes:
+      - frameworks/base, packages/apps/Settings, vendor/aospa, vendor/google/gms
+      - frameworks/av, frameworks/native, system/sepolicy, device/qcom/sepolicy_vndr
+      - device/oneplus/giulia, device/oneplus/sm8650-common
+      - kernel/oneplus/sm8650 (and devicetrees, modules)
+      - hardware/oplus, packages/apps/BypassCharge, vendor/oplus/camera
+      - vendor/oneplus/ir, vendor/sony/dolby, packages/apps/LunarisDolby
+      - vendor/qcom/opensource/vibrator (yaap seventeen)
+      - prebuilts/kernel-build-tools, prebuilts/tools-lineage
+    DO NOT redeclare any of the above here or repo will error with duplicate path!
+  -->
 
-  <!-- Cleaned AOSPA vendor (with LineageOS kernel build system & giulia product) -->
-  <remove-project name="AOSPA/android_vendor_aospa" />
-  <project path="vendor/aospa" name="aospa-f/aospa_vendor_aospa" revision="calcite" remote="github">
-    <linkfile src="build.sh" dest="rom-build.sh" />
-  </project>
-
-  <!-- Debloated GMS (Game Dashboard disabled; Maps included; YouTube, Photos, Drive, Chrome removed) -->
-  <remove-project name="android_vendor_google_gms" />
-  <project path="vendor/google/gms" name="aospa-f/android_vendor_google_gms" revision="calcite" remote="github" clone-depth="1" />
-
-  <!-- Native Frameworks and Sepolicy from aospa-f -->
-  <remove-project name="AOSPA/android_frameworks_av" />
-  <project path="frameworks/av" name="aospa-f/aospa_frameworks_av" revision="calcite" remote="github" />
-
-  <remove-project name="AOSPA/android_frameworks_native" />
-  <project path="frameworks/native" name="aospa-f/aospa_frameworks_native" revision="calcite" remote="github" />
-
-  <remove-project name="AOSPA/android_device_qcom_sepolicy_vndr" />
-  <project path="device/qcom/sepolicy_vndr" name="aospa-f/aospa_device_qcom_sepolicy_vndr" revision="calcite" remote="github" />
-
-  <remove-project name="platform/system/sepolicy" />
-  <project path="system/sepolicy" name="aospa-f/aospa_system_sepolicy" revision="calcite" remote="github" />
-
-  <!-- Device Trees: Already declared in aospa-f/manifest oplus.xml — DO NOT redeclare here -->
-  <!-- device/oneplus/giulia, device/oneplus/sm8650-common are from aospa-f/manifest -->
-
-  <!-- Proprietary Vendor Trees & Latest OxygenOS 16 Firmware from TheMuppets (lineage-23.2: OOS 11.F.58 / 11.F.53) -->
+  <!-- Proprietary Vendor Trees from TheMuppets (lineage-23.2: OxygenOS 16 base) -->
   <project path="vendor/oneplus/giulia" name="TheMuppets/proprietary_vendor_oneplus_giulia" revision="lineage-23.2" remote="github" />
   <project path="vendor/oneplus/sm8650-common" name="TheMuppets/proprietary_vendor_oneplus_sm8650-common" revision="lineage-23.2" remote="github" />
 
-  <!-- Qualcomm Common Proprietary Blobs from ThankYouMario (AOSPA calcite) -->
-  <remove-project name="proprietary_vendor_qcom_common" />
+  <!-- Qualcomm Common Proprietary Blobs: Override oplus-8650-clo with ThankYouMario -->
+  <remove-project name="oplus-8650-clo/proprietary_vendor_qcom_common" />
   <project path="vendor/qcom/common" name="ThankYouMario/proprietary_vendor_qcom_common" revision="calcite" remote="github" />
 
-  <!-- Remove Qualcomm FM radio (Not present on OnePlus 13R / SM8650) -->
-  <remove-project name="platform/vendor/qcom-opensource/fm-commonsys" />
-
-  <!-- LineageOS Kernel Build System & Toolchains -->
-  <remove-project name="AOSPA/android_kernel_build" />
-
+  <!-- Prebuilt GCC Toolchains for LineageOS Kernel Build System -->
   <project path="prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9" name="LineageOS/android_prebuilts_gcc_linux-x86_aarch64_aarch64-linux-android-4.9" groups="pdk,linux,arm" clone-depth="1" revision="lineage-19.1" remote="github" />
   <project path="prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.9" name="LineageOS/android_prebuilts_gcc_linux-x86_arm_arm-linux-androideabi-4.9" groups="pdk,linux,arm" clone-depth="1" revision="lineage-19.1" remote="github" />
   <project path="prebuilts/gcc/linux-x86/x86/x86_64-linux-android-4.9" name="LineageOS/android_prebuilts_gcc_linux-x86_x86_x86_64-linux-android-4.9" groups="pdk,linux,x86" clone-depth="1" revision="lineage-19.1" remote="github" />
-  <project path="prebuilts/kernel-build-tools" name="kernel/prebuilts/build-tools" clone-depth="1" remote="aosp" revision="main-kernel-2025" />
-  <project path="prebuilts/tools-lineage" name="LineageOS/android_prebuilts_tools-lineage" clone-depth="1" revision="lineage-23.2" remote="github" />
-
-  <!-- Kernel & Devicetrees & Modules: Already declared in aospa-f/manifest oplus.xml — DO NOT redeclare here -->
-  <!-- kernel/oneplus/sm8650, sm8650-devicetrees, sm8650-modules are from aospa-f/manifest -->
-
-  <!-- Hardware & Services: Already declared in aospa-f/manifest oplus.xml -->
-  <!-- hardware/oplus is from aospa-f/manifest -->
-
-  <!-- Proprietary Blobs (Camera, Audio, IR) -->
-  <!-- vendor/oneplus/ir, vendor/sony/dolby, packages/apps/LunarisDolby, -->
-  <!-- vendor/oplus/camera, packages/apps/BypassCharge already in aospa-f/manifest oplus.xml — DO NOT redeclare -->
-
-  <!-- Vibrator Features from YAAP -->
-  <remove-project name="AOSPA/android_vendor_qcom-opensource_vibrator" />
-  <project path="vendor/qcom/opensource/vibrator" name="yaap/vendor_qcom_opensource_vibrator" revision="seventeen" remote="github">
-    <linkfile dest="vendor/qcom/defs/product-defs/vendor/vibrator_product.mk" src="vibrator-vendor-product.mk"/>
-  </project>
 </manifest>

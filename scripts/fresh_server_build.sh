@@ -55,7 +55,7 @@ mkdir -p "${AOSPA_DIR}"
 cd "${AOSPA_DIR}"
 
 if [ ! -d ".repo" ]; then
-    repo init -u https://github.com/AOSPA/manifest -b calcite --git-lfs
+    repo init -u https://github.com/aospa-f/manifest -b calcite --git-lfs
 else
     echo "[✓] Repo already initialized in ${AOSPA_DIR}."
 fi
