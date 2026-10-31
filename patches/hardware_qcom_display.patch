@@ -23,7 +23,7 @@ index 636b2407..68717c7b 100644
 +SOONG_CONFIG_qtidisplay += pxlw_hw_iris7
 +endif
 +ifneq ($(SOONG_CONFIG_qtidisplay_pxlw_color_config_include),)
-+SOONG_CONFIG_qtidisplay += pxlw_color_config_include
+ SOONG_CONFIG_qtidisplay += pxlw_color_config_include
 +endif
  
  # Soong Values
