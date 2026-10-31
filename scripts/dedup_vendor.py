@@ -235,6 +235,14 @@ def deduplicate_vendor_tree(bp_path, mk_path, tree_name):
             if stripped in all_to_remove:
                 removed_mk_count += 1
                 continue
+            if ':' in stripped and not stripped.startswith('#'):
+                src = stripped.split(':')[0].strip()
+                if src.startswith('vendor/'):
+                    full_p = os.path.join(aosp_root, src)
+                    if not os.path.exists(full_p):
+                        print(f"Pruning missing copy file from {tree_name}: {src}")
+                        removed_mk_count += 1
+                        continue
             new_mk_lines.append(line)
 
         print(f"Removed {removed_mk_count} entries from {mk_path}")
