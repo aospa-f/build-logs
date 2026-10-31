@@ -50,6 +50,11 @@ for PATCH_FILE in "${!PATCH_MAP[@]}"; do
         continue
     fi
 
+    if [ "${PATCH_FILE}" = "vendor_oneplus_giulia.patch" ] && [ ! -d "${TARGET_PATH}/.git" ]; then
+        echo "[*] vendor/oneplus/giulia is a locally extracted vendor tree, skipping patch"
+        continue
+    fi
+
     # Check if patch is already applied
     if git -C "${TARGET_PATH}" apply --reverse --check "${PATCH_PATH}" >/dev/null 2>&1; then
         echo "[*] Already applied: ${PATCH_FILE} -> ${TARGET_SUBDIR}"
