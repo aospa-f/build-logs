@@ -1,8 +1,8 @@
 diff --git a/Android.bp b/Android.bp
-index ec0ab70..77c7454 100644
+index ec0ab70..9ef7c63 100644
 --- a/Android.bp
 +++ b/Android.bp
-@@ -6,39 +6,16 @@ soong_namespace {
+@@ -6,39 +6,23 @@ soong_namespace {
      imports: [
          "device/oneplus/sm8650-common",
          "hardware/oplus",
@@ -12,12 +12,19 @@ index ec0ab70..77c7454 100644
 -        "vendor/qcom/opensource/commonsys-intf/display",
 -        "vendor/qcom/opensource/dataservices",
 +        "vendor/qcom/common/vendor/adreno/u",
-+        "vendor/qcom/common/vendor/perf",
-+        "vendor/qcom/common/system/perf",
-+        "vendor/qcom/common/system/telephony",
++        "vendor/qcom/common/system/alarm",
++        "vendor/qcom/common/vendor/alarm",
++        "vendor/qcom/common/system/audio",
++        "vendor/qcom/common/system/av",
++        "vendor/qcom/common/system/bt",
 +        "vendor/qcom/common/system/display",
 +        "vendor/qcom/common/vendor/display",
-+        "vendor/qcom/common/system/av",
++        "vendor/qcom/common/system/gps",
++        "vendor/qcom/common/system/perf",
++        "vendor/qcom/common/vendor/perf",
++        "vendor/qcom/common/system/telephony",
++        "vendor/qcom/common/system/wfd",
++        "vendor/qcom/common/vendor/wlan",
      ],
  }
  
@@ -49,7 +56,7 @@ index ec0ab70..77c7454 100644
  cc_prebuilt_library_shared {
      name: "btaudio_offload_if",
      owner: "oneplus",
-@@ -76,221 +53,6 @@ cc_prebuilt_library_shared {
+@@ -76,221 +60,6 @@ cc_prebuilt_library_shared {
      soc_specific: true,
  }
  
@@ -271,7 +278,7 @@ index ec0ab70..77c7454 100644
  cc_prebuilt_library_shared {
      name: "android.hardware.bluetooth.audio-impl-qti",
      owner: "oneplus",
-@@ -516,39 +278,6 @@ cc_prebuilt_library_shared {
+@@ -516,39 +285,6 @@ cc_prebuilt_library_shared {
      soc_specific: true,
  }
  
@@ -311,7 +318,7 @@ index ec0ab70..77c7454 100644
  cc_prebuilt_library_shared {
      name: "vendor.qti.hardware.bluetooth_audio@2.0-impl",
      owner: "oneplus",
-@@ -818,7 +547,7 @@ cc_prebuilt_library_shared {
+@@ -818,7 +554,7 @@ cc_prebuilt_library_shared {
  }
  
  cc_prebuilt_library_shared {
@@ -320,7 +327,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -826,16 +555,10 @@ cc_prebuilt_library_shared {
+@@ -826,16 +562,10 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -338,7 +345,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -844,13 +567,12 @@ cc_prebuilt_library_shared {
+@@ -844,13 +574,12 @@ cc_prebuilt_library_shared {
          },
      },
      compile_multilib: "64",
@@ -353,7 +360,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -858,117 +580,10 @@ cc_prebuilt_library_shared {
+@@ -858,117 +587,10 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -472,7 +479,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -1362,30 +977,6 @@ cc_prebuilt_library_shared {
+@@ -1362,30 +984,6 @@ cc_prebuilt_library_shared {
      soc_specific: true,
  }
  
@@ -503,7 +510,7 @@ index ec0ab70..77c7454 100644
  cc_prebuilt_library_shared {
      name: "libOpenCL_adreno",
      owner: "oneplus",
-@@ -1712,64 +1303,6 @@ cc_prebuilt_library_shared {
+@@ -1712,64 +1310,6 @@ cc_prebuilt_library_shared {
      soc_specific: true,
  }
  
@@ -568,7 +575,7 @@ index ec0ab70..77c7454 100644
  cc_prebuilt_library_shared {
      name: "libadsp_default_listener",
      owner: "oneplus",
-@@ -2749,61 +2282,6 @@ cc_prebuilt_library_shared {
+@@ -2749,61 +2289,6 @@ cc_prebuilt_library_shared {
      soc_specific: true,
  }
  
@@ -630,7 +637,7 @@ index ec0ab70..77c7454 100644
  cc_prebuilt_library_shared {
      name: "libhalide_hexagon_host",
      owner: "oneplus",
-@@ -2937,54 +2415,6 @@ cc_prebuilt_library_shared {
+@@ -2937,54 +2422,6 @@ cc_prebuilt_library_shared {
      soc_specific: true,
  }
  
@@ -685,7 +692,7 @@ index ec0ab70..77c7454 100644
  cc_prebuilt_library_shared {
      name: "libkeymasterdeviceutils",
      owner: "oneplus",
-@@ -3101,7 +2531,7 @@ cc_prebuilt_library_shared {
+@@ -3101,7 +2538,7 @@ cc_prebuilt_library_shared {
  }
  
  cc_prebuilt_library_shared {
@@ -694,7 +701,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -3109,11 +2539,11 @@ cc_prebuilt_library_shared {
+@@ -3109,11 +2546,11 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -709,7 +716,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -3127,7 +2557,7 @@ cc_prebuilt_library_shared {
+@@ -3127,7 +2564,7 @@ cc_prebuilt_library_shared {
  }
  
  cc_prebuilt_library_shared {
@@ -718,7 +725,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -3135,114 +2565,7 @@ cc_prebuilt_library_shared {
+@@ -3135,114 +2572,7 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -834,7 +841,7 @@ index ec0ab70..77c7454 100644
              ],
              shared_libs: [
                  "libagm",
-@@ -4157,95 +3480,6 @@ cc_prebuilt_library_shared {
+@@ -4157,95 +3487,6 @@ cc_prebuilt_library_shared {
      soc_specific: true,
  }
  
@@ -930,7 +937,7 @@ index ec0ab70..77c7454 100644
  cc_prebuilt_library_shared {
      name: "libperipheral_client",
      owner: "oneplus",
-@@ -4302,32 +3536,6 @@ cc_prebuilt_library_shared {
+@@ -4302,32 +3543,6 @@ cc_prebuilt_library_shared {
      soc_specific: true,
  }
  
@@ -963,7 +970,7 @@ index ec0ab70..77c7454 100644
  cc_prebuilt_library_shared {
      name: "libqc2audio_base",
      owner: "oneplus",
-@@ -5618,7 +4826,7 @@ cc_prebuilt_library_shared {
+@@ -5618,7 +4833,7 @@ cc_prebuilt_library_shared {
  }
  
  cc_prebuilt_library_shared {
@@ -972,7 +979,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -5626,11 +4834,12 @@ cc_prebuilt_library_shared {
+@@ -5626,11 +4841,12 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -987,7 +994,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -5644,7 +4853,7 @@ cc_prebuilt_library_shared {
+@@ -5644,7 +4860,7 @@ cc_prebuilt_library_shared {
  }
  
  cc_prebuilt_library_shared {
@@ -996,7 +1003,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -5652,15 +4861,22 @@ cc_prebuilt_library_shared {
+@@ -5652,15 +4868,22 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -1023,7 +1030,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -5674,7 +4890,7 @@ cc_prebuilt_library_shared {
+@@ -5674,7 +4897,7 @@ cc_prebuilt_library_shared {
  }
  
  cc_prebuilt_library_shared {
@@ -1032,7 +1039,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -5682,26 +4898,20 @@ cc_prebuilt_library_shared {
+@@ -5682,26 +4905,20 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -1068,7 +1075,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -5715,7 +4925,7 @@ cc_prebuilt_library_shared {
+@@ -5715,7 +4932,7 @@ cc_prebuilt_library_shared {
  }
  
  cc_prebuilt_library_shared {
@@ -1077,7 +1084,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -5723,14 +4933,26 @@ cc_prebuilt_library_shared {
+@@ -5723,14 +4940,26 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -1109,7 +1116,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -5744,147 +4966,7 @@ cc_prebuilt_library_shared {
+@@ -5744,147 +4973,7 @@ cc_prebuilt_library_shared {
  }
  
  cc_prebuilt_library_shared {
@@ -1258,7 +1265,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -8770,31 +7852,6 @@ cc_prebuilt_library_shared {
+@@ -8770,31 +7859,6 @@ cc_prebuilt_library_shared {
      soc_specific: true,
  }
  
@@ -1290,7 +1297,7 @@ index ec0ab70..77c7454 100644
  cc_prebuilt_library_shared {
      name: "vendor.qti.hardware.bluetooth_sar@1.0",
      owner: "oneplus",
-@@ -8963,7 +8020,7 @@ cc_prebuilt_library_shared {
+@@ -8963,7 +8027,7 @@ cc_prebuilt_library_shared {
  }
  
  cc_prebuilt_library_shared {
@@ -1299,7 +1306,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -8971,13 +8028,11 @@ cc_prebuilt_library_shared {
+@@ -8971,13 +8035,11 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -1316,7 +1323,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -8991,7 +8046,7 @@ cc_prebuilt_library_shared {
+@@ -8991,7 +8053,7 @@ cc_prebuilt_library_shared {
  }
  
  cc_prebuilt_library_shared {
@@ -1325,7 +1332,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -8999,11 +8054,17 @@ cc_prebuilt_library_shared {
+@@ -8999,11 +8061,17 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -1346,7 +1353,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -9017,7 +8078,7 @@ cc_prebuilt_library_shared {
+@@ -9017,7 +8085,7 @@ cc_prebuilt_library_shared {
  }
  
  cc_prebuilt_library_shared {
@@ -1355,7 +1362,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -9025,14 +8086,22 @@ cc_prebuilt_library_shared {
+@@ -9025,14 +8093,22 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -1381,7 +1388,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -9046,7 +8115,8 @@ cc_prebuilt_library_shared {
+@@ -9046,7 +8122,8 @@ cc_prebuilt_library_shared {
  }
  
  cc_prebuilt_library_shared {
@@ -1391,7 +1398,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -9054,11 +8124,9 @@ cc_prebuilt_library_shared {
+@@ -9054,11 +8131,9 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -1404,7 +1411,7 @@ index ec0ab70..77c7454 100644
                  "libhidlbase",
                  "liblog",
                  "libutils",
-@@ -9076,7 +8144,8 @@ cc_prebuilt_library_shared {
+@@ -9076,7 +8151,8 @@ cc_prebuilt_library_shared {
  }
  
  cc_prebuilt_library_shared {
@@ -1414,7 +1421,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -9084,13 +8153,10 @@ cc_prebuilt_library_shared {
+@@ -9084,13 +8160,10 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -1430,7 +1437,7 @@ index ec0ab70..77c7454 100644
                  "libhidlbase",
                  "liblog",
                  "libutils",
-@@ -9108,7 +8174,8 @@ cc_prebuilt_library_shared {
+@@ -9108,7 +8181,8 @@ cc_prebuilt_library_shared {
  }
  
  cc_prebuilt_library_shared {
@@ -1440,7 +1447,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -9116,22 +8183,15 @@ cc_prebuilt_library_shared {
+@@ -9116,22 +8190,15 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -1467,7 +1474,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -9145,7 +8205,7 @@ cc_prebuilt_library_shared {
+@@ -9145,7 +8212,7 @@ cc_prebuilt_library_shared {
  }
  
  cc_prebuilt_library_shared {
@@ -1476,7 +1483,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -9153,7 +8213,7 @@ cc_prebuilt_library_shared {
+@@ -9153,7 +8220,7 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -1485,7 +1492,7 @@ index ec0ab70..77c7454 100644
              ],
              shared_libs: [
                  "libbinder_ndk",
-@@ -9170,8 +8230,7 @@ cc_prebuilt_library_shared {
+@@ -9170,8 +8237,7 @@ cc_prebuilt_library_shared {
  }
  
  cc_prebuilt_library_shared {
@@ -1495,7 +1502,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -9179,13 +8238,11 @@ cc_prebuilt_library_shared {
+@@ -9179,13 +8245,11 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -1512,7 +1519,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -9199,8 +8256,7 @@ cc_prebuilt_library_shared {
+@@ -9199,8 +8263,7 @@ cc_prebuilt_library_shared {
  }
  
  cc_prebuilt_library_shared {
@@ -1522,7 +1529,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -9208,10 +8264,9 @@ cc_prebuilt_library_shared {
+@@ -9208,10 +8271,9 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -1534,7 +1541,7 @@ index ec0ab70..77c7454 100644
                  "libhidlbase",
                  "liblog",
                  "libutils",
-@@ -9229,8 +8284,7 @@ cc_prebuilt_library_shared {
+@@ -9229,8 +8291,7 @@ cc_prebuilt_library_shared {
  }
  
  cc_prebuilt_library_shared {
@@ -1544,7 +1551,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -9238,11 +8292,9 @@ cc_prebuilt_library_shared {
+@@ -9238,11 +8299,9 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -1557,7 +1564,7 @@ index ec0ab70..77c7454 100644
                  "libhidlbase",
                  "liblog",
                  "libutils",
-@@ -9260,7 +8312,7 @@ cc_prebuilt_library_shared {
+@@ -9260,7 +8319,7 @@ cc_prebuilt_library_shared {
  }
  
  cc_prebuilt_library_shared {
@@ -1566,7 +1573,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -9268,7 +8320,7 @@ cc_prebuilt_library_shared {
+@@ -9268,7 +8327,7 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -1575,7 +1582,7 @@ index ec0ab70..77c7454 100644
              ],
              shared_libs: [
                  "libbinder_ndk",
-@@ -9285,7 +8337,7 @@ cc_prebuilt_library_shared {
+@@ -9285,7 +8344,7 @@ cc_prebuilt_library_shared {
  }
  
  cc_prebuilt_library_shared {
@@ -1584,7 +1591,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -9293,11 +8345,13 @@ cc_prebuilt_library_shared {
+@@ -9293,11 +8352,13 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -1601,7 +1608,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -9311,7 +8365,7 @@ cc_prebuilt_library_shared {
+@@ -9311,7 +8372,7 @@ cc_prebuilt_library_shared {
  }
  
  cc_prebuilt_library_shared {
@@ -1610,7 +1617,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -9319,9 +8373,10 @@ cc_prebuilt_library_shared {
+@@ -9319,9 +8380,10 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -1622,7 +1629,7 @@ index ec0ab70..77c7454 100644
                  "libhidlbase",
                  "liblog",
                  "libutils",
-@@ -9339,7 +8394,7 @@ cc_prebuilt_library_shared {
+@@ -9339,7 +8401,7 @@ cc_prebuilt_library_shared {
  }
  
  cc_prebuilt_library_shared {
@@ -1631,7 +1638,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -9347,9 +8402,11 @@ cc_prebuilt_library_shared {
+@@ -9347,9 +8409,11 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -1644,7 +1651,7 @@ index ec0ab70..77c7454 100644
                  "libhidlbase",
                  "liblog",
                  "libutils",
-@@ -9367,7 +8424,8 @@ cc_prebuilt_library_shared {
+@@ -9367,7 +8431,8 @@ cc_prebuilt_library_shared {
  }
  
  cc_prebuilt_library_shared {
@@ -1654,7 +1661,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -9375,11 +8433,13 @@ cc_prebuilt_library_shared {
+@@ -9375,11 +8440,13 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -1671,7 +1678,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -9393,7 +8453,7 @@ cc_prebuilt_library_shared {
+@@ -9393,7 +8460,7 @@ cc_prebuilt_library_shared {
  }
  
  cc_prebuilt_library_shared {
@@ -1680,7 +1687,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -9401,10 +8461,16 @@ cc_prebuilt_library_shared {
+@@ -9401,10 +8468,16 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -1699,7 +1706,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -9418,7 +8484,8 @@ cc_prebuilt_library_shared {
+@@ -9418,7 +8491,8 @@ cc_prebuilt_library_shared {
  }
  
  cc_prebuilt_library_shared {
@@ -1709,7 +1716,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -9426,11 +8493,12 @@ cc_prebuilt_library_shared {
+@@ -9426,11 +8500,12 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -1723,7 +1730,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -9444,7 +8512,7 @@ cc_prebuilt_library_shared {
+@@ -9444,7 +8519,7 @@ cc_prebuilt_library_shared {
  }
  
  cc_prebuilt_library_shared {
@@ -1732,7 +1739,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -9452,13 +8520,18 @@ cc_prebuilt_library_shared {
+@@ -9452,13 +8527,18 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -1754,7 +1761,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -9472,7 +8545,7 @@ cc_prebuilt_library_shared {
+@@ -9472,7 +8552,7 @@ cc_prebuilt_library_shared {
  }
  
  cc_prebuilt_library_shared {
@@ -1763,7 +1770,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -9480,14 +8553,10 @@ cc_prebuilt_library_shared {
+@@ -9480,14 +8560,10 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -1780,7 +1787,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -9501,7 +8570,7 @@ cc_prebuilt_library_shared {
+@@ -9501,7 +8577,7 @@ cc_prebuilt_library_shared {
  }
  
  cc_prebuilt_library_shared {
@@ -1789,7 +1796,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -9509,11 +8578,9 @@ cc_prebuilt_library_shared {
+@@ -9509,11 +8585,9 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -1802,7 +1809,7 @@ index ec0ab70..77c7454 100644
                  "libhidlbase",
                  "liblog",
                  "libutils",
-@@ -9530,9 +8597,152 @@ cc_prebuilt_library_shared {
+@@ -9530,9 +8604,152 @@ cc_prebuilt_library_shared {
      soc_specific: true,
  }
  
@@ -1957,7 +1964,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -9540,13 +8750,13 @@ cc_prebuilt_library_shared {
+@@ -9540,13 +8757,13 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -1974,7 +1981,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -9556,11 +8766,11 @@ cc_prebuilt_library_shared {
+@@ -9556,11 +8773,11 @@ cc_prebuilt_library_shared {
      },
      compile_multilib: "64",
      prefer: true,
@@ -1988,7 +1995,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -9568,16 +8778,11 @@ cc_prebuilt_library_shared {
+@@ -9568,16 +8785,11 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -2008,7 +2015,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -9587,11 +8792,11 @@ cc_prebuilt_library_shared {
+@@ -9587,11 +8799,11 @@ cc_prebuilt_library_shared {
      },
      compile_multilib: "64",
      prefer: true,
@@ -2022,7 +2029,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -9599,13 +8804,19 @@ cc_prebuilt_library_shared {
+@@ -9599,13 +8811,19 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -2047,7 +2054,7 @@ index ec0ab70..77c7454 100644
                  "libm",
                  "libdl",
              ],
-@@ -9613,12 +8824,11 @@ cc_prebuilt_library_shared {
+@@ -9613,12 +8831,11 @@ cc_prebuilt_library_shared {
      },
      compile_multilib: "64",
      prefer: true,
@@ -2062,7 +2069,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -9626,12 +8836,22 @@ cc_prebuilt_library_shared {
+@@ -9626,12 +8843,22 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -2089,7 +2096,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -9641,11 +8861,11 @@ cc_prebuilt_library_shared {
+@@ -9641,11 +8868,11 @@ cc_prebuilt_library_shared {
      },
      compile_multilib: "64",
      prefer: true,
@@ -2103,7 +2110,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -9653,18 +8873,16 @@ cc_prebuilt_library_shared {
+@@ -9653,18 +8880,16 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -2128,7 +2135,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -9674,11 +8892,11 @@ cc_prebuilt_library_shared {
+@@ -9674,11 +8899,11 @@ cc_prebuilt_library_shared {
      },
      compile_multilib: "64",
      prefer: true,
@@ -2142,7 +2149,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -9686,10 +8904,18 @@ cc_prebuilt_library_shared {
+@@ -9686,10 +8911,18 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -2163,7 +2170,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -9699,11 +8925,11 @@ cc_prebuilt_library_shared {
+@@ -9699,11 +8932,11 @@ cc_prebuilt_library_shared {
      },
      compile_multilib: "64",
      prefer: true,
@@ -2177,7 +2184,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -9711,12 +8937,12 @@ cc_prebuilt_library_shared {
+@@ -9711,12 +8944,12 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -2194,7 +2201,7 @@ index ec0ab70..77c7454 100644
                  "libc",
                  "libm",
                  "libdl",
-@@ -9725,11 +8951,11 @@ cc_prebuilt_library_shared {
+@@ -9725,11 +8958,11 @@ cc_prebuilt_library_shared {
      },
      compile_multilib: "64",
      prefer: true,
@@ -2208,7 +2215,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -9737,16 +8963,14 @@ cc_prebuilt_library_shared {
+@@ -9737,16 +8970,14 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -2229,7 +2236,7 @@ index ec0ab70..77c7454 100644
                  "libbinder_ndk",
                  "libc++",
                  "libc",
-@@ -9757,11 +8981,11 @@ cc_prebuilt_library_shared {
+@@ -9757,11 +8988,11 @@ cc_prebuilt_library_shared {
      },
      compile_multilib: "64",
      prefer: true,
@@ -2243,7 +2250,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -9769,13 +8993,22 @@ cc_prebuilt_library_shared {
+@@ -9769,13 +9000,22 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -2268,7 +2275,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -9785,11 +9018,11 @@ cc_prebuilt_library_shared {
+@@ -9785,11 +9025,11 @@ cc_prebuilt_library_shared {
      },
      compile_multilib: "64",
      prefer: true,
@@ -2282,7 +2289,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -9797,10 +9030,12 @@ cc_prebuilt_library_shared {
+@@ -9797,10 +9037,12 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -2297,7 +2304,7 @@ index ec0ab70..77c7454 100644
                  "liblog",
                  "libutils",
                  "libcutils",
-@@ -9813,197 +9048,376 @@ cc_prebuilt_library_shared {
+@@ -9813,197 +9055,376 @@ cc_prebuilt_library_shared {
      },
      compile_multilib: "64",
      prefer: true,
@@ -2781,7 +2788,7 @@ index ec0ab70..77c7454 100644
              ],
              shared_libs: [
                  "liblog",
-@@ -10015,25 +9429,24 @@ cc_prebuilt_library_shared {
+@@ -10015,25 +9436,24 @@ cc_prebuilt_library_shared {
          },
      },
      compile_multilib: "64",
@@ -2815,7 +2822,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -10042,26 +9455,26 @@ cc_prebuilt_library_shared {
+@@ -10042,26 +9462,26 @@ cc_prebuilt_library_shared {
          },
      },
      compile_multilib: "64",
@@ -2852,7 +2859,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -10070,26 +9483,31 @@ cc_prebuilt_library_shared {
+@@ -10070,26 +9490,31 @@ cc_prebuilt_library_shared {
          },
      },
      compile_multilib: "64",
@@ -2893,7 +2900,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -10098,26 +9516,29 @@ cc_prebuilt_library_shared {
+@@ -10098,26 +9523,29 @@ cc_prebuilt_library_shared {
          },
      },
      compile_multilib: "64",
@@ -2932,7 +2939,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -10126,26 +9547,25 @@ cc_prebuilt_library_shared {
+@@ -10126,26 +9554,25 @@ cc_prebuilt_library_shared {
          },
      },
      compile_multilib: "64",
@@ -2968,7 +2975,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -10154,37 +9574,25 @@ cc_prebuilt_library_shared {
+@@ -10154,37 +9581,25 @@ cc_prebuilt_library_shared {
          },
      },
      compile_multilib: "64",
@@ -3015,7 +3022,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -10193,24 +9601,28 @@ cc_prebuilt_library_shared {
+@@ -10193,24 +9608,28 @@ cc_prebuilt_library_shared {
          },
      },
      compile_multilib: "64",
@@ -3052,7 +3059,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -10219,38 +9631,41 @@ cc_prebuilt_library_shared {
+@@ -10219,38 +9638,41 @@ cc_prebuilt_library_shared {
          },
      },
      compile_multilib: "64",
@@ -3113,7 +3120,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -10259,37 +9674,24 @@ cc_prebuilt_library_shared {
+@@ -10259,37 +9681,24 @@ cc_prebuilt_library_shared {
          },
      },
      compile_multilib: "64",
@@ -3160,7 +3167,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -10298,28 +9700,36 @@ cc_prebuilt_library_shared {
+@@ -10298,28 +9707,36 @@ cc_prebuilt_library_shared {
          },
      },
      compile_multilib: "64",
@@ -3208,7 +3215,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -10328,34 +9738,37 @@ cc_prebuilt_library_shared {
+@@ -10328,34 +9745,37 @@ cc_prebuilt_library_shared {
          },
      },
      compile_multilib: "64",
@@ -3263,7 +3270,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -10364,43 +9777,30 @@ cc_prebuilt_library_shared {
+@@ -10364,43 +9784,30 @@ cc_prebuilt_library_shared {
          },
      },
      compile_multilib: "64",
@@ -3320,7 +3327,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -10409,29 +9809,33 @@ cc_prebuilt_library_shared {
+@@ -10409,29 +9816,33 @@ cc_prebuilt_library_shared {
          },
      },
      compile_multilib: "64",
@@ -3364,7 +3371,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -10440,57 +9844,31 @@ cc_prebuilt_library_shared {
+@@ -10440,57 +9851,31 @@ cc_prebuilt_library_shared {
          },
      },
      compile_multilib: "64",
@@ -3433,7 +3440,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -10499,45 +9877,31 @@ cc_prebuilt_library_shared {
+@@ -10499,45 +9884,31 @@ cc_prebuilt_library_shared {
          },
      },
      compile_multilib: "64",
@@ -3492,7 +3499,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -10546,44 +9910,32 @@ cc_prebuilt_library_shared {
+@@ -10546,44 +9917,32 @@ cc_prebuilt_library_shared {
          },
      },
      compile_multilib: "64",
@@ -3551,7 +3558,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -10592,39 +9944,33 @@ cc_prebuilt_library_shared {
+@@ -10592,39 +9951,33 @@ cc_prebuilt_library_shared {
          },
      },
      compile_multilib: "64",
@@ -3607,7 +3614,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -10633,29 +9979,32 @@ cc_prebuilt_library_shared {
+@@ -10633,29 +9986,32 @@ cc_prebuilt_library_shared {
          },
      },
      compile_multilib: "64",
@@ -3653,7 +3660,7 @@ index ec0ab70..77c7454 100644
                  "libc",
                  "libm",
                  "libdl",
-@@ -10663,44 +10012,31 @@ cc_prebuilt_library_shared {
+@@ -10663,44 +10019,31 @@ cc_prebuilt_library_shared {
          },
      },
      compile_multilib: "64",
@@ -3711,7 +3718,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -10709,39 +10045,36 @@ cc_prebuilt_library_shared {
+@@ -10709,39 +10052,36 @@ cc_prebuilt_library_shared {
          },
      },
      compile_multilib: "64",
@@ -3770,7 +3777,7 @@ index ec0ab70..77c7454 100644
                  "libc",
                  "libm",
                  "libdl",
-@@ -10749,28 +10082,40 @@ cc_prebuilt_library_shared {
+@@ -10749,28 +10089,40 @@ cc_prebuilt_library_shared {
          },
      },
      compile_multilib: "64",
@@ -3822,7 +3829,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -10779,27 +10124,128 @@ cc_prebuilt_library_shared {
+@@ -10779,27 +10131,128 @@ cc_prebuilt_library_shared {
          },
      },
      compile_multilib: "64",
@@ -3962,7 +3969,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -10808,29 +10254,29 @@ cc_prebuilt_library_shared {
+@@ -10808,29 +10261,29 @@ cc_prebuilt_library_shared {
          },
      },
      compile_multilib: "64",
@@ -4005,7 +4012,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -10839,60 +10285,57 @@ cc_prebuilt_library_shared {
+@@ -10839,60 +10292,57 @@ cc_prebuilt_library_shared {
          },
      },
      compile_multilib: "64",
@@ -4090,7 +4097,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -10901,26 +10344,26 @@ cc_prebuilt_library_shared {
+@@ -10901,26 +10351,26 @@ cc_prebuilt_library_shared {
          },
      },
      compile_multilib: "64",
@@ -4127,7 +4134,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -10929,26 +10372,32 @@ cc_prebuilt_library_shared {
+@@ -10929,26 +10379,32 @@ cc_prebuilt_library_shared {
          },
      },
      compile_multilib: "64",
@@ -4170,7 +4177,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -10957,27 +10406,42 @@ cc_prebuilt_library_shared {
+@@ -10957,27 +10413,42 @@ cc_prebuilt_library_shared {
          },
      },
      compile_multilib: "64",
@@ -4223,7 +4230,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -10986,33 +10450,26 @@ cc_prebuilt_library_shared {
+@@ -10986,33 +10457,26 @@ cc_prebuilt_library_shared {
          },
      },
      compile_multilib: "64",
@@ -4268,7 +4275,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -11021,28 +10478,23 @@ cc_prebuilt_library_shared {
+@@ -11021,28 +10485,23 @@ cc_prebuilt_library_shared {
          },
      },
      compile_multilib: "64",
@@ -4305,7 +4312,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -11051,26 +10503,23 @@ cc_prebuilt_library_shared {
+@@ -11051,26 +10510,23 @@ cc_prebuilt_library_shared {
          },
      },
      compile_multilib: "64",
@@ -4340,7 +4347,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -11079,26 +10528,23 @@ cc_prebuilt_library_shared {
+@@ -11079,26 +10535,23 @@ cc_prebuilt_library_shared {
          },
      },
      compile_multilib: "64",
@@ -4375,7 +4382,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -11107,24 +10553,29 @@ cc_prebuilt_library_shared {
+@@ -11107,24 +10560,29 @@ cc_prebuilt_library_shared {
          },
      },
      compile_multilib: "64",
@@ -4414,7 +4421,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -11133,25 +10584,26 @@ cc_prebuilt_library_shared {
+@@ -11133,25 +10591,26 @@ cc_prebuilt_library_shared {
          },
      },
      compile_multilib: "64",
@@ -4451,7 +4458,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -11160,32 +10612,27 @@ cc_prebuilt_library_shared {
+@@ -11160,32 +10619,27 @@ cc_prebuilt_library_shared {
          },
      },
      compile_multilib: "64",
@@ -4494,7 +4501,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -11194,26 +10641,28 @@ cc_prebuilt_library_shared {
+@@ -11194,26 +10648,28 @@ cc_prebuilt_library_shared {
          },
      },
      compile_multilib: "64",
@@ -4533,7 +4540,7 @@ index ec0ab70..77c7454 100644
                  "libc",
                  "libm",
                  "libdl",
-@@ -11221,30 +10670,33 @@ cc_prebuilt_library_shared {
+@@ -11221,30 +10677,33 @@ cc_prebuilt_library_shared {
          },
      },
      compile_multilib: "64",
@@ -4580,7 +4587,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -11253,35 +10705,30 @@ cc_prebuilt_library_shared {
+@@ -11253,35 +10712,30 @@ cc_prebuilt_library_shared {
          },
      },
      compile_multilib: "64",
@@ -4629,7 +4636,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -11290,29 +10737,26 @@ cc_prebuilt_library_shared {
+@@ -11290,29 +10744,26 @@ cc_prebuilt_library_shared {
          },
      },
      compile_multilib: "64",
@@ -4668,7 +4675,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -11321,58 +10765,59 @@ cc_prebuilt_library_shared {
+@@ -11321,58 +10772,59 @@ cc_prebuilt_library_shared {
          },
      },
      compile_multilib: "64",
@@ -4755,7 +4762,7 @@ index ec0ab70..77c7454 100644
                  "libc",
                  "libm",
                  "libdl",
-@@ -11380,28 +10825,26 @@ cc_prebuilt_library_shared {
+@@ -11380,28 +10832,26 @@ cc_prebuilt_library_shared {
          },
      },
      compile_multilib: "64",
@@ -4793,7 +4800,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -11410,35 +10853,26 @@ cc_prebuilt_library_shared {
+@@ -11410,35 +10860,26 @@ cc_prebuilt_library_shared {
          },
      },
      compile_multilib: "64",
@@ -4839,7 +4846,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -11447,28 +10881,27 @@ cc_prebuilt_library_shared {
+@@ -11447,28 +10888,27 @@ cc_prebuilt_library_shared {
          },
      },
      compile_multilib: "64",
@@ -4879,7 +4886,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -11477,27 +10910,33 @@ cc_prebuilt_library_shared {
+@@ -11477,27 +10917,33 @@ cc_prebuilt_library_shared {
          },
      },
      compile_multilib: "64",
@@ -4924,7 +4931,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -11506,35 +10945,27 @@ cc_prebuilt_library_shared {
+@@ -11506,35 +10952,27 @@ cc_prebuilt_library_shared {
          },
      },
      compile_multilib: "64",
@@ -4970,7 +4977,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -11543,36 +10974,55 @@ cc_prebuilt_library_shared {
+@@ -11543,36 +10981,55 @@ cc_prebuilt_library_shared {
          },
      },
      compile_multilib: "64",
@@ -5042,7 +5049,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -11581,5940 +11031,62 @@ cc_prebuilt_library_shared {
+@@ -11581,5940 +11038,62 @@ cc_prebuilt_library_shared {
          },
      },
      compile_multilib: "64",
@@ -11021,7 +11028,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -17523,65 +11095,38 @@ cc_prebuilt_library_shared {
+@@ -17523,65 +11102,38 @@ cc_prebuilt_library_shared {
          },
      },
      compile_multilib: "64",
@@ -11105,7 +11112,7 @@ index ec0ab70..77c7454 100644
                  "libc",
                  "libm",
                  "libdl",
-@@ -17589,62 +11134,27 @@ cc_prebuilt_library_shared {
+@@ -17589,62 +11141,27 @@ cc_prebuilt_library_shared {
          },
      },
      compile_multilib: "64",
@@ -11174,7 +11181,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -17653,54 +11163,29 @@ cc_prebuilt_library_shared {
+@@ -17653,54 +11170,29 @@ cc_prebuilt_library_shared {
          },
      },
      compile_multilib: "64",
@@ -11237,7 +11244,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -17709,62 +11194,43 @@ cc_prebuilt_library_shared {
+@@ -17709,62 +11201,43 @@ cc_prebuilt_library_shared {
          },
      },
      compile_multilib: "64",
@@ -11322,7 +11329,7 @@ index ec0ab70..77c7454 100644
                  "libc",
                  "libm",
                  "libdl",
-@@ -17772,46 +11238,26 @@ cc_prebuilt_library_shared {
+@@ -17772,46 +11245,26 @@ cc_prebuilt_library_shared {
          },
      },
      compile_multilib: "64",
@@ -11378,7 +11385,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -17820,23 +11266,34 @@ cc_prebuilt_library_shared {
+@@ -17820,23 +11273,34 @@ cc_prebuilt_library_shared {
          },
      },
      compile_multilib: "64",
@@ -11421,7 +11428,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -17845,84 +11302,101 @@ cc_prebuilt_library_shared {
+@@ -17845,84 +11309,101 @@ cc_prebuilt_library_shared {
          },
      },
      compile_multilib: "64",
@@ -11557,7 +11564,7 @@ index ec0ab70..77c7454 100644
                  "liblog",
                  "libc++",
                  "libc",
-@@ -17932,27 +11406,28 @@ cc_prebuilt_library_shared {
+@@ -17932,27 +11413,28 @@ cc_prebuilt_library_shared {
          },
      },
      compile_multilib: "64",
@@ -11596,7 +11603,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -17961,30 +11436,34 @@ cc_prebuilt_library_shared {
+@@ -17961,30 +11443,34 @@ cc_prebuilt_library_shared {
          },
      },
      compile_multilib: "64",
@@ -11644,7 +11651,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -17993,12 +11472,16 @@ cc_prebuilt_library_shared {
+@@ -17993,12 +11479,16 @@ cc_prebuilt_library_shared {
          },
      },
      compile_multilib: "64",
@@ -11663,7 +11670,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -18006,13 +11489,13 @@ cc_prebuilt_library_shared {
+@@ -18006,13 +11496,13 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -11681,7 +11688,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -18026,7 +11509,7 @@ cc_prebuilt_library_shared {
+@@ -18026,7 +11516,7 @@ cc_prebuilt_library_shared {
  }
  
  cc_prebuilt_library_shared {
@@ -11690,7 +11697,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -18034,11 +11517,13 @@ cc_prebuilt_library_shared {
+@@ -18034,11 +11524,13 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -11707,7 +11714,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -18052,7 +11537,7 @@ cc_prebuilt_library_shared {
+@@ -18052,7 +11544,7 @@ cc_prebuilt_library_shared {
  }
  
  cc_prebuilt_library_shared {
@@ -11716,7 +11723,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -18060,20 +11545,22 @@ cc_prebuilt_library_shared {
+@@ -18060,20 +11552,22 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -11748,7 +11755,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -18087,7 +11574,7 @@ cc_prebuilt_library_shared {
+@@ -18087,7 +11581,7 @@ cc_prebuilt_library_shared {
  }
  
  cc_prebuilt_library_shared {
@@ -11757,7 +11764,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -18095,12 +11582,24 @@ cc_prebuilt_library_shared {
+@@ -18095,12 +11589,24 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -11785,7 +11792,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -18109,12 +11608,13 @@ cc_prebuilt_library_shared {
+@@ -18109,12 +11615,13 @@ cc_prebuilt_library_shared {
          },
      },
      compile_multilib: "64",
@@ -11800,7 +11807,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -18122,18 +11622,11 @@ cc_prebuilt_library_shared {
+@@ -18122,18 +11629,11 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -11821,7 +11828,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -18142,12 +11635,13 @@ cc_prebuilt_library_shared {
+@@ -18142,12 +11642,13 @@ cc_prebuilt_library_shared {
          },
      },
      compile_multilib: "64",
@@ -11836,7 +11843,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -18155,19 +11649,31 @@ cc_prebuilt_library_shared {
+@@ -18155,19 +11656,31 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -11877,7 +11884,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -18181,7 +11687,7 @@ cc_prebuilt_library_shared {
+@@ -18181,7 +11694,7 @@ cc_prebuilt_library_shared {
  }
  
  cc_prebuilt_library_shared {
@@ -11886,7 +11893,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -18189,25 +11695,18 @@ cc_prebuilt_library_shared {
+@@ -18189,25 +11702,18 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -11919,7 +11926,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -18221,7 +11720,7 @@ cc_prebuilt_library_shared {
+@@ -18221,7 +11727,7 @@ cc_prebuilt_library_shared {
  }
  
  cc_prebuilt_library_shared {
@@ -11928,7 +11935,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -18229,12 +11728,18 @@ cc_prebuilt_library_shared {
+@@ -18229,12 +11735,18 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -11949,7 +11956,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -18248,7 +11753,7 @@ cc_prebuilt_library_shared {
+@@ -18248,7 +11760,7 @@ cc_prebuilt_library_shared {
  }
  
  cc_prebuilt_library_shared {
@@ -11958,7 +11965,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -18256,13 +11761,12 @@ cc_prebuilt_library_shared {
+@@ -18256,13 +11768,12 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -11975,7 +11982,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -18276,7 +11780,7 @@ cc_prebuilt_library_shared {
+@@ -18276,7 +11787,7 @@ cc_prebuilt_library_shared {
  }
  
  cc_prebuilt_library_shared {
@@ -11984,7 +11991,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -18284,13 +11788,38 @@ cc_prebuilt_library_shared {
+@@ -18284,13 +11795,38 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -12028,7 +12035,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -18304,7 +11833,7 @@ cc_prebuilt_library_shared {
+@@ -18304,7 +11840,7 @@ cc_prebuilt_library_shared {
  }
  
  cc_prebuilt_library_shared {
@@ -12037,7 +12044,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -18312,12 +11841,32 @@ cc_prebuilt_library_shared {
+@@ -18312,12 +11848,32 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -12074,7 +12081,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -18331,7 +11880,7 @@ cc_prebuilt_library_shared {
+@@ -18331,7 +11887,7 @@ cc_prebuilt_library_shared {
  }
  
  cc_prebuilt_library_shared {
@@ -12083,7 +12090,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -18339,10 +11888,21 @@ cc_prebuilt_library_shared {
+@@ -18339,10 +11895,21 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -12107,7 +12114,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -18356,7 +11916,7 @@ cc_prebuilt_library_shared {
+@@ -18356,7 +11923,7 @@ cc_prebuilt_library_shared {
  }
  
  cc_prebuilt_library_shared {
@@ -12116,7 +12123,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -18364,20 +11924,12 @@ cc_prebuilt_library_shared {
+@@ -18364,20 +11931,12 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -12141,7 +12148,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -18391,7 +11943,7 @@ cc_prebuilt_library_shared {
+@@ -18391,7 +11950,7 @@ cc_prebuilt_library_shared {
  }
  
  cc_prebuilt_library_shared {
@@ -12150,7 +12157,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -18399,17 +11951,14 @@ cc_prebuilt_library_shared {
+@@ -18399,17 +11958,14 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -12173,7 +12180,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -18423,7 +11972,7 @@ cc_prebuilt_library_shared {
+@@ -18423,7 +11979,7 @@ cc_prebuilt_library_shared {
  }
  
  cc_prebuilt_library_shared {
@@ -12182,7 +12189,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -18431,17 +11980,16 @@ cc_prebuilt_library_shared {
+@@ -18431,17 +11987,16 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -12207,7 +12214,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -18455,7 +12003,7 @@ cc_prebuilt_library_shared {
+@@ -18455,7 +12010,7 @@ cc_prebuilt_library_shared {
  }
  
  cc_prebuilt_library_shared {
@@ -12216,7 +12223,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -18463,21 +12011,17 @@ cc_prebuilt_library_shared {
+@@ -18463,21 +12018,17 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -12245,7 +12252,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -18491,7 +12035,7 @@ cc_prebuilt_library_shared {
+@@ -18491,7 +12042,7 @@ cc_prebuilt_library_shared {
  }
  
  cc_prebuilt_library_shared {
@@ -12254,7 +12261,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -18499,19 +12043,14 @@ cc_prebuilt_library_shared {
+@@ -18499,19 +12050,14 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -12278,7 +12285,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -18525,7 +12064,7 @@ cc_prebuilt_library_shared {
+@@ -18525,7 +12071,7 @@ cc_prebuilt_library_shared {
  }
  
  cc_prebuilt_library_shared {
@@ -12287,7 +12294,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -18533,19 +12072,19 @@ cc_prebuilt_library_shared {
+@@ -18533,19 +12079,19 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -12316,7 +12323,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -18559,7 +12098,7 @@ cc_prebuilt_library_shared {
+@@ -18559,7 +12105,7 @@ cc_prebuilt_library_shared {
  }
  
  cc_prebuilt_library_shared {
@@ -12325,7 +12332,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -18567,20 +12106,12 @@ cc_prebuilt_library_shared {
+@@ -18567,20 +12113,12 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -12349,7 +12356,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -18594,7 +12125,7 @@ cc_prebuilt_library_shared {
+@@ -18594,7 +12132,7 @@ cc_prebuilt_library_shared {
  }
  
  cc_prebuilt_library_shared {
@@ -12358,7 +12365,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -18602,19 +12133,13 @@ cc_prebuilt_library_shared {
+@@ -18602,19 +12140,13 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -12381,7 +12388,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -18628,7 +12153,7 @@ cc_prebuilt_library_shared {
+@@ -18628,7 +12160,7 @@ cc_prebuilt_library_shared {
  }
  
  cc_prebuilt_library_shared {
@@ -12390,7 +12397,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -18636,20 +12161,14 @@ cc_prebuilt_library_shared {
+@@ -18636,20 +12168,14 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -12416,7 +12423,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -18663,7 +12182,7 @@ cc_prebuilt_library_shared {
+@@ -18663,7 +12189,7 @@ cc_prebuilt_library_shared {
  }
  
  cc_prebuilt_library_shared {
@@ -12425,7 +12432,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -18671,21 +12190,14 @@ cc_prebuilt_library_shared {
+@@ -18671,21 +12197,14 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -12452,7 +12459,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -18699,7 +12211,7 @@ cc_prebuilt_library_shared {
+@@ -18699,7 +12218,7 @@ cc_prebuilt_library_shared {
  }
  
  cc_prebuilt_library_shared {
@@ -12461,7 +12468,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -18707,21 +12219,11 @@ cc_prebuilt_library_shared {
+@@ -18707,21 +12226,11 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -12485,7 +12492,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -18735,7 +12237,7 @@ cc_prebuilt_library_shared {
+@@ -18735,7 +12244,7 @@ cc_prebuilt_library_shared {
  }
  
  cc_prebuilt_library_shared {
@@ -12494,7 +12501,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -18743,19 +12245,11 @@ cc_prebuilt_library_shared {
+@@ -18743,19 +12252,11 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -12516,7 +12523,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -18769,7 +12263,7 @@ cc_prebuilt_library_shared {
+@@ -18769,7 +12270,7 @@ cc_prebuilt_library_shared {
  }
  
  cc_prebuilt_library_shared {
@@ -12525,7 +12532,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -18777,18 +12271,42 @@ cc_prebuilt_library_shared {
+@@ -18777,18 +12278,42 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -12576,7 +12583,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -18802,7 +12320,7 @@ cc_prebuilt_library_shared {
+@@ -18802,7 +12327,7 @@ cc_prebuilt_library_shared {
  }
  
  cc_prebuilt_library_shared {
@@ -12585,7 +12592,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -18810,17 +12328,18 @@ cc_prebuilt_library_shared {
+@@ -18810,17 +12335,18 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -12612,7 +12619,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -18834,7 +12353,7 @@ cc_prebuilt_library_shared {
+@@ -18834,7 +12360,7 @@ cc_prebuilt_library_shared {
  }
  
  cc_prebuilt_library_shared {
@@ -12621,7 +12628,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -18842,20 +12361,11 @@ cc_prebuilt_library_shared {
+@@ -18842,20 +12368,11 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -12644,7 +12651,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -18869,7 +12379,7 @@ cc_prebuilt_library_shared {
+@@ -18869,7 +12386,7 @@ cc_prebuilt_library_shared {
  }
  
  cc_prebuilt_library_shared {
@@ -12653,7 +12660,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -18877,12 +12387,10 @@ cc_prebuilt_library_shared {
+@@ -18877,12 +12394,10 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -12668,7 +12675,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -18896,7 +12404,7 @@ cc_prebuilt_library_shared {
+@@ -18896,7 +12411,7 @@ cc_prebuilt_library_shared {
  }
  
  cc_prebuilt_library_shared {
@@ -12677,7 +12684,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -18904,15 +12412,14 @@ cc_prebuilt_library_shared {
+@@ -18904,15 +12419,14 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -12698,7 +12705,7 @@ index ec0ab70..77c7454 100644
                  "libc",
                  "libm",
                  "libdl",
-@@ -18925,7 +12432,7 @@ cc_prebuilt_library_shared {
+@@ -18925,7 +12439,7 @@ cc_prebuilt_library_shared {
  }
  
  cc_prebuilt_library_shared {
@@ -12707,7 +12714,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -18933,27 +12440,16 @@ cc_prebuilt_library_shared {
+@@ -18933,27 +12447,16 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -12740,7 +12747,7 @@ index ec0ab70..77c7454 100644
                  "libc",
                  "libm",
                  "libdl",
-@@ -18966,7 +12462,7 @@ cc_prebuilt_library_shared {
+@@ -18966,7 +12469,7 @@ cc_prebuilt_library_shared {
  }
  
  cc_prebuilt_library_shared {
@@ -12749,7 +12756,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -18974,11 +12470,18 @@ cc_prebuilt_library_shared {
+@@ -18974,11 +12477,18 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -12770,7 +12777,7 @@ index ec0ab70..77c7454 100644
                  "libc",
                  "libm",
                  "libdl",
-@@ -18991,7 +12494,7 @@ cc_prebuilt_library_shared {
+@@ -18991,7 +12501,7 @@ cc_prebuilt_library_shared {
  }
  
  cc_prebuilt_library_shared {
@@ -12779,7 +12786,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -18999,16 +12502,24 @@ cc_prebuilt_library_shared {
+@@ -18999,16 +12509,24 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -12810,7 +12817,7 @@ index ec0ab70..77c7454 100644
                  "libc",
                  "libm",
                  "libdl",
-@@ -19021,7 +12532,7 @@ cc_prebuilt_library_shared {
+@@ -19021,7 +12539,7 @@ cc_prebuilt_library_shared {
  }
  
  cc_prebuilt_library_shared {
@@ -12819,7 +12826,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -19029,12 +12540,14 @@ cc_prebuilt_library_shared {
+@@ -19029,12 +12547,14 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -12838,7 +12845,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -19048,7 +12561,7 @@ cc_prebuilt_library_shared {
+@@ -19048,7 +12568,7 @@ cc_prebuilt_library_shared {
  }
  
  cc_prebuilt_library_shared {
@@ -12847,7 +12854,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -19056,12 +12569,19 @@ cc_prebuilt_library_shared {
+@@ -19056,12 +12576,19 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -12871,7 +12878,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -19075,7 +12595,7 @@ cc_prebuilt_library_shared {
+@@ -19075,7 +12602,7 @@ cc_prebuilt_library_shared {
  }
  
  cc_prebuilt_library_shared {
@@ -12880,7 +12887,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -19083,16 +12603,16 @@ cc_prebuilt_library_shared {
+@@ -19083,16 +12610,16 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -12903,7 +12910,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -19106,7 +12626,7 @@ cc_prebuilt_library_shared {
+@@ -19106,7 +12633,7 @@ cc_prebuilt_library_shared {
  }
  
  cc_prebuilt_library_shared {
@@ -12912,7 +12919,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -19114,16 +12634,18 @@ cc_prebuilt_library_shared {
+@@ -19114,16 +12641,18 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -12937,7 +12944,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -19137,7 +12659,7 @@ cc_prebuilt_library_shared {
+@@ -19137,7 +12666,7 @@ cc_prebuilt_library_shared {
  }
  
  cc_prebuilt_library_shared {
@@ -12946,7 +12953,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -19145,22 +12667,16 @@ cc_prebuilt_library_shared {
+@@ -19145,22 +12674,16 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -12975,7 +12982,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -19174,7 +12690,7 @@ cc_prebuilt_library_shared {
+@@ -19174,7 +12697,7 @@ cc_prebuilt_library_shared {
  }
  
  cc_prebuilt_library_shared {
@@ -12984,7 +12991,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -19182,19 +12698,14 @@ cc_prebuilt_library_shared {
+@@ -19182,19 +12705,14 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -13009,7 +13016,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -19208,7 +12719,7 @@ cc_prebuilt_library_shared {
+@@ -19208,7 +12726,7 @@ cc_prebuilt_library_shared {
  }
  
  cc_prebuilt_library_shared {
@@ -13018,7 +13025,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -19216,22 +12727,14 @@ cc_prebuilt_library_shared {
+@@ -19216,22 +12734,14 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -13046,7 +13053,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -19245,8 +12748,7 @@ cc_prebuilt_library_shared {
+@@ -19245,8 +12755,7 @@ cc_prebuilt_library_shared {
  }
  
  cc_prebuilt_library_shared {
@@ -13056,7 +13063,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -19254,11 +12756,13 @@ cc_prebuilt_library_shared {
+@@ -19254,11 +12763,13 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -13073,7 +13080,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -19272,7 +12776,7 @@ cc_prebuilt_library_shared {
+@@ -19272,7 +12783,7 @@ cc_prebuilt_library_shared {
  }
  
  cc_prebuilt_library_shared {
@@ -13082,7 +13089,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -19280,19 +12784,13 @@ cc_prebuilt_library_shared {
+@@ -19280,19 +12791,13 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -13106,7 +13113,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -19306,7 +12804,7 @@ cc_prebuilt_library_shared {
+@@ -19306,7 +12811,7 @@ cc_prebuilt_library_shared {
  }
  
  cc_prebuilt_library_shared {
@@ -13115,7 +13122,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -19314,18 +12812,13 @@ cc_prebuilt_library_shared {
+@@ -19314,18 +12819,13 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -13139,7 +13146,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -19339,7 +12832,7 @@ cc_prebuilt_library_shared {
+@@ -19339,7 +12839,7 @@ cc_prebuilt_library_shared {
  }
  
  cc_prebuilt_library_shared {
@@ -13148,7 +13155,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -19347,13 +12840,27 @@ cc_prebuilt_library_shared {
+@@ -19347,13 +12847,27 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -13179,7 +13186,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -19367,7 +12874,7 @@ cc_prebuilt_library_shared {
+@@ -19367,7 +12881,7 @@ cc_prebuilt_library_shared {
  }
  
  cc_prebuilt_library_shared {
@@ -13188,7 +13195,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -19375,10 +12882,14 @@ cc_prebuilt_library_shared {
+@@ -19375,10 +12889,14 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -13205,7 +13212,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -19392,7 +12903,7 @@ cc_prebuilt_library_shared {
+@@ -19392,7 +12910,7 @@ cc_prebuilt_library_shared {
  }
  
  cc_prebuilt_library_shared {
@@ -13214,7 +13221,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -19400,13 +12911,22 @@ cc_prebuilt_library_shared {
+@@ -19400,13 +12918,22 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -13239,7 +13246,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -19420,7 +12940,7 @@ cc_prebuilt_library_shared {
+@@ -19420,7 +12947,7 @@ cc_prebuilt_library_shared {
  }
  
  cc_prebuilt_library_shared {
@@ -13248,7 +13255,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -19428,10 +12948,16 @@ cc_prebuilt_library_shared {
+@@ -19428,10 +12955,16 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -13267,7 +13274,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -19445,7 +12971,7 @@ cc_prebuilt_library_shared {
+@@ -19445,7 +12978,7 @@ cc_prebuilt_library_shared {
  }
  
  cc_prebuilt_library_shared {
@@ -13276,7 +13283,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -19453,27 +12979,44 @@ cc_prebuilt_library_shared {
+@@ -19453,27 +12986,44 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -13337,7 +13344,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -19487,7 +13030,7 @@ cc_prebuilt_library_shared {
+@@ -19487,7 +13037,7 @@ cc_prebuilt_library_shared {
  }
  
  cc_prebuilt_library_shared {
@@ -13346,7 +13353,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -19495,13 +13038,13 @@ cc_prebuilt_library_shared {
+@@ -19495,13 +13045,13 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -13363,7 +13370,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -19515,7 +13058,7 @@ cc_prebuilt_library_shared {
+@@ -19515,7 +13065,7 @@ cc_prebuilt_library_shared {
  }
  
  cc_prebuilt_library_shared {
@@ -13372,7 +13379,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -19523,11 +13066,19 @@ cc_prebuilt_library_shared {
+@@ -19523,11 +13073,19 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -13395,7 +13402,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -19541,7 +13092,7 @@ cc_prebuilt_library_shared {
+@@ -19541,7 +13099,7 @@ cc_prebuilt_library_shared {
  }
  
  cc_prebuilt_library_shared {
@@ -13404,7 +13411,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -19549,12 +13100,15 @@ cc_prebuilt_library_shared {
+@@ -19549,12 +13107,15 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -13423,7 +13430,7 @@ index ec0ab70..77c7454 100644
                  "libm",
                  "libdl",
              ],
-@@ -19566,7 +13120,7 @@ cc_prebuilt_library_shared {
+@@ -19566,7 +13127,7 @@ cc_prebuilt_library_shared {
  }
  
  cc_prebuilt_library_shared {
@@ -13432,7 +13439,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -19574,11 +13128,15 @@ cc_prebuilt_library_shared {
+@@ -19574,11 +13135,15 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -13451,7 +13458,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -19592,7 +13150,7 @@ cc_prebuilt_library_shared {
+@@ -19592,7 +13157,7 @@ cc_prebuilt_library_shared {
  }
  
  cc_prebuilt_library_shared {
@@ -13460,7 +13467,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -19600,13 +13158,19 @@ cc_prebuilt_library_shared {
+@@ -19600,13 +13165,19 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -13483,7 +13490,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -19620,7 +13184,7 @@ cc_prebuilt_library_shared {
+@@ -19620,7 +13191,7 @@ cc_prebuilt_library_shared {
  }
  
  cc_prebuilt_library_shared {
@@ -13492,7 +13499,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -19628,14 +13192,13 @@ cc_prebuilt_library_shared {
+@@ -19628,14 +13199,13 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -13510,7 +13517,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -19649,7 +13212,7 @@ cc_prebuilt_library_shared {
+@@ -19649,7 +13219,7 @@ cc_prebuilt_library_shared {
  }
  
  cc_prebuilt_library_shared {
@@ -13519,7 +13526,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -19657,10 +13220,13 @@ cc_prebuilt_library_shared {
+@@ -19657,10 +13227,13 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -13535,7 +13542,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -19674,7 +13240,7 @@ cc_prebuilt_library_shared {
+@@ -19674,7 +13247,7 @@ cc_prebuilt_library_shared {
  }
  
  cc_prebuilt_library_shared {
@@ -13544,7 +13551,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -19682,12 +13248,13 @@ cc_prebuilt_library_shared {
+@@ -19682,12 +13255,13 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -13562,7 +13569,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -19701,7 +13268,7 @@ cc_prebuilt_library_shared {
+@@ -19701,7 +13275,7 @@ cc_prebuilt_library_shared {
  }
  
  cc_prebuilt_library_shared {
@@ -13571,7 +13578,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -19709,10 +13276,12 @@ cc_prebuilt_library_shared {
+@@ -19709,10 +13283,12 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -13586,7 +13593,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -19726,7 +13295,7 @@ cc_prebuilt_library_shared {
+@@ -19726,7 +13302,7 @@ cc_prebuilt_library_shared {
  }
  
  cc_prebuilt_library_shared {
@@ -13595,7 +13602,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -19734,13 +13303,13 @@ cc_prebuilt_library_shared {
+@@ -19734,13 +13310,13 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -13613,7 +13620,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -19754,7 +13323,7 @@ cc_prebuilt_library_shared {
+@@ -19754,7 +13330,7 @@ cc_prebuilt_library_shared {
  }
  
  cc_prebuilt_library_shared {
@@ -13622,7 +13629,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -19762,14 +13331,13 @@ cc_prebuilt_library_shared {
+@@ -19762,14 +13338,13 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -13641,7 +13648,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -19783,7 +13351,7 @@ cc_prebuilt_library_shared {
+@@ -19783,7 +13358,7 @@ cc_prebuilt_library_shared {
  }
  
  cc_prebuilt_library_shared {
@@ -13650,7 +13657,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -19791,10 +13359,22 @@ cc_prebuilt_library_shared {
+@@ -19791,10 +13366,22 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -13675,7 +13682,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -19808,7 +13388,7 @@ cc_prebuilt_library_shared {
+@@ -19808,7 +13395,7 @@ cc_prebuilt_library_shared {
  }
  
  cc_prebuilt_library_shared {
@@ -13684,7 +13691,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -19816,13 +13396,19 @@ cc_prebuilt_library_shared {
+@@ -19816,13 +13403,19 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -13707,7 +13714,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -19836,7 +13422,7 @@ cc_prebuilt_library_shared {
+@@ -19836,7 +13429,7 @@ cc_prebuilt_library_shared {
  }
  
  cc_prebuilt_library_shared {
@@ -13716,7 +13723,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -19844,14 +13430,14 @@ cc_prebuilt_library_shared {
+@@ -19844,14 +13437,14 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -13735,7 +13742,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -19865,7 +13451,7 @@ cc_prebuilt_library_shared {
+@@ -19865,7 +13458,7 @@ cc_prebuilt_library_shared {
  }
  
  cc_prebuilt_library_shared {
@@ -13744,7 +13751,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -19873,10 +13459,16 @@ cc_prebuilt_library_shared {
+@@ -19873,10 +13466,16 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -13763,7 +13770,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -19890,7 +13482,7 @@ cc_prebuilt_library_shared {
+@@ -19890,7 +13489,7 @@ cc_prebuilt_library_shared {
  }
  
  cc_prebuilt_library_shared {
@@ -13772,7 +13779,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -19898,13 +13490,11 @@ cc_prebuilt_library_shared {
+@@ -19898,13 +13497,11 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -13789,7 +13796,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -19918,7 +13508,7 @@ cc_prebuilt_library_shared {
+@@ -19918,7 +13515,7 @@ cc_prebuilt_library_shared {
  }
  
  cc_prebuilt_library_shared {
@@ -13798,7 +13805,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -19926,10 +13516,17 @@ cc_prebuilt_library_shared {
+@@ -19926,10 +13523,17 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -13818,7 +13825,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -19943,7 +13540,7 @@ cc_prebuilt_library_shared {
+@@ -19943,7 +13547,7 @@ cc_prebuilt_library_shared {
  }
  
  cc_prebuilt_library_shared {
@@ -13827,7 +13834,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -19951,13 +13548,17 @@ cc_prebuilt_library_shared {
+@@ -19951,13 +13555,17 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -13849,7 +13856,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -19971,7 +13572,7 @@ cc_prebuilt_library_shared {
+@@ -19971,7 +13579,7 @@ cc_prebuilt_library_shared {
  }
  
  cc_prebuilt_library_shared {
@@ -13858,7 +13865,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -19979,13 +13580,16 @@ cc_prebuilt_library_shared {
+@@ -19979,13 +13587,16 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -13878,7 +13885,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -19999,7 +13603,7 @@ cc_prebuilt_library_shared {
+@@ -19999,7 +13610,7 @@ cc_prebuilt_library_shared {
  }
  
  cc_prebuilt_library_shared {
@@ -13887,7 +13894,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -20007,10 +13611,23 @@ cc_prebuilt_library_shared {
+@@ -20007,10 +13618,23 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -13913,7 +13920,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -20024,7 +13641,7 @@ cc_prebuilt_library_shared {
+@@ -20024,7 +13648,7 @@ cc_prebuilt_library_shared {
  }
  
  cc_prebuilt_library_shared {
@@ -13922,7 +13929,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -20032,10 +13649,11 @@ cc_prebuilt_library_shared {
+@@ -20032,10 +13656,11 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -13936,7 +13943,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -20049,8 +13667,7 @@ cc_prebuilt_library_shared {
+@@ -20049,8 +13674,7 @@ cc_prebuilt_library_shared {
  }
  
  cc_prebuilt_library_shared {
@@ -13946,7 +13953,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -20058,10 +13675,14 @@ cc_prebuilt_library_shared {
+@@ -20058,10 +13682,14 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -13963,7 +13970,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -20075,8 +13696,7 @@ cc_prebuilt_library_shared {
+@@ -20075,8 +13703,7 @@ cc_prebuilt_library_shared {
  }
  
  cc_prebuilt_library_shared {
@@ -13973,7 +13980,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -20084,13 +13704,12 @@ cc_prebuilt_library_shared {
+@@ -20084,13 +13711,12 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -13989,7 +13996,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -20104,7 +13723,7 @@ cc_prebuilt_library_shared {
+@@ -20104,7 +13730,7 @@ cc_prebuilt_library_shared {
  }
  
  cc_prebuilt_library_shared {
@@ -13998,7 +14005,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -20112,14 +13731,20 @@ cc_prebuilt_library_shared {
+@@ -20112,14 +13738,20 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -14023,7 +14030,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -20133,7 +13758,7 @@ cc_prebuilt_library_shared {
+@@ -20133,7 +13765,7 @@ cc_prebuilt_library_shared {
  }
  
  cc_prebuilt_library_shared {
@@ -14032,7 +14039,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -20141,13 +13766,21 @@ cc_prebuilt_library_shared {
+@@ -20141,13 +13773,21 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -14058,7 +14065,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -20161,7 +13794,7 @@ cc_prebuilt_library_shared {
+@@ -20161,7 +13801,7 @@ cc_prebuilt_library_shared {
  }
  
  cc_prebuilt_library_shared {
@@ -14067,7 +14074,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -20169,14 +13802,10 @@ cc_prebuilt_library_shared {
+@@ -20169,14 +13809,10 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -14084,7 +14091,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -20190,7 +13819,7 @@ cc_prebuilt_library_shared {
+@@ -20190,7 +13826,7 @@ cc_prebuilt_library_shared {
  }
  
  cc_prebuilt_library_shared {
@@ -14093,7 +14100,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -20198,10 +13827,10 @@ cc_prebuilt_library_shared {
+@@ -20198,10 +13834,10 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -14106,7 +14113,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -20215,7 +13844,7 @@ cc_prebuilt_library_shared {
+@@ -20215,7 +13851,7 @@ cc_prebuilt_library_shared {
  }
  
  cc_prebuilt_library_shared {
@@ -14115,7 +14122,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -20223,10 +13852,15 @@ cc_prebuilt_library_shared {
+@@ -20223,10 +13859,15 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -14133,7 +14140,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -20240,7 +13874,7 @@ cc_prebuilt_library_shared {
+@@ -20240,7 +13881,7 @@ cc_prebuilt_library_shared {
  }
  
  cc_prebuilt_library_shared {
@@ -14142,7 +14149,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -20248,13 +13882,14 @@ cc_prebuilt_library_shared {
+@@ -20248,13 +13889,14 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -14161,7 +14168,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -20268,7 +13903,7 @@ cc_prebuilt_library_shared {
+@@ -20268,7 +13910,7 @@ cc_prebuilt_library_shared {
  }
  
  cc_prebuilt_library_shared {
@@ -14170,7 +14177,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -20276,10 +13911,16 @@ cc_prebuilt_library_shared {
+@@ -20276,10 +13918,16 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -14189,7 +14196,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -20293,7 +13934,7 @@ cc_prebuilt_library_shared {
+@@ -20293,7 +13941,7 @@ cc_prebuilt_library_shared {
  }
  
  cc_prebuilt_library_shared {
@@ -14198,7 +14205,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -20301,10 +13942,11 @@ cc_prebuilt_library_shared {
+@@ -20301,10 +13949,11 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -14212,7 +14219,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -20318,7 +13960,7 @@ cc_prebuilt_library_shared {
+@@ -20318,7 +13967,7 @@ cc_prebuilt_library_shared {
  }
  
  cc_prebuilt_library_shared {
@@ -14221,7 +14228,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -20326,13 +13968,36 @@ cc_prebuilt_library_shared {
+@@ -20326,13 +13975,36 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -14261,7 +14268,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -20346,7 +14011,7 @@ cc_prebuilt_library_shared {
+@@ -20346,7 +14018,7 @@ cc_prebuilt_library_shared {
  }
  
  cc_prebuilt_library_shared {
@@ -14270,7 +14277,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -20354,14 +14019,78 @@ cc_prebuilt_library_shared {
+@@ -20354,14 +14026,78 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -14352,7 +14359,7 @@ index ec0ab70..77c7454 100644
                  "libc",
                  "libm",
                  "libdl",
-@@ -20374,7 +14103,7 @@ cc_prebuilt_library_shared {
+@@ -20374,7 +14110,7 @@ cc_prebuilt_library_shared {
  }
  
  cc_prebuilt_library_shared {
@@ -14361,7 +14368,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -20382,11 +14111,17 @@ cc_prebuilt_library_shared {
+@@ -20382,11 +14118,17 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -14381,7 +14388,7 @@ index ec0ab70..77c7454 100644
                  "libc",
                  "libm",
                  "libdl",
-@@ -20399,7 +14134,7 @@ cc_prebuilt_library_shared {
+@@ -20399,7 +14141,7 @@ cc_prebuilt_library_shared {
  }
  
  cc_prebuilt_library_shared {
@@ -14390,7 +14397,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -20407,10 +14142,11 @@ cc_prebuilt_library_shared {
+@@ -20407,10 +14149,11 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -14404,7 +14411,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -20424,7 +14160,7 @@ cc_prebuilt_library_shared {
+@@ -20424,7 +14167,7 @@ cc_prebuilt_library_shared {
  }
  
  cc_prebuilt_library_shared {
@@ -14413,7 +14420,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -20432,11 +14168,20 @@ cc_prebuilt_library_shared {
+@@ -20432,11 +14175,20 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -14436,7 +14443,7 @@ index ec0ab70..77c7454 100644
                  "libc",
                  "libm",
                  "libdl",
-@@ -20449,7 +14194,7 @@ cc_prebuilt_library_shared {
+@@ -20449,7 +14201,7 @@ cc_prebuilt_library_shared {
  }
  
  cc_prebuilt_library_shared {
@@ -14445,7 +14452,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -20457,13 +14202,12 @@ cc_prebuilt_library_shared {
+@@ -20457,13 +14209,12 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -14461,7 +14468,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -20477,7 +14221,7 @@ cc_prebuilt_library_shared {
+@@ -20477,7 +14228,7 @@ cc_prebuilt_library_shared {
  }
  
  cc_prebuilt_library_shared {
@@ -14470,7 +14477,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -20485,15 +14229,23 @@ cc_prebuilt_library_shared {
+@@ -20485,15 +14236,23 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -14498,7 +14505,7 @@ index ec0ab70..77c7454 100644
                  "libc",
                  "libm",
                  "libdl",
-@@ -20506,7 +14258,7 @@ cc_prebuilt_library_shared {
+@@ -20506,7 +14265,7 @@ cc_prebuilt_library_shared {
  }
  
  cc_prebuilt_library_shared {
@@ -14507,7 +14514,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -20514,15 +14266,13 @@ cc_prebuilt_library_shared {
+@@ -20514,15 +14273,13 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -14527,7 +14534,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -20536,7 +14286,7 @@ cc_prebuilt_library_shared {
+@@ -20536,7 +14293,7 @@ cc_prebuilt_library_shared {
  }
  
  cc_prebuilt_library_shared {
@@ -14536,7 +14543,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -20544,15 +14294,9 @@ cc_prebuilt_library_shared {
+@@ -20544,15 +14301,9 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -14553,7 +14560,7 @@ index ec0ab70..77c7454 100644
                  "libcutils",
                  "libc++",
                  "libc",
-@@ -20567,7 +14311,7 @@ cc_prebuilt_library_shared {
+@@ -20567,7 +14318,7 @@ cc_prebuilt_library_shared {
  }
  
  cc_prebuilt_library_shared {
@@ -14562,7 +14569,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -20575,18 +14319,33 @@ cc_prebuilt_library_shared {
+@@ -20575,18 +14326,33 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -14603,7 +14610,7 @@ index ec0ab70..77c7454 100644
                  "libc",
                  "libm",
                  "libdl",
-@@ -20599,7 +14358,7 @@ cc_prebuilt_library_shared {
+@@ -20599,7 +14365,7 @@ cc_prebuilt_library_shared {
  }
  
  cc_prebuilt_library_shared {
@@ -14612,7 +14619,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -20607,18 +14366,25 @@ cc_prebuilt_library_shared {
+@@ -20607,18 +14373,25 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -14647,7 +14654,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -20632,7 +14398,7 @@ cc_prebuilt_library_shared {
+@@ -20632,7 +14405,7 @@ cc_prebuilt_library_shared {
  }
  
  cc_prebuilt_library_shared {
@@ -14656,7 +14663,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -20640,20 +14406,25 @@ cc_prebuilt_library_shared {
+@@ -20640,20 +14413,25 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -14692,7 +14699,7 @@ index ec0ab70..77c7454 100644
                  "libc",
                  "libm",
                  "libdl",
-@@ -20666,7 +14437,7 @@ cc_prebuilt_library_shared {
+@@ -20666,7 +14444,7 @@ cc_prebuilt_library_shared {
  }
  
  cc_prebuilt_library_shared {
@@ -14701,7 +14708,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -20674,20 +14445,17 @@ cc_prebuilt_library_shared {
+@@ -20674,20 +14452,17 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -14730,7 +14737,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -20701,7 +14469,7 @@ cc_prebuilt_library_shared {
+@@ -20701,7 +14476,7 @@ cc_prebuilt_library_shared {
  }
  
  cc_prebuilt_library_shared {
@@ -14739,7 +14746,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -20709,21 +14477,11 @@ cc_prebuilt_library_shared {
+@@ -20709,21 +14484,11 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -14764,7 +14771,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -20737,7 +14495,7 @@ cc_prebuilt_library_shared {
+@@ -20737,7 +14502,7 @@ cc_prebuilt_library_shared {
  }
  
  cc_prebuilt_library_shared {
@@ -14773,7 +14780,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -20745,10 +14503,18 @@ cc_prebuilt_library_shared {
+@@ -20745,10 +14510,18 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -14793,7 +14800,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -20762,7 +14528,7 @@ cc_prebuilt_library_shared {
+@@ -20762,7 +14535,7 @@ cc_prebuilt_library_shared {
  }
  
  cc_prebuilt_library_shared {
@@ -14802,7 +14809,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -20770,10 +14536,18 @@ cc_prebuilt_library_shared {
+@@ -20770,10 +14543,18 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -14823,7 +14830,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -20787,7 +14561,7 @@ cc_prebuilt_library_shared {
+@@ -20787,7 +14568,7 @@ cc_prebuilt_library_shared {
  }
  
  cc_prebuilt_library_shared {
@@ -14832,7 +14839,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -20795,13 +14569,17 @@ cc_prebuilt_library_shared {
+@@ -20795,13 +14576,17 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -14854,7 +14861,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -20815,7 +14593,7 @@ cc_prebuilt_library_shared {
+@@ -20815,7 +14600,7 @@ cc_prebuilt_library_shared {
  }
  
  cc_prebuilt_library_shared {
@@ -14863,7 +14870,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -20823,14 +14601,17 @@ cc_prebuilt_library_shared {
+@@ -20823,14 +14608,17 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -14886,7 +14893,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -20844,7 +14625,7 @@ cc_prebuilt_library_shared {
+@@ -20844,7 +14632,7 @@ cc_prebuilt_library_shared {
  }
  
  cc_prebuilt_library_shared {
@@ -14895,7 +14902,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -20852,15 +14633,13 @@ cc_prebuilt_library_shared {
+@@ -20852,15 +14640,13 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -14914,7 +14921,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -20874,7 +14653,7 @@ cc_prebuilt_library_shared {
+@@ -20874,7 +14660,7 @@ cc_prebuilt_library_shared {
  }
  
  cc_prebuilt_library_shared {
@@ -14923,7 +14930,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -20882,10 +14661,13 @@ cc_prebuilt_library_shared {
+@@ -20882,10 +14668,13 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -14939,7 +14946,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -20899,7 +14681,7 @@ cc_prebuilt_library_shared {
+@@ -20899,7 +14688,7 @@ cc_prebuilt_library_shared {
  }
  
  cc_prebuilt_library_shared {
@@ -14948,7 +14955,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -20907,13 +14689,16 @@ cc_prebuilt_library_shared {
+@@ -20907,13 +14696,16 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -14969,7 +14976,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -20927,7 +14712,7 @@ cc_prebuilt_library_shared {
+@@ -20927,7 +14719,7 @@ cc_prebuilt_library_shared {
  }
  
  cc_prebuilt_library_shared {
@@ -14978,7 +14985,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -20935,11 +14720,18 @@ cc_prebuilt_library_shared {
+@@ -20935,11 +14727,18 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -14999,7 +15006,7 @@ index ec0ab70..77c7454 100644
                  "libc",
                  "libm",
                  "libdl",
-@@ -20952,7 +14744,7 @@ cc_prebuilt_library_shared {
+@@ -20952,7 +14751,7 @@ cc_prebuilt_library_shared {
  }
  
  cc_prebuilt_library_shared {
@@ -15008,7 +15015,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -20960,13 +14752,9 @@ cc_prebuilt_library_shared {
+@@ -20960,13 +14759,9 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -15023,7 +15030,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -20980,7 +14768,7 @@ cc_prebuilt_library_shared {
+@@ -20980,7 +14775,7 @@ cc_prebuilt_library_shared {
  }
  
  cc_prebuilt_library_shared {
@@ -15032,7 +15039,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -20988,15 +14776,9 @@ cc_prebuilt_library_shared {
+@@ -20988,15 +14783,9 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -15049,7 +15056,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -21010,7 +14792,7 @@ cc_prebuilt_library_shared {
+@@ -21010,7 +14799,7 @@ cc_prebuilt_library_shared {
  }
  
  cc_prebuilt_library_shared {
@@ -15058,7 +15065,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -21018,16 +14800,10 @@ cc_prebuilt_library_shared {
+@@ -21018,16 +14807,10 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -15077,7 +15084,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -21041,7 +14817,7 @@ cc_prebuilt_library_shared {
+@@ -21041,7 +14824,7 @@ cc_prebuilt_library_shared {
  }
  
  cc_prebuilt_library_shared {
@@ -15086,7 +15093,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -21049,17 +14825,10 @@ cc_prebuilt_library_shared {
+@@ -21049,17 +14832,10 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -15105,7 +15112,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -21073,7 +14842,7 @@ cc_prebuilt_library_shared {
+@@ -21073,7 +14849,7 @@ cc_prebuilt_library_shared {
  }
  
  cc_prebuilt_library_shared {
@@ -15114,7 +15121,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -21081,18 +14850,16 @@ cc_prebuilt_library_shared {
+@@ -21081,18 +14857,16 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -15140,7 +15147,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -21106,7 +14873,7 @@ cc_prebuilt_library_shared {
+@@ -21106,7 +14880,7 @@ cc_prebuilt_library_shared {
  }
  
  cc_prebuilt_library_shared {
@@ -15149,7 +15156,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -21114,20 +14881,16 @@ cc_prebuilt_library_shared {
+@@ -21114,20 +14888,16 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -15176,7 +15183,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -21141,7 +14904,7 @@ cc_prebuilt_library_shared {
+@@ -21141,7 +14911,7 @@ cc_prebuilt_library_shared {
  }
  
  cc_prebuilt_library_shared {
@@ -15185,7 +15192,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -21149,21 +14912,14 @@ cc_prebuilt_library_shared {
+@@ -21149,21 +14919,14 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -15211,7 +15218,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -21177,7 +14933,7 @@ cc_prebuilt_library_shared {
+@@ -21177,7 +14940,7 @@ cc_prebuilt_library_shared {
  }
  
  cc_prebuilt_library_shared {
@@ -15220,7 +15227,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -21185,21 +14941,17 @@ cc_prebuilt_library_shared {
+@@ -21185,21 +14948,17 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -15249,7 +15256,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -21213,7 +14965,7 @@ cc_prebuilt_library_shared {
+@@ -21213,7 +14972,7 @@ cc_prebuilt_library_shared {
  }
  
  cc_prebuilt_library_shared {
@@ -15258,7 +15265,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -21221,11 +14973,13 @@ cc_prebuilt_library_shared {
+@@ -21221,11 +14980,13 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -15275,7 +15282,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -21239,7 +14993,7 @@ cc_prebuilt_library_shared {
+@@ -21239,7 +15000,7 @@ cc_prebuilt_library_shared {
  }
  
  cc_prebuilt_library_shared {
@@ -15284,7 +15291,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -21247,10 +15001,11 @@ cc_prebuilt_library_shared {
+@@ -21247,10 +15008,11 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -15298,7 +15305,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -21264,7 +15019,7 @@ cc_prebuilt_library_shared {
+@@ -21264,7 +15026,7 @@ cc_prebuilt_library_shared {
  }
  
  cc_prebuilt_library_shared {
@@ -15307,7 +15314,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -21272,13 +15027,20 @@ cc_prebuilt_library_shared {
+@@ -21272,13 +15034,20 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -15331,7 +15338,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -21292,7 +15054,7 @@ cc_prebuilt_library_shared {
+@@ -21292,7 +15061,7 @@ cc_prebuilt_library_shared {
  }
  
  cc_prebuilt_library_shared {
@@ -15340,7 +15347,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -21300,14 +15062,12 @@ cc_prebuilt_library_shared {
+@@ -21300,14 +15069,12 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -15358,7 +15365,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -21321,7 +15081,7 @@ cc_prebuilt_library_shared {
+@@ -21321,7 +15088,7 @@ cc_prebuilt_library_shared {
  }
  
  cc_prebuilt_library_shared {
@@ -15367,7 +15374,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -21329,15 +15089,18 @@ cc_prebuilt_library_shared {
+@@ -21329,15 +15096,18 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -15392,7 +15399,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -21351,7 +15114,7 @@ cc_prebuilt_library_shared {
+@@ -21351,7 +15121,7 @@ cc_prebuilt_library_shared {
  }
  
  cc_prebuilt_library_shared {
@@ -15401,7 +15408,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -21359,10 +15122,19 @@ cc_prebuilt_library_shared {
+@@ -21359,10 +15129,19 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -15423,7 +15430,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -21376,7 +15148,7 @@ cc_prebuilt_library_shared {
+@@ -21376,7 +15155,7 @@ cc_prebuilt_library_shared {
  }
  
  cc_prebuilt_library_shared {
@@ -15432,7 +15439,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -21384,13 +15156,25 @@ cc_prebuilt_library_shared {
+@@ -21384,13 +15163,25 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -15462,7 +15469,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -21404,7 +15188,7 @@ cc_prebuilt_library_shared {
+@@ -21404,7 +15195,7 @@ cc_prebuilt_library_shared {
  }
  
  cc_prebuilt_library_shared {
@@ -15471,7 +15478,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -21412,13 +15196,11 @@ cc_prebuilt_library_shared {
+@@ -21412,13 +15203,11 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -15487,7 +15494,7 @@ index ec0ab70..77c7454 100644
                  "libcutils",
                  "libc++",
                  "libc",
-@@ -21433,7 +15215,7 @@ cc_prebuilt_library_shared {
+@@ -21433,7 +15222,7 @@ cc_prebuilt_library_shared {
  }
  
  cc_prebuilt_library_shared {
@@ -15496,7 +15503,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -21441,15 +15223,13 @@ cc_prebuilt_library_shared {
+@@ -21441,15 +15230,13 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -15516,7 +15523,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -21463,7 +15243,7 @@ cc_prebuilt_library_shared {
+@@ -21463,7 +15250,7 @@ cc_prebuilt_library_shared {
  }
  
  cc_prebuilt_library_shared {
@@ -15525,7 +15532,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -21471,10 +15251,13 @@ cc_prebuilt_library_shared {
+@@ -21471,10 +15258,13 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -15541,7 +15548,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -21488,7 +15271,7 @@ cc_prebuilt_library_shared {
+@@ -21488,7 +15278,7 @@ cc_prebuilt_library_shared {
  }
  
  cc_prebuilt_library_shared {
@@ -15550,7 +15557,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -21496,13 +15279,12 @@ cc_prebuilt_library_shared {
+@@ -21496,13 +15286,12 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -15568,7 +15575,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -21516,7 +15298,7 @@ cc_prebuilt_library_shared {
+@@ -21516,7 +15305,7 @@ cc_prebuilt_library_shared {
  }
  
  cc_prebuilt_library_shared {
@@ -15577,7 +15584,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -21524,13 +15306,10 @@ cc_prebuilt_library_shared {
+@@ -21524,13 +15313,10 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -15593,7 +15600,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -21544,7 +15323,7 @@ cc_prebuilt_library_shared {
+@@ -21544,7 +15330,7 @@ cc_prebuilt_library_shared {
  }
  
  cc_prebuilt_library_shared {
@@ -15602,7 +15609,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -21552,13 +15331,20 @@ cc_prebuilt_library_shared {
+@@ -21552,13 +15338,20 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -15628,7 +15635,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -21572,7 +15358,7 @@ cc_prebuilt_library_shared {
+@@ -21572,7 +15365,7 @@ cc_prebuilt_library_shared {
  }
  
  cc_prebuilt_library_shared {
@@ -15637,7 +15644,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -21580,10 +15366,17 @@ cc_prebuilt_library_shared {
+@@ -21580,10 +15373,17 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -15656,7 +15663,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -21597,7 +15390,7 @@ cc_prebuilt_library_shared {
+@@ -21597,7 +15397,7 @@ cc_prebuilt_library_shared {
  }
  
  cc_prebuilt_library_shared {
@@ -15665,7 +15672,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -21605,13 +15398,17 @@ cc_prebuilt_library_shared {
+@@ -21605,13 +15405,17 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -15687,7 +15694,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -21625,7 +15422,7 @@ cc_prebuilt_library_shared {
+@@ -21625,7 +15429,7 @@ cc_prebuilt_library_shared {
  }
  
  cc_prebuilt_library_shared {
@@ -15696,7 +15703,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -21633,10 +15430,21 @@ cc_prebuilt_library_shared {
+@@ -21633,10 +15437,21 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -15719,7 +15726,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -21650,7 +15458,7 @@ cc_prebuilt_library_shared {
+@@ -21650,7 +15465,7 @@ cc_prebuilt_library_shared {
  }
  
  cc_prebuilt_library_shared {
@@ -15728,7 +15735,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -21658,10 +15466,19 @@ cc_prebuilt_library_shared {
+@@ -21658,10 +15473,19 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -15749,7 +15756,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -21675,7 +15492,7 @@ cc_prebuilt_library_shared {
+@@ -21675,7 +15499,7 @@ cc_prebuilt_library_shared {
  }
  
  cc_prebuilt_library_shared {
@@ -15758,7 +15765,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -21683,15 +15500,19 @@ cc_prebuilt_library_shared {
+@@ -21683,15 +15507,19 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -15784,7 +15791,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -21705,7 +15526,7 @@ cc_prebuilt_library_shared {
+@@ -21705,7 +15533,7 @@ cc_prebuilt_library_shared {
  }
  
  cc_prebuilt_library_shared {
@@ -15793,7 +15800,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -21713,17 +15534,20 @@ cc_prebuilt_library_shared {
+@@ -21713,17 +15541,20 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -15821,7 +15828,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -21737,7 +15561,7 @@ cc_prebuilt_library_shared {
+@@ -21737,7 +15568,7 @@ cc_prebuilt_library_shared {
  }
  
  cc_prebuilt_library_shared {
@@ -15830,7 +15837,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -21745,15 +15569,19 @@ cc_prebuilt_library_shared {
+@@ -21745,15 +15576,19 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -15856,7 +15863,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -21767,7 +15595,7 @@ cc_prebuilt_library_shared {
+@@ -21767,7 +15602,7 @@ cc_prebuilt_library_shared {
  }
  
  cc_prebuilt_library_shared {
@@ -15865,7 +15872,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -21775,13 +15603,20 @@ cc_prebuilt_library_shared {
+@@ -21775,13 +15610,20 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -15890,7 +15897,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -21795,7 +15630,7 @@ cc_prebuilt_library_shared {
+@@ -21795,7 +15637,7 @@ cc_prebuilt_library_shared {
  }
  
  cc_prebuilt_library_shared {
@@ -15899,7 +15906,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -21803,14 +15638,21 @@ cc_prebuilt_library_shared {
+@@ -21803,14 +15645,21 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -15926,7 +15933,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -21824,7 +15666,7 @@ cc_prebuilt_library_shared {
+@@ -21824,7 +15673,7 @@ cc_prebuilt_library_shared {
  }
  
  cc_prebuilt_library_shared {
@@ -15935,7 +15942,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -21832,13 +15674,21 @@ cc_prebuilt_library_shared {
+@@ -21832,13 +15681,21 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -15961,7 +15968,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -21852,7 +15702,7 @@ cc_prebuilt_library_shared {
+@@ -21852,7 +15709,7 @@ cc_prebuilt_library_shared {
  }
  
  cc_prebuilt_library_shared {
@@ -15970,7 +15977,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -21860,14 +15710,19 @@ cc_prebuilt_library_shared {
+@@ -21860,14 +15717,19 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -15995,7 +16002,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -21881,7 +15736,7 @@ cc_prebuilt_library_shared {
+@@ -21881,7 +15743,7 @@ cc_prebuilt_library_shared {
  }
  
  cc_prebuilt_library_shared {
@@ -16004,7 +16011,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -21889,10 +15744,18 @@ cc_prebuilt_library_shared {
+@@ -21889,10 +15751,18 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -16024,7 +16031,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -21906,7 +15769,7 @@ cc_prebuilt_library_shared {
+@@ -21906,7 +15776,7 @@ cc_prebuilt_library_shared {
  }
  
  cc_prebuilt_library_shared {
@@ -16033,7 +16040,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -21914,10 +15777,17 @@ cc_prebuilt_library_shared {
+@@ -21914,10 +15784,17 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -16052,7 +16059,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -21931,8 +15801,7 @@ cc_prebuilt_library_shared {
+@@ -21931,8 +15808,7 @@ cc_prebuilt_library_shared {
  }
  
  cc_prebuilt_library_shared {
@@ -16062,7 +16069,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -21940,12 +15809,19 @@ cc_prebuilt_library_shared {
+@@ -21940,12 +15816,19 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -16084,7 +16091,7 @@ index ec0ab70..77c7454 100644
                  "libcutils",
                  "libc++",
                  "libc",
-@@ -21960,8 +15836,7 @@ cc_prebuilt_library_shared {
+@@ -21960,8 +15843,7 @@ cc_prebuilt_library_shared {
  }
  
  cc_prebuilt_library_shared {
@@ -16094,7 +16101,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -21969,14 +15844,12 @@ cc_prebuilt_library_shared {
+@@ -21969,14 +15851,12 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -16113,7 +16120,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -21990,7 +15863,7 @@ cc_prebuilt_library_shared {
+@@ -21990,7 +15870,7 @@ cc_prebuilt_library_shared {
  }
  
  cc_prebuilt_library_shared {
@@ -16122,7 +16129,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -21998,14 +15871,15 @@ cc_prebuilt_library_shared {
+@@ -21998,14 +15878,15 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -16143,7 +16150,7 @@ index ec0ab70..77c7454 100644
                  "libc",
                  "libm",
                  "libdl",
-@@ -22018,7 +15892,7 @@ cc_prebuilt_library_shared {
+@@ -22018,7 +15899,7 @@ cc_prebuilt_library_shared {
  }
  
  cc_prebuilt_library_shared {
@@ -16152,7 +16159,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -22026,15 +15900,27 @@ cc_prebuilt_library_shared {
+@@ -22026,15 +15907,27 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -16183,7 +16190,7 @@ index ec0ab70..77c7454 100644
                  "libc",
                  "libm",
                  "libdl",
-@@ -22047,7 +15933,7 @@ cc_prebuilt_library_shared {
+@@ -22047,7 +15940,7 @@ cc_prebuilt_library_shared {
  }
  
  cc_prebuilt_library_shared {
@@ -16192,7 +16199,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -22055,17 +15941,11 @@ cc_prebuilt_library_shared {
+@@ -22055,17 +15948,11 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -16212,7 +16219,7 @@ index ec0ab70..77c7454 100644
                  "libc",
                  "libm",
                  "libdl",
-@@ -22078,7 +15958,7 @@ cc_prebuilt_library_shared {
+@@ -22078,7 +15965,7 @@ cc_prebuilt_library_shared {
  }
  
  cc_prebuilt_library_shared {
@@ -16221,7 +16228,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -22086,11 +15966,16 @@ cc_prebuilt_library_shared {
+@@ -22086,11 +15973,16 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -16240,7 +16247,7 @@ index ec0ab70..77c7454 100644
                  "libc",
                  "libm",
                  "libdl",
-@@ -22103,7 +15988,7 @@ cc_prebuilt_library_shared {
+@@ -22103,7 +15995,7 @@ cc_prebuilt_library_shared {
  }
  
  cc_prebuilt_library_shared {
@@ -16249,7 +16256,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -22111,13 +15996,12 @@ cc_prebuilt_library_shared {
+@@ -22111,13 +16003,12 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -16267,7 +16274,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -22127,11 +16011,11 @@ cc_prebuilt_library_shared {
+@@ -22127,11 +16018,11 @@ cc_prebuilt_library_shared {
      },
      compile_multilib: "64",
      prefer: true,
@@ -16281,7 +16288,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -22139,19 +16023,12 @@ cc_prebuilt_library_shared {
+@@ -22139,19 +16030,12 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -16304,7 +16311,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -22161,11 +16038,11 @@ cc_prebuilt_library_shared {
+@@ -22161,11 +16045,11 @@ cc_prebuilt_library_shared {
      },
      compile_multilib: "64",
      prefer: true,
@@ -16318,7 +16325,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -22173,26 +16050,16 @@ cc_prebuilt_library_shared {
+@@ -22173,26 +16057,16 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -16350,7 +16357,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -22202,11 +16069,11 @@ cc_prebuilt_library_shared {
+@@ -22202,11 +16076,11 @@ cc_prebuilt_library_shared {
      },
      compile_multilib: "64",
      prefer: true,
@@ -16364,7 +16371,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -22214,16 +16081,16 @@ cc_prebuilt_library_shared {
+@@ -22214,16 +16088,16 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -16388,7 +16395,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -22233,11 +16100,11 @@ cc_prebuilt_library_shared {
+@@ -22233,11 +16107,11 @@ cc_prebuilt_library_shared {
      },
      compile_multilib: "64",
      prefer: true,
@@ -16402,7 +16409,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -22245,13 +16112,22 @@ cc_prebuilt_library_shared {
+@@ -22245,13 +16119,22 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -16428,7 +16435,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -22261,11 +16137,11 @@ cc_prebuilt_library_shared {
+@@ -22261,11 +16144,11 @@ cc_prebuilt_library_shared {
      },
      compile_multilib: "64",
      prefer: true,
@@ -16442,7 +16449,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -22273,15 +16149,19 @@ cc_prebuilt_library_shared {
+@@ -22273,15 +16156,19 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -16466,7 +16473,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -22291,11 +16171,11 @@ cc_prebuilt_library_shared {
+@@ -22291,11 +16178,11 @@ cc_prebuilt_library_shared {
      },
      compile_multilib: "64",
      prefer: true,
@@ -16480,7 +16487,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -22303,15 +16183,22 @@ cc_prebuilt_library_shared {
+@@ -22303,15 +16190,22 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -16508,7 +16515,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -22321,11 +16208,12 @@ cc_prebuilt_library_shared {
+@@ -22321,11 +16215,12 @@ cc_prebuilt_library_shared {
      },
      compile_multilib: "64",
      prefer: true,
@@ -16523,7 +16530,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -22333,18 +16221,11 @@ cc_prebuilt_library_shared {
+@@ -22333,18 +16228,11 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -16545,7 +16552,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -22354,11 +16235,11 @@ cc_prebuilt_library_shared {
+@@ -22354,11 +16242,11 @@ cc_prebuilt_library_shared {
      },
      compile_multilib: "64",
      prefer: true,
@@ -16559,7 +16566,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -22366,15 +16247,19 @@ cc_prebuilt_library_shared {
+@@ -22366,15 +16254,19 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -16584,7 +16591,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -22384,11 +16269,11 @@ cc_prebuilt_library_shared {
+@@ -22384,11 +16276,11 @@ cc_prebuilt_library_shared {
      },
      compile_multilib: "64",
      prefer: true,
@@ -16598,7 +16605,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -22396,13 +16281,10 @@ cc_prebuilt_library_shared {
+@@ -22396,13 +16288,10 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -16614,7 +16621,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -22412,11 +16294,11 @@ cc_prebuilt_library_shared {
+@@ -22412,11 +16301,11 @@ cc_prebuilt_library_shared {
      },
      compile_multilib: "64",
      prefer: true,
@@ -16628,7 +16635,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -22424,16 +16306,27 @@ cc_prebuilt_library_shared {
+@@ -22424,16 +16313,27 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -16662,7 +16669,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -22443,11 +16336,11 @@ cc_prebuilt_library_shared {
+@@ -22443,11 +16343,11 @@ cc_prebuilt_library_shared {
      },
      compile_multilib: "64",
      prefer: true,
@@ -16676,7 +16683,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -22455,11 +16348,13 @@ cc_prebuilt_library_shared {
+@@ -22455,11 +16355,13 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -16693,7 +16700,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -22469,11 +16364,11 @@ cc_prebuilt_library_shared {
+@@ -22469,11 +16371,11 @@ cc_prebuilt_library_shared {
      },
      compile_multilib: "64",
      prefer: true,
@@ -16707,7 +16714,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -22481,11 +16376,10 @@ cc_prebuilt_library_shared {
+@@ -22481,11 +16383,10 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -16720,7 +16727,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -22495,11 +16389,12 @@ cc_prebuilt_library_shared {
+@@ -22495,11 +16396,12 @@ cc_prebuilt_library_shared {
      },
      compile_multilib: "64",
      prefer: true,
@@ -16735,7 +16742,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -22507,7 +16402,7 @@ cc_prebuilt_library_shared {
+@@ -22507,7 +16409,7 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -16744,7 +16751,7 @@ index ec0ab70..77c7454 100644
              ],
              shared_libs: [
                  "libbinder_ndk",
-@@ -22520,11 +16415,12 @@ cc_prebuilt_library_shared {
+@@ -22520,11 +16422,12 @@ cc_prebuilt_library_shared {
      },
      compile_multilib: "64",
      prefer: true,
@@ -16759,7 +16766,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -22532,7 +16428,7 @@ cc_prebuilt_library_shared {
+@@ -22532,7 +16435,7 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -16768,7 +16775,7 @@ index ec0ab70..77c7454 100644
              ],
              shared_libs: [
                  "libhidlbase",
-@@ -22548,11 +16444,11 @@ cc_prebuilt_library_shared {
+@@ -22548,11 +16451,11 @@ cc_prebuilt_library_shared {
      },
      compile_multilib: "64",
      prefer: true,
@@ -16782,7 +16789,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -22560,7 +16456,7 @@ cc_prebuilt_library_shared {
+@@ -22560,7 +16463,7 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -16791,7 +16798,7 @@ index ec0ab70..77c7454 100644
              ],
              shared_libs: [
                  "libbinder_ndk",
-@@ -22573,11 +16469,11 @@ cc_prebuilt_library_shared {
+@@ -22573,11 +16476,11 @@ cc_prebuilt_library_shared {
      },
      compile_multilib: "64",
      prefer: true,
@@ -16805,7 +16812,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -22585,7 +16481,7 @@ cc_prebuilt_library_shared {
+@@ -22585,7 +16488,7 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -16814,7 +16821,7 @@ index ec0ab70..77c7454 100644
              ],
              shared_libs: [
                  "libbinder_ndk",
-@@ -22598,11 +16494,11 @@ cc_prebuilt_library_shared {
+@@ -22598,11 +16501,11 @@ cc_prebuilt_library_shared {
      },
      compile_multilib: "64",
      prefer: true,
@@ -16828,7 +16835,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -22610,7 +16506,7 @@ cc_prebuilt_library_shared {
+@@ -22610,7 +16513,7 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -16837,7 +16844,7 @@ index ec0ab70..77c7454 100644
              ],
              shared_libs: [
                  "libbinder_ndk",
-@@ -22623,11 +16519,11 @@ cc_prebuilt_library_shared {
+@@ -22623,11 +16526,11 @@ cc_prebuilt_library_shared {
      },
      compile_multilib: "64",
      prefer: true,
@@ -16851,7 +16858,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -22635,7 +16531,7 @@ cc_prebuilt_library_shared {
+@@ -22635,7 +16538,7 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -16860,7 +16867,7 @@ index ec0ab70..77c7454 100644
              ],
              shared_libs: [
                  "libhidlbase",
-@@ -22651,11 +16547,11 @@ cc_prebuilt_library_shared {
+@@ -22651,11 +16554,11 @@ cc_prebuilt_library_shared {
      },
      compile_multilib: "64",
      prefer: true,
@@ -16874,7 +16881,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -22663,14 +16559,10 @@ cc_prebuilt_library_shared {
+@@ -22663,14 +16566,10 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -16891,7 +16898,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -22680,11 +16572,11 @@ cc_prebuilt_library_shared {
+@@ -22680,11 +16579,11 @@ cc_prebuilt_library_shared {
      },
      compile_multilib: "64",
      prefer: true,
@@ -16905,7 +16912,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -22692,10 +16584,10 @@ cc_prebuilt_library_shared {
+@@ -22692,10 +16591,10 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -16918,7 +16925,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -22705,11 +16597,11 @@ cc_prebuilt_library_shared {
+@@ -22705,11 +16604,11 @@ cc_prebuilt_library_shared {
      },
      compile_multilib: "64",
      prefer: true,
@@ -16932,7 +16939,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -22717,14 +16609,10 @@ cc_prebuilt_library_shared {
+@@ -22717,14 +16616,10 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -16949,7 +16956,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -22734,11 +16622,11 @@ cc_prebuilt_library_shared {
+@@ -22734,11 +16629,11 @@ cc_prebuilt_library_shared {
      },
      compile_multilib: "64",
      prefer: true,
@@ -16963,7 +16970,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -22746,13 +16634,10 @@ cc_prebuilt_library_shared {
+@@ -22746,13 +16641,10 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -16979,7 +16986,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -22762,11 +16647,11 @@ cc_prebuilt_library_shared {
+@@ -22762,11 +16654,11 @@ cc_prebuilt_library_shared {
      },
      compile_multilib: "64",
      prefer: true,
@@ -16993,7 +17000,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -22774,12 +16659,10 @@ cc_prebuilt_library_shared {
+@@ -22774,12 +16666,10 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -17008,7 +17015,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -22789,11 +16672,11 @@ cc_prebuilt_library_shared {
+@@ -22789,11 +16679,11 @@ cc_prebuilt_library_shared {
      },
      compile_multilib: "64",
      prefer: true,
@@ -17022,7 +17029,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -22801,10 +16684,10 @@ cc_prebuilt_library_shared {
+@@ -22801,10 +16691,10 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -17035,7 +17042,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -22814,11 +16697,11 @@ cc_prebuilt_library_shared {
+@@ -22814,11 +16704,11 @@ cc_prebuilt_library_shared {
      },
      compile_multilib: "64",
      prefer: true,
@@ -17049,7 +17056,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -22826,17 +16709,10 @@ cc_prebuilt_library_shared {
+@@ -22826,17 +16716,10 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -17068,7 +17075,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -22846,11 +16722,11 @@ cc_prebuilt_library_shared {
+@@ -22846,11 +16729,11 @@ cc_prebuilt_library_shared {
      },
      compile_multilib: "64",
      prefer: true,
@@ -17082,7 +17089,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -22858,18 +16734,11 @@ cc_prebuilt_library_shared {
+@@ -22858,18 +16741,11 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -17103,7 +17110,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -22879,11 +16748,11 @@ cc_prebuilt_library_shared {
+@@ -22879,11 +16755,11 @@ cc_prebuilt_library_shared {
      },
      compile_multilib: "64",
      prefer: true,
@@ -17117,7 +17124,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -22891,16 +16760,12 @@ cc_prebuilt_library_shared {
+@@ -22891,16 +16767,12 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -17137,7 +17144,7 @@ index ec0ab70..77c7454 100644
                  "libm",
                  "libdl",
              ],
-@@ -22908,11 +16773,11 @@ cc_prebuilt_library_shared {
+@@ -22908,11 +16780,11 @@ cc_prebuilt_library_shared {
      },
      compile_multilib: "64",
      prefer: true,
@@ -17151,7 +17158,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -22920,13 +16785,10 @@ cc_prebuilt_library_shared {
+@@ -22920,13 +16792,10 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -17167,7 +17174,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -22936,11 +16798,11 @@ cc_prebuilt_library_shared {
+@@ -22936,11 +16805,11 @@ cc_prebuilt_library_shared {
      },
      compile_multilib: "64",
      prefer: true,
@@ -17181,7 +17188,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -22948,10 +16810,10 @@ cc_prebuilt_library_shared {
+@@ -22948,10 +16817,10 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -17194,7 +17201,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -22961,11 +16823,12 @@ cc_prebuilt_library_shared {
+@@ -22961,11 +16830,12 @@ cc_prebuilt_library_shared {
      },
      compile_multilib: "64",
      prefer: true,
@@ -17209,7 +17216,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -22973,26 +16836,13 @@ cc_prebuilt_library_shared {
+@@ -22973,26 +16843,13 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -17238,7 +17245,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -23002,11 +16852,12 @@ cc_prebuilt_library_shared {
+@@ -23002,11 +16859,12 @@ cc_prebuilt_library_shared {
      },
      compile_multilib: "64",
      prefer: true,
@@ -17253,7 +17260,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -23014,22 +16865,14 @@ cc_prebuilt_library_shared {
+@@ -23014,22 +16872,14 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -17279,7 +17286,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -23039,11 +16882,11 @@ cc_prebuilt_library_shared {
+@@ -23039,11 +16889,11 @@ cc_prebuilt_library_shared {
      },
      compile_multilib: "64",
      prefer: true,
@@ -17293,7 +17300,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -23051,19 +16894,13 @@ cc_prebuilt_library_shared {
+@@ -23051,19 +16901,13 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -17316,7 +17323,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -23073,11 +16910,11 @@ cc_prebuilt_library_shared {
+@@ -23073,11 +16917,11 @@ cc_prebuilt_library_shared {
      },
      compile_multilib: "64",
      prefer: true,
@@ -17330,7 +17337,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -23085,16 +16922,10 @@ cc_prebuilt_library_shared {
+@@ -23085,16 +16929,10 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -17349,7 +17356,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -23108,7 +16939,7 @@ cc_prebuilt_library_shared {
+@@ -23108,7 +16946,7 @@ cc_prebuilt_library_shared {
  }
  
  cc_prebuilt_library_shared {
@@ -17358,7 +17365,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -23116,15 +16947,16 @@ cc_prebuilt_library_shared {
+@@ -23116,15 +16954,16 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -17380,7 +17387,7 @@ index ec0ab70..77c7454 100644
                  "libm",
                  "libdl",
              ],
-@@ -23136,7 +16968,7 @@ cc_prebuilt_library_shared {
+@@ -23136,7 +16975,7 @@ cc_prebuilt_library_shared {
  }
  
  cc_prebuilt_library_shared {
@@ -17389,7 +17396,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -23144,17 +16976,15 @@ cc_prebuilt_library_shared {
+@@ -23144,17 +16983,15 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -17411,7 +17418,7 @@ index ec0ab70..77c7454 100644
                  "libm",
                  "libdl",
              ],
-@@ -23166,7 +16996,7 @@ cc_prebuilt_library_shared {
+@@ -23166,7 +17003,7 @@ cc_prebuilt_library_shared {
  }
  
  cc_prebuilt_library_shared {
@@ -17420,7 +17427,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -23174,19 +17004,12 @@ cc_prebuilt_library_shared {
+@@ -23174,19 +17011,12 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -17442,7 +17449,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -23200,7 +17023,7 @@ cc_prebuilt_library_shared {
+@@ -23200,7 +17030,7 @@ cc_prebuilt_library_shared {
  }
  
  cc_prebuilt_library_shared {
@@ -17451,7 +17458,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -23208,17 +17031,12 @@ cc_prebuilt_library_shared {
+@@ -23208,17 +17038,12 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -17472,7 +17479,7 @@ index ec0ab70..77c7454 100644
                  "libm",
                  "libdl",
              ],
-@@ -23230,7 +17048,7 @@ cc_prebuilt_library_shared {
+@@ -23230,7 +17055,7 @@ cc_prebuilt_library_shared {
  }
  
  cc_prebuilt_library_shared {
@@ -17481,7 +17488,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -23238,17 +17056,17 @@ cc_prebuilt_library_shared {
+@@ -23238,17 +17063,17 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -17504,7 +17511,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -23262,7 +17080,7 @@ cc_prebuilt_library_shared {
+@@ -23262,7 +17087,7 @@ cc_prebuilt_library_shared {
  }
  
  cc_prebuilt_library_shared {
@@ -17513,7 +17520,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -23270,14 +17088,18 @@ cc_prebuilt_library_shared {
+@@ -23270,14 +17095,18 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -17535,7 +17542,7 @@ index ec0ab70..77c7454 100644
                  "libc++",
                  "libc",
                  "libm",
-@@ -23291,7 +17113,7 @@ cc_prebuilt_library_shared {
+@@ -23291,7 +17120,7 @@ cc_prebuilt_library_shared {
  }
  
  cc_prebuilt_library_shared {
@@ -17544,7 +17551,7 @@ index ec0ab70..77c7454 100644
      owner: "oneplus",
      strip: {
          none: true,
-@@ -23299,20 +17121,16 @@ cc_prebuilt_library_shared {
+@@ -23299,20 +17128,16 @@ cc_prebuilt_library_shared {
      target: {
          android_arm64: {
              srcs: [
@@ -17569,7 +17576,7 @@ index ec0ab70..77c7454 100644
                  "libm",
                  "libdl",
              ],
-@@ -23323,399 +17141,479 @@ cc_prebuilt_library_shared {
+@@ -23323,399 +17148,479 @@ cc_prebuilt_library_shared {
      device_specific: true,
  }
  
@@ -18378,7 +18385,7 @@ index ec0ab70..77c7454 100644
      ],
      system_ext_specific: true,
  }
-@@ -24884,72 +18782,6 @@ cc_prebuilt_binary {
+@@ -24884,72 +18789,6 @@ cc_prebuilt_binary {
      soc_specific: true,
  }
  
@@ -18451,7 +18458,7 @@ index ec0ab70..77c7454 100644
  cc_prebuilt_binary {
      name: "commcenterd",
      owner: "oneplus",
-@@ -25186,13 +19018,6 @@ install_symlink {
+@@ -25186,13 +19025,6 @@ install_symlink {
      symlink_target: "/system_ext/lib64/libimscamera_jni.so",
  }
  

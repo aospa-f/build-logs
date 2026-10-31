@@ -1,8 +1,23 @@
+Collected 539 active modules from vendor/qcom/common.
+
+--- Deduplicating sm8650-common ---
+Found 239 duplicate modules between sm8650-common and active vendor/qcom/common.
+Found 5 associated symlink modules.
+Removed 240 module blocks from /serverhive5/raizenftw/aospa/vendor/oneplus/sm8650-common/Android.bp
+Removed 241 entries from /serverhive5/raizenftw/aospa/vendor/oneplus/sm8650-common/sm8650-common-vendor.mk
+
+--- Deduplicating giulia ---
+Found 5 duplicate modules between giulia and active vendor/qcom/common.
+Found 0 associated symlink modules.
+Removed 5 module blocks from /serverhive5/raizenftw/aospa/vendor/oneplus/giulia/Android.bp
+Removed 5 entries from /serverhive5/raizenftw/aospa/vendor/oneplus/giulia/giulia-vendor.mk
+
+Deduplication completed cleanly and accurately!
 diff --git a/Android.bp b/Android.bp
-index db4682a..c0a461c 100644
+index db4682a..1138128 100644
 --- a/Android.bp
 +++ b/Android.bp
-@@ -4,10 +4,16 @@
+@@ -4,10 +4,23 @@
  
  soong_namespace {
      imports: [
@@ -12,16 +27,23 @@ index db4682a..c0a461c 100644
          "vendor/oneplus/sm8650-common",
 -        "vendor/qcom/opensource/commonsys-intf/display",
 +        "vendor/qcom/common/vendor/adreno/u",
-+        "vendor/qcom/common/vendor/perf",
-+        "vendor/qcom/common/system/perf",
-+        "vendor/qcom/common/system/telephony",
++        "vendor/qcom/common/system/alarm",
++        "vendor/qcom/common/vendor/alarm",
++        "vendor/qcom/common/system/audio",
++        "vendor/qcom/common/system/av",
++        "vendor/qcom/common/system/bt",
 +        "vendor/qcom/common/system/display",
 +        "vendor/qcom/common/vendor/display",
-+        "vendor/qcom/common/system/av",
++        "vendor/qcom/common/system/gps",
++        "vendor/qcom/common/system/perf",
++        "vendor/qcom/common/vendor/perf",
++        "vendor/qcom/common/system/telephony",
++        "vendor/qcom/common/system/wfd",
++        "vendor/qcom/common/vendor/wlan",
      ],
  }
  
-@@ -10986,124 +10992,6 @@ cc_prebuilt_library_shared {
+@@ -10986,124 +10999,6 @@ cc_prebuilt_library_shared {
      soc_specific: true,
  }
  
@@ -146,7 +168,7 @@ index db4682a..c0a461c 100644
  cc_prebuilt_library_shared {
      name: "vendor.display.color@1.4",
      owner: "oneplus",
-@@ -11169,34 +11057,6 @@ cc_prebuilt_library_shared {
+@@ -11169,34 +11064,6 @@ cc_prebuilt_library_shared {
      soc_specific: true,
  }
  
