@@ -80,6 +80,36 @@ def deduplicate_vendor_tree(bp_path, mk_path, tree_name):
     elif tree_name == 'giulia':
         all_to_remove.add("vendor.display.color@1.4")
         all_to_remove.add("vendor.display.color@1.5")
+
+    # Detect prebuilt modules whose source files do not exist on disk
+    base_dir = os.path.dirname(bp_path)
+    missing_src_count = 0
+    for m in re.finditer(r'([a-zA-Z0-9_]+)\s*\{', bp_content):
+        mod_type = m.group(1)
+        if mod_type == 'soong_namespace':
+            continue
+        start = m.end()
+        count = 1
+        idx = start
+        while idx < len(bp_content) and count > 0:
+            if bp_content[idx] == '{': count += 1
+            elif bp_content[idx] == '}': count -= 1
+            idx += 1
+        block = bp_content[start:idx-1]
+        name_m = re.search(r'name:\s*"([^"]+)"', block)
+        if not name_m: continue
+        mod_name = name_m.group(1)
+        srcs_m = re.findall(r'(?:srcs|src|apk):\s*(?:\[\s*)?"([^"]+)"', block)
+        for src in srcs_m:
+            full_p = os.path.join(base_dir, src)
+            if not os.path.exists(full_p):
+                all_to_remove.add(mod_name)
+                missing_src_count += 1
+                break
+
+    if missing_src_count > 0:
+        print(f"Found {missing_src_count} modules with missing source files on disk.")
+
     if not all_to_remove:
         print("Nothing to remove.")
         return
@@ -162,7 +192,9 @@ def deduplicate_vendor_tree(bp_path, mk_path, tree_name):
         "vendor/qcom/common/vendor/wlan",
     ],
 }"""
-        new_bp_text = re.sub(r'soong_namespace\s*\{[^}]*\}', ns_block, new_bp_text, count=1)
+    # Remove any shared_libs references to removed modules
+    for mod in all_to_remove:
+        new_bp_text = re.sub(r'^\s*"' + re.escape(mod) + r'",?\s*\n', '', new_bp_text, flags=re.MULTILINE)
 
     with open(bp_path, 'w') as f:
         f.write(new_bp_text)
@@ -184,9 +216,8 @@ def deduplicate_vendor_tree(bp_path, mk_path, tree_name):
         with open(mk_path, 'w') as f:
             f.writelines(new_mk_lines)
 
-# Reset sm8650-common and giulia to HEAD before deduplicating
+# Reset sm8650-common to HEAD before deduplicating
 os.system(f"git -C {aosp_root}/vendor/oneplus/sm8650-common checkout Android.bp sm8650-common-vendor.mk")
-os.system(f"git -C {aosp_root}/vendor/oneplus/giulia checkout Android.bp giulia-vendor.mk")
 
 deduplicate_vendor_tree(
     os.path.join(aosp_root, 'vendor/oneplus/sm8650-common/Android.bp'),
