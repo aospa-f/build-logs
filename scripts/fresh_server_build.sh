@@ -99,7 +99,11 @@ if [ ! -f "./rom-build.sh" ]; then
     fi
 fi
 
-./rom-build.sh "${DEVICE}" -v "${VARIANT}" -t "${BUILD_TYPE}"
+BUILD_CMD=("./rom-build.sh" "${DEVICE}" -t "${VARIANT}")
+if [ "${BUILD_TYPE}" = "alpha" ] || [ "${BUILD_TYPE}" = "beta" ] || [ "${BUILD_TYPE}" = "stable" ]; then
+    BUILD_CMD+=("-v" "${BUILD_TYPE}")
+fi
+"${BUILD_CMD[@]}"
 
 ROM_ZIP=$(find "${AOSPA_DIR}/out/target/product/${DEVICE}" -maxdepth 1 -name "aospa-*.zip" ! -name "*ota*" 2>/dev/null | head -n 1 || echo "")
 
