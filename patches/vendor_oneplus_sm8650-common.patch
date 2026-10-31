@@ -2,34 +2,6 @@ diff --git a/Android.bp b/Android.bp
 index ec0ab70..445ff4e 100644
 --- a/Android.bp
 +++ b/Android.bp
-@@ -4,13 +4,22 @@
- 
- soong_namespace {
-     imports: [
-+        "vendor/qcom/common/system/alarm",
-+        "vendor/qcom/common/system/audio",
-+        "vendor/qcom/common/system/av",
-+        "vendor/qcom/common/system/bt",
-+        "vendor/qcom/common/system/display",
-+        "vendor/qcom/common/system/gps",
-+        "vendor/qcom/common/system/perf",
-+        "vendor/qcom/common/system/telephony",
-+        "vendor/qcom/common/system/wfd",
-+        "vendor/qcom/common/vendor/adreno/u",
-+        "vendor/qcom/common/vendor/alarm",
-+        "vendor/qcom/common/vendor/display",
-+        "vendor/qcom/common/vendor/perf",
-+        "vendor/qcom/common/vendor/wlan",
-         "device/oneplus/sm8650-common",
-         "hardware/oplus",
--        "hardware/qcom-caf/sm8650",
--        "hardware/qcom-caf/wlan",
--        "vendor/qcom/opensource/commonsys/display",
--        "vendor/qcom/opensource/commonsys-intf/display",
--        "vendor/qcom/opensource/dataservices",
-     ],
- }
- 
 @@ -37,6 +46,7 @@ cc_prebuilt_library_shared {
      },
      compile_multilib: "64",

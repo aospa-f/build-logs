@@ -13,16 +13,13 @@
       - vendor/oneplus/ir, vendor/sony/dolby, packages/apps/LunarisDolby
       - vendor/qcom/opensource/vibrator (yaap seventeen)
       - prebuilts/kernel-build-tools, prebuilts/tools-lineage
+      - vendor/qcom/common (oplus-8650-clo/proprietary_vendor_qcom_common)
     DO NOT redeclare any of the above here or repo will error with duplicate path!
   -->
 
   <!-- Proprietary Vendor Trees from TheMuppets (lineage-23.2: OxygenOS 16 base) -->
   <project path="vendor/oneplus/giulia" name="TheMuppets/proprietary_vendor_oneplus_giulia" revision="lineage-23.2" remote="github" />
   <project path="vendor/oneplus/sm8650-common" name="TheMuppets/proprietary_vendor_oneplus_sm8650-common" revision="lineage-23.2" remote="github" />
-
-  <!-- Qualcomm Common Proprietary Blobs: Override oplus-8650-clo with ThankYouMario -->
-  <remove-project name="oplus-8650-clo/proprietary_vendor_qcom_common" />
-  <project path="vendor/qcom/common" name="ThankYouMario/proprietary_vendor_qcom_common" revision="calcite" remote="github" />
 
   <!-- Prebuilt GCC Toolchains for LineageOS Kernel Build System -->
   <project path="prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9" name="LineageOS/android_prebuilts_gcc_linux-x86_aarch64_aarch64-linux-android-4.9" groups="pdk,linux,arm" clone-depth="1" revision="lineage-19.1" remote="github" />

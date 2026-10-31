@@ -11,18 +11,6 @@ index e4ea0ef9..7d6eac25 100644
  endif
  $(INSTALLED_DTBIMAGE_TARGET): $(DTC) $(DTB_OUT)
  ifeq ($(TARGET_WANTS_EMPTY_DTB),true)
-@@ -694,8 +694,9 @@ else
- ifeq ($(BOARD_USES_QCOM_MERGE_DTBS_SCRIPT),true)
- 	$(hide) find $(DTBS_BASE) -type f -name "*.dtb*" | xargs rm -f
- 	$(hide) find $(DTBS_OUT) -type f -name "*.dtb*" | xargs rm -f
--	mv $(DTB_OUT)/arch/$(KERNEL_ARCH)/boot/dts/vendor/*/*.dtb $(DTB_OUT)/arch/$(KERNEL_ARCH)/boot/dts/vendor/*/*.dtbo $(DTBS_BASE)/
--	PATH=$(abspath $(HOST_OUT_EXECUTABLES)):$${PATH} python3 $(BUILD_TOP)/vendor/aospa/build/tools/merge_dtbs.py --base $(DTBS_BASE) --techpack $(DTB_OUT)/arch/$(KERNEL_ARCH)/boot/dts/vendor --out $(DTBS_OUT)
-+	mv $(DTB_OUT)/arch/$(KERNEL_ARCH)/boot/dts/vendor/*/*.dtb $(DTBS_BASE)/
-+	mv $(DTB_OUT)/arch/$(KERNEL_ARCH)/boot/dts/vendor/*/*.dtbo $(DTBS_OUT)/ 2>/dev/null || true
-+	PATH=$(abspath $(HOST_OUT_EXECUTABLES)):$${PATH} python3 $(BUILD_TOP)/vendor/aospa/build/tools/merge_dtbs.py --base $(DTBS_BASE) --techpack $(DTB_OUT)/arch/$(KERNEL_ARCH)/boot/dts/vendor/qcom --out $(DTBS_OUT)
- 	cat $(shell find $(DTBS_OUT) -type f -name "${TARGET_MERGE_DTBS_WILDCARD}.dtb" | sort) > $@
- else
- 	@rm -f $@
 diff --git a/build/tools/merge_dtbs.py b/build/tools/merge_dtbs.py
 index 836be1a9..758952fe 100755
 --- a/build/tools/merge_dtbs.py
