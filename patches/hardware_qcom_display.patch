@@ -1,5 +1,5 @@
 diff --git a/config/display-product.mk b/config/display-product.mk
-index 636b2407..e723aad4 100644
+index 636b2407..68717c7b 100644
 --- a/config/display-product.mk
 +++ b/config/display-product.mk
 @@ -144,7 +144,7 @@ endif
@@ -11,7 +11,7 @@ index 636b2407..e723aad4 100644
  PRODUCT_DEFAULT_PROPERTY_OVERRIDES += ro.surface_flinger.force_hwc_copy_for_virtual_displays=true
  PRODUCT_DEFAULT_PROPERTY_OVERRIDES += ro.surface_flinger.max_frame_buffer_acquired_buffers=3
  PRODUCT_DEFAULT_PROPERTY_OVERRIDES += ro.surface_flinger.max_virtual_display_dimension=4096
-@@ -200,7 +200,12 @@ SOONG_CONFIG_qtidisplay := drmpp headless llvmsa \
+@@ -200,8 +200,15 @@ SOONG_CONFIG_qtidisplay := drmpp headless llvmsa \
                             composer_version smmu_proxy \
                             ubwcp_headers sixzone_version
  SOONG_CONFIG_qtidisplay += udfps samsung_udfps oplus_udfps
@@ -22,6 +22,9 @@ index 636b2407..e723aad4 100644
 +ifneq ($(SOONG_CONFIG_qtidisplay_pxlw_hw_iris7),)
 +SOONG_CONFIG_qtidisplay += pxlw_hw_iris7
 +endif
- SOONG_CONFIG_qtidisplay += pxlw_color_config_include
++ifneq ($(SOONG_CONFIG_qtidisplay_pxlw_color_config_include),)
++SOONG_CONFIG_qtidisplay += pxlw_color_config_include
++endif
  
  # Soong Values
+ SOONG_CONFIG_qtidisplay_drmpp := true
