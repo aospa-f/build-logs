@@ -76,6 +76,8 @@ def deduplicate_vendor_tree(bp_path, mk_path, tree_name):
     print(f"Found {len(symlink_mods)} associated symlink modules.")
 
     all_to_remove = set(duplicates).union(symlink_mods)
+    if tree_name == 'sm8650-common':
+        all_to_remove.add("vendor.qti.hardware.fm@1.0")
     if not all_to_remove:
         print("Nothing to remove.")
         return
@@ -86,8 +88,8 @@ def deduplicate_vendor_tree(bp_path, mk_path, tree_name):
     removed_count = 0
     while i < len(lines):
         line = lines[i]
-        m = re.match(r'^(cc_[a-zA-Z0-9_]+|android_[a-zA-Z0-9_]+|install_symlink)\s*\{', line.strip())
-        if m:
+        m = re.match(r'^([a-zA-Z0-9_]+)\s*\{', line.strip())
+        if m and m.group(1) != "soong_namespace":
             block_lines = [line]
             brace_count = line.count('{') - line.count('}')
             j = i + 1
