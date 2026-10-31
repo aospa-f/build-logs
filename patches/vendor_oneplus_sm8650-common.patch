@@ -2,7 +2,19 @@ diff --git a/Android.bp b/Android.bp
 index ec0ab70..445ff4e 100644
 --- a/Android.bp
 +++ b/Android.bp
-@@ -37,6 +46,7 @@ cc_prebuilt_library_shared {
+@@ -6,11 +6,6 @@ soong_namespace {
+     imports: [
+         "device/oneplus/sm8650-common",
+         "hardware/oplus",
+-        "hardware/qcom-caf/sm8650",
+-        "hardware/qcom-caf/wlan",
+-        "vendor/qcom/opensource/commonsys/display",
+-        "vendor/qcom/opensource/commonsys-intf/display",
+-        "vendor/qcom/opensource/dataservices",
+     ],
+ }
+ 
+@@ -37,6 +32,7 @@ cc_prebuilt_library_shared {
      },
      compile_multilib: "64",
      prefer: true,

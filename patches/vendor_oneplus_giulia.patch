@@ -1,3 +1,17 @@
+diff --git a/Android.bp b/Android.bp
+index db4682a..61e888d 100644
+--- a/Android.bp
++++ b/Android.bp
+@@ -5,9 +5,7 @@
+ soong_namespace {
+     imports: [
+         "hardware/oplus",
+-        "hardware/qcom-caf/sm8650",
+         "vendor/oneplus/sm8650-common",
+-        "vendor/qcom/opensource/commonsys-intf/display",
+     ],
+ }
+ 
 diff --git a/Android.mk b/Android.mk
 index 4f3a593..0edb0c1 100644
 --- a/Android.mk
