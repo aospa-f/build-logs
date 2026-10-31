@@ -70,9 +70,8 @@ def deduplicate_vendor_tree(bp_path, mk_path, tree_name):
 
     symlink_mods = set()
     for mod in duplicates:
-        for m in re.findall(rf'name:\s*"([^"]*{re.escape(mod)}[^"]*)"', bp_content):
-            if m != mod:
-                symlink_mods.add(m)
+        for m in re.finditer(r'install_symlink\s*\{[^}]*name:\s*"([^"]+)"[^}]*(?:symlink_target|installed_location):\s*"[^"]*/' + re.escape(mod) + r'(?:\.so)?"', bp_content):
+            symlink_mods.add(m.group(1))
     print(f"Found {len(symlink_mods)} associated symlink modules.")
 
     all_to_remove = set(duplicates).union(symlink_mods)
