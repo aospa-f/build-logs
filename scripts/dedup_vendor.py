@@ -3,8 +3,9 @@ import os
 import re
 import sys
 
-aosp_root = '/serverhive5/raizenftw/aospa'
+aosp_root = sys.argv[1] if len(sys.argv) > 1 else '/serverhive5/raizenftw/aospa'
 qcom_root = os.path.join(aosp_root, 'vendor/qcom/common')
+hw_qcom_root = os.path.join(aosp_root, 'hardware/qcom')
 
 product_namespaces = set([
     'device/oneplus/giulia',
@@ -53,7 +54,25 @@ for root, _, files in os.walk(qcom_root):
                 with open(os.path.join(root, f)) as fin:
                     active_qcom_modules.update(get_modules_from_text(fin.read()))
 
-print(f"Collected {len(active_qcom_modules)} active modules from vendor/qcom/common.")
+# Also collect modules defined in hardware/qcom (GPS, Display, WLAN, etc.)
+if os.path.exists(hw_qcom_root):
+    for root, _, files in os.walk(hw_qcom_root):
+        for f in files:
+            full_f = os.path.join(root, f)
+            if f.endswith('.bp'):
+                with open(full_f) as fin:
+                    active_qcom_modules.update(get_modules_from_text(fin.read()))
+            elif f.endswith('.mk'):
+                try:
+                    with open(full_f) as fin:
+                        for line in fin:
+                            m = re.match(r'^\s*LOCAL_MODULE\s*:?=\s*([^\s]+)', line)
+                            if m:
+                                active_qcom_modules.add(m.group(1))
+                except Exception:
+                    pass
+
+print(f"Collected {len(active_qcom_modules)} active modules from vendor/qcom/common and hardware/qcom.")
 
 def deduplicate_vendor_tree(bp_path, mk_path, tree_name):
     print(f"\n--- Deduplicating {tree_name} ---")
