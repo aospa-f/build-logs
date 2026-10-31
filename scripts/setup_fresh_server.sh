@@ -68,12 +68,12 @@ fi
 
 # Configure Git user identity if not already set
 if [ -z "$(git config --global user.name || true)" ]; then
-    echo "[+] Configuring git username (dyruz10)..."
-    git config --global user.name "dyruz10"
+    echo "[+] Configuring git username (raizenftw)..."
+    git config --global user.name "raizenftw"
 fi
 if [ -z "$(git config --global user.email || true)" ]; then
-    echo "[+] Configuring git email (lucykushinay@gmail.com)..."
-    git config --global user.email "lucykushinay@gmail.com"
+    echo "[+] Configuring git email (raizen.mad@gmail.com)..."
+    git config --global user.email "raizen.mad@gmail.com"
 fi
 git config --global color.ui auto
 

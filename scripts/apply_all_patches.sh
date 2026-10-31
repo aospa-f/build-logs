@@ -21,6 +21,7 @@ fi
 echo "[+] Applying all fixes to AOSPA tree at: ${AOSPA_DIR}"
 
 declare -A PATCH_MAP=(
+    ["build_make.patch"]="build/make"
     ["build_soong.patch"]="build/soong"
     ["device_oneplus_sm8650-common.patch"]="device/oneplus/sm8650-common"
     ["hardware_qcom_display.patch"]="hardware/qcom/display"

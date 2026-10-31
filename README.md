@@ -22,28 +22,27 @@ build-logs/
 │   ├── giulia.xml                 # Local manifest linking aospa-f trees and TheMuppets OOS16
 │   └── baristablend.xml           # Qualcomm SM8650 audio/display HAL platform sync definitions
 ├── patches/                       # Verified discrete patches across modified projects
-│   ├── build_soong.patch
-│   ├── device_oneplus_sm8650-common.patch
-│   ├── device_qcom_sepolicy_vndr.patch
-│   ├── external_dtc.patch
-│   ├── hardware_oplus.patch
-│   ├── hardware_qcom_display.patch
-│   ├── kernel_oneplus_sm8650.patch
-│   ├── packages_apps_Settings.patch
-│   ├── vendor_aospa.patch
-│   ├── vendor_oneplus_giulia.patch       # Includes SHA1 checks for India 16.0.10.600 radio images
-│   ├── vendor_oneplus_sm8650-common.patch
-│   ├── vendor_qcom_common.patch
-│   └── vendor_qcom_opensource_commonsys_fm.patch
+│   ├── build_make.patch           # Makes target-files VINTF compatibility check non-fatal
+│   ├── build_soong.patch          # Disables strict build-time namespace enforcement
+│   ├── device_oneplus_sm8650-common.patch  # DTBO/vendor config and Indian carrier fixes
+│   ├── hardware_qcom_display.patch # Fixes display AIDL mapper and gralloc header conflicts
+│   ├── kernel_oneplus_sm8650.patch # GKI defconfig fixes (CONFIG_IP6_NF_NAT, SYSVIPC)
+│   ├── vendor_aospa.patch         # DTBO overlay merge path fix across vendor techpacks
+│   ├── vendor_oneplus_giulia.patch # India 16.0.10.600 radio images & SHA1 checksums
+│   ├── vendor_oneplus_sm8650-common.patch # OOS16 vendor overlays, display/thermal configs
+│   └── vendor_qcom_opensource_commonsys_fm.patch # FM radio build compatibility
 ├── prebuilts/
 │   └── Datura/                    # CalyxOS Datura firewall prebuilt package
 ├── fresh_build.sh                 # 1-click master build launcher for fresh servers
 └── scripts/
+    ├── apply_all_patches.sh       # Automatically applies patches and deploys India 16.0.10.600 firmware
+    ├── check_kernel_susfs_updates.sh # Tracks upstream Linux 6.1 LTS, SUSFS, and BakaSU
     ├── fresh_server_build.sh      # Complete 5-step automated bootstrap from clean server to ROM zip
     ├── setup_fresh_server.sh      # Installs all Ubuntu dependencies, ccache, repo tool
     ├── sync_manifest.sh           # Inits calcite manifest, deploys manifests, syncs & patches
-    ├── apply_all_patches.sh       # Automatically applies patches and deploys India 16.0.10.600 firmware
-    ├── track_clo_upstream.sh      # Tracks & merges changes from clo-for-giulia upstream
+    ├── track_clo_upstream.sh      # Tracks & merges changes from clo-for-giulia (calcite) upstream
+    ├── update_foss_apps.py        # Automatic updater for default FOSS apps from F-Droid
+    ├── update_mixplorer.py        # Automatic updater for MiXplorer from official drive
     └── upload_gofile.py           # Automated uploader for fast ROM sharing via GoFile
 ```
 
