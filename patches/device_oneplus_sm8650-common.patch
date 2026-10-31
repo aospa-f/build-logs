@@ -1,8 +1,8 @@
 diff --git a/BoardConfigCommon.mk b/BoardConfigCommon.mk
-index 7868937..104e729 100644
+index 7868937..6581ec8 100644
 --- a/BoardConfigCommon.mk
 +++ b/BoardConfigCommon.mk
-@@ -58,6 +58,7 @@ TARGET_BOOTLOADER_BOARD_NAME := pineapple
+@@ -58,6 +58,8 @@ TARGET_BOOTLOADER_BOARD_NAME := pineapple
  
  # Build
  BUILD_BROKEN_DUP_RULES := true
@@ -11,7 +11,7 @@ index 7868937..104e729 100644
  
  # DTB / DTBO
  BOARD_INCLUDE_DTB_IN_BOOTIMG := true
-@@ -83,6 +84,7 @@ BOARD_KERNEL_CMDLINE := sysctl.kernel.firmware_config.force_sysfs_fallback=1
+@@ -83,6 +85,7 @@ BOARD_KERNEL_CMDLINE := sysctl.kernel.firmware_config.force_sysfs_fallback=1
  BOARD_KERNEL_IMAGE_NAME := Image
  BOARD_KERNEL_PAGESIZE := 4096
  BOARD_USES_GENERIC_KERNEL_IMAGE := true
