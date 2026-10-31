@@ -20,3 +20,29 @@ index 7868937..104e729 100644
  
  TARGET_KERNEL_SOURCE := kernel/oneplus/sm8650
  TARGET_KERNEL_ADDITIONAL_FLAGS := CONFIG_OPLUS_DEVICE_DTBS=y
+diff --git a/common.mk b/common.mk
+index 7d353b6..d2b8119 100644
+--- a/common.mk
++++ b/common.mk
+@@ -299,20 +299,7 @@ PRODUCT_USE_DYNAMIC_PARTITIONS := true
+ TARGET_BOARD_PLATFORM := pineapple
+ 
+ # QTI components
+-TARGET_COMMON_QTI_COMPONENTS := \
+-    adreno \
+-    alarm \
+-    audio \
+-    av \
+-    bt \
+-    display \
+-    gps \
+-    overlay \
+-    perf \
+-    telephony \
+-    usb \
+-    wfd \
+-    wlan
++TARGET_COMMON_QTI_COMPONENTS := bt usb overlay
+ 
+ # QSPA
+ PRODUCT_PACKAGES += \
