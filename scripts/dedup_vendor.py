@@ -211,6 +211,12 @@ def deduplicate_vendor_tree(bp_path, mk_path, tree_name):
         "vendor/qcom/common/vendor/wlan",
     ],
 }"""
+    if tree_name == 'sm8650-common':
+        new_bp_text = new_bp_text.replace(
+            '"CneApp.libvndfwk_detect_jni.qti_vendor_symlink"',
+            '"CneApp.libvndfwk_detect_jni.qti_symlink"'
+        )
+
     # Remove any shared_libs references to removed modules
     for mod in all_to_remove:
         new_bp_text = re.sub(r'^\s*"' + re.escape(mod) + r'",?\s*\n', '', new_bp_text, flags=re.MULTILINE)
