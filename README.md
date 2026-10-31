@@ -41,8 +41,6 @@ build-logs/
     ├── setup_fresh_server.sh      # Installs all Ubuntu dependencies, ccache, repo tool
     ├── sync_manifest.sh           # Inits calcite manifest, deploys manifests, syncs & patches
     ├── track_clo_upstream.sh      # Tracks & merges changes from clo-for-giulia (calcite) upstream
-    ├── update_foss_apps.py        # Automatic updater for default FOSS apps from F-Droid
-    ├── update_mixplorer.py        # Automatic updater for MiXplorer from official drive
     └── upload_gofile.py           # Automated uploader for fast ROM sharing via GoFile
 ```
 
