@@ -39,7 +39,7 @@ declare -A PATCH_MAP=(
 APPLIED_COUNT=0
 SKIPPED_COUNT=0
 
-for PATCH_FILE in "${!PATCH_MAP[@]}"; do
+for PATCH_FILE in $(printf "%s\n" "${!PATCH_MAP[@]}" | sort); do
     TARGET_SUBDIR="${PATCH_MAP[$PATCH_FILE]}"
     TARGET_PATH="${AOSPA_DIR}/${TARGET_SUBDIR}"
     PATCH_PATH="${PATCHES_DIR}/${PATCH_FILE}"
