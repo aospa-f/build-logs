@@ -26,6 +26,7 @@ declare -A PATCH_MAP=(
     ["device_oneplus_sm8650-common.patch"]="device/oneplus/sm8650-common"
     ["frameworks_base_hd_icon_toggle.patch"]="frameworks/base"
     ["frameworks_base_back_gesture_arrow.patch"]="frameworks/base"
+    ["frameworks_base_virtual_hal_block.patch"]="frameworks/base"
     ["hardware_qcom_display.patch"]="hardware/qcom/display"
     ["kernel_oneplus_sm8650.patch"]="kernel/oneplus/sm8650"
     ["vendor_aospa.patch"]="vendor/aospa"

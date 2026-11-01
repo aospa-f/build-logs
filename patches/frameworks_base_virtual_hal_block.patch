@@ -1,0 +1,167 @@
+From 0df0199c4f8b7758b42ea172d54479afe167f5b8 Mon Sep 17 00:00:00 2001
+From: raizenftw <raizen.mad@gmail.com>
+Date: Sun, 1 Nov 2026 15:35:34 +0000
+Subject: [PATCH] Biometrics: Avoid blocking wait for absent virtual HAL
+
+FaceService/FingerprintService always appended "virtual" to the declared
+HAL instance list. On devices that do not ship the testing-only virtual HAL,
+this made the biometric registration thread call
+ServiceManager.waitForService(".../virtualhal.IVirtualHal/virtual"), which
+polls forever and blocks for one second at a time. The repeated polling
+causes UI stalls (most noticeable when touching the screen during the
+display dim/timeout transition).
+
+Only include the virtual instance when the build is debuggable or when the
+virtual HAL service is actually present, and use a non-blocking
+ServiceManager.getService() lookup for the virtual HAL.
+
+Change-Id: If7f47d84792bf0d6333bfc55e2ea01a829eaee2a
+Signed-off-by: raizenftw <raizen.mad@gmail.com>
+---
+ .../face/FaceSensorConfigurations.java        | 11 +++++++++-
+ .../FingerprintSensorConfigurations.java      | 11 +++++++++-
+ .../biometrics/sensors/face/FaceService.java  | 21 ++++++++++++++++++-
+ .../fingerprint/FingerprintService.java       | 21 ++++++++++++++++++-
+ 4 files changed, 60 insertions(+), 4 deletions(-)
+
+diff --git a/core/java/android/hardware/face/FaceSensorConfigurations.java b/core/java/android/hardware/face/FaceSensorConfigurations.java
+index 4d3e46735761..1601c1a43072 100644
+--- a/core/java/android/hardware/face/FaceSensorConfigurations.java
++++ b/core/java/android/hardware/face/FaceSensorConfigurations.java
+@@ -24,6 +24,7 @@ import android.hardware.biometrics.face.IFace;
+ import android.hardware.biometrics.face.SensorProps;
+ import android.hardware.biometrics.face.virtualhal.IVirtualHal;
+ import android.os.Binder;
++import android.os.IBinder;
+ import android.os.Parcel;
+ import android.os.Parcelable;
+ import android.os.RemoteException;
+@@ -184,8 +185,16 @@ public class FaceSensorConfigurations implements Parcelable {
+             String fqNameMapped = remapFqName(fqName);
+             Slog.i(TAG, "getIFace fqName is mapped: " + fqName + "->" + fqNameMapped);
+             try {
++                // Use a non-blocking lookup for the virtual HAL. waitForService() would
++                // block the biometric registration thread indefinitely on devices that
++                // do not ship the testing-only virtual HAL.
++                IBinder binder = ServiceManager.getService(fqNameMapped);
++                if (binder == null) {
++                    Slog.w(TAG, "Virtual HAL is not available: " + fqNameMapped);
++                    return null;
++                }
+                 IVirtualHal vhal = IVirtualHal.Stub.asInterface(
+-                        Binder.allowBlocking(ServiceManager.waitForService(fqNameMapped)));
++                        Binder.allowBlocking(binder));
+                 return vhal != null ? vhal.getFaceHal() : null;
+             } catch (RemoteException e) {
+                 Slog.e(TAG, "Remote exception in vhal.getFaceHal() call" + fqNameMapped);
+diff --git a/core/java/android/hardware/fingerprint/FingerprintSensorConfigurations.java b/core/java/android/hardware/fingerprint/FingerprintSensorConfigurations.java
+index 2c6371c5d224..51665fb2659c 100644
+--- a/core/java/android/hardware/fingerprint/FingerprintSensorConfigurations.java
++++ b/core/java/android/hardware/fingerprint/FingerprintSensorConfigurations.java
+@@ -25,6 +25,7 @@ import android.hardware.biometrics.fingerprint.IFingerprint;
+ import android.hardware.biometrics.fingerprint.SensorProps;
+ import android.hardware.biometrics.fingerprint.virtualhal.IVirtualHal;
+ import android.os.Binder;
++import android.os.IBinder;
+ import android.os.Parcel;
+ import android.os.Parcelable;
+ import android.os.RemoteException;
+@@ -189,8 +190,16 @@ public class FingerprintSensorConfigurations implements Parcelable {
+             String fqNameMapped = remapFqName(fqName);
+             Slog.i(TAG, "getIFingerprint fqName is mapped: " + fqName + "->" + fqNameMapped);
+             try {
++                // Use a non-blocking lookup for the virtual HAL. waitForService() would
++                // block the biometric registration thread indefinitely on devices that
++                // do not ship the testing-only virtual HAL.
++                IBinder binder = ServiceManager.getService(fqNameMapped);
++                if (binder == null) {
++                    Slog.w(TAG, "Virtual HAL is not available: " + fqNameMapped);
++                    return null;
++                }
+                 IVirtualHal vhal = IVirtualHal.Stub.asInterface(
+-                        Binder.allowBlocking(ServiceManager.waitForService(fqNameMapped)));
++                        Binder.allowBlocking(binder));
+                 return vhal.getFingerprintHal();
+             } catch (RemoteException e) {
+                 Slog.e(TAG, "Remote exception in vhal.getFingerprintHal() call" + fqNameMapped);
+diff --git a/services/core/java/com/android/server/biometrics/sensors/face/FaceService.java b/services/core/java/com/android/server/biometrics/sensors/face/FaceService.java
+index a34791f70533..6205cc12e0c7 100644
+--- a/services/core/java/com/android/server/biometrics/sensors/face/FaceService.java
++++ b/services/core/java/com/android/server/biometrics/sensors/face/FaceService.java
+@@ -817,7 +817,7 @@ public class FaceService extends SystemService {
+         String[] a = ServiceManager.getDeclaredInstances(IFace.DESCRIPTOR);
+         Slog.i(TAG, "Before:getDeclaredInstances: IFace instance found, a.length="
+                 + a.length);
+-        if (!ArrayUtils.contains(a, "virtual")) {
++        if (!ArrayUtils.contains(a, "virtual") && shouldIncludeVirtualHal()) {
+             // Now, the virtual hal is registered with IVirtualHal interface and it is also
+             //   moved from vendor to system_ext partition without a device manifest. So
+             //   if the old vhal is not declared, add here.
+@@ -827,6 +827,25 @@ public class FaceService extends SystemService {
+         return a;
+     }
+ 
++    /**
++     * The virtual HAL is a testing-only component. Only include it when the build is
++     * debuggable or when the service is actually available. Otherwise, the biometric
++     * registration thread blocks in ServiceManager.waitForService() forever on devices
++     * that do not ship the virtual HAL, causing UI stalls.
++     */
++    private static boolean shouldIncludeVirtualHal() {
++        if (Build.isDebuggable()) {
++            return true;
++        }
++        try {
++            return ServiceManager.getService(
++                    android.hardware.biometrics.face.virtualhal.IVirtualHal.DESCRIPTOR
++                            + "/virtual") != null;
++        } catch (Throwable t) {
++            return false;
++        }
++    }
++
+     void syncEnrollmentsNow() {
+         Utils.checkPermissionOrShell(getContext(), MANAGE_FACE);
+         if (Utils.isFaceVirtualEnabled(getContext())) {
+diff --git a/services/core/java/com/android/server/biometrics/sensors/fingerprint/FingerprintService.java b/services/core/java/com/android/server/biometrics/sensors/fingerprint/FingerprintService.java
+index 29c12675361a..75f17a096e80 100644
+--- a/services/core/java/com/android/server/biometrics/sensors/fingerprint/FingerprintService.java
++++ b/services/core/java/com/android/server/biometrics/sensors/fingerprint/FingerprintService.java
+@@ -1139,7 +1139,7 @@ public class FingerprintService extends SystemService {
+         String[] a = ServiceManager.getDeclaredInstances(IFingerprint.DESCRIPTOR);
+         Slog.i(TAG, "Before:getDeclaredInstances: IFingerprint instance found, a.length="
+                 + a.length);
+-        if (!ArrayUtils.contains(a, "virtual")) {
++        if (!ArrayUtils.contains(a, "virtual") && shouldIncludeVirtualHal()) {
+             // Now, the virtual hal is registered with IVirtualHal interface and it is also
+             //   moved from vendor to system_ext partition without a device manifest. So
+             //   if the old vhal is not declared, add here.
+@@ -1149,6 +1149,25 @@ public class FingerprintService extends SystemService {
+         return a;
+     }
+ 
++    /**
++     * The virtual HAL is a testing-only component. Only include it when the build is
++     * debuggable or when the service is actually available. Otherwise, the biometric
++     * registration thread blocks in ServiceManager.waitForService() forever on devices
++     * that do not ship the virtual HAL, causing UI stalls.
++     */
++    private static boolean shouldIncludeVirtualHal() {
++        if (Build.isDebuggable()) {
++            return true;
++        }
++        try {
++            return ServiceManager.getService(
++                    android.hardware.biometrics.fingerprint.virtualhal.IVirtualHal.DESCRIPTOR
++                            + "/virtual") != null;
++        } catch (Throwable t) {
++            return false;
++        }
++    }
++
+     @NonNull
+     private List<Fingerprint> getEnrolledFingerprintsDeprecated(int userId, String opPackageName) {
+         final Pair<Integer, ServiceProvider> provider = mRegistry.getSingleProvider();
+-- 
+2.43.0
+
