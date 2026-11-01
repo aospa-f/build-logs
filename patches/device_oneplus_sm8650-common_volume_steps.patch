@@ -1,0 +1,25 @@
+From d912d9929d5b34fb3dc447ceff0bef2abb80d3d7 Mon Sep 17 00:00:00 2001
+From: raizenftw <raizen.mad@gmail.com>
+Date: Sun, 1 Nov 2026 16:25:45 +0000
+Subject: [PATCH] sm8650-common: Bump media and voice call volume steps
+
+---
+ properties/odm.prop | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/properties/odm.prop b/properties/odm.prop
+index 3846bc9..57d2402 100644
+--- a/properties/odm.prop
++++ b/properties/odm.prop
+@@ -1,6 +1,6 @@
+ # Audio
+-ro.config.media_vol_steps=30
+-ro.config.vc_call_vol_steps=9
++ro.config.media_vol_steps=45
++ro.config.vc_call_vol_steps=18
+ ro.oplus.image.my_engineering.type=release
+ ro.vendor.qti.va_odm.support=1
+ sys.oplus_ftm_mode=997
+-- 
+2.43.0
+

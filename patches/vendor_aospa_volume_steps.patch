@@ -1,0 +1,26 @@
+From 1cbfa080200ad4dffaceeaf258597152844e0331 Mon Sep 17 00:00:00 2001
+From: raizenftw <raizen.mad@gmail.com>
+Date: Sun, 1 Nov 2026 16:25:44 +0000
+Subject: [PATCH] aospa-target: Bump media volume steps to 45
+
+Change-Id: I2cc532306c09efb13ba92620428e811cc4438594
+---
+ target/product/aospa-target.mk | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/target/product/aospa-target.mk b/target/product/aospa-target.mk
+index 1f647bb6..4ad183e0 100644
+--- a/target/product/aospa-target.mk
++++ b/target/product/aospa-target.mk
+@@ -38,7 +38,7 @@ endif
+ # Audio
+ # Increase volume level steps
+ PRODUCT_SYSTEM_PROPERTIES += \
+-    ro.config.media_vol_steps=30
++    ro.config.media_vol_steps=45
+ 
+ # Boot Animation
+ $(call inherit-product, vendor/aospa/bootanimation/bootanimation.mk)
+-- 
+2.43.0
+
