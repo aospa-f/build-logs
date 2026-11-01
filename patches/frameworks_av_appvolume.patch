@@ -1,0 +1,721 @@
+diff --git a/include/media/AppVolume.h b/include/media/AppVolume.h
+new file mode 100644
+index 00000000..5c12c11a
+--- /dev/null
++++ b/include/media/AppVolume.h
+@@ -0,0 +1,85 @@
++/*
++ * Copyright (C) 2022 Project Kaleidoscope
++ *
++ * Licensed under the Apache License, Version 2.0 (the "License");
++ * you may not use this file except in compliance with the License.
++ * You may obtain a copy of the License at
++ *
++ *      http://www.apache.org/licenses/LICENSE-2.0
++ *
++ * Unless required by applicable law or agreed to in writing, software
++ * distributed under the License is distributed on an "AS IS" BASIS,
++ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
++ * See the License for the specific language governing permissions and
++ * limitations under the License.
++ */
++
++#ifndef APP_VOLUME_H
++#define APP_VOLUME_H
++
++#include <android/media/AppVolumeData.h>
++#include <utils/String8.h>
++#include <binder/Parcel.h>
++#include <binder/Parcelable.h>
++#include <media/AidlConversionUtil.h>
++
++namespace android {
++namespace media {
++    class AppVolume : public Parcelable {
++    public:
++        String8 packageName;
++        bool muted;
++        float volume;
++        bool active;
++
++        bool operator <(const AppVolume &obj) const {
++            if (active != obj.active) return active < obj.active;
++            return packageName < obj.packageName;
++        }
++
++        virtual status_t writeToParcel(Parcel* parcel) const {
++            AppVolumeData parcelable;
++            return writeToParcelable(&parcelable)
++                ?: parcelable.writeToParcel(parcel);
++        }
++
++        virtual status_t writeToParcelable(AppVolumeData* parcelable) const {
++            parcelable->packageName = packageName.c_str();
++            parcelable->muted = muted;
++            parcelable->volume = volume;
++            parcelable->active = active;
++            return OK;
++        }
++
++        virtual status_t readFromParcel(const Parcel* parcel) {
++            AppVolumeData data;
++            return data.readFromParcel(parcel)
++                ?: readFromParcelable(data);
++        }
++
++        virtual status_t readFromParcelable(const AppVolumeData& parcelable) {
++            packageName = parcelable.packageName.c_str();
++            muted = parcelable.muted;
++            volume = parcelable.volume;
++            active = parcelable.active;
++            return OK;
++        }
++    };
++
++    inline ConversionResult<AppVolume>
++    aidl2legacy_AppVolume(const AppVolumeData& aidl) {
++        AppVolume legacy;
++        RETURN_IF_ERROR(legacy.readFromParcelable(aidl));
++        return legacy;
++    }
++
++    inline ConversionResult<AppVolumeData>
++    legacy2aidl_AppVolume(const AppVolume& legacy) {
++        AppVolumeData aidl;
++        RETURN_IF_ERROR(legacy.writeToParcelable(&aidl));
++        return aidl;
++    }
++} // namespace media
++};  // namespace android
++
++#endif // APP_VOLUME_H
+diff --git a/media/aidl/Android.bp b/media/aidl/Android.bp
+index cf0f8399..7eef9422 100644
+--- a/media/aidl/Android.bp
++++ b/media/aidl/Android.bp
+@@ -43,6 +43,7 @@ aidl_interface {
+     double_loadable: true,
+     local_include_dir: ".",
+     srcs: [
++        "android/media/AppVolumeData.aidl",
+         "android/media/IAudioManagerNative.aidl",
+         "android/media/InterpolatorConfig.aidl",
+         "android/media/InterpolatorType.aidl",
+diff --git a/media/aidl/android/media/AppVolumeData.aidl b/media/aidl/android/media/AppVolumeData.aidl
+new file mode 100644
+index 00000000..e0e38e84
+--- /dev/null
++++ b/media/aidl/android/media/AppVolumeData.aidl
+@@ -0,0 +1,27 @@
++/*
++ * Copyright (C) 2022 Project Kaleidoscope
++ *
++ * Licensed under the Apache License, Version 2.0 (the "License");
++ * you may not use this file except in compliance with the License.
++ * You may obtain a copy of the License at
++ *
++ *      http://www.apache.org/licenses/LICENSE-2.0
++ *
++ * Unless required by applicable law or agreed to in writing, software
++ * distributed under the License is distributed on an "AS IS" BASIS,
++ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
++ * See the License for the specific language governing permissions and
++ * limitations under the License.
++ */
++
++package android.media;
++
++/**
++ * {@hide}
++ */
++parcelable AppVolumeData {
++    @utf8InCpp String packageName;
++    int muted;
++    float volume;
++    int active;
++}
+diff --git a/media/libaudioclient/AudioSystem.cpp b/media/libaudioclient/AudioSystem.cpp
+index f04e74ff..e9d2680b 100644
+--- a/media/libaudioclient/AudioSystem.cpp
++++ b/media/libaudioclient/AudioSystem.cpp
+@@ -2948,6 +2948,27 @@ status_t AudioSystem::registerSoundTriggerCaptureStateListener(
+     return NO_ERROR;
+ }
+ 
++status_t AudioSystem::setAppVolume(const String8& packageName, const float volume)
++{
++    const sp<IAudioFlinger>& af = AudioSystem::get_audio_flinger();
++    if (af == 0) return PERMISSION_DENIED;
++    return af->setAppVolume(packageName, volume);
++}
++
++status_t AudioSystem::setAppMute(const String8& packageName, const bool mute)
++{
++    const sp<IAudioFlinger>& af = AudioSystem::get_audio_flinger();
++    if (af == 0) return PERMISSION_DENIED;
++    return af->setAppMute(packageName, mute);
++}
++
++status_t AudioSystem::listAppVolumes(std::vector<media::AppVolume> *vols)
++{
++    const sp<IAudioFlinger>& af = AudioSystem::get_audio_flinger();
++    if (af == 0) return PERMISSION_DENIED;
++    return af->listAppVolumes(vols);
++}
++
+ status_t AudioSystem::setVibratorInfos(
+         const std::vector<media::AudioVibratorInfo>& vibratorInfos) {
+     const sp<IAudioFlinger> af = get_audio_flinger();
+diff --git a/media/libaudioclient/IAudioFlinger.cpp b/media/libaudioclient/IAudioFlinger.cpp
+index ea5149a3..3f69b8c0 100644
+--- a/media/libaudioclient/IAudioFlinger.cpp
++++ b/media/libaudioclient/IAudioFlinger.cpp
+@@ -339,6 +339,28 @@ status_t AudioFlingerClientAdapter::getMasterBalance(float* balance) const{
+     return statusTFromBinderStatus(mDelegate->getMasterBalance(balance));
+ }
+ 
++status_t AudioFlingerClientAdapter::setAppVolume(const String8& packageName, const float value) {
++    std::string packageNameAidl = VALUE_OR_RETURN_STATUS(
++            legacy2aidl_String8_string(packageName));
++    return mDelegate->setAppVolume(packageNameAidl, value).transactionError();
++}
++
++status_t AudioFlingerClientAdapter::setAppMute(const String8& packageName, const bool value) {
++    std::string packageNameAidl = VALUE_OR_RETURN_STATUS(
++            legacy2aidl_String8_string(packageName));
++    return mDelegate->setAppMute(packageNameAidl, value).transactionError();
++}
++
++status_t AudioFlingerClientAdapter::listAppVolumes(std::vector<media::AppVolume>* vols) {
++    std::vector<media::AppVolumeData> aidlRet;
++    RETURN_STATUS_IF_ERROR(mDelegate->listAppVolumes(&aidlRet).transactionError());
++    if (vols != nullptr) {
++        *vols = VALUE_OR_RETURN_STATUS(
++            convertContainer<std::vector<media::AppVolume>>(aidlRet, media::aidl2legacy_AppVolume));
++    }
++    return OK;
++}
++
+ status_t AudioFlingerClientAdapter::setPortsVolume(
+         const std::vector<audio_port_handle_t> &portIds, float volume, bool muted,
+         audio_io_handle_t output) {
+@@ -1010,6 +1032,26 @@ Status AudioFlingerServerAdapter::getMasterBalance(float* _aidl_return) {
+     return Status::fromStatusT(mDelegate->getMasterBalance(_aidl_return));
+ }
+ 
++Status AudioFlingerServerAdapter::setAppVolume(const std::string& packageName, const float value) {
++    String8 packageNameLegacy = VALUE_OR_RETURN_BINDER(
++            aidl2legacy_string_view_String8(packageName));
++    return Status::fromStatusT(mDelegate->setAppVolume(packageNameLegacy, value));
++}
++
++Status AudioFlingerServerAdapter::setAppMute(const std::string& packageName, const bool value) {
++    String8 packageNameLegacy = VALUE_OR_RETURN_BINDER(
++            aidl2legacy_string_view_String8(packageName));
++    return Status::fromStatusT(mDelegate->setAppMute(packageNameLegacy, value));
++}
++
++Status AudioFlingerServerAdapter::listAppVolumes(std::vector<media::AppVolumeData>* _aidl_return) {
++    std::vector<media::AppVolume> resultLegacy;
++    RETURN_BINDER_IF_ERROR(mDelegate->listAppVolumes(&resultLegacy));
++    *_aidl_return = VALUE_OR_RETURN_BINDER(convertContainer<std::vector<media::AppVolumeData>>(
++            resultLegacy, media::legacy2aidl_AppVolume));
++    return Status::ok();
++}
++
+ Status AudioFlingerServerAdapter::setPortsVolume(
+         const std::vector<int32_t>& portIds, float volume, bool muted, int32_t output) {
+     std::vector<audio_port_handle_t> portIdsLegacy = VALUE_OR_RETURN_BINDER(
+diff --git a/media/libaudioclient/aidl/android/media/IAudioFlingerService.aidl b/media/libaudioclient/aidl/android/media/IAudioFlingerService.aidl
+index b50e6ef8..488931fc 100644
+--- a/media/libaudioclient/aidl/android/media/IAudioFlingerService.aidl
++++ b/media/libaudioclient/aidl/android/media/IAudioFlingerService.aidl
+@@ -16,6 +16,7 @@
+ 
+ package android.media;
+ 
++import android.media.AppVolumeData;
+ import android.media.AudioPatchFw;
+ import android.media.AudioPolicyConfig;
+ import android.media.AudioPortFw;
+@@ -100,6 +101,10 @@ interface IAudioFlingerService {
+     void setMasterBalance(float balance);
+     float getMasterBalance();
+ 
++    void setAppVolume(@utf8InCpp String packageName, float value);
++    void setAppMute(@utf8InCpp String packageName, boolean muted);
++    AppVolumeData[] listAppVolumes();
++
+     /*
+      * Set AudioTrack port ids volume attribute. This is the new way of controlling volume from
+      * AudioPolicyManager to AudioFlinger.
+diff --git a/media/libaudioclient/include/media/AudioSystem.h b/media/libaudioclient/include/media/AudioSystem.h
+index 4d8fe625..e8a200a2 100644
+--- a/media/libaudioclient/include/media/AudioSystem.h
++++ b/media/libaudioclient/include/media/AudioSystem.h
+@@ -43,6 +43,7 @@
+ #include <android/media/audio/common/AudioPort.h>
+ #include <android/media/audio/common/FlushFromFrameSupport.h>
+ #include <media/AidlConversionUtil.h>
++#include <media/AppVolume.h>
+ #include <media/AudioContainers.h>
+ #include <media/AudioDeviceTypeAddr.h>
+ #include <media/AudioPolicy.h>
+@@ -897,6 +898,10 @@ public:
+             media::audio::common::AudioMMapPolicyType policyType, audio_devices_t device,
+             media::audio::common::AudioMMapPolicyInfo *policyInfo);
+ 
++    static status_t setAppVolume(const String8& packageName, const float value);
++    static status_t setAppMute(const String8& packageName, const bool value);
++    static status_t listAppVolumes(std::vector<media::AppVolume> *vols);
++
+     class AudioFlingerClient: public media::BnAudioFlingerClient
+     {
+     public:
+diff --git a/media/libaudioclient/include/media/IAudioFlinger.h b/media/libaudioclient/include/media/IAudioFlinger.h
+index 0a2c4900..73f981d6 100644
+--- a/media/libaudioclient/include/media/IAudioFlinger.h
++++ b/media/libaudioclient/include/media/IAudioFlinger.h
+@@ -25,6 +25,7 @@
+ #include <utils/Errors.h>
+ #include <binder/IInterface.h>
+ #include <media/AidlConversion.h>
++#include <media/AppVolume.h>
+ #include <media/AudioClient.h>
+ #include <media/AudioCommonTypes.h>
+ #include <media/DeviceDescriptorBase.h>
+@@ -405,6 +406,10 @@ public:
+             int module,
+             const media::audio::common::AudioPortConfig& config,
+             media::audio::common::FlushFromFrameSupport* support) = 0;
++
++    virtual status_t setAppVolume(const String8& packageName, const float value) = 0;
++    virtual status_t setAppMute(const String8& packageName, const bool value) = 0;
++    virtual status_t listAppVolumes(std::vector<media::AppVolume> *vols) = 0;
+ };
+ 
+ /**
+@@ -530,6 +535,10 @@ public:
+             const media::audio::common::AudioPortConfig& config,
+             media::audio::common::FlushFromFrameSupport *support) override;
+ 
++    status_t setAppVolume(const String8& packageName, const float value) override;
++    status_t setAppMute(const String8& packageName, const bool value) override;
++    status_t listAppVolumes(std::vector<media::AppVolume> *vols) override;
++
+ private:
+     const sp<media::IAudioFlingerService> mDelegate;
+ };
+@@ -633,6 +642,9 @@ public:
+                     media::BnAudioFlingerService::TRANSACTION_resetReferencesForTest,
+             GET_FLUSH_FROM_FRAME_SUPPORT =
+                     media::BnAudioFlingerService::TRANSACTION_getFlushFromFrameSupport,
++            SET_APP_VOLUME = media::BnAudioFlingerService::TRANSACTION_setAppVolume,
++            SET_APP_MUTE = media::BnAudioFlingerService::TRANSACTION_setAppMute,
++            LIST_APP_VOLUMES = media::BnAudioFlingerService::TRANSACTION_listAppVolumes,
+         };
+ 
+     protected:
+@@ -775,6 +787,10 @@ public:
+             int module,
+             const media::audio::common::AudioPortConfig& config,
+             media::audio::common::FlushFromFrameSupport* _aidl_return) override;
++
++    Status setAppVolume(const std::string& packageName, const float value) override;
++    Status setAppMute(const std::string& packageName, const bool value) override;
++    Status listAppVolumes(std::vector<media::AppVolumeData> *vols) override;
+ private:
+     const sp<AudioFlingerServerAdapter::Delegate> mDelegate;
+ };
+diff --git a/services/audioflinger/AudioFlinger.cpp b/services/audioflinger/AudioFlinger.cpp
+index 1970897e..85cbf45a 100644
+--- a/services/audioflinger/AudioFlinger.cpp
++++ b/services/audioflinger/AudioFlinger.cpp
+@@ -102,6 +102,7 @@ using com::android::media::permission::IPermissionProvider;
+ using com::android::media::permission::NativePermissionController;
+ using com::android::media::permission::PermissionEnum;
+ using com::android::media::permission::PermissionEnum::MODIFY_AUDIO_SETTINGS;
++using com::android::media::permission::PermissionEnum::MODIFY_AUDIO_ROUTING;
+ using com::android::media::permission::ValidatedAttributionSourceState;
+ 
+ static const AudioHalVersionInfo kMaxAAudioPropertyDeviceHalVersion =
+@@ -1177,6 +1178,15 @@ status_t AudioFlinger::createTrack(const media::CreateTrackRequest& _input,
+         output.portId = portId;
+ 
+         if (lStatus == NO_ERROR) {
++            // set volume
++            String8 trackCreatorPackage = track->getPackageName();
++            if (!trackCreatorPackage.empty() &&
++                mAppVolumeConfigs.find(trackCreatorPackage) != mAppVolumeConfigs.end()) {
++                media::AppVolume config = mAppVolumeConfigs[trackCreatorPackage];
++                track->setAppMute(config.muted);
++                track->setAppVolume(config.volume);
++            }
++
+             // no risk of deadlock because AudioFlinger::mutex() is held
+             audio_utils::lock_guard _dl(thread->mutex());
+             // Connect secondary outputs. Failure on a secondary output must not imped the primary
+@@ -2038,6 +2048,60 @@ uint32_t AudioFlinger::getInputFramesLost(audio_io_handle_t ioHandle) const
+     return 0;
+ }
+ 
++status_t AudioFlinger::listAppVolumes(std::vector<media::AppVolume> *vols)
++{
++    std::set<media::AppVolume> volSet;
++    audio_utils::lock_guard _l(mutex());
++    for (size_t i = 0; i < mPlaybackThreads.size(); i++) {
++        sp<IAfPlaybackThread> thread = mPlaybackThreads.valueAt(i);
++        thread->listAppVolumes(volSet);
++    }
++
++    vols->insert(vols->begin(), volSet.begin(), volSet.end());
++
++    return NO_ERROR;
++}
++
++status_t AudioFlinger::setAppVolume(const String8& packageName, const float value)
++{
++    audio_utils::lock_guard _l(mutex());
++    for (size_t i = 0; i < mPlaybackThreads.size(); i++) {
++        sp<IAfPlaybackThread> t = mPlaybackThreads.valueAt(i);
++        t->setAppVolume(packageName, value);
++    }
++
++    if (mAppVolumeConfigs.find(packageName) == mAppVolumeConfigs.end()) {
++        media::AppVolume vol;
++        vol.packageName = packageName;
++        vol.volume = value;
++        vol.muted = false;
++        mAppVolumeConfigs[packageName] = vol;
++    } else {
++        mAppVolumeConfigs[packageName].volume = value;
++    }
++    return NO_ERROR;
++}
++
++status_t AudioFlinger::setAppMute(const String8& packageName, const bool value)
++{
++    audio_utils::lock_guard _l(mutex());
++    for (size_t i = 0; i < mPlaybackThreads.size(); i++) {
++        sp<IAfPlaybackThread> t = mPlaybackThreads.valueAt(i);
++        t->setAppMute(packageName, value);
++    }
++
++    if (mAppVolumeConfigs.find(packageName) == mAppVolumeConfigs.end()) {
++        media::AppVolume vol;
++        vol.packageName = packageName;
++        vol.volume = 1.0f;
++        vol.muted = value;
++        mAppVolumeConfigs[packageName] = vol;
++    } else {
++        mAppVolumeConfigs[packageName].muted = value;
++    }
++    return NO_ERROR;
++}
++
+ status_t AudioFlinger::setVoiceVolume(float value)
+ {
+     status_t ret = initCheck();
+@@ -5268,6 +5332,24 @@ status_t AudioFlinger::onTransactWrapper(TransactionCode code,
+             break;
+     }
+ 
++    // make sure the following transactions require MODIFY_AUDIO_ROUTING permission
++    switch (code) {
++        case TransactionCode::SET_APP_VOLUME:
++        case TransactionCode::SET_APP_MUTE: {
++            const uid_t callingUid = IPCThreadState::self()->getCallingUid();
++            const auto res = getPermissionProvider().checkPermission(MODIFY_AUDIO_ROUTING, callingUid);
++            if (!res.ok() || !res.value()) {
++                ALOGW("%s: transaction %d received from PID %d UID %d does not have "
++                      "MODIFY_AUDIO_ROUTING permission",
++                      __func__, static_cast<int>(code), IPCThreadState::self()->getCallingPid(),
++                      callingUid);
++                return INVALID_OPERATION;
++            }
++        } break;
++        default:
++            break;
++    }
++
+     const std::string methodName = getIAudioFlingerStatistics().getMethodForCode(code);
+     mediautils::TimeCheck check(
+             std::string("IAudioFlinger::").append(methodName),
+diff --git a/services/audioflinger/AudioFlinger.h b/services/audioflinger/AudioFlinger.h
+index 76555157..e223a25a 100644
+--- a/services/audioflinger/AudioFlinger.h
++++ b/services/audioflinger/AudioFlinger.h
+@@ -37,6 +37,7 @@
+ #include <audio_utils/clock.h>
+ #include <audio_utils/mutex.h>
+ #include <com/android/media/permission/PermissionEnum.h>
++#include <media/AppVolume.h>
+ #include <media/IAudioFlinger.h>
+ #include <media/IAudioPolicyServiceLocal.h>
+ #include <media/MediaMetricsItem.h>
+@@ -464,6 +465,15 @@ private:
+         return mStartupFinishedTime.load(std::memory_order_acquire);
+     }
+ 
++public:
++    status_t    setAppVolume(const String8& packageName, const float value);
++    status_t    setAppMute(const String8& packageName, const bool value);
++    status_t    listAppVolumes(std::vector<media::AppVolume> *vols);
++
++private:
++    std::map<String8, media::AppVolume>  mAppVolumeConfigs;
++
++public:
+     status_t openMmapStreamImpl(bool isOutput,
+                                 const audio_attributes_t& attr,
+                                 audio_config_base_t* config,
+diff --git a/services/audioflinger/IAfThread.h b/services/audioflinger/IAfThread.h
+index 6a940127..012ccf88 100644
+--- a/services/audioflinger/IAfThread.h
++++ b/services/audioflinger/IAfThread.h
+@@ -551,6 +551,10 @@ public:
+ 
+     // Return the asynchronous signal wait time.
+     virtual int64_t computeWaitTimeNs_l() const REQUIRES(mutex()) = 0;
++    virtual status_t setAppVolume(const String8& packageName, const float value) = 0;
++    virtual status_t setAppMute(const String8& packageName, const bool muted) = 0;
++    virtual void listAppVolumes(std::set<media::AppVolume> &container) = 0;
++
+     // returns true if the track is allowed to be added to the thread.
+     virtual bool isTrackAllowed_l(
+             audio_channel_mask_t channelMask, audio_format_t format, audio_session_t sessionId,
+diff --git a/services/audioflinger/IAfTrack.h b/services/audioflinger/IAfTrack.h
+index 0fcc4c8d..45ab19a6 100644
+--- a/services/audioflinger/IAfTrack.h
++++ b/services/audioflinger/IAfTrack.h
+@@ -528,11 +528,17 @@ public:
+     virtual sp<media::VolumeShaper::State> getVolumeShaperState(int id) const = 0;
+     virtual sp<media::VolumeHandler> getVolumeHandler() const = 0;
+     /** Set the computed normalized final volume of the track.
+-     * !masterMute * masterVolume * portVolume * averageLRVolume */
++     * !masterMute * !appMuted * masterVolume * streamVolume * averageLRVolume * appVolume */
+     virtual void setFinalVolume(float volumeLeft, float volumeRight) = 0;
+     virtual float getFinalVolume() const = 0;
+     virtual void getFinalVolume(float* left, float* right) const = 0;
+ 
++    virtual void setAppVolume(float volume) = 0;
++    virtual float getAppVolume() const = 0;
++    virtual void setAppMute(bool val) = 0;
++    virtual bool isAppMuted() = 0;
++    virtual String8 getPackageName() const = 0;
++
+     using SourceMetadatas = std::vector<playback_track_metadata_v7_t>;
+     using MetadataInserter = std::back_insert_iterator<SourceMetadatas>;
+     /** Copy the track metadata in the provided iterator. Thread safe. */
+diff --git a/services/audioflinger/PlaybackTracks.h b/services/audioflinger/PlaybackTracks.h
+index 5a402e10..7e67378d 100644
+--- a/services/audioflinger/PlaybackTracks.h
++++ b/services/audioflinger/PlaybackTracks.h
+@@ -156,7 +156,7 @@ public:
+     sp<media::VolumeShaper::State> getVolumeShaperState(int id) const final;
+     sp<media::VolumeHandler> getVolumeHandler() const final{ return mVolumeHandler; }
+     /** Set the computed normalized final volume of the track.
+-     * !masterMute * masterVolume * streamVolume * averageLRVolume */
++     * !masterMute * !appMuted * masterVolume * streamVolume * averageLRVolume * appVolume */
+     void setFinalVolume(float volumeLeft, float volumeRight) final;
+     float getFinalVolume() const final { return mFinalVolume; }
+     void getFinalVolume(float* left, float* right) const final {
+@@ -164,6 +164,13 @@ public:
+                             *right = mFinalVolumeRight;
+     }
+ 
++    void setAppVolume(float volume) final;
++    float getAppVolume() const { return mAppVolume; };
++    void setAppMute(bool val) final;
++    bool isAppMuted() { return mAppMuted; };
++
++    String8 getPackageName() const { return mPackageName; }
++
+     using SourceMetadatas = std::vector<playback_track_metadata_v7_t>;
+     using MetadataInserter = std::back_insert_iterator<SourceMetadatas>;
+     /** Copy the track metadata in the provided iterator. Thread safe. */
+@@ -386,6 +393,8 @@ private:
+ 
+     void                populateUsageAndContentTypeFromStreamType();
+ 
++    String8             mPackageName;
++
+     size_t              mPresentationCompleteFrames = 0; // (Used for Mixed tracks)
+                                     // The number of frames written to the
+                                     // audio HAL when this track is considered fully rendered.
+@@ -411,6 +420,8 @@ private:
+                                           // volume
+     float               mFinalVolumeRight; // combine master volume, stream type volume and track
+                                            // volume
++    float               mAppVolume;  // volume control for separate processes
++    bool                mAppMuted;
+     sp<AudioTrackServerProxy>  mAudioTrackServerProxy;
+     bool                mResumeToStopping; // track was paused in stopping state.
+     bool                mFlushHwPending; // track requests for thread flush
+diff --git a/services/audioflinger/Threads.cpp b/services/audioflinger/Threads.cpp
+index 309ea948..69c1ad5d 100644
+--- a/services/audioflinger/Threads.cpp
++++ b/services/audioflinger/Threads.cpp
+@@ -2354,6 +2354,43 @@ void ThreadBase::boostThreadPriority(const int priority) {
+     }
+ }
+ 
++void PlaybackThread::listAppVolumes(std::set<media::AppVolume> &container)
++{
++   audio_utils::lock_guard _l(mutex());
++    for (sp<IAfTrack> track : mTracks) {
++        if (!track->getPackageName().empty()) {
++            media::AppVolume av;
++            av.packageName = track->getPackageName();
++            av.muted = track->isAppMuted();
++            av.volume = track->getAppVolume();
++            av.active = mActiveTracks.indexOf(track) >= 0;
++            container.insert(av);
++        }
++    }
++}
++
++status_t PlaybackThread::setAppVolume(const String8& packageName, const float value)
++{
++    audio_utils::lock_guard _l(mutex());
++    for (sp<IAfTrack> track : mTracks) {
++        if (packageName == track->getPackageName()) {
++            track->setAppVolume(value);
++        }
++    }
++    return NO_ERROR;
++}
++
++status_t PlaybackThread::setAppMute(const String8& packageName, const bool value)
++{
++    audio_utils::lock_guard _l(mutex());
++    for (sp<IAfTrack> track : mTracks) {
++        if (packageName == track->getPackageName()) {
++            track->setAppMute(value);
++        }
++    }
++    return NO_ERROR;
++}
++
+ // ----------------------------------------------------------------------------
+ //      Playback
+ // ----------------------------------------------------------------------------
+@@ -5942,16 +5979,16 @@ PlaybackThread::mixer_state MixerThread::prepareTracks_l(
+ 
+                 if (com_android_media_audio_ring_my_car()) {
+                     if (!track->canBypassMute()
+-                        && (track->isPlaybackRestricted() || track->getPortMute())) {
++                        && (track->isPlaybackRestricted() || track->getPortMute() || track->isAppMuted())) {
+                         volume = 0.f;
+                     } else {
+-                        volume = masterVolume * track->getPortVolume();
++                        volume = masterVolume * track->getPortVolume() * track->getAppVolume();
+                     }
+                 } else {
+-                    if (track->isPlaybackRestricted() || track->getPortMute()) {
++                    if (track->isPlaybackRestricted() || track->getPortMute() || track->isAppMuted()) {
+                         volume = 0.f;
+                     } else {
+-                        volume = masterVolume * track->getPortVolume();
++                        volume = masterVolume * track->getPortVolume() * track->getAppVolume();
+                     }
+                 }
+ 
+@@ -6155,16 +6192,16 @@ PlaybackThread::mixer_state MixerThread::prepareTracks_l(
+ 
+             if (com_android_media_audio_ring_my_car()) {
+                 if (!track->canBypassMute()
+-                    && (track->isPlaybackRestricted() || track->getPortMute())) {
++                    && (track->isPlaybackRestricted() || track->getPortMute() || track->isAppMuted())) {
+                     v = 0;
+                 } else {
+-                    v = masterVolume * track->getPortVolume();
++                    v = masterVolume * track->getPortVolume() * track->getAppVolume();
+                 }
+             } else {
+-                if (track->isPlaybackRestricted() || track->getPortMute()) {
++                if (track->isPlaybackRestricted() || track->getPortMute() || track->isAppMuted()) {
+                     v = 0;
+                 } else {
+-                    v = masterVolume * track->getPortVolume();
++                    v = masterVolume * track->getPortVolume() * track->getAppVolume();
+                 }
+             }
+ 
+@@ -6955,12 +6992,13 @@ void DirectOutputThread::processVolume_l(const sp<IAfTrack>& track, bool lastTra
+ 
+     if (mMasterMute || (com_android_media_audio_ring_my_car() ?
+             (!track->canBypassMute()
+-              && (track->isPlaybackRestricted() || track->getPortMute()))
+-            : track->isPlaybackRestricted())) {
++              && (track->isPlaybackRestricted() || track->getPortMute() || track->isAppMuted()))
++            : (track->isPlaybackRestricted() || track->isAppMuted()))) {
+         left = right = 0;
+     } else {
+         float typeVolume = track->getPortVolume();
+-        const float v = mMasterVolume * typeVolume * shaperVolume;
++        float appVolume = track->getAppVolume();
++        const float v = mMasterVolume * typeVolume * shaperVolume * appVolume;
+ 
+         if (left > GAIN_FLOAT_UNITY) {
+             left = GAIN_FLOAT_UNITY;
+diff --git a/services/audioflinger/Threads.h b/services/audioflinger/Threads.h
+index a72d8af9..2ccb83cc 100644
+--- a/services/audioflinger/Threads.h
++++ b/services/audioflinger/Threads.h
+@@ -1203,6 +1203,10 @@ public:
+ 
+     void setVolumeForOutput_l(float left, float right) const final;
+ 
++    status_t setAppVolume(const String8& packageName, const float value) final;
++    status_t setAppMute(const String8& packageName, const bool muted) final;
++    void listAppVolumes(std::set<media::AppVolume> &container) final;
++
+     sp<IAfTrack> createTrack_l(
+                                 const sp<Client>& client,
+                                 audio_stream_type_t streamType,
+diff --git a/services/audioflinger/Tracks.cpp b/services/audioflinger/Tracks.cpp
+index afd1a701..3cd60053 100644
+--- a/services/audioflinger/Tracks.cpp
++++ b/services/audioflinger/Tracks.cpp
+@@ -960,6 +960,23 @@ Track::Track(
+     ALOGV_IF(sharedBuffer != 0, "%s(%d): sharedBuffer: %p, size: %zu",
+             __func__, mId, sharedBuffer->unsecurePointer(), sharedBuffer->size());
+ 
++    /* get package name */
++    if (attributionSource.packageName.has_value() && !attributionSource.packageName.value().empty()) {
++        mPackageName = String8(String16(attributionSource.packageName.value().c_str()));
++    } else {
++        const auto& provider = thread->afThreadCallback()->getPermissionProvider();
++        const auto res = provider.getPackagesForUid(attributionSource.uid);
++        if (res.ok() && !res->empty()) {
++            mPackageName = String8(String16(res->at(0).c_str()));
++        } else {
++            mPackageName = "";
++        }
++    }
++
++    /* init app volume */
++    mAppMuted = false;
++    mAppVolume = 1.0f;
++
+     if (mCblk == NULL) {
+         return;
+     }
+@@ -1813,6 +1830,16 @@ void Track::setFinalVolume(float volumeLeft, float volumeRight)
+     }
+ }
+ 
++void Track::setAppVolume(float volume)
++{
++    mAppVolume = volume;
++}
++
++void Track::setAppMute(bool val)
++{
++    mAppMuted = val;
++}
++
+ void Track::copyMetadataTo(MetadataInserter& backInserter) const
+ {
+     // Do not forward metadata for PatchTrack with unspecified stream type
