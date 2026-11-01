@@ -328,7 +328,7 @@ index 0a2c4900..73f981d6 100644
      const sp<AudioFlingerServerAdapter::Delegate> mDelegate;
  };
 diff --git a/services/audioflinger/AudioFlinger.cpp b/services/audioflinger/AudioFlinger.cpp
-index 1970897e..85cbf45a 100644
+index 1970897e..6886e1d2 100644
 --- a/services/audioflinger/AudioFlinger.cpp
 +++ b/services/audioflinger/AudioFlinger.cpp
 @@ -102,6 +102,7 @@ using com::android::media::permission::IPermissionProvider;
@@ -355,7 +355,7 @@ index 1970897e..85cbf45a 100644
              // no risk of deadlock because AudioFlinger::mutex() is held
              audio_utils::lock_guard _dl(thread->mutex());
              // Connect secondary outputs. Failure on a secondary output must not imped the primary
-@@ -2038,6 +2048,60 @@ uint32_t AudioFlinger::getInputFramesLost(audio_io_handle_t ioHandle) const
+@@ -2038,6 +2048,57 @@ uint32_t AudioFlinger::getInputFramesLost(audio_io_handle_t ioHandle) const
      return 0;
  }
  
@@ -363,8 +363,7 @@ index 1970897e..85cbf45a 100644
 +{
 +    std::set<media::AppVolume> volSet;
 +    audio_utils::lock_guard _l(mutex());
-+    for (size_t i = 0; i < mPlaybackThreads.size(); i++) {
-+        sp<IAfPlaybackThread> thread = mPlaybackThreads.valueAt(i);
++    for (const auto& [handle, thread] : mPlaybackThreads) {
 +        thread->listAppVolumes(volSet);
 +    }
 +
@@ -376,8 +375,7 @@ index 1970897e..85cbf45a 100644
 +status_t AudioFlinger::setAppVolume(const String8& packageName, const float value)
 +{
 +    audio_utils::lock_guard _l(mutex());
-+    for (size_t i = 0; i < mPlaybackThreads.size(); i++) {
-+        sp<IAfPlaybackThread> t = mPlaybackThreads.valueAt(i);
++    for (const auto& [handle, t] : mPlaybackThreads) {
 +        t->setAppVolume(packageName, value);
 +    }
 +
@@ -396,8 +394,7 @@ index 1970897e..85cbf45a 100644
 +status_t AudioFlinger::setAppMute(const String8& packageName, const bool value)
 +{
 +    audio_utils::lock_guard _l(mutex());
-+    for (size_t i = 0; i < mPlaybackThreads.size(); i++) {
-+        sp<IAfPlaybackThread> t = mPlaybackThreads.valueAt(i);
++    for (const auto& [handle, t] : mPlaybackThreads) {
 +        t->setAppMute(packageName, value);
 +    }
 +
@@ -416,7 +413,7 @@ index 1970897e..85cbf45a 100644
  status_t AudioFlinger::setVoiceVolume(float value)
  {
      status_t ret = initCheck();
-@@ -5268,6 +5332,24 @@ status_t AudioFlinger::onTransactWrapper(TransactionCode code,
+@@ -5268,6 +5329,24 @@ status_t AudioFlinger::onTransactWrapper(TransactionCode code,
              break;
      }
  
