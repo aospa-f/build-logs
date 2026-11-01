@@ -419,3 +419,29 @@ index 7e5f995477c0..0f1587e6a4bd 100644
          );
          mScreenLifecycle.addObserver(mCentralSurfaces.mScreenObserver);
          mCentralSurfaces.initShadeVisibilityListener();
+diff --git a/packages/SystemUI/tests/utils/src/com/android/systemui/statusbar/core/StatusBarOrchestratorKosmos.kt b/packages/SystemUI/tests/utils/src/com/android/systemui/statusbar/core/StatusBarOrchestratorKosmos.kt
+index d6241e0616fb..353d9f7ac26b 100644
+--- a/packages/SystemUI/tests/utils/src/com/android/systemui/statusbar/core/StatusBarOrchestratorKosmos.kt
++++ b/packages/SystemUI/tests/utils/src/com/android/systemui/statusbar/core/StatusBarOrchestratorKosmos.kt
+@@ -41,11 +41,13 @@ import com.android.systemui.statusbar.multiDisplayStatusBarLogger
+ import com.android.systemui.statusbar.phone.fakeAutoHideControllerStore
+ import com.android.systemui.statusbar.phone.mockAutoHideController
+ import com.android.systemui.statusbar.phone.ui.statusBarIconController
++import com.android.systemui.statusbar.policy.BurnInProtectionController
+ import com.android.systemui.statusbar.policy.statusBarConfigurationController
+ import com.android.systemui.statusbar.window.data.repository.fakeStatusBarWindowStatePerDisplayRepository
+ import com.android.systemui.statusbar.window.fakeStatusBarWindowController
+ import com.android.systemui.statusbar.window.statusBarWindowControllerStore
+ import com.android.wm.shell.bubbles.bubblesOptional
++import org.mockito.Mockito.mock
+ 
+ val Kosmos.multiDisplayStatusBarOrchestratorStore by
+     Kosmos.Fixture {
+@@ -97,6 +99,7 @@ val Kosmos.statusBarOrchestrator by
+             mockShadeSurface,
+             bubblesOptional,
+             dumpManager,
++            mock(BurnInProtectionController::class.java),
+             powerInteractor,
+             primaryBouncerInteractor,
+         )
