@@ -127,10 +127,56 @@ if [ -d "${AOSPA_DIR}/kernel/oneplus/sm8650/KernelSU/kernel" ]; then
 fi
 
 # ------------------------------------------------------------------
-# Fix rear camera CFI crash in com.qti.chi.override.so & libchifeature2.so
-# (Disambiguates "linearmapper" from "nonlinearmapper" in ChiMcxRoiTranslator)
+# Fix rear camera CFI crash, FusionLight ambient brightness, OPlus sensor
+# calibration service, tcmd seccomp policy, NFC config, and Dolby/ICC blobs
 # ------------------------------------------------------------------
-python3 - "${AOSPA_DIR}" << 'PYEOF'
+GIULIA_FIXES="${PREBUILTS_DIR}/giulia_fixes"
+if [ -d "${GIULIA_FIXES}" ]; then
+    echo "[+] Deploying Giulia sensor, FusionLight, NFC, Dolby, and ICC blobs..."
+    mkdir -p "${AOSPA_DIR}/vendor/oneplus/giulia/proprietary/odm/bin/hw" \
+             "${AOSPA_DIR}/vendor/oneplus/giulia/proprietary/odm/etc/init" \
+             "${AOSPA_DIR}/vendor/oneplus/giulia/proprietary/odm/etc/vintf/manifest" \
+             "${AOSPA_DIR}/vendor/oneplus/giulia/proprietary/odm/etc/fusionlight_profile" \
+             "${AOSPA_DIR}/vendor/oneplus/giulia/proprietary/odm/lib64" \
+             "${AOSPA_DIR}/vendor/oneplus/giulia/proprietary/product/etc/permissions" \
+             "${AOSPA_DIR}/vendor/oneplus/giulia/proprietary/vendor/etc" \
+             "${AOSPA_DIR}/vendor/oneplus/giulia/proprietary/vendor/firmware" \
+             "${AOSPA_DIR}/vendor/oneplus/giulia/proprietary/vendor/lib64"
+
+    cp -f "${GIULIA_FIXES}/odm/vendor-oplus-hardware-oplusSensor-V1-service" "${AOSPA_DIR}/vendor/oneplus/giulia/proprietary/odm/bin/hw/"
+    chmod 0755 "${AOSPA_DIR}/vendor/oneplus/giulia/proprietary/odm/bin/hw/vendor-oplus-hardware-oplusSensor-V1-service"
+    cp -f "${GIULIA_FIXES}/odm/vendor-oplus-hardware-oplusSensor-V1-service.rc" "${AOSPA_DIR}/vendor/oneplus/giulia/proprietary/odm/etc/init/"
+    cp -f "${GIULIA_FIXES}/odm/manifest_oplusSensor_aidl.xml" "${AOSPA_DIR}/vendor/oneplus/giulia/proprietary/odm/etc/vintf/manifest/"
+    cp -f "${GIULIA_FIXES}/odm/fusionlight_Main_1_3.json" "${AOSPA_DIR}/vendor/oneplus/giulia/proprietary/odm/etc/fusionlight_profile/"
+    cp -f "${GIULIA_FIXES}/odm/liboemcrypto.so" "${AOSPA_DIR}/vendor/oneplus/giulia/proprietary/odm/lib64/"
+
+    cp -f "${GIULIA_FIXES}/product/dolby_vision.cfg" "${AOSPA_DIR}/vendor/oneplus/giulia/proprietary/product/etc/"
+    cp -f "${GIULIA_FIXES}/product/privapp-permissions-euiccgoogle.xml" "${AOSPA_DIR}/vendor/oneplus/giulia/proprietary/product/etc/permissions/"
+
+    for f in display_apollo_list_AA577_P_3_A0020_dsc_cmd_mode_panel.xml libnfc-nci-NXP.conf libnfc-nxp.conf media_codecs_dolby_vision.xml; do
+        cp -f "${GIULIA_FIXES}/vendor/${f}" "${AOSPA_DIR}/vendor/oneplus/giulia/proprietary/vendor/etc/${f}"
+    done
+    cp -f "${GIULIA_FIXES}/vendor/libnfc-nci-NXP.conf" "${AOSPA_DIR}/vendor/oneplus/giulia/proprietary/vendor/etc/libnfc-nci.conf"
+    cp -f "${GIULIA_FIXES}/vendor/sn220u.bin" "${AOSPA_DIR}/vendor/oneplus/giulia/proprietary/vendor/firmware/"
+    cp -f "${GIULIA_FIXES}/vendor/libiccprofile.so" "${AOSPA_DIR}/vendor/oneplus/giulia/proprietary/vendor/lib64/"
+
+    for f in public.libraries.txt media_codecs_pineapple.xml media_codecs_cliffs_v0.xml media_codecs_cliffs_v1.xml; do
+        cp -f "${GIULIA_FIXES}/vendor/${f}" "${AOSPA_DIR}/vendor/oneplus/sm8650-common/proprietary/vendor/etc/${f}"
+    done
+fi
+
+# Ensure sensors.fusionlight.so in hals.conf and lseek: 1 in tcmd.policy
+HALS_CONF="${AOSPA_DIR}/vendor/oneplus/sm8650-common/proprietary/vendor/etc/sensors/hals.conf"
+if [ -f "${HALS_CONF}" ]; then
+    sed -i "s/sensors\.qsh\.so/sensors.fusionlight.so/g" "${HALS_CONF}"
+fi
+
+TCMD_POLICY="${AOSPA_DIR}/vendor/oneplus/sm8650-common/proprietary/system_ext/etc/seccomp_policy/tcmd.policy"
+if [ -f "${TCMD_POLICY}" ]; then
+    grep -q "^lseek:" "${TCMD_POLICY}" || echo "lseek: 1" >> "${TCMD_POLICY}"
+fi
+
+python3 - "${AOSPA_DIR}" << 'PYPATCH'
 import sys
 from pathlib import Path
 
@@ -150,8 +196,7 @@ for rel in [
             print(f"[+] Patched rear camera linearmapper keyword in {rel}")
         elif new_pat in data:
             print(f"[*] Rear camera linearmapper fix already present in {rel}")
-PYEOF
-
+PYPATCH
 
 echo ""
 echo "[✓] All patches and India firmware applied successfully!"
