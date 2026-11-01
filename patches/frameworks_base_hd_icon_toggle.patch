@@ -1,0 +1,29 @@
+From 06eecb88ecfe73ba6c961217807da5e3b486496f Mon Sep 17 00:00:00 2001
+From: raizenftw <raizen.mad@gmail.com>
+Date: Sun, 1 Nov 2026 14:39:08 +0000
+Subject: [PATCH] SystemUI: Respect HD calling status bar icon toggle in Kairos
+ mobile icon path
+
+Change-Id: I7e0255d32a156fe4bda81e0fe65bce46643a0af7
+---
+ .../mobile/ui/viewmodel/MobileIconViewModelKairos.kt         | 5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
+
+diff --git a/packages/SystemUI/src/com/android/systemui/statusbar/pipeline/mobile/ui/viewmodel/MobileIconViewModelKairos.kt b/packages/SystemUI/src/com/android/systemui/statusbar/pipeline/mobile/ui/viewmodel/MobileIconViewModelKairos.kt
+index b14453786563..3609731edb00 100644
+--- a/packages/SystemUI/src/com/android/systemui/statusbar/pipeline/mobile/ui/viewmodel/MobileIconViewModelKairos.kt
++++ b/packages/SystemUI/src/com/android/systemui/statusbar/pipeline/mobile/ui/viewmodel/MobileIconViewModelKairos.kt
+@@ -364,6 +364,9 @@ private class CellularIconViewModelKairos(
+         } else {
+             activity.map { it != null && (it.hasActivityIn || it.hasActivityOut) }
+         }
+-    override val volteId: KairosState<Int> = iconInteractor.volteId
++    override val volteId: KairosState<Int> =
++        combine(iconInteractor.volteId, iconInteractor.isMobileHdForceHidden) { id, hidden ->
++            if (hidden) 0 else id
++        }
+     override val showSignalStrengthIcon: KairosState<Boolean> = iconInteractor.showSignalStrengthIcon
+ }
+-- 
+2.43.0
+
