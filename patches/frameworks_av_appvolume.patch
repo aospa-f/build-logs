@@ -485,10 +485,23 @@ index 6a940127..012ccf88 100644
      virtual bool isTrackAllowed_l(
              audio_channel_mask_t channelMask, audio_format_t format, audio_session_t sessionId,
 diff --git a/services/audioflinger/IAfTrack.h b/services/audioflinger/IAfTrack.h
-index 0fcc4c8d..45ab19a6 100644
+index 0fcc4c8d..11dc2155 100644
 --- a/services/audioflinger/IAfTrack.h
 +++ b/services/audioflinger/IAfTrack.h
-@@ -528,11 +528,17 @@ public:
+@@ -207,6 +207,12 @@ public:
+     virtual bool isPatchTrack() const = 0;
+     virtual bool isExternalTrack() const = 0;
+ 
++    virtual void setAppVolume(float volume) { (void)volume; }
++    virtual void setAppMute(bool val) { (void)val; }
++    virtual float getAppVolume() const { return 1.0f; }
++    virtual bool isAppMuted() const { return false; }
++    virtual String8 getPackageName() const { return String8(); }
++
+     virtual void invalidate() = 0;
+     virtual void poison() = 0;
+     virtual bool isInvalid() const = 0;
+@@ -528,11 +534,17 @@ public:
      virtual sp<media::VolumeShaper::State> getVolumeShaperState(int id) const = 0;
      virtual sp<media::VolumeHandler> getVolumeHandler() const = 0;
      /** Set the computed normalized final volume of the track.
@@ -498,17 +511,17 @@ index 0fcc4c8d..45ab19a6 100644
      virtual float getFinalVolume() const = 0;
      virtual void getFinalVolume(float* left, float* right) const = 0;
  
-+    virtual void setAppVolume(float volume) = 0;
-+    virtual float getAppVolume() const = 0;
-+    virtual void setAppMute(bool val) = 0;
-+    virtual bool isAppMuted() = 0;
-+    virtual String8 getPackageName() const = 0;
++    void setAppVolume(float volume) override { IAfTrackBase::setAppVolume(volume); }
++    float getAppVolume() const override { return IAfTrackBase::getAppVolume(); }
++    void setAppMute(bool val) override { IAfTrackBase::setAppMute(val); }
++    bool isAppMuted() const override { return IAfTrackBase::isAppMuted(); }
++    String8 getPackageName() const override { return IAfTrackBase::getPackageName(); }
 +
      using SourceMetadatas = std::vector<playback_track_metadata_v7_t>;
      using MetadataInserter = std::back_insert_iterator<SourceMetadatas>;
      /** Copy the track metadata in the provided iterator. Thread safe. */
 diff --git a/services/audioflinger/PlaybackTracks.h b/services/audioflinger/PlaybackTracks.h
-index 5a402e10..7e67378d 100644
+index 5a402e10..a78ae429 100644
 --- a/services/audioflinger/PlaybackTracks.h
 +++ b/services/audioflinger/PlaybackTracks.h
 @@ -156,7 +156,7 @@ public:
@@ -520,21 +533,20 @@ index 5a402e10..7e67378d 100644
      void setFinalVolume(float volumeLeft, float volumeRight) final;
      float getFinalVolume() const final { return mFinalVolume; }
      void getFinalVolume(float* left, float* right) const final {
-@@ -164,6 +164,13 @@ public:
+@@ -164,6 +164,12 @@ public:
                              *right = mFinalVolumeRight;
      }
  
-+    void setAppVolume(float volume) final;
-+    float getAppVolume() const { return mAppVolume; };
-+    void setAppMute(bool val) final;
-+    bool isAppMuted() { return mAppMuted; };
-+
-+    String8 getPackageName() const { return mPackageName; }
++    void setAppVolume(float volume) override { mAppVolume = volume; }
++    float getAppVolume() const override { return mAppVolume; }
++    void setAppMute(bool val) override { mAppMuted = val; }
++    bool isAppMuted() const override { return mAppMuted; }
++    String8 getPackageName() const override { return mPackageName; }
 +
      using SourceMetadatas = std::vector<playback_track_metadata_v7_t>;
      using MetadataInserter = std::back_insert_iterator<SourceMetadatas>;
      /** Copy the track metadata in the provided iterator. Thread safe. */
-@@ -386,6 +393,8 @@ private:
+@@ -386,6 +392,8 @@ private:
  
      void                populateUsageAndContentTypeFromStreamType();
  
@@ -543,33 +555,34 @@ index 5a402e10..7e67378d 100644
      size_t              mPresentationCompleteFrames = 0; // (Used for Mixed tracks)
                                      // The number of frames written to the
                                      // audio HAL when this track is considered fully rendered.
-@@ -411,6 +420,8 @@ private:
+@@ -411,6 +419,8 @@ private:
                                            // volume
      float               mFinalVolumeRight; // combine master volume, stream type volume and track
                                             // volume
-+    float               mAppVolume;  // volume control for separate processes
-+    bool                mAppMuted;
++    float               mAppVolume = 1.0f;  // volume control for separate processes
++    bool                mAppMuted = false;
      sp<AudioTrackServerProxy>  mAudioTrackServerProxy;
      bool                mResumeToStopping; // track was paused in stopping state.
      bool                mFlushHwPending; // track requests for thread flush
 diff --git a/services/audioflinger/Threads.cpp b/services/audioflinger/Threads.cpp
-index 309ea948..69c1ad5d 100644
+index 309ea948..2ded1e57 100644
 --- a/services/audioflinger/Threads.cpp
 +++ b/services/audioflinger/Threads.cpp
-@@ -2354,6 +2354,43 @@ void ThreadBase::boostThreadPriority(const int priority) {
+@@ -2354,6 +2354,48 @@ void ThreadBase::boostThreadPriority(const int priority) {
      }
  }
  
 +void PlaybackThread::listAppVolumes(std::set<media::AppVolume> &container)
 +{
-+   audio_utils::lock_guard _l(mutex());
-+    for (sp<IAfTrack> track : mTracks) {
++    audio_utils::lock_guard _l(mutex());
++
++    for (const sp<IAfTrackBase>& track : mTracks) {
 +        if (!track->getPackageName().empty()) {
 +            media::AppVolume av;
 +            av.packageName = track->getPackageName();
 +            av.muted = track->isAppMuted();
 +            av.volume = track->getAppVolume();
-+            av.active = mActiveTracks.indexOf(track) >= 0;
++            av.active = mActiveTracks.count(track) > 0;
 +            container.insert(av);
 +        }
 +    }
@@ -578,29 +591,33 @@ index 309ea948..69c1ad5d 100644
 +status_t PlaybackThread::setAppVolume(const String8& packageName, const float value)
 +{
 +    audio_utils::lock_guard _l(mutex());
-+    for (sp<IAfTrack> track : mTracks) {
++
++    for (const sp<IAfTrackBase>& track : mTracks) {
 +        if (packageName == track->getPackageName()) {
 +            track->setAppVolume(value);
 +        }
 +    }
++
 +    return NO_ERROR;
 +}
 +
 +status_t PlaybackThread::setAppMute(const String8& packageName, const bool value)
 +{
 +    audio_utils::lock_guard _l(mutex());
-+    for (sp<IAfTrack> track : mTracks) {
++
++    for (const sp<IAfTrackBase>& track : mTracks) {
 +        if (packageName == track->getPackageName()) {
 +            track->setAppMute(value);
 +        }
 +    }
++
 +    return NO_ERROR;
 +}
 +
  // ----------------------------------------------------------------------------
  //      Playback
  // ----------------------------------------------------------------------------
-@@ -5942,16 +5979,16 @@ PlaybackThread::mixer_state MixerThread::prepareTracks_l(
+@@ -5942,16 +5984,16 @@ PlaybackThread::mixer_state MixerThread::prepareTracks_l(
  
                  if (com_android_media_audio_ring_my_car()) {
                      if (!track->canBypassMute()
@@ -621,7 +638,7 @@ index 309ea948..69c1ad5d 100644
                      }
                  }
  
-@@ -6155,16 +6192,16 @@ PlaybackThread::mixer_state MixerThread::prepareTracks_l(
+@@ -6155,16 +6197,16 @@ PlaybackThread::mixer_state MixerThread::prepareTracks_l(
  
              if (com_android_media_audio_ring_my_car()) {
                  if (!track->canBypassMute()
@@ -642,7 +659,7 @@ index 309ea948..69c1ad5d 100644
                  }
              }
  
-@@ -6955,12 +6992,13 @@ void DirectOutputThread::processVolume_l(const sp<IAfTrack>& track, bool lastTra
+@@ -6955,12 +6997,13 @@ void DirectOutputThread::processVolume_l(const sp<IAfTrack>& track, bool lastTra
  
      if (mMasterMute || (com_android_media_audio_ring_my_car() ?
              (!track->canBypassMute()
@@ -675,10 +692,10 @@ index a72d8af9..2ccb83cc 100644
                                  const sp<Client>& client,
                                  audio_stream_type_t streamType,
 diff --git a/services/audioflinger/Tracks.cpp b/services/audioflinger/Tracks.cpp
-index afd1a701..3cd60053 100644
+index afd1a701..770269a1 100644
 --- a/services/audioflinger/Tracks.cpp
 +++ b/services/audioflinger/Tracks.cpp
-@@ -960,6 +960,23 @@ Track::Track(
+@@ -960,6 +960,19 @@ Track::Track(
      ALOGV_IF(sharedBuffer != 0, "%s(%d): sharedBuffer: %p, size: %zu",
              __func__, mId, sharedBuffer->unsecurePointer(), sharedBuffer->size());
  
@@ -695,27 +712,6 @@ index afd1a701..3cd60053 100644
 +        }
 +    }
 +
-+    /* init app volume */
-+    mAppMuted = false;
-+    mAppVolume = 1.0f;
-+
      if (mCblk == NULL) {
          return;
      }
-@@ -1813,6 +1830,16 @@ void Track::setFinalVolume(float volumeLeft, float volumeRight)
-     }
- }
- 
-+void Track::setAppVolume(float volume)
-+{
-+    mAppVolume = volume;
-+}
-+
-+void Track::setAppMute(bool val)
-+{
-+    mAppMuted = val;
-+}
-+
- void Track::copyMetadataTo(MetadataInserter& backInserter) const
- {
-     // Do not forward metadata for PatchTrack with unspecified stream type
