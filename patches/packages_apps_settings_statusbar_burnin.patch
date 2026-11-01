@@ -1,0 +1,47 @@
+From 9f4bace79d1bf6b38987f9f5f985fe4d7408e6b2 Mon Sep 17 00:00:00 2001
+From: raizenftw <raizen.mad@gmail.com>
+Date: Sun, 1 Nov 2026 15:53:49 +0000
+Subject: [PATCH] Settings: Add status bar burn-in protection toggle
+
+Expose the status_bar_burn_in_protection Secure setting in Display settings.
+
+Change-Id: Iadafaaa61a91d98f979407368cf0d2de4aac93d5
+Signed-off-by: raizenftw <raizen.mad@gmail.com>
+---
+ res/values/aospa_strings.xml | 4 ++++
+ res/xml/display_settings.xml | 7 +++++++
+ 2 files changed, 11 insertions(+)
+
+diff --git a/res/values/aospa_strings.xml b/res/values/aospa_strings.xml
+index 315466c3ba5..b3f58cf950c 100644
+--- a/res/values/aospa_strings.xml
++++ b/res/values/aospa_strings.xml
+@@ -20,4 +20,8 @@
+     <!-- Back gesture arrow -->
+     <string name="back_gesture_arrow_title">Back gesture arrow</string>
+     <string name="back_gesture_arrow_summary">Show the arrow indicator when using back gestures</string>
++
++    <!-- Status bar burn-in protection -->
++    <string name="status_bar_burn_in_protection_title">Status bar burn-in protection</string>
++    <string name="status_bar_burn_in_protection_summary">Periodically shift status bar icons to prevent OLED burn-in</string>
+ </resources>
+diff --git a/res/xml/display_settings.xml b/res/xml/display_settings.xml
+index f2c99ff83af..a8174e8912d 100644
+--- a/res/xml/display_settings.xml
++++ b/res/xml/display_settings.xml
+@@ -268,5 +268,12 @@
+             android:summary="@string/status_bar_double_tap_to_sleep_summary"
+             android:defaultValue="true"
+             settings:controller="com.android.settings.display.DoubleTapSleepPreferenceController" />
++
++        <!-- Status bar burn-in protection -->
++        <co.aospa.framework.preference.SecureSettingSwitchPreference
++            android:key="status_bar_burn_in_protection"
++            android:title="@string/status_bar_burn_in_protection_title"
++            android:summary="@string/status_bar_burn_in_protection_summary"
++            android:defaultValue="true" />
+     </PreferenceCategory>
+ </PreferenceScreen>
+-- 
+2.43.0
+

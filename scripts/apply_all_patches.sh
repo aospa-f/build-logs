@@ -27,10 +27,12 @@ declare -A PATCH_MAP=(
     ["frameworks_base_hd_icon_toggle.patch"]="frameworks/base"
     ["frameworks_base_back_gesture_arrow.patch"]="frameworks/base"
     ["frameworks_base_virtual_hal_block.patch"]="frameworks/base"
+    ["frameworks_base_statusbar_burnin.patch"]="frameworks/base"
     ["hardware_qcom_display.patch"]="hardware/qcom/display"
     ["kernel_oneplus_sm8650.patch"]="kernel/oneplus/sm8650"
     ["vendor_aospa.patch"]="vendor/aospa"
     ["packages_apps_settings_back_gesture_arrow.patch"]="packages/apps/Settings"
+    ["packages_apps_settings_statusbar_burnin.patch"]="packages/apps/Settings"
     ["vendor_qcom_opensource_commonsys_fm.patch"]="vendor/qcom/opensource/commonsys/fm"
 )
 
