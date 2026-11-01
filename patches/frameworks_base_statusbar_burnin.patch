@@ -1,31 +1,3 @@
-From a6fc7c24443cc914ad85bb0c129773bd88bded5d Mon Sep 17 00:00:00 2001
-From: raizenftw <raizen.mad@gmail.com>
-Date: Sun, 1 Nov 2026 15:53:34 +0000
-Subject: [PATCH] SystemUI: Add status bar burn-in protection
-
-Periodically shift status bar contents horizontally and vertically to
-prevent OLED burn-in. The feature is controlled by the new Secure setting
-status_bar_burn_in_protection (default enabled) and can be toggled from
-Settings > Display.
-
-Ported from aospa-shadedark/android_frameworks_base, based on the original
-work by Park Ju Hyung, jhonboy121, Adithya R, Fabian Leutenegger and
-borbelyvince. Navbar/pill shifting is intentionally left out.
-
-Change-Id: Ie78fcdf2a28f6a16d9c7542ff75c362d8d0a159f
-Signed-off-by: raizenftw <raizen.mad@gmail.com>
----
- core/java/android/provider/Settings.java      |   9 +
- packages/SystemUI/res/values/aospa_config.xml |   3 +
- packages/SystemUI/res/values/aospa_dimens.xml |   5 +
- .../systemui/doze/util/BurnInHelper.kt        |   2 +-
- .../statusbar/BurnInProtectionController.kt   | 209 ++++++++++++++++++
- .../statusbar/core/StatusBarOrchestrator.kt   |   6 +
- .../statusbar/phone/CentralSurfacesImpl.java  |  10 +-
- .../phone/PhoneStatusBarViewController.kt     |  19 ++
- 8 files changed, 261 insertions(+), 2 deletions(-)
- create mode 100644 packages/SystemUI/src/com/android/systemui/statusbar/BurnInProtectionController.kt
-
 diff --git a/core/java/android/provider/Settings.java b/core/java/android/provider/Settings.java
 index 4fdf37a4d049..a321f2221f82 100644
 --- a/core/java/android/provider/Settings.java
@@ -87,10 +59,10 @@ index b1564179eb51..7a8c69ecccff 100644
      return MathUtils.lerp(0f, amplitude, interpolationAmount)
 diff --git a/packages/SystemUI/src/com/android/systemui/statusbar/BurnInProtectionController.kt b/packages/SystemUI/src/com/android/systemui/statusbar/BurnInProtectionController.kt
 new file mode 100644
-index 000000000000..03c7e7cb6db1
+index 000000000000..df28de37ac9b
 --- /dev/null
 +++ b/packages/SystemUI/src/com/android/systemui/statusbar/BurnInProtectionController.kt
-@@ -0,0 +1,209 @@
+@@ -0,0 +1,210 @@
 +/*
 + * Copyright (C) 2017-2018 Paranoid Android
 + * Copyright (C) 2022 FlamingoOS Project
@@ -172,6 +144,7 @@ index 000000000000..03c7e7cb6db1
 +            settingObserver,
 +            UserHandle.USER_ALL
 +        )
++        startShiftTimer()
 +    }
 +
 +    private fun isEnabled(): Boolean =
@@ -424,6 +397,3 @@ index 8e907fb31c09..1dd93903f195 100644
      class Factory
      @Inject
      constructor(
--- 
-2.43.0
-
