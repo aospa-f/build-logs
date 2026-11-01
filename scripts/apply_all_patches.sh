@@ -30,6 +30,7 @@ declare -A PATCH_MAP=(
     ["frameworks_base_virtual_hal_block.patch"]="frameworks/base"
     ["frameworks_base_statusbar_burnin.patch"]="frameworks/base"
     ["frameworks_base_volume_steps.patch"]="frameworks/base"
+    ["frameworks_base_night_light.patch"]="frameworks/base"
     ["hardware_qcom_display.patch"]="hardware/qcom/display"
     ["kernel_oneplus_sm8650.patch"]="kernel/oneplus/sm8650"
     ["vendor_aospa.patch"]="vendor/aospa"

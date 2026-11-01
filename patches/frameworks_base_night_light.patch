@@ -1,0 +1,31 @@
+From 4144fdee4e1fab025a26d872b2bb5168b6b5da0c Mon Sep 17 00:00:00 2001
+From: raizenftw <raizen.mad@gmail.com>
+Date: Sun, 1 Nov 2026 16:37:24 +0000
+Subject: [PATCH] core: Set Night Light low-intensity temperature to 5500K
+
+The Night Light intensity slider maps position 0 (leftmost, lowest
+intensity) to config_nightDisplayColorTemperatureMax. Raise it from
+4082K to 5500K so the lowest intensity is 5500K.
+
+Change-Id: Ie87f021a7cbf46e5d9b4ddd6bba60722edbc5dc9
+Signed-off-by: raizenftw <raizen.mad@gmail.com>
+---
+ core/res/res/values/config.xml | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/core/res/res/values/config.xml b/core/res/res/values/config.xml
+index d58a6fbb2d133..d117323fa7226 100644
+--- a/core/res/res/values/config.xml
++++ b/core/res/res/values/config.xml
+@@ -951,7 +951,7 @@
+     <integer name="config_nightDisplayColorTemperatureDefault">2850</integer>
+ 
+     <!-- Maximum color temperature, in Kelvin, supported by Night display. -->
+-    <integer name="config_nightDisplayColorTemperatureMax">4082</integer>
++    <integer name="config_nightDisplayColorTemperatureMax">5500</integer>
+ 
+     <string-array name="config_nightDisplayColorTemperatureCoefficientsNative">
+         <!-- R a-coefficient --> <item>0.0</item>
+-- 
+2.43.0
+
