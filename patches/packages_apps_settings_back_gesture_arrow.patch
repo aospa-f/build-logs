@@ -1,0 +1,50 @@
+From b4b7f53e19c999faf21b960536c3997566537f36 Mon Sep 17 00:00:00 2001
+From: raizenftw <raizen.mad@gmail.com>
+Date: Sun, 1 Nov 2026 15:08:59 +0000
+Subject: [PATCH] Settings: Add toggle to disable back gesture arrow indicator
+
+Add the back_gesture_arrow Secure setting toggle in Gesture Navigation
+settings, allowing users to hide the back gesture arrow while keeping the
+gesture itself functional.
+
+Inspired by implementations in VoltageOS, LunarisOS and PenguinosOS.
+Change-Id: I71b0d2f93af747dc76de2a4412d6112ce5fd582e
+Signed-off-by: raizenftw <raizen.mad@gmail.com>
+---
+ res/values/aospa_strings.xml            | 4 ++++
+ res/xml/gesture_navigation_settings.xml | 6 ++++++
+ 2 files changed, 10 insertions(+)
+
+diff --git a/res/values/aospa_strings.xml b/res/values/aospa_strings.xml
+index 8f1c20dc5e3..315466c3ba5 100644
+--- a/res/values/aospa_strings.xml
++++ b/res/values/aospa_strings.xml
+@@ -16,4 +16,8 @@
+     <!-- Multi Audio Focus -->
+     <string name="multi_audio_focus_title">Multi audio focus</string>
+     <string name="multi_audio_focus_summary">Allow multiple apps to play audio simultaneously</string>
++
++    <!-- Back gesture arrow -->
++    <string name="back_gesture_arrow_title">Back gesture arrow</string>
++    <string name="back_gesture_arrow_summary">Show the arrow indicator when using back gestures</string>
+ </resources>
+diff --git a/res/xml/gesture_navigation_settings.xml b/res/xml/gesture_navigation_settings.xml
+index 2294bdd8295..8fa17e0a0c4 100644
+--- a/res/xml/gesture_navigation_settings.xml
++++ b/res/xml/gesture_navigation_settings.xml
+@@ -78,6 +78,12 @@
+             android:title="@string/hide_navbar_gesture_bar_title"
+             android:summary="@string/hide_navbar_gesture_bar_summary"
+             android:defaultValue="false" />
++
++        <co.aospa.framework.preference.SecureSettingSwitchPreference
++            android:key="back_gesture_arrow"
++            android:title="@string/back_gesture_arrow_title"
++            android:summary="@string/back_gesture_arrow_summary"
++            android:defaultValue="true" />
+     </PreferenceCategory>
+ 
+     <com.android.settingslib.widget.FooterPreference
+-- 
+2.43.0
+

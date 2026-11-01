@@ -1,0 +1,115 @@
+From 001d030698a33c1e5d7191029f8fc882302e435b Mon Sep 17 00:00:00 2001
+From: raizenftw <raizen.mad@gmail.com>
+Date: Sun, 1 Nov 2026 15:08:37 +0000
+Subject: [PATCH] SystemUI: Add toggle to disable back gesture arrow indicator
+
+Add a Secure setting back_gesture_arrow (default enabled) and a toggle in
+Settings > Gesture Navigation. When disabled, BackPanelController hides the
+back gesture arrow panel while keeping the gesture functional.
+
+Inspired by implementations in VoltageOS, LunarisOS and PenguinosOS.
+Change-Id: Id3fe8d00bbc4d1c9a293f77340bd21aa28142b03
+Signed-off-by: raizenftw <raizen.mad@gmail.com>
+---
+ core/java/android/provider/Settings.java      |  9 +++++
+ .../gestural/BackPanelController.kt           | 35 ++++++++++++++++++-
+ 2 files changed, 43 insertions(+), 1 deletion(-)
+
+diff --git a/core/java/android/provider/Settings.java b/core/java/android/provider/Settings.java
+index 85d40c152700..4fdf37a4d049 100644
+--- a/core/java/android/provider/Settings.java
++++ b/core/java/android/provider/Settings.java
+@@ -13510,6 +13510,15 @@ public final class Settings {
+         public static final String BACK_GESTURE_INSET_SCALE_RIGHT =
+                 "back_gesture_inset_scale_right";
+ 
++        /**
++         * Whether to show the back gesture arrow indicator.
++         * 1 = show (default), 0 = hide.
++         * @hide
++         */
++        @Readable
++        public static final String BACK_GESTURE_ARROW =
++                "back_gesture_arrow";
++
+         /**
+          * Current provider of proximity-based sharing services.
+          * Default value in @string/config_defaultNearbySharingComponent.
+diff --git a/packages/SystemUI/src/com/android/systemui/navigationbar/gestural/BackPanelController.kt b/packages/SystemUI/src/com/android/systemui/navigationbar/gestural/BackPanelController.kt
+index b628a68b7fca..863edd9afcec 100644
+--- a/packages/SystemUI/src/com/android/systemui/navigationbar/gestural/BackPanelController.kt
++++ b/packages/SystemUI/src/com/android/systemui/navigationbar/gestural/BackPanelController.kt
+@@ -17,7 +17,10 @@ package com.android.systemui.navigationbar.gestural
+ 
+ import android.content.Context
+ import android.content.res.Configuration
++import android.database.ContentObserver
+ import android.graphics.Color
++import android.os.UserHandle
++import android.provider.Settings
+ import android.graphics.Paint
+ import android.graphics.Point
+ import android.os.Handler
+@@ -132,6 +135,14 @@ constructor(
+     private var startY = 0f
+     private var startIsLeft: Boolean? = null
+ 
++    private var backGestureArrowEnabled = true
++
++    private val backGestureArrowObserver = object : ContentObserver(mainHandler) {
++        override fun onChange(selfChange: Boolean) {
++            updateBackGestureArrowVisibility()
++        }
++    }
++
+     private var gestureEntryTime = 0L
+     private var gestureInactiveTime = 0L
+ 
+@@ -256,6 +267,27 @@ constructor(
+         updateArrowState(GestureState.GONE, force = true)
+         updateRestingArrowDimens()
+         configurationController.addCallback(configurationListener)
++        context.contentResolver.registerContentObserver(
++            Settings.Secure.getUriFor(Settings.Secure.BACK_GESTURE_ARROW),
++            false,
++            backGestureArrowObserver,
++            UserHandle.USER_ALL
++        )
++        updateBackGestureArrowVisibility()
++    }
++
++    private fun updateBackGestureArrowVisibility() {
++        backGestureArrowEnabled = Settings.Secure.getIntForUser(
++            context.contentResolver,
++            Settings.Secure.BACK_GESTURE_ARROW,
++            1,
++            UserHandle.USER_CURRENT
++        ) != 0
++        if (!backGestureArrowEnabled) {
++            mView.visibility = android.view.View.GONE
++        } else if (currentState != GestureState.GONE) {
++            mView.visibility = android.view.View.VISIBLE
++        }
+     }
+ 
+     /** Update the arrow direction. The arrow should point the same way for both panels. */
+@@ -265,6 +297,7 @@ constructor(
+ 
+     override fun onViewDetached() {
+         configurationController.removeCallback(configurationListener)
++        context.contentResolver.unregisterContentObserver(backGestureArrowObserver)
+     }
+ 
+     override fun onMotionEvent(event: MotionEvent) {
+@@ -897,7 +930,7 @@ constructor(
+                 mView.isVisible = false
+             }
+             GestureState.ENTRY -> {
+-                mView.isVisible = true
++                mView.isVisible = backGestureArrowEnabled
+ 
+                 updateRestingArrowDimens()
+                 gestureEntryTime = systemClock.uptimeMillis()
+-- 
+2.43.0
+
