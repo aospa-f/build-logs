@@ -126,6 +126,32 @@ if [ -d "${AOSPA_DIR}/kernel/oneplus/sm8650/KernelSU/kernel" ]; then
     fi
 fi
 
+# ------------------------------------------------------------------
+# Fix rear camera CFI crash in com.qti.chi.override.so & libchifeature2.so
+# (Disambiguates "linearmapper" from "nonlinearmapper" in ChiMcxRoiTranslator)
+# ------------------------------------------------------------------
+python3 - "${AOSPA_DIR}" << 'PYEOF'
+import sys
+from pathlib import Path
+
+aospa_dir = Path(sys.argv[1])
+old_pat = b"mTrimSrcData %d\x00linearmapper\x00"
+new_pat = b"mTrimSrcData %d\x00.linearmappe\x00"
+
+for rel in [
+    "vendor/oneplus/giulia/proprietary/vendor/lib64/hw/com.qti.chi.override.so",
+    "vendor/oneplus/giulia/proprietary/vendor/lib64/libchifeature2.so",
+]:
+    target = aospa_dir / rel
+    if target.is_file():
+        data = target.read_bytes()
+        if old_pat in data:
+            target.write_bytes(data.replace(old_pat, new_pat, 1))
+            print(f"[+] Patched rear camera linearmapper keyword in {rel}")
+        elif new_pat in data:
+            print(f"[*] Rear camera linearmapper fix already present in {rel}")
+PYEOF
+
 
 echo ""
 echo "[✓] All patches and India firmware applied successfully!"
