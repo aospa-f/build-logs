@@ -1,0 +1,157 @@
+From d323cea05521d6bf71e0feafdb70490ef1bbf95e Mon Sep 17 00:00:00 2001
+From: raizenftw <raizen.mad@gmail.com>
+Date: Mon, 2 Nov 2026 19:30:06 +0000
+Subject: [PATCH] dolby: Drop the prebuilt C2 service
+
+The C2 service is now built from AOSPA source in
+device/oneplus/giulia/dolby. Remove the stock service binary and its
+prebuilt module while keeping the Dolby store and the existing init/VINTF
+files.
+
+Signed-off-by: raizenftw <raizen.mad@gmail.com>
+---
+ Android.bp                                    |  41 +-----------------
+ proprietary-files.txt                         |   1 -
+ .../bin/hw/vendor.dolby.media.c2@1.0-service  | Bin 11488 -> 0 bytes
+ 3 files changed, 2 insertions(+), 40 deletions(-)
+ delete mode 100755 proprietary/vendor/bin/hw/vendor.dolby.media.c2@1.0-service
+
+diff --git a/Android.bp b/Android.bp
+index 2bffadd..77bc899 100644
+--- a/Android.bp
++++ b/Android.bp
+@@ -637,42 +637,5 @@ cc_prebuilt_binary {
+     soc_specific: true,
+ }
+ 
+-cc_prebuilt_binary {
+-    name: "vendor.dolby.media.c2@1.0-service",
+-    owner: "sony",
+-    target: {
+-        android_arm64: {
+-            srcs: [
+-                "proprietary/vendor/bin/hw/vendor.dolby.media.c2@1.0-service",
+-            ],
+-            shared_libs: [
+-                "libbase",
+-                "liblog",
+-                "libcodec2",
+-                "libutils",
+-                "android.hardware.media.c2@1.0",
+-                "android.hardware.media.c2@1.1",
+-                "android.hardware.media.c2@1.2",
+-                "libcodec2_hidl@1.0",
+-                "libcodec2_hidl@1.1",
+-                "libcodec2_hidl@1.2",
+-                "libcodec2_vndk",
+-                "libhidlbase",
+-                "libavservices_minijail",
+-                "libbinder",
+-                "libcodec2_store_dolby",
+-                "libc++",
+-                "libc",
+-                "libm",
+-                "libdl",
+-            ],
+-        },
+-    },
+-    compile_multilib: "64",
+-    strip: {
+-        none: true,
+-    },
+-    prefer: true,
+-    relative_install_path: "hw",
+-    soc_specific: true,
+-}
++// vendor.dolby.media.c2@1.0-service is built from AOSPA source in
++// device/oneplus/giulia/dolby; it links the stock libcodec2_store_dolby.
+diff --git a/proprietary-files.txt b/proprietary-files.txt
+index f1833df..cbca611 100644
+--- a/proprietary-files.txt
++++ b/proprietary-files.txt
+@@ -4,7 +4,6 @@
+ # libswdap are pinned from XQ-DQ72_Customized-SEA_67.2.A.3.141
+ 
+ vendor/bin/hw/vendor.dolby.hardware.dms@2.0-service
+-vendor/bin/hw/vendor.dolby.media.c2@1.0-service
+ vendor/etc/init/vendor.dolby.hardware.dms@2.0-service.rc
+ vendor/etc/init/vendor.dolby.media.c2@1.0-service.rc
+ vendor/etc/vintf/manifest/vendor.dolby.hardware.dms.xml
+diff --git a/proprietary/vendor/bin/hw/vendor.dolby.media.c2@1.0-service b/proprietary/vendor/bin/hw/vendor.dolby.media.c2@1.0-service
+deleted file mode 100755
+index c3254789be37daa3b731067058dad11ad09c4099..0000000000000000000000000000000000000000
+GIT binary patch
+literal 0
+HcmV?d00001
+
+literal 11488
+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
+By{-TN
+
+-- 
+2.43.0
+
