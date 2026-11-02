@@ -86,12 +86,11 @@ for PATCH_FILE in $(printf "%s\n" "${!PATCH_MAP[@]}" | sort); do
 done
 
 # ------------------------------------------------------------------
-# Deduplicate vendor trees (sm8650-common and giulia)
+# Vendor dedup intentionally disabled.
+# It removed vendor libraries that vendor services need; the copies in
+# system_ext are not visible to the vendor linker namespace. Use the
+# full 16.0.10.600 extraction + extract-files.py instead.
 # ------------------------------------------------------------------
-if [ -f "${SCRIPT_DIR}/dedup_vendor.py" ]; then
-    echo "[+] Running vendor deduplication script..."
-    python3 "${SCRIPT_DIR}/dedup_vendor.py" "${AOSPA_DIR}"
-fi
 
 # ------------------------------------------------------------------
 # Deploy OnePlus 13R India (IN 16.0.10.600) Official Firmware Images
