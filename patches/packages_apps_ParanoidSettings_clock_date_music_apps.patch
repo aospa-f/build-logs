@@ -1,7 +1,8 @@
 From 0907bddd31efaf528ea5c933e8f9297fc53c247c Mon Sep 17 00:00:00 2001
 From: raizenftw <raizen.mad@gmail.com>
 Date: Mon, 2 Nov 2026 16:39:16 +0000
-Subject: [PATCH] Settings: Add clock/date controls and screen-off music apps
+Subject: [PATCH 1/2] Settings: Add clock/date controls and screen-off music
+ apps
 
 Add the Clock and date screen with seconds, AM/PM, date visibility,
 date format, date case, date position, bold clock and period separator
@@ -526,6 +527,43 @@ index 524dc9e..aef3ad6 100644
      }
  
      @Override
+-- 
+2.43.0
+
+
+From 64764398e2cb2c746c1532c2ffc2337305ac43fe Mon Sep 17 00:00:00 2001
+From: raizenftw <raizen.mad@gmail.com>
+Date: Mon, 2 Nov 2026 19:06:41 +0000
+Subject: [PATCH 2/2] Settings: Add OK/Cancel buttons to the Music apps
+ selector
+
+The MultiSelectListPreference did not specify positive or negative button
+text. Under the Settings expressive dialog theme those buttons are not
+provided by default, so the dialog had no confirm action. Selecting an app
+and dismissing the dialog discarded the change, leaving
+offscreen_gesture_music_apps unset.
+
+Add explicit OK and Cancel labels so the selection is confirmed and stored.
+
+Change-Id: Idf742c18e02395cba43355758e31782bb0da47e1
+Signed-off-by: raizenftw <raizen.mad@gmail.com>
+---
+ res/xml/offscreen_gesture_settings.xml | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/res/xml/offscreen_gesture_settings.xml b/res/xml/offscreen_gesture_settings.xml
+index 305fb91..887c750 100644
+--- a/res/xml/offscreen_gesture_settings.xml
++++ b/res/xml/offscreen_gesture_settings.xml
+@@ -134,6 +134,8 @@
+         android:key="offscreen_gesture_music_apps"
+         android:title="@string/offscreen_gesture_music_apps_title"
+         android:summary="@string/offscreen_gesture_music_apps_summary"
++        android:positiveButtonText="@android:string/ok"
++        android:negativeButtonText="@android:string/cancel"
+         android:persistent="false" />
+ 
+ </PreferenceScreen>
 -- 
 2.43.0
 
