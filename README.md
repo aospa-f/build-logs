@@ -24,7 +24,7 @@ build-logs/
 ├── patches/                       # Verified discrete patches across modified projects
 │   ├── build_make.patch           # Makes target-files VINTF compatibility check non-fatal
 │   ├── build_soong.patch          # Disables strict build-time namespace enforcement
-│   ├── device_oneplus_sm8650-common.patch  # DTBO/vendor config and Indian carrier fixes
+│   ├── device_oneplus_sm8650-common_volume_steps.patch # Volume step tuning
 │   ├── hardware_qcom_display.patch # Fixes display AIDL mapper and gralloc header conflicts
 │   ├── kernel_oneplus_sm8650.patch # GKI defconfig fixes (CONFIG_IP6_NF_NAT, SYSVIPC)
 │   ├── vendor_aospa.patch         # DTBO overlay merge path fix across vendor techpacks
