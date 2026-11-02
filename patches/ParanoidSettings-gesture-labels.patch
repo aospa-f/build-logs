@@ -1,0 +1,46 @@
+From d6f19dd61f7db21bcff6ef61b0dcb291c6154a3c Mon Sep 17 00:00:00 2001
+From: raizenftw <raizen.mad@gmail.com>
+Date: Mon, 2 Nov 2026 23:46:37 +0000
+Subject: [PATCH] ParanoidSettings: Match draw gesture labels to physical
+ direction
+
+The OPlus driver reports the physical Draw < gesture with the
+right-arrow keycode and Draw > with the left-arrow keycode. Swap the
+preference order and titles so < means previous and > means next.
+
+Change-Id: I498b562669d650ebbc3dac09dbd0915e6edff39d
+---
+ res/xml/offscreen_gesture_settings.xml | 7 +++++--
+ 1 file changed, 5 insertions(+), 2 deletions(-)
+
+diff --git a/res/xml/offscreen_gesture_settings.xml b/res/xml/offscreen_gesture_settings.xml
+index 887c750..8396afe 100644
+--- a/res/xml/offscreen_gesture_settings.xml
++++ b/res/xml/offscreen_gesture_settings.xml
+@@ -113,10 +113,13 @@
+         android:summary="%s"
+         android:title="@string/gestures_draw_s" />
+ 
++    <!-- The OPlus driver reports the physical Draw < gesture with the
++         right-arrow keycode and Draw > with the left-arrow keycode. Keep the
++         user-facing labels matched to the physical direction. -->
+     <ListPreference
+         android:entries="@array/gestures_entries"
+         android:entryValues="@array/gestures_values"
+-        android:key="draw_arrow_left"
++        android:key="draw_arrow_right"
+         android:persistent="false"
+         android:summary="%s"
+         android:title="@string/gestures_draw_arrow_left" />
+@@ -124,7 +127,7 @@
+     <ListPreference
+         android:entries="@array/gestures_entries"
+         android:entryValues="@array/gestures_values"
+-        android:key="draw_arrow_right"
++        android:key="draw_arrow_left"
+         android:persistent="false"
+         android:summary="%s"
+         android:title="@string/gestures_draw_arrow_right" />
+-- 
+2.43.0
+
