@@ -1,0 +1,12 @@
+diff --git a/system/perf/perf-vendor.mk b/system/perf/perf-vendor.mk
+index c00af03..5e280f8 100644
+--- a/system/perf/perf-vendor.mk
++++ b/system/perf/perf-vendor.mk
+@@ -37,7 +37,6 @@ PRODUCT_PACKAGES += \
+     vendor.qti.qspmhal-V1-ndk \
+     vendor.qti.qspmhal@1.0 \
+     PowerSaveMode \
+-    workloadclassifier \
+     QPerformance \
+     QXPerformance \
+     UxPerformance \

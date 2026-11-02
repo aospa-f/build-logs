@@ -49,6 +49,7 @@ build-logs/
 │   ├── vendor_aospa.patch         # DTBO overlay merge path fix across vendor techpacks
 │   ├── vendor_oneplus_giulia.patch # India 16.0.10.600 radio images & SHA1 checksums
 │   ├── vendor_oneplus_sm8650-common.patch # OOS16 vendor overlays, display/thermal configs
+│   ├── vendor_qcom_common_perf.patch # Remove Android 17-blocked workloadclassifier
 │   └── vendor_qcom_opensource_commonsys_fm.patch # FM radio build compatibility
 ├── prebuilts/
 │   └── Datura/                    # CalyxOS Datura firewall prebuilt package
