@@ -86,13 +86,43 @@ repo sync -c -j$(nproc --all) --force-sync --no-clone-bundle --no-tags
 bash ~/build-logs/scripts/apply_all_patches.sh ~/aospa
 ```
 
-#### 5. Run the build
+#### 5. Generate the OPlus camera blobs (private/local builds)
+
+The camera app and its libraries are proprietary and stay out of Git. The
+source integration and SELinux policy are in `aospa-f/vendor_oplus_camera`.
+With the OxygenOS 16.0.10.600 dump available:
+
+```bash
+cd vendor/oplus/camera/giulia
+PYTHONPATH=../../../../tools/extract-utils \
+    python3 extract-files.py --allow-prohibited-files /path/to/oos_160010600/dump/rom
+```
+
+`--allow-prohibited-files` is required because the private build includes the
+SenseTime camera license artifact; do not use this flag for public builds.
+
+#### 6. Run the build
 ```bash
 ./rom-build.sh giulia -v userdebug -t release
 ```
 
 Output package will be generated at:
 `~/aospa/out/target/product/giulia/aospa-calcite-<date>-gms-giulia.zip`
+
+---
+
+## 🔊 Dolby C2 library
+
+The device tree carries Ronard's 568080-byte, CFI-free
+`android.hardware.media.c2@1.0.so` in
+`device/oneplus/giulia/prebuilt/vendor/lib64/`. The AOSPA source-built HIDL
+library crashes the Sony Dolby C2 service, and the stock 16.0.10.600 library
+fails its CFI check against AOSPA's `libhidlbase`. The prebuilt was verified
+on giulia with an E-AC3 decode through `c2.dolby.eac3.decoder`; the Dolby
+service stayed up and produced no tombstone.
+
+Credit for the working library goes to Ronard. The device-tree commit records
+the source, size, and SHA-256.
 
 ---
 
