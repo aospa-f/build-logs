@@ -34,6 +34,7 @@ declare -A PATCH_MAP=(
     ["kernel_oneplus_sm8650.patch"]="kernel/oneplus/sm8650"
     ["vendor_aospa.patch"]="vendor/aospa"
     ["vendor_aospa_volume_steps.patch"]="vendor/aospa"
+    ["vendor_oneplus_sm8650-common_irqbalance.patch"]="vendor/oneplus/sm8650-common"
     ["vendor_qcom_common_perf.patch"]="vendor/qcom/common"
     ["vendor_qcom_opensource_commonsys_fm.patch"]="vendor/qcom/opensource/commonsys/fm"
 )
