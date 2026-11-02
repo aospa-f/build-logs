@@ -62,6 +62,22 @@ for PATCH_FILE in $(printf "%s\n" "${!PATCH_MAP[@]}" | sort); do
         continue
     fi
 
+    if [ "${PATCH_FILE}" = "vendor_oneplus_sm8650-common_irqbalance.patch" ] && [ ! -d "${TARGET_PATH}/.git" ]; then
+        TARGET_FILE="${TARGET_PATH}/proprietary/vendor/bin/init.qti.kernel.sh"
+        if [ -f "${TARGET_FILE}" ] && ! grep -q "start vendor.msm_irqbalance" "${TARGET_FILE}"; then
+            echo "[*] Already applied: ${PATCH_FILE} (extracted vendor tree)"
+            SKIPPED_COUNT=$((SKIPPED_COUNT + 1))
+            continue
+        fi
+        if [ -f "${TARGET_FILE}" ] && patch -d "${TARGET_PATH}" -p1 --forward < "${PATCH_PATH}"; then
+            echo "[+] Applied to extracted vendor tree: ${PATCH_FILE}"
+            APPLIED_COUNT=$((APPLIED_COUNT + 1))
+            continue
+        fi
+        echo "[-] Error: could not apply ${PATCH_FILE} to extracted vendor tree"
+        exit 1
+    fi
+
     # Check if patch is already applied
     if git -C "${TARGET_PATH}" apply --reverse --check "${PATCH_PATH}" >/dev/null 2>&1; then
         echo "[*] Already applied: ${PATCH_FILE} -> ${TARGET_SUBDIR}"
