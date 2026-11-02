@@ -17,7 +17,10 @@
     DO NOT redeclare any of the above here or repo will error with duplicate path!
   -->
 
-  <!-- Proprietary Vendor Trees (giulia is locally extracted from India 16.0.10.600) -->
+  <!-- Bootstrap only: vendor/oneplus/sm8650-common is regenerated from the
+       local India 16.0.10.600 dump by
+       device/oneplus/sm8650-common/extract-files.py. The verified build does
+       not use TheMuppets blobs. -->
   <project path="vendor/oneplus/sm8650-common" name="TheMuppets/proprietary_vendor_oneplus_sm8650-common" revision="lineage-23.2" remote="github" />
 
   <!-- Prebuilt GCC Toolchains for LineageOS Kernel Build System -->

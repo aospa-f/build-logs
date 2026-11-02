@@ -9,7 +9,26 @@ Repository maintaining verified build automation, platform manifests, patches, a
 The ROM is built with official **OnePlus 13R India (`IN 16.0.10.600`) OxygenOS 16** firmware:
 * **All-in-One Single ROM ZIP**: All India `16.0.10.600` firmware partitions (`abl`, `aop`, `aop_config`, `bluetooth`, `cpucp`, `cpucp_dtb`, `devcfg`, `dsp`, `engineering_cdt`, `featenabler`, `hyp`, `imagefv`, `keymaster`, `modem`, `oplus_sec`, `oplusstanvbk`, `qupfw`, `shrm`, `splash`, `tz`, `uefi`, `uefisecapp`, `xbl`, `xbl_config`, `xbl_ramdump`) are embedded directly into `payload.bin`.
 * **No Separate Firmware / Boot / Recovery Zips**: Flashing the single ROM ZIP flashes both Android and all India firmware in one pass.
-* **Zero ColorOS 17 Blobs**: Built strictly against OxygenOS 16 base (`TheMuppets` lineage-23.2 + local official India 16.0.10.600 images).
+* **Zero ColorOS 17 Blobs**: Built strictly against the OxygenOS 16 base. The verified build uses vendor blobs generated locally from the full India `16.0.10.600` dump (`vendor`, `odm`, `system`, `system_ext`, `product`, `my_product`) with `device/oneplus/{giulia,sm8650-common}/extract-files.py`. TheMuppets vendor trees are not used as the blob source.
+
+### Vendor blob extraction
+
+Generate both vendor trees from the OOS 16.0.10.600 dump before building:
+
+```bash
+cd ~/aospa/device/oneplus/giulia
+PYTHONPATH=../../../tools/extract-utils:../../../hardware/oplus/extract-utils-ext \
+    python3 extract-files.py /path/to/oos_160010600/dump/rom
+
+cd ../sm8650-common
+PYTHONPATH=../../../tools/extract-utils:../../../hardware/oplus/extract-utils-ext \
+    python3 extract-files.py /path/to/oos_160010600/dump/rom
+```
+
+The bootstrap local manifest still names TheMuppets `sm8650-common` so a
+fresh `repo sync` has a placeholder directory. The extraction overwrites it
+with the OOS 16 tree. If the extraction is skipped, the build uses the stale
+TheMuppets tree and may miss OOS 16 libraries.
 
 ---
 
@@ -19,7 +38,7 @@ The ROM is built with official **OnePlus 13R India (`IN 16.0.10.600`) OxygenOS 1
 build-logs/
 ├── README.md                      # Master build & setup documentation
 ├── local_manifests/
-│   ├── giulia.xml                 # Local manifest linking aospa-f trees and TheMuppets OOS16
+│   ├── giulia.xml                 # Local manifest for aospa-f trees; OOS16 blobs are extracted locally
 │   └── baristablend.xml           # Qualcomm SM8650 audio/display HAL platform sync definitions
 ├── patches/                       # Verified discrete patches across modified projects
 │   ├── build_make.patch           # Makes target-files VINTF compatibility check non-fatal
