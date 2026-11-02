@@ -1,0 +1,38 @@
+From 7398f767178f61ad2ed12fe7da562a06c1a0db47 Mon Sep 17 00:00:00 2001
+From: raizenftw <raizen.mad@gmail.com>
+Date: Mon, 2 Nov 2026 21:05:32 +0000
+Subject: [PATCH] ParanoidSystemUI: Register the Axion QS startable
+
+The actual SystemUI APK on AOSPA is built from this module, not from
+ReferenceSystemUIModule. Include AxSystemUIStartablesModule so
+AxQsFragmentCompose is registered with FragmentService at runtime.
+
+Change-Id: I4fc3e80c7b9c0ad1651d63823f04756c8b44b5c2
+Signed-off-by: raizenftw <raizen.mad@gmail.com>
+---
+ src/co/aospa/systemui/dagger/ParanoidSystemUIModule.java | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/src/co/aospa/systemui/dagger/ParanoidSystemUIModule.java b/src/co/aospa/systemui/dagger/ParanoidSystemUIModule.java
+index 4cd8ad3..49e8590 100644
+--- a/src/co/aospa/systemui/dagger/ParanoidSystemUIModule.java
++++ b/src/co/aospa/systemui/dagger/ParanoidSystemUIModule.java
+@@ -66,6 +66,7 @@ import com.android.systemui.navigationbar.gestural.GestureModule;
+ import com.android.systemui.plugins.qs.QSFactory;
+ import com.android.systemui.power.dagger.PowerModule;
+ import com.android.systemui.qs.QSFragmentStartableModule;
++import com.android.systemui.qs.ax.AxSystemUIStartablesModule;
+ import com.android.systemui.qs.dagger.QSModule;
+ import com.android.systemui.qs.tileimpl.QSFactoryImpl;
+ import com.android.systemui.reardisplay.RearDisplayModule;
+@@ -156,6 +157,7 @@ import javax.inject.Provider;
+         NoOpActivityRecognitionModule.class,
+         PowerModule.class,
+         QSFragmentStartableModule.class,
++        AxSystemUIStartablesModule.class,
+         QSModule.class,
+         ParanoidQSModule.class,
+         RearDisplayModule.class,
+-- 
+2.43.0
+
