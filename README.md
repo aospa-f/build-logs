@@ -49,6 +49,7 @@ build-logs/
 │   ├── vendor_aospa.patch         # DTBO overlay merge path fix across vendor techpacks
 │   ├── vendor_oneplus_giulia.patch # India 16.0.10.600 radio images & SHA1 checksums
 │   ├── vendor_oneplus_sm8650-common.patch # OOS16 vendor overlays, display/thermal configs
+│   ├── vendor_oneplus_sm8650-common_irqbalance.patch # Stop stock irqbalance start
 │   ├── vendor_qcom_common_perf.patch # Remove Android 17-blocked workloadclassifier
 │   └── vendor_qcom_opensource_commonsys_fm.patch # FM radio build compatibility
 ├── prebuilts/
@@ -141,8 +142,25 @@ fails its CFI check against AOSPA's `libhidlbase`. The prebuilt was verified
 on giulia with an E-AC3 decode through `c2.dolby.eac3.decoder`; the Dolby
 service stayed up and produced no tombstone.
 
-Credit for the working library goes to Ronard. The device-tree commit records
-the source, size, and SHA-256.
+Credit for the working library goes to Ronard (`ronardnx`,
+`dragosh.rotaru.dragosh@gmail.com`). The device-tree commit records the source,
+size, and SHA-256.
+
+---
+
+## Credits
+
+- **Ronard (`ronardnx`)** — CFI-free `media.c2@1.0` library used by the Sony
+  Dolby C2 service.
+- **Sam Mortimer** — `CustomStatusBarItemHolder` SystemUI class restored for
+  the network-traffic layout.
+- **cjybyjk, someone5678, Adithya R, rmp22** — per-app volume implementation
+  in `frameworks/av`.
+- **ShadeDark6** — volume-dialog and burn-in UI changes.
+- The back-gesture-arrow and burn-in toggles were inspired by implementations
+  in VoltageOS, LunarisOS, and PenguinosOS.
+- **TheMuppets, LineageOS, AOSPA, CLO** — device/vendor bases, HAL patches, and
+  the FM/display compatibility fixes carried in `patches/`.
 
 ---
 
