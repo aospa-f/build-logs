@@ -1,0 +1,12 @@
+diff --git a/sepolicy/vendor/ax_kernel_manager.te b/sepolicy/vendor/ax_kernel_manager.te
+index 8a3220f8..10eda173 100644
+--- a/sepolicy/vendor/ax_kernel_manager.te
++++ b/sepolicy/vendor/ax_kernel_manager.te
+@@ -1,7 +1,6 @@
+ # Copyright 2025-2026 AxionOS
+ # SPDX-License-Identifier: Apache-2.0
+ 
+-allow system_server sysfs:file r_file_perms;
+ allow system_server sysfs_devices_system_cpu:file w_file_perms;
+ 
+ # GPU and devfreq controls exposed by the Kernel Manager.
