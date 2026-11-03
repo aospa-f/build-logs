@@ -1,0 +1,654 @@
+diff --git a/packages/SystemUI/src/com/android/systemui/navigationbar/gestural/EdgeBackGestureHandler.java b/packages/SystemUI/src/com/android/systemui/navigationbar/gestural/EdgeBackGestureHandler.java
+index 6ef9bfa91b1c7..98c6c0060eb29 100644
+--- a/packages/SystemUI/src/com/android/systemui/navigationbar/gestural/EdgeBackGestureHandler.java
++++ b/packages/SystemUI/src/com/android/systemui/navigationbar/gestural/EdgeBackGestureHandler.java
+@@ -72,6 +72,16 @@ import android.view.ViewConfiguration;
+ import android.view.WindowManager;
+ import android.view.WindowManagerGlobal;
+ import android.window.BackEvent;
++import android.widget.TextView;
++import android.view.View;
++import android.view.Gravity;
++import android.provider.Settings;
++import android.os.UserHandle;
++import android.os.Looper;
++import android.media.AudioManager;
++import android.graphics.drawable.GradientDrawable;
++import android.graphics.Typeface;
++import android.app.StatusBarManager;
+ 
+ import androidx.annotation.DimenRes;
+ 
+@@ -213,6 +223,38 @@ public class EdgeBackGestureHandler {
+     private final Optional<Pip> mPipOptional;
+     private final Optional<DesktopMode> mDesktopModeOptional;
+     private final FalsingManager mFalsingManager;
++
++    private static final float AX_EDGE_PANEL_ZONE_END = 0.32f;
++    private static final float AX_EDGE_VOLUME_ZONE_START = 0.34f;
++    private static final float AX_EDGE_VOLUME_ZONE_END = 0.82f;
++    private static final int AX_EDGE_VOLUME_STEP_DP = 24;
++    private static final int AX_EDGE_PANEL_SWIPE_DP = 40;
++
++    private final AudioManager mAxAudioManager;
++    private final StatusBarManager mAxStatusBarManager;
++    private final Handler mAxMainHandler = new Handler(Looper.getMainLooper());
++    private TextView mAxVolumeBubble;
++    private WindowManager.LayoutParams mAxVolumeBubbleLp;
++    private boolean mAxVolumeBubbleOnLeft;
++    private boolean mAxEdgeTracking;
++    private boolean mAxEdgeActive;
++    private boolean mAxEdgeIsVolume;
++    private boolean mAxEdgeOnLeft;
++    private boolean mAxEdgePanelAllowed;
++    private boolean mAxEdgeVolumeAllowed;
++    private boolean mAxEdgePanelTriggered;
++    private float mAxEdgeDownX;
++    private float mAxEdgeDownY;
++    private int mAxVolumeStep;
++    private final Runnable mAxHideBubbleRunnable = () -> {
++        if (mAxVolumeBubble != null) {
++            mAxVolumeBubble.animate().alpha(0f).setDuration(180).withEndAction(() -> {
++                if (mAxVolumeBubble != null) {
++                    mAxVolumeBubble.setVisibility(View.GONE);
++                }
++            });
++        }
++    };
+     private final Configuration mLastReportedConfig = new Configuration();
+ 
+     private final Point mDisplaySize = new Point();
+@@ -483,6 +525,8 @@ public class EdgeBackGestureHandler {
+         mBackPanelControllerFactory = backPanelControllerFactory;
+         mViewConfiguration = viewConfiguration;
+         mDefaultWindowManager = windowManager;
++        mAxAudioManager = context.getSystemService(AudioManager.class);
++        mAxStatusBarManager = context.getSystemService(StatusBarManager.class);
+         mWindowManagerService = windowManagerService;
+         mInputManager = inputManager;
+         mPipOptional = pipOptional;
+@@ -1097,7 +1141,206 @@ public class EdgeBackGestureHandler {
+                         : SysUiStatsLog.BACK_GESTURE__INPUT_TYPE__TOUCH);
+     }
+ 
++    private boolean handleAxEdgeGesture(MotionEvent ev) {
++        final int action = ev.getActionMasked();
++        if (action == MotionEvent.ACTION_DOWN) {
++            mAxEdgeTracking = false;
++            mAxEdgeActive = false;
++            mAxEdgeIsVolume = false;
++            mAxEdgePanelTriggered = false;
++            mAxVolumeStep = 0;
++
++            if (mUsingThreeButtonNav || !mIsEnabled || mDisplaySize.x <= 0) {
++                return false;
++            }
++
++            final float x = ev.getX();
++            final float y = ev.getY();
++            final float edgeSlop = axDp(8);
++            final boolean onLeft = x <= mEdgeWidthLeft + mLeftInset + edgeSlop;
++            final boolean onRight =
++                    x >= mDisplaySize.x - (mEdgeWidthRight + mRightInset + edgeSlop);
++            if (!onLeft && !onRight) {
++                return false;
++            }
++
++            mAxEdgeOnLeft = onLeft;
++            mAxEdgePanelAllowed = isAxEdgeSettingEnabled("ax_edge_panel_enabled")
++                    && !isAxEdgeAppBlocked("ax_edge_panel_blocked_apps");
++            mAxEdgeVolumeAllowed = isAxEdgeSettingEnabled("ax_edge_volume_enabled")
++                    && !isAxEdgeAppBlocked("ax_edge_volume_blocked_apps");
++            if (!mAxEdgePanelAllowed && !mAxEdgeVolumeAllowed) {
++                return false;
++            }
++            mAxEdgeTracking = true;
++            mAxEdgeDownX = x;
++            mAxEdgeDownY = y;
++            return false;
++        }
++
++        if (!mAxEdgeTracking && !mAxEdgeActive) {
++            return false;
++        }
++
++        if (action == MotionEvent.ACTION_MOVE) {
++            final float dx = ev.getX() - mAxEdgeDownX;
++            final float dy = ev.getY() - mAxEdgeDownY;
++            if (!mAxEdgeActive) {
++                final float slop = Math.max(mTouchSlop * 2f, axDp(12));
++                if (Math.abs(dy) <= slop || Math.abs(dy) <= Math.abs(dx) * 1.5f) {
++                    return false;
++                }
++                final float zone = mAxEdgeDownY / mDisplaySize.y;
++                if (dy > 0 && zone < AX_EDGE_PANEL_ZONE_END && mAxEdgePanelAllowed) {
++                    mAxEdgeActive = true;
++                    mAxEdgeIsVolume = false;
++                    axPilferEdgeGesture(ev);
++                } else if (zone > AX_EDGE_VOLUME_ZONE_START
++                        && zone < AX_EDGE_VOLUME_ZONE_END
++                        && mAxEdgeVolumeAllowed) {
++                    mAxEdgeActive = true;
++                    mAxEdgeIsVolume = true;
++                    axPilferEdgeGesture(ev);
++                    axShowVolumeBubble(axVolumePercent(), mAxEdgeOnLeft);
++                } else {
++                    return false;
++                }
++            }
++
++            if (mAxEdgeIsVolume) {
++                final int stepPx = axDp(AX_EDGE_VOLUME_STEP_DP);
++                final int newStep = (int) (dy / stepPx);
++                if (newStep != mAxVolumeStep) {
++                    // Sliding up gives a smaller step value, which must raise the volume.
++                    final int direction = newStep < mAxVolumeStep
++                            ? AudioManager.ADJUST_RAISE : AudioManager.ADJUST_LOWER;
++                    final int steps = Math.abs(newStep - mAxVolumeStep);
++                    for (int i = 0; i < steps; i++) {
++                        mAxAudioManager.adjustStreamVolume(
++                                AudioManager.STREAM_MUSIC, direction, 0);
++                    }
++                    mAxVolumeStep = newStep;
++                    axShowVolumeBubble(axVolumePercent(), mAxEdgeOnLeft);
++                }
++            } else if (!mAxEdgePanelTriggered && dy > axDp(AX_EDGE_PANEL_SWIPE_DP)) {
++                // Remember the panel request and fire it on lift. Expanding the shade while
++                // the finger is still down makes the shade window touchable mid-gesture,
++                // which can cancel or redirect the expand request.
++                mAxEdgePanelTriggered = true;
++            }
++            return true;
++        }
++
++        if (action == MotionEvent.ACTION_UP || action == MotionEvent.ACTION_CANCEL) {
++            final boolean handled = mAxEdgeActive;
++            if (mAxEdgePanelTriggered && !mAxEdgeIsVolume
++                    && action == MotionEvent.ACTION_UP && mAxStatusBarManager != null) {
++                if (mAxEdgeOnLeft) {
++                    mAxStatusBarManager.expandNotificationsPanel();
++                } else {
++                    mAxStatusBarManager.expandSettingsPanel(null);
++                }
++            }
++            if (handled) {
++                mAxMainHandler.removeCallbacks(mAxHideBubbleRunnable);
++                mAxMainHandler.postDelayed(mAxHideBubbleRunnable, 650);
++            }
++            mAxEdgeTracking = false;
++            mAxEdgeActive = false;
++            mAxEdgeIsVolume = false;
++            mAxEdgePanelTriggered = false;
++            return handled;
++        }
++        return mAxEdgeActive;
++    }
++
++    private void axPilferEdgeGesture(MotionEvent ev) {
++        final DisplayBackGestureHandler handler =
++                mDisplayBackGestureHandlers.get(ev.getDisplayId());
++        if (handler != null) {
++            MotionEvent cancel = MotionEvent.obtain(ev);
++            cancel.setAction(MotionEvent.ACTION_CANCEL);
++            handler.onMotionEvent(cancel);
++            cancel.recycle();
++        }
++        pilferPointers(ev.getDisplayId());
++    }
++
++    private boolean isAxEdgeSettingEnabled(String key) {
++        return Settings.Secure.getIntForUser(
++                mContext.getContentResolver(), key, 1, UserHandle.USER_CURRENT) != 0;
++    }
++
++    private boolean isAxEdgeAppBlocked(String key) {
++        final String blocked = Settings.Secure.getStringForUser(
++                mContext.getContentResolver(), key, UserHandle.USER_CURRENT);
++        return blocked != null && !blocked.isEmpty() && mPackageName != null
++                && ("," + blocked + ",").contains("," + mPackageName + ",");
++    }
++
++    private int axVolumePercent() {
++        final int max = mAxAudioManager.getStreamMaxVolume(AudioManager.STREAM_MUSIC);
++        final int current = mAxAudioManager.getStreamVolume(AudioManager.STREAM_MUSIC);
++        return max <= 0 ? 0 : Math.round(current * 100f / max);
++    }
++
++    private int axDp(int dp) {
++        return (int) (dp * mContext.getResources().getDisplayMetrics().density);
++    }
++
++    private void axShowVolumeBubble(int percent, boolean left) {
++        if (mAxVolumeBubble == null) {
++            final TextView bubble = new TextView(mContext);
++            bubble.setGravity(Gravity.CENTER);
++            bubble.setTextSize(TypedValue.COMPLEX_UNIT_SP, 16);
++            bubble.setTypeface(Typeface.create("sans-serif-medium", Typeface.NORMAL));
++            final GradientDrawable shape = new GradientDrawable();
++            shape.setShape(GradientDrawable.OVAL);
++            shape.setColor(mContext.getColor(com.android.internal.R.color.system_accent1_100));
++            bubble.setBackground(shape);
++            bubble.setTextColor(
++                    mContext.getColor(com.android.internal.R.color.system_accent1_10));
++            bubble.setElevation(axDp(8));
++            final WindowManager.LayoutParams lp = new WindowManager.LayoutParams(
++                    axDp(56), axDp(56),
++                    WindowManager.LayoutParams.TYPE_VOLUME_OVERLAY,
++                    WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE
++                            | WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE
++                            | WindowManager.LayoutParams.FLAG_LAYOUT_IN_SCREEN
++                            | WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
++                    PixelFormat.TRANSLUCENT);
++            lp.gravity = (left ? Gravity.LEFT : Gravity.RIGHT) | Gravity.CENTER_VERTICAL;
++            lp.x = axDp(10);
++            try {
++                mDefaultWindowManager.addView(bubble, lp);
++            } catch (RuntimeException e) {
++                Log.w(TAG, "Unable to add edge volume bubble", e);
++                return;
++            }
++            mAxVolumeBubble = bubble;
++            mAxVolumeBubbleLp = lp;
++            mAxVolumeBubbleOnLeft = left;
++        } else if (mAxVolumeBubbleOnLeft != left && mAxVolumeBubbleLp != null) {
++            mAxVolumeBubbleOnLeft = left;
++            mAxVolumeBubbleLp.gravity =
++                    (left ? Gravity.LEFT : Gravity.RIGHT) | Gravity.CENTER_VERTICAL;
++            try {
++                mDefaultWindowManager.updateViewLayout(mAxVolumeBubble, mAxVolumeBubbleLp);
++            } catch (RuntimeException e) {
++                Log.w(TAG, "Unable to move edge volume bubble", e);
++            }
++        }
++        mAxMainHandler.removeCallbacks(mAxHideBubbleRunnable);
++        mAxVolumeBubble.animate().cancel();
++        mAxVolumeBubble.setAlpha(1f);
++        mAxVolumeBubble.setVisibility(View.VISIBLE);
++        mAxVolumeBubble.setText(percent + "%");
++    }
++
+     private void onMotionEvent(MotionEvent ev) {
++        if (handleAxEdgeGesture(ev)) {
++            return;
++        }
+         int action = ev.getActionMasked();
+         DisplayBackGestureHandler displayBackGestureHandler = mDisplayBackGestureHandlers.get(
+                 ev.getDisplayId());
+diff --git a/packages/SystemUI/src/com/android/systemui/shade/NotificationPanelViewController.java b/packages/SystemUI/src/com/android/systemui/shade/NotificationPanelViewController.java
+index 5dd4aadcc2ba6..4589c83ddf8ba 100644
+--- a/packages/SystemUI/src/com/android/systemui/shade/NotificationPanelViewController.java
++++ b/packages/SystemUI/src/com/android/systemui/shade/NotificationPanelViewController.java
+@@ -3335,6 +3335,11 @@ public final class NotificationPanelViewController implements
+         }
+     }
+ 
++    @Override
++    public boolean handleSeparatePageSwipe(MotionEvent event) {
++        return mTouchHandler.handleSeparatePageSwipe(event);
++    }
++
+     @Override
+     public void updateTouchableRegion() {
+         //A layout will ensure that onComputeInternalInsets will be called and after that we can
+@@ -3829,10 +3834,19 @@ public final class NotificationPanelViewController implements
+                     float dx = event.getX() - mSeparatePageSwipeDownX;
+                     float dy = event.getY() - mSeparatePageSwipeDownY;
+                     float slop = getTouchSlop(event) * 2f;
+-                    if (Math.abs(dx) > slop && Math.abs(dx) > Math.abs(dy) * 1.5f) {
++                    if (mQsController.getExpanded()
++                            && mBarState != StatusBarState.SHADE
++                            && dy < -slop
++                            && Math.abs(dy) > Math.abs(dx) * 1.5f) {
++                        // On the lock screen, swiping up over the QS page returns to the
++                        // notification page instead of dismissing the keyguard.
++                        mSeparatePageSwipeTriggered = true;
++                        mQsController.collapseSeparateQsPage();
++                    } else if (Math.abs(dx) > slop
++                            && Math.abs(dx) > Math.abs(dy) * 1.5f) {
+                         if (!mQsController.getExpanded() && dx < 0) {
+                             mSeparatePageSwipeTriggered = true;
+-                            expandToQs();
++                            mQsController.expandSeparateQsPage();
+                         } else if (mQsController.getExpanded() && dx > 0) {
+                             mSeparatePageSwipeTriggered = true;
+                             mQsController.collapseSeparateQsPage();
+@@ -3886,6 +3900,19 @@ public final class NotificationPanelViewController implements
+                         + "bouncer is showing");
+                 return true;
+             }
++            if (event.getActionMasked() == MotionEvent.ACTION_DOWN
++                    && mStatusBarStateController.getState() == StatusBarState.KEYGUARD
++                    && mExpandedFraction < 1f
++                    && event.getY() < mView.getHeight() * 0.5f
++                    && mQsController.shouldQuickSettingsIntercept(
++                            event.getX(), event.getY(), 0, event)) {
++                // On the keyguard the shade window must claim the QS-side pull up front,
++                // otherwise the pulse-expansion handler or the keyguard drag handler would
++                // expand the notification page instead.
++                mShadeLog.logMotionEvent(event,
++                        "NPVC intercepted keyguard QS-side pull");
++                return true;
++            }
+             if (mCommandQueue.panelsEnabled()
+                     && !mNotificationStackScrollLayoutController.isLongPressInProgress()
+                     && mHeadsUpTouchHelper.onInterceptTouchEvent(event)) {
+diff --git a/packages/SystemUI/src/com/android/systemui/shade/NotificationShadeWindowViewController.java b/packages/SystemUI/src/com/android/systemui/shade/NotificationShadeWindowViewController.java
+index 0bdb74495ac66..e34de56926adf 100644
+--- a/packages/SystemUI/src/com/android/systemui/shade/NotificationShadeWindowViewController.java
++++ b/packages/SystemUI/src/com/android/systemui/shade/NotificationShadeWindowViewController.java
+@@ -152,6 +152,8 @@ public class NotificationShadeWindowViewController implements Dumpable {
+     private boolean mExpandingBelowNotch;
+     private final DockManager mDockManager;
+     private final ShadeViewController mShadeViewController;
++    private boolean mSeparatePageGestureConsuming;
++    private boolean mSeparatePageCancelDispatch;
+     private final PanelExpansionInteractor mPanelExpansionInteractor;
+     private final ShadeExpansionStateManager mShadeExpansionStateManager;
+ 
+@@ -394,6 +396,21 @@ public class NotificationShadeWindowViewController implements Dumpable {
+ 
+             @Override
+             public Boolean handleDispatchTouchEvent(MotionEvent ev) {
++                if (mSeparatePageGestureConsuming && !mSeparatePageCancelDispatch) {
++                    if (ev.getActionMasked() == MotionEvent.ACTION_UP
++                            || ev.getActionMasked() == MotionEvent.ACTION_CANCEL) {
++                        mSeparatePageGestureConsuming = false;
++                        mService.setInteracting(StatusBarManager.WINDOW_STATUS_BAR, false);
++                    }
++                    return true;
++                }
++                if (!mSeparatePageCancelDispatch
++                        && ev.getActionMasked() != MotionEvent.ACTION_UP
++                        && ev.getActionMasked() != MotionEvent.ACTION_CANCEL
++                        && mShadeViewController.handleSeparatePageSwipe(ev)) {
++                    mSeparatePageGestureConsuming = true;
++                    return true;
++                }
+                 PhoneStatusBarViewController phoneStatusBarViewController =
+                         statusBarViewController();
+                 if (phoneStatusBarViewController == null) { // Fix for b/192490822
+@@ -626,6 +643,10 @@ public class NotificationShadeWindowViewController implements Dumpable {
+                     handled |= mDragDownHelper.onTouchEvent(ev) || handled;
+                 }
+                 if (!handled && mShadeViewController.handleExternalTouch(ev)) {
++                    if (ev.getActionMasked() == MotionEvent.ACTION_UP
++                            || ev.getActionMasked() == MotionEvent.ACTION_CANCEL) {
++                        mService.setInteracting(StatusBarManager.WINDOW_STATUS_BAR, false);
++                    }
+                     return true;
+                 }
+                 return handled;
+diff --git a/packages/SystemUI/src/com/android/systemui/shade/QuickSettingsControllerImpl.java b/packages/SystemUI/src/com/android/systemui/shade/QuickSettingsControllerImpl.java
+index 8230a5c8acfac..8126c4d341505 100644
+--- a/packages/SystemUI/src/com/android/systemui/shade/QuickSettingsControllerImpl.java
++++ b/packages/SystemUI/src/com/android/systemui/shade/QuickSettingsControllerImpl.java
+@@ -624,7 +624,6 @@ public class QuickSettingsControllerImpl implements QuickSettingsController, Dum
+         final float x = event.getX();
+         boolean showQsOverride = separateShade
+                 && mAxQsShadePolicy.isSeparateQuickPanelGesture(x, w);
+-        showQsOverride &= mBarState == StatusBarState.SHADE;
+ 
+         return twoFingerDrag || showQsOverride || stylusButtonClickDrag || mouseButtonClickDrag;
+     }
+@@ -714,32 +713,31 @@ public class QuickSettingsControllerImpl implements QuickSettingsController, Dum
+             return false;
+         }
+         boolean keyguardShowing = mBarState == KEYGUARD;
+-        final boolean separateKeyguardQsSide = mAxQsShadePolicy.isSeparateShade()
+-                && keyguardShowing
+-                && mShadeExpandedFraction < 1f
++        final boolean separateShade = mAxQsShadePolicy.isSeparateShade();
++        final boolean separateQsSide = separateShade
+                 && mAxQsShadePolicy.isSeparateQuickPanelGesture(
+                         x, mPanelView.getMeasuredWidth());
+-        if (!isExpansionEnabled() || (mCollapsedOnDown && !separateKeyguardQsSide)
+-                || (keyguardShowing
+-                && mKeyguardBypassController.getBypassEnabled() && !Flags.expandQsBypassEnabled())
+-                || mSplitShadeEnabled) {
++        if (!isExpansionEnabled() || mSplitShadeEnabled) {
+             return false;
+         }
+-        if (separateKeyguardQsSide) {
+-            // On the lockscreen, split the drag-down gesture the same way as the home screen:
+-            // the quick panel half opens QS, the other half opens notifications.
+-            return true;
++        if (!separateQsSide && (mCollapsedOnDown || (keyguardShowing
++                && mKeyguardBypassController.getBypassEnabled() && !Flags.expandQsBypassEnabled()))) {
++            return false;
+         }
+-        if (mAxQsShadePolicy.isSeparateShade()) {
+-            // In separate mode QS is opened from the status-bar edge, not by dragging
+-            // down the notification page.
+-            if (y > mStatusBarMinHeight) {
+-                return false;
+-            }
++        if (separateShade && !separateQsSide && y > mStatusBarMinHeight) {
++            // In separate mode QS is opened from its own half, not by dragging
++            // down the notification side.
++            return false;
+         }
+-        if (getExpanded() && yDiff < 0 && mAxQsShadePolicy.isSeparateShade()) {
++        if (getExpanded() && yDiff < 0 && separateShade) {
+             return false;
+         }
++        if (separateQsSide && !getExpanded() && mShadeExpandedFraction < 1f) {
++            // The QS half owns the whole downward pull while the shade is collapsed or
++            // animating. Once the notification page is fully open, normal notification
++            // interaction (taps and scrolling) must keep working.
++            return true;
++        }
+         int headerTop, headerBottom;
+         if (keyguardShowing || mQs == null) {
+             headerTop = mKeyguardStatusBar.getTop();
+@@ -1697,11 +1695,6 @@ public class QuickSettingsControllerImpl implements QuickSettingsController, Dum
+             return false;
+         }
+         boolean isInStatusBar = event.getY(event.getActionIndex()) < mStatusBarMinHeight;
+-        final boolean separateKeyguardQsSide = mAxQsShadePolicy.isSeparateShade()
+-                && mBarState == KEYGUARD
+-                && mShadeExpandedFraction < 1f
+-                && mAxQsShadePolicy.isSeparateQuickPanelGesture(
+-                        event.getX(), mPanelView.getMeasuredWidth());
+         if (isInStatusBar) {
+             if (Flags.statusBarLongPressGestureDetectorPerDisplay()) {
+                 int shadeDisplayId = mShadeDisplaysInteractorLazy.get().getDisplayId().getValue();
+@@ -1750,15 +1743,34 @@ public class QuickSettingsControllerImpl implements QuickSettingsController, Dum
+                 return true;
+             }
+         }
++        if (action == MotionEvent.ACTION_DOWN && isExpansionEnabled()
++                && mShadeExpandedFraction < 1f && !isOpenQsEvent(event)
++                && isExpandImmediate()) {
++            // A previous QS gesture can leave the immediate-expansion latch set. Any fresh
++            // gesture on the notification side must start from the notification page.
++            setExpandImmediate(false);
++        }
++        if (action == MotionEvent.ACTION_DOWN && isExpansionEnabled()
++                && mAxQsShadePolicy.isSeparateShade() && mShadeExpandedFraction < 1f
++                && mAxQsShadePolicy.isSeparateQuickPanelGesture(
++                        event.getX(), mPanelView.getMeasuredWidth())) {
++            // The QS half owns the pull even when a previous shade is still collapsing.
++            // Without this, a fast follow-up pull lands on the notification page.
++            setExpandImmediate(true);
++        }
+         if (action == MotionEvent.ACTION_CANCEL || action == MotionEvent.ACTION_UP) {
+             mConflictingExpansionGesture = false;
+             resetEarlyExpansion();
++            if (isFullyCollapsed && isExpandImmediate()) {
++                // Taps on the QS half must not leave QS latched for the next gesture.
++                setExpandImmediate(false);
++            }
+         }
+         if (action == MotionEvent.ACTION_DOWN && isFullyCollapsed && isExpansionEnabled()) {
+             mTwoFingerExpandPossible = true;
+         }
+-        if (mTwoFingerExpandPossible && (isOpenQsEvent(event) || separateKeyguardQsSide)
+-                && (isFullyCollapsed || isInStatusBar || separateKeyguardQsSide)) {
++        if (mTwoFingerExpandPossible && isOpenQsEvent(event)
++                && (isFullyCollapsed || isInStatusBar)) {
+             mMetricsLogger.count(COUNTER_PANEL_OPEN_QS, 1);
+             setExpandImmediate(true);
+             mNotificationStackScrollLayoutController.setShouldShowShelfOnly(!mSplitShadeEnabled);
+@@ -1989,12 +2001,37 @@ public class QuickSettingsControllerImpl implements QuickSettingsController, Dum
+         return mAxQsShadePolicy.isSeparateShade();
+     }
+ 
++    /** Opens the separate QS page while keeping the notification shade expanded. */
++    void expandSeparateQsPage() {
++        if (getExpanded() || !mAxQsShadePolicy.isSeparateShade()) {
++            return;
++        }
++        setExpandImmediate(false);
++        if (mExpansionAnimator != null) {
++            mExpansionAnimator.cancel();
++        }
++        onExpansionStarted();
++        // Mark QS expanded before measuring, so the panel takes the QS-expanded height (the
++        // same state the system's expand-settings path produces). Without this the panel keeps
++        // the notification-page height and collapses when the QS page is closed.
++        setExpanded(true);
++        mPanelViewControllerLazy.get().updateExpandedHeightToMaxHeight();
++        flingQs(0 /* vel */, FLING_EXPAND, null /* onFinishRunnable */, true /* isClick */);
++    }
++
+     /** Closes the separate QS page back to the notification page. */
+     void collapseSeparateQsPage() {
+         if (!getExpanded() || !mAxQsShadePolicy.isSeparateShade()) {
+             return;
+         }
+-        animateCloseQs(false /* animateAway */);
++        cancelExpansionAnimation();
++        setExpandImmediate(false);
++        if (getExpansionHeight() <= getMinExpansionHeight()) {
++            // The QS page is driven by isQsExpanded, not by the stock expansion height.
++            setExpanded(false);
++        } else {
++            animateCloseQs(false /* animateAway */);
++        }
+     }
+ 
+     private void cancelExpansionAnimation() {
+diff --git a/packages/SystemUI/src/com/android/systemui/shade/ShadeViewController.kt b/packages/SystemUI/src/com/android/systemui/shade/ShadeViewController.kt
+index 8201920baf79b..7160d0fe394b5 100644
+--- a/packages/SystemUI/src/com/android/systemui/shade/ShadeViewController.kt
++++ b/packages/SystemUI/src/com/android/systemui/shade/ShadeViewController.kt
+@@ -71,6 +71,12 @@ interface ShadeViewController {
+     /** Sends an external (e.g. Status Bar) intercept touch event to the Shade touch handler. */
+     fun handleExternalInterceptTouch(event: MotionEvent): Boolean
+ 
++    /**
++     * Handles a separate-mode horizontal page swipe before the event is dispatched to the
++     * shade children, so views that disallow intercepting touches cannot swallow it.
++     */
++    fun handleSeparatePageSwipe(event: MotionEvent): Boolean = false
++
+     /**
+      * Triggered when an input focus transfer gesture has started.
+      *
+diff --git a/packages/SystemUI/src/com/android/systemui/shade/ShadeViewControllerEmptyImpl.kt b/packages/SystemUI/src/com/android/systemui/shade/ShadeViewControllerEmptyImpl.kt
+index a66cd8fa529e8..8b0a6be0061bb 100644
+--- a/packages/SystemUI/src/com/android/systemui/shade/ShadeViewControllerEmptyImpl.kt
++++ b/packages/SystemUI/src/com/android/systemui/shade/ShadeViewControllerEmptyImpl.kt
+@@ -35,6 +35,8 @@ open class ShadeViewControllerEmptyImpl @Inject constructor() :
+     PanelExpansionInteractor {
+     @Deprecated("Use ShadeInteractor instead") override fun expandToNotifications() {}
+ 
++    override fun expandToQs() {}
++
+     @Deprecated("Use ShadeInteractor instead") override val isExpanded: Boolean = false
+     override val isPanelExpanded: Boolean = false
+ 
+diff --git a/packages/SystemUI/src/com/android/systemui/shade/domain/interactor/ShadeLockscreenInteractor.kt b/packages/SystemUI/src/com/android/systemui/shade/domain/interactor/ShadeLockscreenInteractor.kt
+index 049589d2d2515..2aa2244ce1461 100644
+--- a/packages/SystemUI/src/com/android/systemui/shade/domain/interactor/ShadeLockscreenInteractor.kt
++++ b/packages/SystemUI/src/com/android/systemui/shade/domain/interactor/ShadeLockscreenInteractor.kt
+@@ -32,6 +32,9 @@ interface ShadeLockscreenInteractor {
+      */
+     @Deprecated("Use ShadeInteractor instead") fun expandToNotifications()
+ 
++    /** Opens the QS page after the locked shade is shown. */
++    fun expandToQs()
++
+     /**
+      * Returns whether the shade height is greater than zero (i.e. partially or fully expanded),
+      * there is a HUN, the shade is animating, or the shade is instantly expanding.
+diff --git a/packages/SystemUI/src/com/android/systemui/shade/domain/interactor/ShadeLockscreenInteractorImpl.kt b/packages/SystemUI/src/com/android/systemui/shade/domain/interactor/ShadeLockscreenInteractorImpl.kt
+index 7e6b465c362a6..3d5d207de2b3e 100644
+--- a/packages/SystemUI/src/com/android/systemui/shade/domain/interactor/ShadeLockscreenInteractorImpl.kt
++++ b/packages/SystemUI/src/com/android/systemui/shade/domain/interactor/ShadeLockscreenInteractorImpl.kt
+@@ -50,6 +50,12 @@ constructor(
+         )
+     }
+ 
++    override fun expandToQs() {
++        shadeInteractor.expandQuickSettingsShade(
++            loggingReason = "ShadeLockscreenInteractorImpl.expandToQs"
++        )
++    }
++
+     @Deprecated("Use ShadeInteractor instead")
+     override val isExpanded
+         get() = shadeInteractor.isAnyExpanded.value
+diff --git a/packages/SystemUI/src/com/android/systemui/statusbar/LockscreenShadeTransitionController.kt b/packages/SystemUI/src/com/android/systemui/statusbar/LockscreenShadeTransitionController.kt
+index 3f71cf2607ed0..b4571bcd65c36 100644
+--- a/packages/SystemUI/src/com/android/systemui/statusbar/LockscreenShadeTransitionController.kt
++++ b/packages/SystemUI/src/com/android/systemui/statusbar/LockscreenShadeTransitionController.kt
+@@ -4,6 +4,7 @@ import android.animation.Animator
+ import android.animation.AnimatorListenerAdapter
+ import android.animation.ValueAnimator
+ import android.content.Context
++import android.provider.Settings
+ import android.content.res.Configuration
+ import android.util.IndentingPrintWriter
+ import android.util.MathUtils
+@@ -326,6 +327,15 @@ constructor(
+             nsslController.isInLockedDownShade()) && (isQsFullyCollapsed || useSplitShade)
+     }
+ 
++    private fun opensSeparateQsPage(): Boolean {
++        if (shadeModeInteractor.isSplitShade) {
++            return false
++        }
++        return Settings.Secure.getInt(
++            context.contentResolver, "ax_qs_panel_mode", 0
++        ) == 1
++    }
++
+     /** Called by the touch helper when when a gesture has completed all the way and released. */
+     internal fun onDraggedDown(startingChild: View?, dragLengthY: Int) {
+         if (canDragDown(startingChild)) {
+@@ -346,6 +356,7 @@ constructor(
+                 )
+             } else {
+                 logger.logDraggedDown(startingChild, dragLengthY)
++                val opensQsPage = opensSeparateQsPage()
+                 if (!ambientState.isDozing() || startingChild != null) {
+                     // go to locked shade while animating the drag down amount from its current
+                     // value
+@@ -356,6 +367,9 @@ constructor(
+                             )
+                         }
+                         shadeLockscreenInteractorLazy.get().transitionToExpandedShade(delay)
++                        if (opensQsPage) {
++                            shadeLockscreenInteractorLazy.get().expandToQs()
++                        }
+                         callbacks.forEach {
+                             it.setTransitionToFullShadeAmount(0f, /* animated= */ true, delay)
+                         }
+@@ -796,6 +810,8 @@ class DragDownHelper(
+     private var minDragDistance = 0
+     private var initialTouchX = 0f
+     private var initialTouchY = 0f
++    var downX = 0f
++        private set
+     private var touchSlop = 0f
+     private var slopMultiplier = 0f
+     private var draggedFarEnough = false
+@@ -846,6 +862,7 @@ class DragDownHelper(
+                 initialShadeLockdown = false
+                 initialTouchY = y
+                 initialTouchX = x
++                downX = x
+             }
+ 
+             MotionEvent.ACTION_MOVE -> {
