@@ -1,0 +1,30 @@
+From 5ea620d1b51cb579e2ebad8bc343441833a77df9 Mon Sep 17 00:00:00 2001
+From: raizen <raizen@localhost>
+Date: Tue, 3 Nov 2026 20:56:48 +0000
+Subject: [PATCH] giulia: Keep notifications collapsed by default
+
+Override config_autoExpandFirstNotification for SystemUI so the first
+notification is not automatically expanded when the shade opens.
+---
+ overlay/OPlusSystemUIResTarget/res/values/config.xml | 9 +++++++++
+ 1 file changed, 9 insertions(+)
+ create mode 100644 overlay/OPlusSystemUIResTarget/res/values/config.xml
+
+diff --git a/overlay/OPlusSystemUIResTarget/res/values/config.xml b/overlay/OPlusSystemUIResTarget/res/values/config.xml
+new file mode 100644
+index 0000000..ecfc500
+--- /dev/null
++++ b/overlay/OPlusSystemUIResTarget/res/values/config.xml
+@@ -0,0 +1,9 @@
++<?xml version="1.0" encoding="utf-8"?>
++<!--
++     Copyright (C) 2026 The Paranoid Android Project
++     SPDX-License-Identifier: Apache-2.0
++-->
++<resources>
++    <!-- Keep notifications collapsed when the shade is opened. -->
++    <bool name="config_autoExpandFirstNotification">false</bool>
++</resources>
+-- 
+2.43.0
+
