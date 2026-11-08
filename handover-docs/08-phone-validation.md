@@ -8,6 +8,7 @@
 - Our userdebug AOSPA build: laptop copy `/home/raizen/Downloads/aospa-calcite-unofficial-giulia-20261108.zip`,
   md5 `99ce27d11208702d66bf246c287c7269` (server build from 18:59, 2026-11-07/08).
 - Flash state healthy at last audit.
+- Security Patch: **November 2026** (`ro.build.version.security_patch=2026-11-01`, `ro.vendor.build.security_patch=2026-11-05`).
 
 ## Health audit results (on the flashed userdebug)
 - **SELinux enforcing**, only benign OEM AVC denials: `servicemanager → display-color HAL`,
