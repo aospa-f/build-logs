@@ -1,0 +1,370 @@
+[m[1m[34mSetting up the environment[m
+
+including vendor/aospa/vendorsetup.sh
+including vendor/google/gms/vendorsetup.sh
+including vendor/oplus/camera/vendorsetup.sh
+including vendor/qcom/opensource/core-utils/vendorsetup.sh
+including vendor/qcom/sdclang/config/vendorsetup.sh
+
+[m[1m[32mBuilding AOSPA calcite for giulia[m
+[m[32mStart time: Sun Nov  1 04:53:30 PM UTC 2026[m
+
+[m[1m[34mLunching giulia[m [m[36m(Including dependencies sync)[m
+
+Release not specified, defaulting to cp2a build
+No changes were necessary to the barista recipe.
+No ingredients need to be brewed.
+16:53:33 Build sandboxing disabled due to nsjail error.
+hardware/qcom/display/config/display-product.mk:244: warning: "Using smmu proxy"
+hardware/qcom/display/config/display-product.mk:244: warning: "Using smmu proxy"
+
+============================================
+PLATFORM_VERSION_CODENAME=REL
+PLATFORM_VERSION=17
+PRODUCT_SOURCE_ROOT_DIRS=-prebuilts/misc/protobuf_vendorcompat -platform_testing/libraries/sdv -platform_testing/tests/sdv -platform_testing/libraries/automotive/display_safety -platform_testing/tests/automotive/display_safety -device/generic/trusty/microdroid
+AOSPA_VERSION=calcite-unofficial-giulia-20261101
+TARGET_PRODUCT=aospa_giulia
+TARGET_BUILD_VARIANT=userdebug
+TARGET_ARCH=arm64
+TARGET_ARCH_VARIANT=armv8-2a-dotprod
+TARGET_CPU_VARIANT=generic
+HOST_OS=linux
+HOST_OS_EXTRA=Linux-7.0.0-42-generic-x86_64-Ubuntu-24.04.5-LTS
+HOST_CROSS_OS=windows
+BUILD_ID=CQ2A.260820.002-CP2A.260605.016
+OUT_DIR=out
+PRODUCT_SOONG_NAMESPACES=device/oneplus/giulia vendor/sony/dolby hardware/nxp/keymint/generic hardware/nxp/weaver/generic vendor/oneplus/ir hardware/oplus/overlay device/oneplus/sm8650-common hardware/oplus vendor/oneplus/sm8650-common vendor/oneplus/giulia vendor/google/gms vendor/qcom/common/vendor/adreno/u vendor/qcom/common/system/alarm device/qcom/common/vendor/alarm vendor/qcom/common/vendor/alarm vendor/qcom/common/system/audio vendor/qcom/common/system/av vendor/qcom/common/system/bt vendor/qcom/common/system/display vendor/qcom/common/vendor/display vendor/qcom/common/system/gps device/qcom/common/vendor/gps device/qcom/common/system/overlay device/qcom/common/vendor/overlay vendor/qcom/common/system/perf device/qcom/common/vendor/perf vendor/qcom/common/vendor/perf vendor/qcom/common/system/telephony device/qcom/common/vendor/telephony vendor/qcom/opensource/data-ipa-cfg-mgr device/qcom/common/vendor/usb vendor/qcom/common/system/wfd device/qcom/common/vendor/wlan hardware/qcom/wlan/qcwcn vendor/qcom/opensource/data-ipa-cfg-mgr vendor/qcom/common/vendor/wlan device/qcom/common vendor/qcom/opensource/audio-hal/st-hal-ar
+SOONG_NINJA=ninja
+USE_RBE=true
+SOONG_ONLY=false
+SOONG_INCREMENTAL_ANALYSIS=false
+============================================
+16:53:42 Build sandboxing disabled due to nsjail error.
+hardware/qcom/display/config/display-product.mk:244: warning: "Using smmu proxy"
+hardware/qcom/display/config/display-product.mk:244: warning: "Using smmu proxy"
+16:54:04 Build sandboxing disabled due to nsjail error.
+hardware/qcom/display/config/display-product.mk:244: warning: "Using smmu proxy"
+hardware/qcom/display/config/display-product.mk:244: warning: "Using smmu proxy"
+16:54:11 Build sandboxing disabled due to nsjail error.
+hardware/qcom/display/config/display-product.mk:244: warning: "Using smmu proxy"
+hardware/qcom/display/config/display-product.mk:244: warning: "Using smmu proxy"
+
+[m[1m[34mStarting compilation[m
+
+Starting ninja...
+16:54:19 Build sandboxing disabled due to nsjail error.
+hardware/qcom/display/config/display-product.mk:244: warning: "Using smmu proxy"
+Running product configuration...
+hardware/qcom/display/config/display-product.mk:244: warning: "Using smmu proxy"
+============================================
+PLATFORM_VERSION_CODENAME=REL
+PLATFORM_VERSION=17
+PRODUCT_SOURCE_ROOT_DIRS=-prebuilts/misc/protobuf_vendorcompat -platform_testing/libraries/sdv -platform_testing/tests/sdv -platform_testing/libraries/automotive/display_safety -platform_testing/tests/automotive/display_safety -device/generic/trusty/microdroid
+AOSPA_VERSION=calcite-unofficial-giulia-20261101
+TARGET_PRODUCT=aospa_giulia
+TARGET_BUILD_VARIANT=userdebug
+TARGET_ARCH=arm64
+TARGET_ARCH_VARIANT=armv8-2a-dotprod
+TARGET_CPU_VARIANT=generic
+HOST_OS=linux
+HOST_OS_EXTRA=Linux-7.0.0-42-generic-x86_64-Ubuntu-24.04.5-LTS
+HOST_CROSS_OS=windows
+BUILD_ID=CQ2A.260820.002-CP2A.260605.016
+OUT_DIR=out
+PRODUCT_SOONG_NAMESPACES=device/oneplus/giulia vendor/sony/dolby hardware/nxp/keymint/generic hardware/nxp/weaver/generic vendor/oneplus/ir hardware/oplus/overlay device/oneplus/sm8650-common hardware/oplus vendor/oneplus/sm8650-common vendor/oneplus/giulia vendor/google/gms vendor/qcom/common/vendor/adreno/u vendor/qcom/common/system/alarm device/qcom/common/vendor/alarm vendor/qcom/common/vendor/alarm vendor/qcom/common/system/audio vendor/qcom/common/system/av vendor/qcom/common/system/bt vendor/qcom/common/system/display vendor/qcom/common/vendor/display vendor/qcom/common/system/gps device/qcom/common/vendor/gps device/qcom/common/system/overlay device/qcom/common/vendor/overlay vendor/qcom/common/system/perf device/qcom/common/vendor/perf vendor/qcom/common/vendor/perf vendor/qcom/common/system/telephony device/qcom/common/vendor/telephony vendor/qcom/opensource/data-ipa-cfg-mgr device/qcom/common/vendor/usb vendor/qcom/common/system/wfd device/qcom/common/vendor/wlan hardware/qcom/wlan/qcwcn vendor/qcom/opensource/data-ipa-cfg-mgr vendor/qcom/common/vendor/wlan device/qcom/common vendor/qcom/opensource/audio-hal/st-hal-ar
+SOONG_NINJA=ninja
+USE_RBE=true
+SOONG_ONLY=false
+SOONG_INCREMENTAL_ANALYSIS=true
+============================================
+[100% 1/1] bootstrap blueprint
+Running globs...
+
+Globs changed, rerunning soong...
+One culprit glob (may be more): frameworks/base/core/java/**/*.java (excluding 38 other patterns)
+[  0% 2/288] compile out/host/linux-x86/bin/go/go-cmp-internal-flags/pkg/github.com/google/go-cmp/cmp/internal/flags.a
+[  1% 3/288] write out/host/linux-x86/bin/go/soong-cc/pkg/android/soong/cc.a.embedcfg
+[  1% 4/288] compile out/host/linux-x86/bin/go/blueprint-syncmap/pkg/github.com/google/blueprint/syncmap.a
+[  1% 5/288] compile out/host/linux-x86/bin/go/blueprint-pool/pkg/github.com/google/blueprint/pool.a
+[  2% 6/288] compile out/host/linux-x86/bin/go/blueprint-proptools-type_test2/pkg/github.com/google/blueprint/proptools/type_test2/type_test.a
+[  2% 7/288] compile out/host/linux-x86/bin/go/golang-protobuf-internal-flags/pkg/google.golang.org/protobuf/internal/flags.a
+[  2% 8/288] compile out/host/linux-x86/bin/go/blueprint-proptools-type_test1/pkg/github.com/google/blueprint/proptools/type_test1/type_test.a
+[  3% 9/288] compile out/host/linux-x86/bin/go/soong-kernel-common/pkg/android/soong/kernel/common.a
+[  3% 10/288] compile out/host/linux-x86/bin/go/golang-protobuf-internal-pragma/pkg/google.golang.org/protobuf/internal/pragma.a
+[  3% 11/288] compile out/host/linux-x86/bin/go/golang-protobuf-internal-version/pkg/google.golang.org/protobuf/internal/version.a
+[  4% 12/288] compile out/host/linux-x86/bin/go/soong-response/pkg/android/soong/response.a
+[  4% 13/288] compile out/host/linux-x86/bin/go/golang-protobuf-internal-detrand/pkg/google.golang.org/protobuf/internal/detrand.a
+[  4% 14/288] compile out/host/linux-x86/bin/go/blueprint-deptools/pkg/github.com/google/blueprint/deptools.a
+[  5% 15/288] compile out/host/linux-x86/bin/go/blueprint-metrics/pkg/github.com/google/blueprint/metrics.a
+[  5% 16/288] compile out/host/linux-x86/bin/go/go-cmp-internal-testprotos/pkg/github.com/google/go-cmp/cmp/internal/testprotos.a
+[  5% 17/288] compile out/host/linux-x86/bin/go/golang-protobuf-internal-set/pkg/google.golang.org/protobuf/internal/set.a
+[  6% 18/288] compile out/host/linux-x86/bin/go/soong-remoteexec/pkg/android/soong/remoteexec.a
+[  6% 19/288] compile out/host/linux-x86/bin/go/androidmk-parser/pkg/android/soong/androidmk/parser.a
+[  6% 20/288] compile out/host/linux-x86/bin/go/blueprint-optional/pkg/github.com/google/blueprint/optional.a
+[  7% 21/288] compile out/host/linux-x86/bin/go/go-cmp-internal-function/pkg/github.com/google/go-cmp/cmp/internal/function.a
+[  7% 22/288] compile out/host/linux-x86/bin/go/go-cmp-internal-value/pkg/github.com/google/go-cmp/cmp/internal/value.a
+[  7% 23/288] compile out/host/linux-x86/bin/go/loadplugins/pkg/loadplugins.a
+[  8% 24/288] compile out/host/linux-x86/bin/go/pogreb-internal-assert/pkg/github.com/akrylysov/pogreb/internal/assert.a
+[  8% 25/288] compile out/host/linux-x86/bin/go/soong-android-allowlists/pkg/android/soong/android/allowlists.a
+[  9% 26/288] compile out/host/linux-x86/bin/go/golang-protobuf-android/pkg/google.golang.org/protobuf/android.a
+[  9% 27/288] compile out/host/linux-x86/bin/go/golang-protobuf-internal-errors/pkg/google.golang.org/protobuf/internal/errors.a
+[  9% 28/288] compile out/host/linux-x86/bin/go/soong-filesystem-ramdisk_16k-common/pkg/android/soong/filesystem/ramdisk_16k/common.a
+[ 10% 29/288] compile out/host/linux-x86/bin/go/go-cmp-internal-diff/pkg/github.com/google/go-cmp/cmp/internal/diff.a
+[ 10% 30/288] compile out/host/linux-x86/bin/go/pogreb-internal-hash/pkg/github.com/akrylysov/pogreb/internal/hash.a
+[ 10% 31/288] compile out/host/linux-x86/bin/go/pogreb-internal-errors/pkg/github.com/akrylysov/pogreb/internal/errors.a
+[ 11% 32/288] compile out/host/linux-x86/bin/go/golang-protobuf-encoding-protowire/pkg/google.golang.org/protobuf/encoding/protowire.a
+[ 11% 33/288] compile out/host/linux-x86/bin/go/blueprint-parser/pkg/github.com/google/blueprint/parser.a
+[ 11% 34/288] compile out/host/linux-x86/bin/go/go-cmp-internal-teststructs/pkg/github.com/google/go-cmp/cmp/internal/teststructs.a
+[ 12% 35/288] compile out/host/linux-x86/bin/go/pogreb-fs/pkg/github.com/akrylysov/pogreb/fs.a
+[ 12% 36/288] compile out/host/linux-x86/bin/go/blueprint-bpmodify/pkg/github.com/google/blueprint/bpmodify.a
+[ 12% 37/288] compile out/host/linux-x86/bin/go/blueprint-pathtools/pkg/github.com/google/blueprint/pathtools.a
+[ 13% 38/288] compile out/host/linux-x86/bin/go/golang-protobuf-reflect-protoreflect/pkg/google.golang.org/protobuf/reflect/protoreflect.a
+[ 13% 39/288] compile out/host/linux-x86/bin/go/golang-protobuf-internal-descopts/pkg/google.golang.org/protobuf/internal/descopts.a
+[ 13% 40/288] compile out/host/linux-x86/bin/go/golang-protobuf-runtime-protoiface/pkg/google.golang.org/protobuf/runtime/protoiface.a
+[ 14% 41/288] compile out/host/linux-x86/bin/go/golang-protobuf-internal-genid/pkg/google.golang.org/protobuf/internal/genid.a
+[ 14% 42/288] compile out/host/linux-x86/bin/go/golang-protobuf-internal-encoding-messageset/pkg/google.golang.org/protobuf/internal/encoding/messageset.a
+[ 14% 43/288] compile out/host/linux-x86/bin/go/golang-protobuf-internal-strs/pkg/google.golang.org/protobuf/internal/strs.a
+[ 15% 44/288] compile out/host/linux-x86/bin/go/golang-protobuf-internal-descfmt/pkg/google.golang.org/protobuf/internal/descfmt.a
+[ 15% 45/288] link out/host/linux-x86/bin/go/loadplugins/pkg/loadplugins
+[ 15% 46/288] compile out/host/linux-x86/bin/go/pogreb/pkg/github.com/akrylysov/pogreb.a
+[ 16% 47/288] compile out/host/linux-x86/bin/go/go-cmp/pkg/github.com/google/go-cmp/cmp.a
+[ 16% 48/288] cp out/host/linux-x86/bin/loadplugins
+[ 17% 49/288] create out/host/linux-x86/bin/go/soong_build/gen/plugin.go
+[ 17% 50/288] compile out/host/linux-x86/bin/go/golang-protobuf-reflect-protoregistry/pkg/google.golang.org/protobuf/reflect/protoregistry.a
+[ 17% 51/288] compile out/host/linux-x86/bin/go/golang-protobuf-internal-order/pkg/google.golang.org/protobuf/internal/order.a
+[ 18% 52/288] compile out/host/linux-x86/bin/go/blueprint-dbtools/pkg/github.com/google/blueprint/dbtools.a
+[ 18% 53/288] compile out/host/linux-x86/bin/go/golang-protobuf-proto/pkg/google.golang.org/protobuf/proto.a
+[ 18% 54/288] compile out/host/linux-x86/bin/go/golang-protobuf-internal-encoding-text/pkg/google.golang.org/protobuf/internal/encoding/text.a
+[ 19% 55/288] compile out/host/linux-x86/bin/go/soong-shared/pkg/android/soong/shared.a
+[ 19% 56/288] compile out/host/linux-x86/bin/go/golang-protobuf-internal-encoding-defval/pkg/google.golang.org/protobuf/internal/encoding/defval.a
+[ 19% 57/288] compile out/host/linux-x86/bin/go/golang-protobuf-encoding-prototext/pkg/google.golang.org/protobuf/encoding/prototext.a
+[ 20% 58/288] compile out/host/linux-x86/bin/go/blueprint-proptools/pkg/github.com/google/blueprint/proptools.a
+[ 20% 59/288] compile out/host/linux-x86/bin/go/blueprint-gobtools/pkg/github.com/google/blueprint/gobtools.a
+[ 20% 60/288] compile out/host/linux-x86/bin/go/blueprint-uniquelist/pkg/github.com/google/blueprint/uniquelist.a
+[ 21% 61/288] compile out/host/linux-x86/bin/go/blueprint-gobtools-test/pkg/github.com/google/blueprint/gobtools/test.a
+[ 21% 62/288] compile out/host/linux-x86/bin/go/golang-protobuf-internal-filedesc/pkg/google.golang.org/protobuf/internal/filedesc.a
+[ 21% 63/288] compile out/host/linux-x86/bin/go/blueprint-depset/pkg/github.com/google/blueprint/depset.a
+[ 22% 64/288] compile out/host/linux-x86/bin/go/golang-protobuf-internal-encoding-tag/pkg/google.golang.org/protobuf/internal/encoding/tag.a
+[ 22% 65/288] compile out/host/linux-x86/bin/go/golang-protobuf-internal-impl/pkg/google.golang.org/protobuf/internal/impl.a
+[ 22% 66/288] compile out/host/linux-x86/bin/go/golang-protobuf-internal-filetype/pkg/google.golang.org/protobuf/internal/filetype.a
+[ 23% 67/288] compile out/host/linux-x86/bin/go/golang-protobuf-runtime-protoimpl/pkg/google.golang.org/protobuf/runtime/protoimpl.a
+[ 23% 68/288] compile out/host/linux-x86/bin/go/sbox_proto/pkg/android/soong/cmd/sbox/sbox_proto.a
+[ 23% 69/288] compile out/host/linux-x86/bin/go/soong-android_team_proto/pkg/android/soong/android/team_proto.a
+[ 24% 70/288] compile out/host/linux-x86/bin/go/test_configs_proto/pkg/android/soong/testconfigs/protos.a
+[ 24% 71/288] compile out/host/linux-x86/bin/go/soong-ui-metrics_proto/pkg/android/soong/ui/metrics/metrics_proto.a
+[ 25% 72/288] compile out/host/linux-x86/bin/go/gob_gen/pkg/gob_gen.a
+[ 25% 73/288] compile out/host/linux-x86/bin/go/blueprint/pkg/github.com/google/blueprint.a
+[ 25% 74/288] compile out/host/linux-x86/bin/go/soong/pkg/android/soong.a
+[ 26% 75/288] compile out/host/linux-x86/bin/go/soong-android-soongconfig/pkg/android/soong/android/soongconfig.a
+[ 26% 76/288] compile out/host/linux-x86/bin/go/blueprint-bootstrap-bpdoc/pkg/github.com/google/blueprint/bootstrap/bpdoc.a
+[ 26% 77/288] link out/host/linux-x86/bin/go/gob_gen/pkg/gob_gen
+[ 27% 78/288] cp out/host/linux-x86/bin/gob_gen
+[ 27% 79/288] generate serializers out/host/linux-x86/bin/go/androidmk-parser/pkg/android/soong/androidmk/parser.a.verify_serializers
+[ 27% 80/288] generate serializers out/host/linux-x86/bin/go/blueprint-bootstrap-bpdoc/pkg/github.com/google/blueprint/bootstrap/bpdoc.a.verify_serializers
+[ 28% 81/288] generate serializers out/host/linux-x86/bin/go/blueprint-bpmodify/pkg/github.com/google/blueprint/bpmodify.a.verify_serializers
+[ 28% 82/288] generate serializers out/host/linux-x86/bin/go/blueprint-dbtools/pkg/github.com/google/blueprint/dbtools.a.verify_serializers
+[ 28% 83/288] generate serializers out/host/linux-x86/bin/go/blueprint-depset/pkg/github.com/google/blueprint/depset.a.verify_serializers
+[ 29% 84/288] generate serializers out/host/linux-x86/bin/go/blueprint-deptools/pkg/github.com/google/blueprint/deptools.a.verify_serializers
+[ 29% 85/288] generate serializers out/host/linux-x86/bin/go/blueprint-gobtools/pkg/github.com/google/blueprint/gobtools.a.verify_serializers
+[ 29% 86/288] generate serializers out/host/linux-x86/bin/go/blueprint-gobtools-test/pkg/github.com/google/blueprint/gobtools/test.a.verify_serializers
+[ 30% 87/288] generate serializers out/host/linux-x86/bin/go/blueprint-metrics/pkg/github.com/google/blueprint/metrics.a.verify_serializers
+[ 30% 88/288] generate serializers out/host/linux-x86/bin/go/blueprint-optional/pkg/github.com/google/blueprint/optional.a.verify_serializers
+[ 30% 89/288] generate serializers out/host/linux-x86/bin/go/blueprint-parser/pkg/github.com/google/blueprint/parser.a.verify_serializers
+[ 31% 90/288] generate serializers out/host/linux-x86/bin/go/blueprint-pathtools/pkg/github.com/google/blueprint/pathtools.a.verify_serializers
+[ 31% 91/288] generate serializers out/host/linux-x86/bin/go/blueprint-pool/pkg/github.com/google/blueprint/pool.a.verify_serializers
+[ 31% 92/288] generate serializers out/host/linux-x86/bin/go/blueprint-proptools/pkg/github.com/google/blueprint/proptools.a.verify_serializers
+[ 32% 93/288] generate serializers out/host/linux-x86/bin/go/blueprint-proptools-type_test1/pkg/github.com/google/blueprint/proptools/type_test1/type_test.a.verify_serializers
+[ 32% 94/288] generate serializers out/host/linux-x86/bin/go/blueprint-proptools-type_test2/pkg/github.com/google/blueprint/proptools/type_test2/type_test.a.verify_serializers
+[ 32% 95/288] generate serializers out/host/linux-x86/bin/go/blueprint-syncmap/pkg/github.com/google/blueprint/syncmap.a.verify_serializers
+[ 33% 96/288] generate serializers out/host/linux-x86/bin/go/blueprint-uniquelist/pkg/github.com/google/blueprint/uniquelist.a.verify_serializers
+[ 33% 97/288] generate serializers out/host/linux-x86/bin/go/go-cmp-internal-diff/pkg/github.com/google/go-cmp/cmp/internal/diff.a.verify_serializers
+[ 34% 98/288] generate serializers out/host/linux-x86/bin/go/go-cmp-internal-flags/pkg/github.com/google/go-cmp/cmp/internal/flags.a.verify_serializers
+[ 34% 99/288] generate serializers out/host/linux-x86/bin/go/go-cmp-internal-function/pkg/github.com/google/go-cmp/cmp/internal/function.a.verify_serializers
+[ 34% 100/288] generate serializers out/host/linux-x86/bin/go/go-cmp-internal-testprotos/pkg/github.com/google/go-cmp/cmp/internal/testprotos.a.verify_serializers
+[ 35% 101/288] generate serializers out/host/linux-x86/bin/go/go-cmp-internal-teststructs/pkg/github.com/google/go-cmp/cmp/internal/teststructs.a.verify_serializers
+[ 35% 102/288] generate serializers out/host/linux-x86/bin/go/go-cmp-internal-value/pkg/github.com/google/go-cmp/cmp/internal/value.a.verify_serializers
+[ 35% 103/288] generate serializers out/host/linux-x86/bin/go/golang-protobuf-android/pkg/google.golang.org/protobuf/android.a.verify_serializers
+[ 36% 104/288] generate serializers out/host/linux-x86/bin/go/golang-protobuf-encoding-prototext/pkg/google.golang.org/protobuf/encoding/prototext.a.verify_serializers
+[ 36% 105/288] generate serializers out/host/linux-x86/bin/go/golang-protobuf-encoding-protowire/pkg/google.golang.org/protobuf/encoding/protowire.a.verify_serializers
+[ 36% 106/288] generate serializers out/host/linux-x86/bin/go/golang-protobuf-internal-descopts/pkg/google.golang.org/protobuf/internal/descopts.a.verify_serializers
+[ 37% 107/288] generate serializers out/host/linux-x86/bin/go/golang-protobuf-internal-detrand/pkg/google.golang.org/protobuf/internal/detrand.a.verify_serializers
+[ 37% 108/288] generate serializers out/host/linux-x86/bin/go/golang-protobuf-internal-encoding-messageset/pkg/google.golang.org/protobuf/internal/encoding/messageset.a.verify_serializers
+[ 37% 109/288] generate serializers out/host/linux-x86/bin/go/golang-protobuf-internal-encoding-tag/pkg/google.golang.org/protobuf/internal/encoding/tag.a.verify_serializers
+[ 38% 110/288] generate serializers out/host/linux-x86/bin/go/golang-protobuf-internal-encoding-text/pkg/google.golang.org/protobuf/internal/encoding/text.a.verify_serializers
+[ 38% 111/288] generate serializers out/host/linux-x86/bin/go/golang-protobuf-internal-errors/pkg/google.golang.org/protobuf/internal/errors.a.verify_serializers
+[ 38% 112/288] generate serializers out/host/linux-x86/bin/go/golang-protobuf-internal-filetype/pkg/google.golang.org/protobuf/internal/filetype.a.verify_serializers
+[ 39% 113/288] generate serializers out/host/linux-x86/bin/go/golang-protobuf-internal-flags/pkg/google.golang.org/protobuf/internal/flags.a.verify_serializers
+[ 39% 114/288] generate serializers out/host/linux-x86/bin/go/golang-protobuf-internal-genid/pkg/google.golang.org/protobuf/internal/genid.a.verify_serializers
+[ 39% 115/288] generate serializers out/host/linux-x86/bin/go/golang-protobuf-internal-version/pkg/google.golang.org/protobuf/internal/version.a.verify_serializers
+[ 40% 116/288] generate serializers out/host/linux-x86/bin/go/golang-protobuf-internal-descfmt/pkg/google.golang.org/protobuf/internal/descfmt.a.verify_serializers
+[ 40% 117/288] generate serializers out/host/linux-x86/bin/go/golang-protobuf-internal-encoding-defval/pkg/google.golang.org/protobuf/internal/encoding/defval.a.verify_serializers
+[ 40% 118/288] generate serializers out/host/linux-x86/bin/go/golang-protobuf-internal-set/pkg/google.golang.org/protobuf/internal/set.a.verify_serializers
+[ 41% 119/288] generate serializers out/host/linux-x86/bin/go/pogreb/pkg/github.com/akrylysov/pogreb.a.verify_serializers
+[ 41% 120/288] generate serializers out/host/linux-x86/bin/go/golang-protobuf-internal-pragma/pkg/google.golang.org/protobuf/internal/pragma.a.verify_serializers
+[ 42% 121/288] generate serializers out/host/linux-x86/bin/go/golang-protobuf-internal-strs/pkg/google.golang.org/protobuf/internal/strs.a.verify_serializers
+[ 42% 122/288] generate serializers out/host/linux-x86/bin/go/golang-protobuf-runtime-protoiface/pkg/google.golang.org/protobuf/runtime/protoiface.a.verify_serializers
+[ 42% 123/288] generate serializers out/host/linux-x86/bin/go/pogreb-internal-hash/pkg/github.com/akrylysov/pogreb/internal/hash.a.verify_serializers
+[ 43% 124/288] generate serializers out/host/linux-x86/bin/go/pogreb-internal-assert/pkg/github.com/akrylysov/pogreb/internal/assert.a.verify_serializers
+[ 43% 125/288] generate serializers out/host/linux-x86/bin/go/soong-android_team_proto/pkg/android/soong/android/team_proto.a.verify_serializers
+[ 43% 126/288] generate serializers out/host/linux-x86/bin/go/soong-shared/pkg/android/soong/shared.a.verify_serializers
+[ 44% 127/288] generate serializers out/host/linux-x86/bin/go/test_configs_proto/pkg/android/soong/testconfigs/protos.a.verify_serializers
+[ 44% 128/288] generate serializers out/host/linux-x86/bin/go/go-cmp/pkg/github.com/google/go-cmp/cmp.a.verify_serializers
+[ 44% 129/288] generate serializers out/host/linux-x86/bin/go/golang-protobuf-reflect-protoregistry/pkg/google.golang.org/protobuf/reflect/protoregistry.a.verify_serializers
+[ 45% 130/288] generate serializers out/host/linux-x86/bin/go/golang-protobuf-reflect-protoreflect/pkg/google.golang.org/protobuf/reflect/protoreflect.a.verify_serializers
+[ 45% 131/288] generate serializers out/host/linux-x86/bin/go/pogreb-fs/pkg/github.com/akrylysov/pogreb/fs.a.verify_serializers
+[ 45% 132/288] generate serializers out/host/linux-x86/bin/go/soong-android-soongconfig/pkg/android/soong/android/soongconfig.a.verify_serializers
+[ 46% 133/288] generate serializers out/host/linux-x86/bin/go/soong/pkg/android/soong.a.verify_serializers
+[ 46% 134/288] generate serializers out/host/linux-x86/bin/go/soong-android-allowlists/pkg/android/soong/android/allowlists.a.verify_serializers
+[ 46% 135/288] generate serializers out/host/linux-x86/bin/go/soong-remoteexec/pkg/android/soong/remoteexec.a.verify_serializers
+[ 47% 136/288] generate serializers out/host/linux-x86/bin/go/soong-response/pkg/android/soong/response.a.verify_serializers
+[ 47% 137/288] generate serializers out/host/linux-x86/bin/go/golang-protobuf-internal-order/pkg/google.golang.org/protobuf/internal/order.a.verify_serializers
+[ 47% 138/288] generate serializers out/host/linux-x86/bin/go/golang-protobuf-internal-filedesc/pkg/google.golang.org/protobuf/internal/filedesc.a.verify_serializers
+[ 48% 139/288] generate serializers out/host/linux-x86/bin/go/sbox_proto/pkg/android/soong/cmd/sbox/sbox_proto.a.verify_serializers
+[ 48% 140/288] generate serializers out/host/linux-x86/bin/go/soong-ui-metrics_proto/pkg/android/soong/ui/metrics/metrics_proto.a.verify_serializers
+[ 48% 141/288] generate serializers out/host/linux-x86/bin/go/pogreb-internal-errors/pkg/github.com/akrylysov/pogreb/internal/errors.a.verify_serializers
+[ 49% 142/288] generate serializers out/host/linux-x86/bin/go/soong-filesystem-ramdisk_16k-common/pkg/android/soong/filesystem/ramdisk_16k/common.a.verify_serializers
+[ 49% 143/288] generate serializers out/host/linux-x86/bin/go/golang-protobuf-runtime-protoimpl/pkg/google.golang.org/protobuf/runtime/protoimpl.a.verify_serializers
+[ 50% 144/288] generate serializers out/host/linux-x86/bin/go/gob_gen/pkg/gob_gen.a.verify_serializers
+[ 50% 145/288] generate serializers out/host/linux-x86/bin/go/loadplugins/pkg/loadplugins.a.verify_serializers
+[ 50% 146/288] generate serializers out/host/linux-x86/bin/go/golang-protobuf-internal-impl/pkg/google.golang.org/protobuf/internal/impl.a.verify_serializers
+[ 51% 147/288] generate serializers out/host/linux-x86/bin/go/golang-protobuf-proto/pkg/google.golang.org/protobuf/proto.a.verify_serializers
+[ 51% 148/288] generate serializers out/host/linux-x86/bin/go/soong-kernel-common/pkg/android/soong/kernel/common.a.verify_serializers
+[ 51% 149/288] generate serializers out/host/linux-x86/bin/go/blueprint/pkg/github.com/google/blueprint.a.verify_serializers
+[ 52% 150/288] compile out/host/linux-x86/bin/go/blueprint-bootstrap/pkg/github.com/google/blueprint/bootstrap.a
+[ 52% 151/288] generate serializers out/host/linux-x86/bin/go/blueprint-bootstrap/pkg/github.com/google/blueprint/bootstrap.a.verify_serializers
+[ 52% 152/288] compile out/host/linux-x86/bin/go/soong-android/pkg/android/soong/android.a
+[ 53% 153/288] generate serializers out/host/linux-x86/bin/go/soong-android/pkg/android/soong/android.a.verify_serializers
+[ 53% 154/288] compile out/host/linux-x86/bin/go/soong-aospa-generator/pkg/aospa/soong/generator.a
+[ 53% 155/288] generate serializers out/host/linux-x86/bin/go/soong-aospa-generator/pkg/aospa/soong/generator.a.verify_serializers
+[ 54% 156/288] compile out/host/linux-x86/bin/go/soong-aidl-library/pkg/android/soong/aidl_library.a
+[ 54% 157/288] compile out/host/linux-x86/bin/go/soong-robolectric/pkg/android/soong/robolectric.a
+[ 54% 158/288] generate serializers out/host/linux-x86/bin/go/soong-robolectric/pkg/android/soong/robolectric.a.verify_serializers
+[ 55% 159/288] compile out/host/linux-x86/bin/go/soong-mkdir/pkg/aospa/soong/mkdir.a
+[ 55% 160/288] compile out/host/linux-x86/bin/go/kernel-config-soong-rules/pkg/android/soong/kernel/configs.a
+[ 55% 161/288] compile out/host/linux-x86/bin/go/soong-cc-config/pkg/android/soong/cc/config.a
+[ 56% 162/288] generate serializers out/host/linux-x86/bin/go/soong-mkdir/pkg/aospa/soong/mkdir.a.verify_serializers
+[ 56% 163/288] generate serializers out/host/linux-x86/bin/go/soong-cc-config/pkg/android/soong/cc/config.a.verify_serializers
+[ 56% 164/288] generate serializers out/host/linux-x86/bin/go/soong-aidl-library/pkg/android/soong/aidl_library.a.verify_serializers
+[ 57% 165/288] compile out/host/linux-x86/bin/go/soong-fuzz/pkg/android/soong/fuzz.a
+[ 57% 166/288] generate serializers out/host/linux-x86/bin/go/kernel-config-soong-rules/pkg/android/soong/kernel/configs.a.verify_serializers
+[ 57% 167/288] generate serializers out/host/linux-x86/bin/go/soong-fuzz/pkg/android/soong/fuzz.a.verify_serializers
+[ 58% 168/288] compile out/host/linux-x86/bin/go/soong-icu/pkg/android/soong/icu.a
+[ 58% 169/288] generate serializers out/host/linux-x86/bin/go/soong-icu/pkg/android/soong/icu.a.verify_serializers
+[ 59% 170/288] compile out/host/linux-x86/bin/go/soong-bloaty/pkg/android/soong/bloaty.a
+[ 59% 171/288] compile out/host/linux-x86/bin/go/soong-provenance/pkg/android/soong/provenance.a
+[ 59% 172/288] compile out/host/linux-x86/bin/go/soong-phony/pkg/android/soong/phony.a
+[ 60% 173/288] generate serializers out/host/linux-x86/bin/go/soong-phony/pkg/android/soong/phony.a.verify_serializers
+[ 60% 174/288] compile out/host/linux-x86/bin/go/soong-android-cipd/pkg/android/soong/android/cipd.a
+[ 60% 175/288] compile out/host/linux-x86/bin/go/soong-dexpreopt/pkg/android/soong/dexpreopt.a
+[ 61% 176/288] compile out/host/linux-x86/bin/go/soong-compliance/pkg/android/soong/compliance.a
+[ 61% 177/288] compile out/host/linux-x86/bin/go/soong-java-config/pkg/android/soong/java/config.a
+[ 61% 178/288] generate serializers out/host/linux-x86/bin/go/soong-provenance/pkg/android/soong/provenance.a.verify_serializers
+[ 62% 179/288] generate serializers out/host/linux-x86/bin/go/soong-bloaty/pkg/android/soong/bloaty.a.verify_serializers
+[ 62% 180/288] generate serializers out/host/linux-x86/bin/go/soong-compliance/pkg/android/soong/compliance.a.verify_serializers
+[ 62% 181/288] generate serializers out/host/linux-x86/bin/go/soong-android-cipd/pkg/android/soong/android/cipd.a.verify_serializers
+[ 63% 182/288] generate serializers out/host/linux-x86/bin/go/soong-java-config/pkg/android/soong/java/config.a.verify_serializers
+[ 63% 183/288] compile out/host/linux-x86/bin/go/soong-java-config-error_prone/pkg/android/soong/java/config/error_prone.a
+[ 63% 184/288] compile out/host/linux-x86/bin/go/soong-snapshot/pkg/android/soong/snapshot.a
+[ 64% 185/288] generate serializers out/host/linux-x86/bin/go/soong-dexpreopt/pkg/android/soong/dexpreopt.a.verify_serializers
+[ 64% 186/288] generate serializers out/host/linux-x86/bin/go/soong-java-config-error_prone/pkg/android/soong/java/config/error_prone.a.verify_serializers
+[ 64% 187/288] compile out/host/linux-x86/bin/go/soong-tradefed/pkg/android/soong/tradefed.a
+[ 65% 188/288] generate serializers out/host/linux-x86/bin/go/soong-snapshot/pkg/android/soong/snapshot.a.verify_serializers
+[ 65% 189/288] compile out/host/linux-x86/bin/go/soong-aconfig-build_flags/pkg/android/soong/aconfig/build_flags.a
+[ 65% 190/288] compile out/host/linux-x86/bin/go/soong-golang/pkg/android/soong/golang.a
+[ 66% 191/288] compile out/host/linux-x86/bin/go/soong-aconfig/pkg/android/soong/aconfig.a
+[ 66% 192/288] compile out/host/linux-x86/bin/go/soong-testconfigs/pkg/android/soong/testconfigs.a
+[ 67% 193/288] compile out/host/linux-x86/bin/go/soong-genrule/pkg/android/soong/genrule.a
+[ 67% 194/288] generate serializers out/host/linux-x86/bin/go/soong-golang/pkg/android/soong/golang.a.verify_serializers
+[ 67% 195/288] generate serializers out/host/linux-x86/bin/go/soong-testconfigs/pkg/android/soong/testconfigs.a.verify_serializers
+[ 68% 196/288] generate serializers out/host/linux-x86/bin/go/soong-tradefed/pkg/android/soong/tradefed.a.verify_serializers
+[ 68% 197/288] generate serializers out/host/linux-x86/bin/go/soong-genrule/pkg/android/soong/genrule.a.verify_serializers
+[ 68% 198/288] generate serializers out/host/linux-x86/bin/go/soong-aconfig-build_flags/pkg/android/soong/aconfig/build_flags.a.verify_serializers
+[ 69% 199/288] compile out/host/linux-x86/bin/go/soong-etc/pkg/android/soong/etc.a
+[ 69% 200/288] generate serializers out/host/linux-x86/bin/go/soong-aconfig/pkg/android/soong/aconfig.a.verify_serializers
+[ 69% 201/288] compile out/host/linux-x86/bin/go/soong-rust-config/pkg/android/soong/rust/config.a
+[ 70% 202/288] generate serializers out/host/linux-x86/bin/go/soong-rust-config/pkg/android/soong/rust/config.a.verify_serializers
+[ 70% 203/288] generate serializers out/host/linux-x86/bin/go/soong-etc/pkg/android/soong/etc.a.verify_serializers
+[ 70% 204/288] compile out/host/linux-x86/bin/go/soong-libchrome/pkg/android/soong/external/libchrome.a
+[ 71% 205/288] compile out/host/linux-x86/bin/go/soong-fs_config/pkg/android/soong/fs_config.a
+[ 71% 206/288] generate serializers out/host/linux-x86/bin/go/soong-fs_config/pkg/android/soong/fs_config.a.verify_serializers
+[ 71% 207/288] generate serializers out/host/linux-x86/bin/go/soong-libchrome/pkg/android/soong/external/libchrome.a.verify_serializers
+[ 72% 208/288] compile out/host/linux-x86/bin/go/soong-xml/pkg/android/soong/xml.a
+[ 72% 209/288] generate serializers out/host/linux-x86/bin/go/soong-xml/pkg/android/soong/xml.a.verify_serializers
+[ 72% 210/288] compile out/host/linux-x86/bin/go/soong-cc/pkg/android/soong/cc.a
+[ 73% 211/288] generate serializers out/host/linux-x86/bin/go/soong-cc/pkg/android/soong/cc.a.verify_serializers
+[ 73% 212/288] compile out/host/linux-x86/bin/go/soong-llvm/pkg/android/soong/external/llvm.a
+[ 73% 213/288] generate serializers out/host/linux-x86/bin/go/soong-llvm/pkg/android/soong/external/llvm.a.verify_serializers
+[ 74% 214/288] compile out/host/linux-x86/bin/go/ferrochrome-soong-rules/pkg/android/soong/ferrochrome.a
+[ 74% 215/288] compile out/host/linux-x86/bin/go/soong-bpf/pkg/android/soong/bpf.a
+[ 75% 216/288] generate serializers out/host/linux-x86/bin/go/soong-bpf/pkg/android/soong/bpf.a.verify_serializers
+[ 75% 217/288] compile out/host/linux-x86/bin/go/cuttlefish-soong-rules/pkg/android/soong/cuttlefish.a
+[ 75% 218/288] generate serializers out/host/linux-x86/bin/go/ferrochrome-soong-rules/pkg/android/soong/ferrochrome.a.verify_serializers
+[ 76% 219/288] compile out/host/linux-x86/bin/go/soong-clang-prebuilts/pkg/android/soong/prebuilts/clang/host/linux-x86/clangprebuilts.a
+[ 76% 220/288] compile out/host/linux-x86/bin/go/soong-kernel/pkg/android/soong/kernel.a
+[ 76% 221/288] generate serializers out/host/linux-x86/bin/go/soong-clang-prebuilts/pkg/android/soong/prebuilts/clang/host/linux-x86/clangprebuilts.a.verify_serializers
+[ 77% 222/288] compile out/host/linux-x86/bin/go/soong-clang/pkg/android/soong/external/clang.a
+[ 77% 223/288] generate serializers out/host/linux-x86/bin/go/soong-kernel/pkg/android/soong/kernel.a.verify_serializers
+[ 77% 224/288] generate serializers out/host/linux-x86/bin/go/soong-clang/pkg/android/soong/external/clang.a.verify_serializers
+[ 78% 225/288] compile out/host/linux-x86/bin/go/soong-libbpf/pkg/android/soong/bpf/libbpf.a
+[ 78% 226/288] generate serializers out/host/linux-x86/bin/go/soong-libbpf/pkg/android/soong/bpf/libbpf.a.verify_serializers
+[ 78% 227/288] compile out/host/linux-x86/bin/go/soong-android-sdk/pkg/android/soong/android_sdk.a
+[ 79% 228/288] generate serializers out/host/linux-x86/bin/go/soong-android-sdk/pkg/android/soong/android_sdk.a.verify_serializers
+[ 79% 229/288] compile out/host/linux-x86/bin/go/soong-linkerconfig/pkg/android/soong/linkerconfig.a
+[ 79% 230/288] generate serializers out/host/linux-x86/bin/go/cuttlefish-soong-rules/pkg/android/soong/cuttlefish.a.verify_serializers
+[ 80% 231/288] generate serializers out/host/linux-x86/bin/go/soong-linkerconfig/pkg/android/soong/linkerconfig.a.verify_serializers
+[ 80% 232/288] compile out/host/linux-x86/bin/go/soong-python/pkg/android/soong/python.a
+[ 80% 233/288] generate serializers out/host/linux-x86/bin/go/soong-python/pkg/android/soong/python.a.verify_serializers
+[ 81% 234/288] compile out/host/linux-x86/bin/go/soong-rust/pkg/android/soong/rust.a
+[ 81% 235/288] generate serializers out/host/linux-x86/bin/go/soong-rust/pkg/android/soong/rust.a.verify_serializers
+[ 81% 236/288] compile out/host/linux-x86/bin/go/soong-java/pkg/android/soong/java.a
+[ 82% 237/288] generate serializers out/host/linux-x86/bin/go/soong-java/pkg/android/soong/java.a.verify_serializers
+[ 82% 238/288] compile out/host/linux-x86/bin/go/soong-systemfeatures/pkg/android/soong/systemfeatures.a
+[ 82% 239/288] compile out/host/linux-x86/bin/go/soong-suite-harness/pkg/android/soong/tradefed/suite_harness.a
+[ 83% 240/288] compile out/host/linux-x86/bin/go/xsdc-soong-rules/pkg/android/soong/xsdc.a
+[ 83% 241/288] generate serializers out/host/linux-x86/bin/go/soong-systemfeatures/pkg/android/soong/systemfeatures.a.verify_serializers
+[ 84% 242/288] generate serializers out/host/linux-x86/bin/go/soong-suite-harness/pkg/android/soong/tradefed/suite_harness.a.verify_serializers
+[ 84% 243/288] generate serializers out/host/linux-x86/bin/go/xsdc-soong-rules/pkg/android/soong/xsdc.a.verify_serializers
+[ 84% 244/288] compile out/host/linux-x86/bin/go/soong-ci-tests/pkg/android/soong/ci_tests.a
+[ 85% 245/288] compile out/host/linux-x86/bin/go/hidl-soong-rules/pkg/android/soong/hidl.a
+[ 85% 246/288] generate serializers out/host/linux-x86/bin/go/soong-ci-tests/pkg/android/soong/ci_tests.a.verify_serializers
+[ 85% 247/288] compile out/host/linux-x86/bin/go/soong-atomsapigen/pkg/android/soong/atomsapigen.a
+[ 86% 248/288] compile out/host/linux-x86/bin/go/soong-sysprop/pkg/android/soong/sysprop.a
+[ 86% 249/288] generate serializers out/host/linux-x86/bin/go/soong-atomsapigen/pkg/android/soong/atomsapigen.a.verify_serializers
+[ 86% 250/288] generate serializers out/host/linux-x86/bin/go/hidl-soong-rules/pkg/android/soong/hidl.a.verify_serializers
+[ 87% 251/288] generate serializers out/host/linux-x86/bin/go/soong-sysprop/pkg/android/soong/sysprop.a.verify_serializers
+[ 87% 252/288] compile out/host/linux-x86/bin/go/soong-sh/pkg/android/soong/sh.a
+[ 87% 253/288] compile out/host/linux-x86/bin/go/soong-csuite/pkg/android/soong/csuite.a
+[ 88% 254/288] compile out/host/linux-x86/bin/go/soong-test_suites/pkg/android/soong/test_suites.a
+[ 88% 255/288] compile out/host/linux-x86/bin/go/soong-api/pkg/android/soong/api.a
+[ 88% 256/288] compile out/host/linux-x86/bin/go/soong-soong-api/pkg/android/soong/soong_api.a
+[ 89% 257/288] generate serializers out/host/linux-x86/bin/go/soong-csuite/pkg/android/soong/csuite.a.verify_serializers
+[ 89% 258/288] generate serializers out/host/linux-x86/bin/go/soong-api/pkg/android/soong/api.a.verify_serializers
+[ 89% 259/288] compile out/host/linux-x86/bin/go/soong-aconfig-codegen/pkg/android/soong/aconfig/codegen.a
+[ 90% 260/288] generate serializers out/host/linux-x86/bin/go/soong-soong-api/pkg/android/soong/soong_api.a.verify_serializers
+[ 90% 261/288] generate serializers out/host/linux-x86/bin/go/soong-test_suites/pkg/android/soong/test_suites.a.verify_serializers
+[ 90% 262/288] generate serializers out/host/linux-x86/bin/go/soong-sh/pkg/android/soong/sh.a.verify_serializers
+[ 91% 263/288] generate serializers out/host/linux-x86/bin/go/soong-aconfig-codegen/pkg/android/soong/aconfig/codegen.a.verify_serializers
+[ 91% 264/288] compile out/host/linux-x86/bin/go/aidl-soong-rules/pkg/android/soong/aidl.a
+[ 92% 265/288] generate serializers out/host/linux-x86/bin/go/aidl-soong-rules/pkg/android/soong/aidl.a.verify_serializers
+[ 92% 266/288] compile out/host/linux-x86/bin/go/soong-tradefed-modules/pkg/android/soong/tradefed_modules.a
+[ 92% 267/288] compile out/host/linux-x86/bin/go/soong-selinux/pkg/android/soong/selinux.a
+[ 93% 268/288] generate serializers out/host/linux-x86/bin/go/soong-tradefed-modules/pkg/android/soong/tradefed_modules.a.verify_serializers
+[ 93% 269/288] generate serializers out/host/linux-x86/bin/go/soong-selinux/pkg/android/soong/selinux.a.verify_serializers
+[ 93% 270/288] compile out/host/linux-x86/bin/go/soong-filesystem/pkg/android/soong/filesystem.a
+[ 94% 271/288] generate serializers out/host/linux-x86/bin/go/soong-filesystem/pkg/android/soong/filesystem.a.verify_serializers
+[ 94% 272/288] compile out/host/linux-x86/bin/go/vintf-compatibility-matrix-soong-rules/pkg/android/soong/vintf-compatibility-matrix.a
+[ 94% 273/288] generate serializers out/host/linux-x86/bin/go/vintf-compatibility-matrix-soong-rules/pkg/android/soong/vintf-compatibility-matrix.a.verify_serializers
+[ 95% 274/288] compile out/host/linux-x86/bin/go/soong-unbundled/pkg/android/soong/unbundled.a
+[ 95% 275/288] generate serializers out/host/linux-x86/bin/go/soong-unbundled/pkg/android/soong/unbundled.a.verify_serializers
+[ 95% 276/288] compile out/host/linux-x86/bin/go/soong-fsgen/pkg/android/soong/fsgen.a
+[ 96% 277/288] generate serializers out/host/linux-x86/bin/go/soong-fsgen/pkg/android/soong/fsgen.a.verify_serializers
+[ 96% 278/288] compile out/host/linux-x86/bin/go/soong-apex/pkg/android/soong/apex.a
+[ 96% 279/288] generate serializers out/host/linux-x86/bin/go/soong-apex/pkg/android/soong/apex.a.verify_serializers
+[ 97% 280/288] compile out/host/linux-x86/bin/go/soong-art/pkg/android/soong/art.a
+[ 97% 281/288] generate serializers out/host/linux-x86/bin/go/soong-art/pkg/android/soong/art.a.verify_serializers
+[ 97% 282/288] compile out/host/linux-x86/bin/go/soong-sdk/pkg/android/soong/sdk.a
+[ 98% 283/288] generate serializers out/host/linux-x86/bin/go/soong-sdk/pkg/android/soong/sdk.a.verify_serializers
+[ 98% 284/288] compile out/host/linux-x86/bin/go/soong_build/pkg/soong_build.a
+[ 98% 285/288] generate serializers out/host/linux-x86/bin/go/soong_build/pkg/soong_build.a.verify_serializers
+[ 99% 286/288] link out/host/linux-x86/bin/go/soong_build/pkg/soong_build
+[ 99% 287/288] cp out/host/linux-x86/bin/soong_build

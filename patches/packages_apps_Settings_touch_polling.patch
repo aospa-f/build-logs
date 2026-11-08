@@ -1,0 +1,75 @@
+From 1a678ba08ca9be3a0f14ace44f44acdd20ffe11d Mon Sep 17 00:00:00 2001
+From: raizenftw <raizen.mad@gmail.com>
+Date: Sun, 8 Nov 2026 14:28:19 +0000
+Subject: [PATCH] Settings: Fix high touch polling rate toggle crash
+
+Switch from persist.touch_polling_mode to debug.touch_polling_mode.
+Writing persist.touch_polling_mode triggers a SELinux neverallow denial
+when executed by com.android.settings (system_app), throwing a
+RuntimeException and crashing the Settings app.
+
+Persist user preference in Settings.Secure (touch_polling_enabled)
+and mirror it to debug.touch_polling_mode with exception handling.
+
+Change-Id: I3d79921898a9c06387fd4ab8ba1563ec4cf65913
+---
+ .../TouchPollingPreferenceController.java     | 22 +++++++++++++++----
+ 1 file changed, 18 insertions(+), 4 deletions(-)
+
+diff --git a/src/com/android/settings/display/TouchPollingPreferenceController.java b/src/com/android/settings/display/TouchPollingPreferenceController.java
+index 15e300c89f5..433027b8dfc 100644
+--- a/src/com/android/settings/display/TouchPollingPreferenceController.java
++++ b/src/com/android/settings/display/TouchPollingPreferenceController.java
+@@ -19,16 +19,19 @@ package com.android.settings.display;
+ import android.content.Context;
+ import android.os.SystemProperties;
+ import android.provider.Settings;
++import android.util.Log;
+ 
+ import com.android.settings.core.TogglePreferenceController;
+ import com.android.settings.R;
+ 
+ public class TouchPollingPreferenceController extends TogglePreferenceController {
+ 
++    private static final String TAG = "TouchPollingPref";
++
+     // Settings can only set the debug.* property, so we need to persist it
+     // in system settings. Match the stock setting name for backup compatibility.
+     private static final String SETTINGS_KEY = "touch_polling_enabled";
+-    private static final String PROP_NAME = "persist.touch_polling_mode";
++    private static final String PROP_NAME = "debug.touch_polling_mode";
+ 
+     public TouchPollingPreferenceController(Context context, String preferenceKey) {
+         super(context, preferenceKey);
+@@ -44,14 +47,25 @@ public class TouchPollingPreferenceController extends TogglePreferenceController
+     @Override
+     public boolean setChecked(boolean value) {
+         Settings.Secure.putInt(mContext.getContentResolver(), SETTINGS_KEY, value ? 1 : 0);
+-        SystemProperties.set(PROP_NAME, value ? "1" : "0");
++        try {
++            SystemProperties.set(PROP_NAME, value ? "1" : "0");
++        } catch (Exception e) {
++            Log.w(TAG, "Failed to set property " + PROP_NAME + ": " + e.getMessage());
++        }
+         return true;
+     }
+ 
+     @Override
+     public boolean isChecked() {
+-        // debug prop isn't persistent
+-        return Settings.Secure.getInt(mContext.getContentResolver(), SETTINGS_KEY, 0) == 1;
++        boolean enabled = Settings.Secure.getInt(mContext.getContentResolver(), SETTINGS_KEY, 0) == 1;
++        try {
++            String prop = SystemProperties.get(PROP_NAME, "");
++            if (prop.isEmpty()) {
++                SystemProperties.set(PROP_NAME, enabled ? "1" : "0");
++            }
++        } catch (Exception ignored) {
++        }
++        return enabled;
+     }
+ 
+     @Override
+-- 
+2.43.0
+

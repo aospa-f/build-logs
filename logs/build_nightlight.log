@@ -1,0 +1,101 @@
+tput: No value for $TERM and no -T specified
+tput: No value for $TERM and no -T specified
+tput: No value for $TERM and no -T specified
+tput: No value for $TERM and no -T specified
+tput: No value for $TERM and no -T specified
+tput: No value for $TERM and no -T specified
+tput: No value for $TERM and no -T specified
+tput: No value for $TERM and no -T specified
+tput: No value for $TERM and no -T specified
+tput: No value for $TERM and no -T specified
+Setting up the environment
+
+including vendor/aospa/vendorsetup.sh
+including vendor/google/gms/vendorsetup.sh
+including vendor/oplus/camera/vendorsetup.sh
+including vendor/qcom/opensource/core-utils/vendorsetup.sh
+including vendor/qcom/sdclang/config/vendorsetup.sh
+
+Building AOSPA calcite for giulia
+Start time: Sun Nov  1 04:40:01 PM UTC 2026
+
+Lunching giulia (Including dependencies sync)
+
+Release not specified, defaulting to cp2a build
+No changes were necessary to the barista recipe.
+No ingredients need to be brewed.
+16:40:04 Build sandboxing disabled due to nsjail error.
+hardware/qcom/display/config/display-product.mk:244: warning: "Using smmu proxy"
+hardware/qcom/display/config/display-product.mk:244: warning: "Using smmu proxy"
+
+============================================
+PLATFORM_VERSION_CODENAME=REL
+PLATFORM_VERSION=17
+PRODUCT_SOURCE_ROOT_DIRS=-prebuilts/misc/protobuf_vendorcompat -platform_testing/libraries/sdv -platform_testing/tests/sdv -platform_testing/libraries/automotive/display_safety -platform_testing/tests/automotive/display_safety -device/generic/trusty/microdroid
+AOSPA_VERSION=calcite-unofficial-giulia-20261101
+TARGET_PRODUCT=aospa_giulia
+TARGET_BUILD_VARIANT=userdebug
+TARGET_ARCH=arm64
+TARGET_ARCH_VARIANT=armv8-2a-dotprod
+TARGET_CPU_VARIANT=generic
+HOST_OS=linux
+HOST_OS_EXTRA=Linux-7.0.0-42-generic-x86_64-Ubuntu-24.04.5-LTS
+HOST_CROSS_OS=windows
+BUILD_ID=CQ2A.260820.002-CP2A.260605.016
+OUT_DIR=out
+PRODUCT_SOONG_NAMESPACES=device/oneplus/giulia vendor/sony/dolby hardware/nxp/keymint/generic hardware/nxp/weaver/generic vendor/oneplus/ir hardware/oplus/overlay device/oneplus/sm8650-common hardware/oplus vendor/oneplus/sm8650-common vendor/oneplus/giulia vendor/google/gms vendor/qcom/common/vendor/adreno/u vendor/qcom/common/system/alarm device/qcom/common/vendor/alarm vendor/qcom/common/vendor/alarm vendor/qcom/common/system/audio vendor/qcom/common/system/av vendor/qcom/common/system/bt vendor/qcom/common/system/display vendor/qcom/common/vendor/display vendor/qcom/common/system/gps device/qcom/common/vendor/gps device/qcom/common/system/overlay device/qcom/common/vendor/overlay vendor/qcom/common/system/perf device/qcom/common/vendor/perf vendor/qcom/common/vendor/perf vendor/qcom/common/system/telephony device/qcom/common/vendor/telephony vendor/qcom/opensource/data-ipa-cfg-mgr device/qcom/common/vendor/usb vendor/qcom/common/system/wfd device/qcom/common/vendor/wlan hardware/qcom/wlan/qcwcn vendor/qcom/opensource/data-ipa-cfg-mgr vendor/qcom/common/vendor/wlan device/qcom/common vendor/qcom/opensource/audio-hal/st-hal-ar
+SOONG_ONLY=false
+SOONG_INCREMENTAL_ANALYSIS=false
+============================================
+16:40:10 Build sandboxing disabled due to nsjail error.
+hardware/qcom/display/config/display-product.mk:244: warning: "Using smmu proxy"
+hardware/qcom/display/config/display-product.mk:244: warning: "Using smmu proxy"
+16:40:17 Build sandboxing disabled due to nsjail error.
+hardware/qcom/display/config/display-product.mk:244: warning: "Using smmu proxy"
+hardware/qcom/display/config/display-product.mk:244: warning: "Using smmu proxy"
+16:40:22 Build sandboxing disabled due to nsjail error.
+hardware/qcom/display/config/display-product.mk:244: warning: "Using smmu proxy"
+hardware/qcom/display/config/display-product.mk:244: warning: "Using smmu proxy"
+
+Starting compilation
+
+16:40:28 Build sandboxing disabled due to nsjail error.
+hardware/qcom/display/config/display-product.mk:244: warning: "Using smmu proxy"
+Running product configuration...
+hardware/qcom/display/config/display-product.mk:244: warning: "Using smmu proxy"
+============================================
+PLATFORM_VERSION_CODENAME=REL
+PLATFORM_VERSION=17
+PRODUCT_SOURCE_ROOT_DIRS=-prebuilts/misc/protobuf_vendorcompat -platform_testing/libraries/sdv -platform_testing/tests/sdv -platform_testing/libraries/automotive/display_safety -platform_testing/tests/automotive/display_safety -device/generic/trusty/microdroid
+AOSPA_VERSION=calcite-unofficial-giulia-20261101
+TARGET_PRODUCT=aospa_giulia
+TARGET_BUILD_VARIANT=userdebug
+TARGET_ARCH=arm64
+TARGET_ARCH_VARIANT=armv8-2a-dotprod
+TARGET_CPU_VARIANT=generic
+HOST_OS=linux
+HOST_OS_EXTRA=Linux-7.0.0-42-generic-x86_64-Ubuntu-24.04.5-LTS
+HOST_CROSS_OS=windows
+BUILD_ID=CQ2A.260820.002-CP2A.260605.016
+OUT_DIR=out
+PRODUCT_SOONG_NAMESPACES=device/oneplus/giulia vendor/sony/dolby hardware/nxp/keymint/generic hardware/nxp/weaver/generic vendor/oneplus/ir hardware/oplus/overlay device/oneplus/sm8650-common hardware/oplus vendor/oneplus/sm8650-common vendor/oneplus/giulia vendor/google/gms vendor/qcom/common/vendor/adreno/u vendor/qcom/common/system/alarm device/qcom/common/vendor/alarm vendor/qcom/common/vendor/alarm vendor/qcom/common/system/audio vendor/qcom/common/system/av vendor/qcom/common/system/bt vendor/qcom/common/system/display vendor/qcom/common/vendor/display vendor/qcom/common/system/gps device/qcom/common/vendor/gps device/qcom/common/system/overlay device/qcom/common/vendor/overlay vendor/qcom/common/system/perf device/qcom/common/vendor/perf vendor/qcom/common/vendor/perf vendor/qcom/common/system/telephony device/qcom/common/vendor/telephony vendor/qcom/opensource/data-ipa-cfg-mgr device/qcom/common/vendor/usb vendor/qcom/common/system/wfd device/qcom/common/vendor/wlan hardware/qcom/wlan/qcwcn vendor/qcom/opensource/data-ipa-cfg-mgr vendor/qcom/common/vendor/wlan device/qcom/common vendor/qcom/opensource/audio-hal/st-hal-ar
+SOONG_ONLY=false
+SOONG_INCREMENTAL_ANALYSIS=true
+============================================
+[100% 1/1] bootstrap blueprint
+Running globs...
+
+Globs changed, rerunning soong...
+One culprit glob (may be more): frameworks/base/services/core/java/**/*.java (excluding 450 other patterns)
+ninja: 
+ninja: SISO_EXPERIMENTS=fallback-on-exec-error enabled
+SISO_EXPERIMENTS=ignore-missing-out-in-depfile enabled
+
+ninja: ignore missing out error in depfile 
+
+/serverhive5/raizenftw/aospa/build/soong/bin/../../make/shell_utils.sh: line 199: 3493400 Killed                  "$@"
+
+#### failed to build some targets (55 seconds) ####
+
+Build failed!
+

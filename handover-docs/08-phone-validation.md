@@ -21,6 +21,13 @@
 ## User preferences currently set on the phone
 - NFC toggled **off** (works when enabled — re-enable manually).
 - Burn-in protection `0` (old settings data had re-enabled it; drifting-bar artifact eliminated).
+- High Touch Polling Rate: verified live on hardware.
+  - Switch in Display Settings: toggles `debug.touch_polling_mode` (1 ↔ 0), `settings get secure touch_polling_enabled` (1 ↔ 0).
+  - Hardware driver node: `/sys/bus/platform/drivers/synaptics_tcm_hbp/synaptics_tcm_hbp.0/high_rate` verified flipping between `1` and `0`.
+  - Zero crashes / zero ANRs on toggle.
+- LTPO Refresh Rate: verified live on hardware.
+  - Real-time CRTC monitor: `/sys/devices/platform/soc/ae00000.qcom,mdss_mdp/drm/card0/sde-crtc-0/measured_fps`.
+  - Dynamic behavior: ramps to 120 Hz on touch/gesture flings, ramps down to 1 Hz on idle/static frames across apps.
 
 ## Post-production-flash validation checklist (**no adb root on user builds!**)
 Non-root commands only:

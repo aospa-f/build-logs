@@ -125,6 +125,33 @@ tmux new-session -d -s rxbuild \
    the phone: zero `test-keys|userdebug` greps across all build.props,
    `strings init | grep warranty` ⇒ 2 hits, OTA container cert check.
 
+## Fast modular compilation & live device testing (no full ROM build)
+
+For targeted bug fixes and live phone verification without 2-hour full builds:
+
+```bash
+# 1. Compile individual modules on waffle
+ssh waffle
+tmux new-session -d -s quickbuild "bash -lc \"cd /serverhive5/raizenftw/aospa && source build/envsetup.sh && lunch aospa_giulia-userdebug && m Settings vendor.oplus.hardware.touch@2.0-service 2>&1 | tee /serverhive5/raizenftw/modular_build.log\""
+
+# 2. Deploy & live-test on connected phone via tmpfs bind-mount (no nosuid):
+adb root
+adb shell "mkdir -p /tmp"
+adb push out/target/product/giulia/system_ext/priv-app/Settings/Settings.apk /tmp/
+adb push out/target/product/giulia/system_ext/priv-app/Settings/oat/arm64/Settings.odex /tmp/
+adb push out/target/product/giulia/system_ext/priv-app/Settings/oat/arm64/Settings.vdex /tmp/
+adb shell "mount --bind /tmp/Settings.apk /system_ext/priv-app/Settings/Settings.apk"
+adb shell "mount --bind /tmp/Settings.odex /system_ext/priv-app/Settings/oat/arm64/Settings.odex"
+adb shell "mount --bind /tmp/Settings.vdex /system_ext/priv-app/Settings/oat/arm64/Settings.vdex"
+adb shell "pkill -f com.android.settings"
+
+# Touch HAL live test:
+adb push out/target/product/giulia/odm/bin/hw/vendor.oplus.hardware.touch@2.0-service /tmp/
+adb shell "chcon u:object_r:hal_oplus_touch_aidl_exec:s0 /tmp/vendor.oplus.hardware.touch@2.0-service"
+adb shell "mount --bind /tmp/vendor.oplus.hardware.touch@2.0-service /odm/bin/hw/vendor-oplus-hardware-touch-V2-service"
+adb shell "pkill -f vendor-oplus-hardware-touch"
+```
+
 ## Stopping / wedges / recovery
 
 - Stop a build: exact-name kills only — `kill -9 $(pgrep -x ninja)` (also

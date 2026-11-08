@@ -48,9 +48,18 @@ Each entry: symptom → root cause → fix (files) → validation status.
   unresolved `startSettingsAndCollapse`); final: manifest route — `DEFAULT`
   category on the `QS_TILE_PREFERENCES` intent-filter (commit `f161fd0`), and the
   dead `onLongClick` override removed from `BypassChargeTileService.java`.
-- **Touch polling**: HAL `vendor.oplus.hardware.touch@2.0-service/OplusTouch.cpp`
-  maps `persist.touch_polling_mode` → writes `/proc/touchpanel/report_rate`;
-  Settings switch `TouchPollingPreferenceController.java` persists it.
+- **Touch polling**:
+  - **Symptom**: Toggling "High touch polling rate" in Display Settings immediately crashed Settings (`FATAL EXCEPTION in system_app`).
+  - **Root cause**: `TouchPollingPreferenceController.java` tried to set `persist.touch_polling_mode`. In Android 14/15/16 CTS SELinux rules, `system_app` is blocked from writing `default_prop:s0`, throwing a `RuntimeException`. In addition, `vendor.oplus.hardware.touch@2.0-service` (`OplusTouch.cpp`) only started its watcher thread inside the AIDL `initialize()` method (which the framework never calls on boot), and attempted to write to `/proc/touchpanel/report_rate` (node 182) which does not exist on OnePlus 13R.
+  - **Fix**:
+    1. In Settings (`TouchPollingPreferenceController.java`): switched property to `debug.touch_polling_mode` (writable by `system_app`), added try/catch, and persisted the user preference in `Settings.Secure` (`touch_polling_enabled`).
+    2. In Touch HAL (`OplusTouch.cpp`, `OplusTouch.h`, `.rc`): moved watcher thread to the `OplusTouch` constructor so it runs immediately on service boot; wired writes directly to the SM8650 Synaptics TCM HBP kernel driver sysfs node (`/sys/bus/platform/drivers/synaptics_tcm_hbp/synaptics_tcm_hbp.0/high_rate`); reduced polling loop interval from 2000ms to 500ms; and added init triggers in `vendor-oplus-hardware-touch-V2-service.rc` to write to the node on `debug.touch_polling_mode` changes.
+  - **Validation**: Verified live on connected phone. Tapping toggle in Settings flips `debug.touch_polling_mode` to 1, `touch_polling_enabled` to 1, and `/sys/bus/.../synaptics_tcm_hbp.0/high_rate` to 1 with 0 crashes; tapping again cleanly flips all back to 0.
+
+## Display / LTPO
+- **Dynamic Refresh Rate Scaling (LTPO)**:
+  - **Verification**: Verified live on device via `/sys/devices/platform/soc/ae00000.qcom,mdss_mdp/drm/card0/sde-crtc-0/measured_fps`.
+  - **Behavior**: Display drops down to **1 Hz** during idle/static display across apps, and instantly scales up to **120 Hz** during touch interaction, flings, and motion. Confirmed working as intended on hardware.
 
 ## Deliberately NOT done
 - **NFC QS tile** — user: "no need" (AxionParts reverted to `9d391db1`).

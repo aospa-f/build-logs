@@ -2,6 +2,8 @@
 
 ## Completed and validated
 - **Userdebug build** for giulia built, downloaded, **flashed and running on the phone**: all feature fixes live (FOD HAL up, NFC working — user keeps NFC off; each feature's validation evidence in `04`/`08`).
+- **High touch polling rate fix verified live**: Settings crash eliminated (`debug.touch_polling_mode` + `Settings.Secure`), HAL wired directly to the SM8650 Synaptics TCM HBP `high_rate` sysfs node with init triggers. Live tested on connected phone: toggles 0 ↔ 1 cleanly with zero crashes.
+- **LTPO display scaling verified live**: Dynamic refresh rate verified on phone down to 1 Hz idle and up to 120 Hz in apps and motion via `measured_fps`.
 - **Boot-state prop spoof verified live**: `verifiedbootstate=green`, `flash.locked=1`, `vbmeta.device_state=locked`, `veritymode=enforcing` (+ `warranty_bit` pair added later, present in shipped `init` as strings).
 - All listed source **changes are committed and pushed** to the `aospa-f` org (see `03`).
 - Production recipe fully designed: `user` + private release keyset + `vendor/aospa-priv/` filter ⇒ `ro.build.tags=release-keys` (details in `06`).

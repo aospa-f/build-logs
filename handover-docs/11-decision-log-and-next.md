@@ -17,11 +17,15 @@
 13. **Farm escalation** — after four boundary failures (two kills, two wedges) even fully compliant, the correct next step is admin contact (draft in `07`); user-ordered build stop honored at 26%.
 14. **Keyset custody** — never in git; backup copied to laptop (`/home/raizen/aospa-keys-backup/security/`).
 15. **Temporary return to userdebug/test-keys** (user decision, 2026-11-08) — production/release-keys effort parked; the cert line in `aospa_giulia.mk` is commented out (commit `5256c361`, pushed to both branches on remote `aospa`) so builds land on the in-tree testkey set. Rationale: testing mode preferred right now. Production resumes with one uncommented line + `-t user` (runbook `10.A`, toggle map in `12`). Nothing else changes: keyset stays in place on waffle (untracked, laptop backup current), spoof stays in `init`.
+16. **High touch polling rate property & driver node**: Switch Settings from `persist.touch_polling_mode` to `debug.touch_polling_mode` and persist to `touch_polling_enabled` in `Settings.Secure`. `system_app` is forbidden by CTS neverallow rules from writing `default_prop`, causing the crash. In the HAL (`vendor.oplus.hardware.touch@2.0-service`), start the polling thread immediately in the constructor and direct writes to the Synaptics TCM HBP driver (`synaptics_tcm_hbp.0/high_rate`) instead of legacy node 182, backed by `.rc` init triggers. (commits `1a678ba08ca`, `d8dc6cf`).
+17. **LTPO validation**: Verified live on phone via `sde-crtc-0/measured_fps` — drops down to 1 Hz idle and scales up to 120 Hz during motion.
 
 ## Open items
 1. ✅ Resolved: the farm kills/wedges were collateral of a **server reboot for maintenance** (seen as reset uptime + restored key login). The escalation draft in `07` is retired.
-2. ✅ Resolved: All pending local commits (`72801d0`, `167aae1200`, `30815ed`) pushed to `aospa_system_core`, `aospa_build`, `aospa_build_make`, and `aospa_build_release` in `aospa-f`.
-3. ⏳ Build in the **current default mode** (userdebug/test-keys, runbook `10.A0`) on user go. Farm load may still be high (load 706+ right after the reboot); the wrapper's `-l 440` cap makes the build idle until the farm cools — not an error.
+2. ✅ Resolved: All pending local commits (`72801d0`, `167aae1200`, `30815ed`, `1a678ba08ca`, `d8dc6cf`) pushed to target repos in `aospa-f`.
+3. ✅ Resolved: High touch polling rate Settings crash fixed, hardware node toggling verified live on phone.
+4. ✅ Resolved: LTPO display scaling verified active and dynamic on phone.
+5. ⏳ Build in the **current default mode** (userdebug/test-keys, runbook `10.A0`) on user go. Farm load may still be high (load 706+ right after the reboot); the wrapper's `-l 440` cap makes the build idle until the farm cools — not an error.
 4. ⏸ Parked: release-keys production — uncomment the cert line in `aospa_giulia.mk` (map in `12`), commit+push both branches, then runbook `10.A` (`-t user`; the 26% cached device graph resumes, no `-i`).
 5. ⏳ Audit gate (`10.C`) → download → flash → `08` checklist (whichever zip is the flash target).
 6. ⏳ Optional post-flash report of any name-referenced cert leftovers (informational).

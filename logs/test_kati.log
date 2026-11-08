@@ -1,0 +1,143 @@
+07:08:39 Build sandboxing disabled due to nsjail error.
+Running product configuration...
+============================================
+PLATFORM_VERSION_CODENAME=REL
+PLATFORM_VERSION=17
+PRODUCT_SOURCE_ROOT_DIRS=-prebuilts/misc/protobuf_vendorcompat -platform_testing/libraries/sdv -platform_testing/tests/sdv -platform_testing/libraries/automotive/display_safety -platform_testing/tests/automotive/display_safety -device/generic/trusty/microdroid
+AOSPA_VERSION=calcite-unofficial-giulia-20261031
+TARGET_PRODUCT=aospa_giulia
+TARGET_BUILD_VARIANT=userdebug
+TARGET_ARCH=arm64
+TARGET_ARCH_VARIANT=armv8-2a-dotprod
+TARGET_CPU_VARIANT=generic
+HOST_OS=linux
+HOST_OS_EXTRA=Linux-7.0.0-38-generic-x86_64-Ubuntu-24.04.5-LTS
+HOST_CROSS_OS=windows
+BUILD_ID=CQ2A.260820.002-CP2A.260605.016
+OUT_DIR=out
+PRODUCT_SOONG_NAMESPACES=device/oneplus/giulia vendor/sony/dolby hardware/nxp/keymint/generic hardware/nxp/weaver/generic vendor/oneplus/ir hardware/oplus/overlay device/oneplus/sm8650-common hardware/oplus vendor/oneplus/sm8650-common vendor/oneplus/giulia vendor/google/gms vendor/qcom/common/system/bt device/qcom/common/system/overlay device/qcom/common/vendor/overlay device/qcom/common/vendor/usb device/qcom/common vendor/qcom/opensource/audio-hal/st-hal-ar
+SOONG_ONLY=false
+SOONG_INCREMENTAL_ANALYSIS=true
+============================================
+[100% 1/1] bootstrap blueprint
+Running globs...
+ninja: 
+ninja: SISO_EXPERIMENTS=fallback-on-exec-error enabled
+SISO_EXPERIMENTS=ignore-missing-out-in-depfile enabled
+
+ninja: ignore missing out error in depfile 
+
+ninja:  0.60s Build Succeeded: 0 steps - 0.00/s
+
+wildcard(out/target/product/giulia/clean_steps.mk) was changed, regenerating...
+out/build-aospa_giulia.ninja is missing, regenerating...
+[100% 2/2] initializing Make module parser
+[  4% 3/72] including out/soong/installs-aospa_giulia.mk
+[  5% 4/72] including out/soong/Android-aospa_giulia.mk
+[  6% 5/72] including build/make/target/board/android-info.mk
+[  8% 6/72] including device/amlogic/yukawa/Android.mk
+[  9% 7/72] including device/qcom/common/Android.mk
+[ 11% 8/72] including device/qcom/qssi/Android.mk
+[ 12% 9/72] including device/qcom/qssi_64/Android.mk
+[ 13% 10/72] including device/qcom/qssi_64go/Android.mk
+[ 15% 11/72] including device/qcom/qssi_tiny/Android.mk
+[ 16% 12/72] including device/qcom/qssi_tiny_32go/Android.mk
+[ 18% 13/72] including device/qcom/wlan/neo61/Android.mk
+[ 19% 14/72] including disregard/Android.mk
+Skipping Android.mk under disregard
+[ 20% 15/72] including hardware/broadcom/libbt/Android.mk
+[ 22% 16/72] including hardware/broadcom/wlan/bcmdhd/Android.mk
+[ 23% 17/72] including hardware/lineage/compat/interfaces/_backend/radio/config/Android.mk
+[ 25% 18/72] including hardware/qcom/bootctrl/Android.mk
+[ 26% 19/72] including hardware/qcom/display/Android.mk
+[ 27% 20/72] including hardware/qcom/gps/Android.mk
+[ 29% 21/72] including hardware/qcom/wlan/Android.mk
+[ 30% 22/72] including hardware/synaptics/wlan/synadhd/Android.mk
+[ 31% 23/72] including kernel/Android.mk
+Skipping Android.mk under kernel
+[ 33% 24/72] including vendor/aospa/prebuilt/pixel/charger/Android.mk
+[ 34% 25/72] including vendor/google/gms/Android.mk
+[ 36% 26/72] including vendor/oneplus/giulia/Android.mk
+[ 37% 27/72] including vendor/oneplus/ir/Android.mk
+[ 38% 28/72] including vendor/oneplus/sm8650-common/Android.mk
+[ 40% 29/72] including vendor/qcom/common/system/alarm/Android.mk
+[ 41% 30/72] including vendor/qcom/common/system/audio/Android.mk
+[ 43% 31/72] including vendor/qcom/common/system/av/Android.mk
+[ 44% 32/72] including vendor/qcom/common/system/bt/Android.mk
+[ 45% 33/72] including vendor/qcom/common/system/display/Android.mk
+[ 47% 34/72] including vendor/qcom/common/system/gps/Android.mk
+[ 48% 35/72] including vendor/qcom/common/system/nfc/Android.mk
+[ 50% 36/72] including vendor/qcom/common/system/perf/Android.mk
+[ 51% 37/72] including vendor/qcom/common/system/telephony/Android.mk
+[ 52% 38/72] including vendor/qcom/common/system/wfd/Android.mk
+[ 54% 39/72] including vendor/qcom/common/vendor/adreno/r/Android.mk
+[ 55% 40/72] including vendor/qcom/common/vendor/adreno/s/Android.mk
+[ 56% 41/72] including vendor/qcom/common/vendor/adreno/t/Android.mk
+[ 58% 42/72] including vendor/qcom/common/vendor/adreno/u/Android.mk
+[ 59% 43/72] including vendor/qcom/common/vendor/alarm/Android.mk
+[ 61% 44/72] including vendor/qcom/common/vendor/charging/Android.mk
+[ 62% 45/72] including vendor/qcom/common/vendor/display/Android.mk
+[ 63% 46/72] including vendor/qcom/common/vendor/dsprpcd/Android.mk
+[ 65% 47/72] including vendor/qcom/common/vendor/gps-legacy/Android.mk
+[ 66% 48/72] including vendor/qcom/common/vendor/keymaster/Android.mk
+[ 68% 49/72] including vendor/qcom/common/vendor/media/5.10/Android.mk
+[ 69% 50/72] including vendor/qcom/common/vendor/media/5.4/Android.mk
+[ 70% 51/72] including vendor/qcom/common/vendor/media/legacy/Android.mk
+[ 72% 52/72] including vendor/qcom/common/vendor/nfc/Android.mk
+[ 73% 53/72] including vendor/qcom/common/vendor/perf/Android.mk
+[ 75% 54/72] including vendor/qcom/common/vendor/qseecomd-legacy/Android.mk
+[ 76% 55/72] including vendor/qcom/common/vendor/qseecomd/Android.mk
+[ 77% 56/72] including vendor/qcom/common/vendor/wlan-legacy/Android.mk
+[ 79% 57/72] including vendor/qcom/common/vendor/wlan/Android.mk
+[ 80% 58/72] including vendor/qcom/opensource/commonsys-intf/audio/Android.mk
+[ 81% 59/72] including vendor/qcom/opensource/commonsys/audio/Android.mk
+[ 83% 60/72] including vendor/qcom/opensource/commonsys/dataservices/Android.mk
+[ 84% 61/72] including vendor/qcom/opensource/commonsys/nfc/Android.mk
+[ 86% 62/72] including vendor/qcom/opensource/core-utils-vendor/qspaframework/Android.mk
+[ 87% 63/72] including vendor/qcom/opensource/core-utils/Android.mk
+[ 88% 64/72] including vendor/qcom/opensource/data-ipa-cfg-mgr/ipanat/test/Android.mk
+[ 90% 65/72] including vendor/qcom/opensource/dataservices/datatop/Android.mk
+[ 91% 66/72] including vendor/qcom/opensource/ecosw/nordic_hal/Android.mk
+[ 93% 67/72] including vendor/qcom/opensource/mmc-utils/Android.mk
+[ 94% 68/72] including vendor/qcom/opensource/power/Android.mk
+[ 95% 69/72] including vendor/qcom/opensource/recovery-ext/Android.mk
+[ 97% 70/72] including vendor/qcom/opensource/softap/softap/sdk/Android.mk
+[ 98% 71/72] including vendor/sony/dolby/Android.mk
+[100% 72/72] including out/soong/late-aospa_giulia.mk
+[100% 73/73] finishing Make module rules
+[100% 74/74] finishing Make module rules: Adding module dependencies
+[100% 75/75] finishing Make packaging rules
+[ 73% 76/103] including build/make/core/tasks/art.mk
+[ 74% 77/103] including build/make/core/tasks/build_custom_images.mk
+[ 75% 78/103] including build/make/core/tasks/dex_preopt_check.mk
+[ 76% 79/103] including build/make/core/tasks/find-shareduid-violation.mk
+[ 77% 80/103] including build/make/core/tasks/fontchain_lint.mk
+[ 78% 81/103] including build/make/core/tasks/host_init_verifier.mk
+[ 79% 82/103] including build/make/core/tasks/meta-lic.mk
+[ 80% 83/103] including build/make/core/tasks/module-info.mk
+[ 81% 84/103] including build/make/core/tasks/oem_image.mk
+[ 82% 85/103] including build/make/core/tasks/offline-sdk-docs.mk
+[ 83% 86/103] including build/make/core/tasks/platform_availability_check.mk
+[ 84% 87/103] including build/make/core/tasks/ramdisk_snapshot.mk
+[ 85% 88/103] including build/make/core/tasks/sdv.mk
+[ 86% 89/103] including build/make/core/tasks/vendor_module_check.mk
+[ 87% 90/103] including build/make/core/tasks/with-license.mk
+[ 88% 91/103] including vendor/aospa/build/tasks/kernel.mk
+[ 89% 92/103] including vendor/qcom/build/tasks/QMAA_enforcement.mk
+[ 90% 93/103] including vendor/qcom/build/tasks/QSSI_violators.mk
+[ 91% 94/103] including vendor/qcom/build/tasks/generate_extra_images.mk
+[ 92% 95/103] including vendor/qcom/build/tasks/generate_vendor_bundle.mk
+[ 93% 96/103] including vendor/qcom/build/tasks/vendor_prop_context_restriction.mk
+[ 94% 97/103] including device/amlogic/yukawa/build/tasks/dtimages.mk
+[ 95% 98/103] including device/generic/goldfish/build/tasks/combine_initramfs.mk
+[ 96% 99/103] including device/qcom/qssi_64/build/tasks/symlink_system_dlkm.mk
+[ 97% 100/103] including device/qcom/qssi_64go/build/tasks/symlink_system_dlkm.mk
+[ 98% 101/103] including device/qcom/qssi_tiny/build/tasks/symlink_system_dlkm.mk
+[ 99% 102/103] including device/qcom/qssi_tiny_32go/build/tasks/symlink_system_dlkm.mk
+[100% 103/103] finishing Make packaging rules
+[100% 104/104] finishing Make packaging rules: Adding phony targets
+[100% 105/105] finishing Make packaging rules: Checking licensing and SBOM
+/serverhive5/raizenftw/aospa/build/soong/bin/../../make/shell_utils.sh: line 199: 1159361 Killed                  "$@"
+
+[0;31m#### failed to build some targets (01:50 (mm:ss)) ####
+[00m
