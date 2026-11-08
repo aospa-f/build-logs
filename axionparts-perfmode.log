@@ -1,0 +1,373 @@
+19:00:27 Build sandboxing disabled due to nsjail error.
+Starting ninja...
+hardware/qcom/display/config/display-product.mk:244: warning: "Using smmu proxy"
+Running product configuration...
+hardware/qcom/display/config/display-product.mk:244: warning: "Using smmu proxy"
+============================================
+PLATFORM_VERSION_CODENAME=REL
+PLATFORM_VERSION=17
+PRODUCT_SOURCE_ROOT_DIRS=-prebuilts/misc/protobuf_vendorcompat -platform_testing/libraries/sdv -platform_testing/tests/sdv -platform_testing/libraries/automotive/display_safety -platform_testing/tests/automotive/display_safety -device/generic/trusty/microdroid
+AOSPA_VERSION=calcite-unofficial-giulia-20261105
+TARGET_PRODUCT=aospa_giulia
+TARGET_BUILD_VARIANT=userdebug
+TARGET_ARCH=arm64
+TARGET_ARCH_VARIANT=armv8-2a-dotprod
+TARGET_CPU_VARIANT=generic
+HOST_OS=linux
+HOST_OS_EXTRA=Linux-7.0.0-42-generic-x86_64-Ubuntu-24.04.5-LTS
+HOST_CROSS_OS=windows
+BUILD_ID=CQ2A.260820.002-CP2A.260605.016
+OUT_DIR=out
+PRODUCT_SOONG_NAMESPACES=vendor/oplus/camera/giulia/blobs device/oneplus/giulia vendor/sony/dolby hardware/nxp/keymint/generic hardware/nxp/weaver/generic vendor/oneplus/ir hardware/oplus/overlay device/oneplus/sm8650-common hardware/oplus vendor/oneplus/sm8650-oss/vendor.oplus.hardware.touch@2.0-service vendor/oneplus/sm8650-common vendor/oneplus/giulia vendor/google/gms vendor/qcom/common/vendor/adreno/u vendor/qcom/common/system/alarm device/qcom/common/vendor/alarm vendor/qcom/common/vendor/alarm vendor/qcom/common/system/audio vendor/qcom/common/system/av vendor/qcom/common/system/bt vendor/qcom/common/system/display vendor/qcom/common/vendor/display vendor/qcom/common/system/gps device/qcom/common/vendor/gps device/qcom/common/system/overlay device/qcom/common/vendor/overlay vendor/qcom/common/system/perf device/qcom/common/vendor/perf vendor/qcom/common/vendor/perf vendor/qcom/common/system/telephony device/qcom/common/vendor/telephony vendor/qcom/opensource/data-ipa-cfg-mgr device/qcom/common/vendor/usb vendor/qcom/common/system/wfd device/qcom/common/vendor/wlan hardware/qcom/wlan/qcwcn vendor/qcom/opensource/data-ipa-cfg-mgr vendor/qcom/common/vendor/wlan device/qcom/common vendor/qcom/opensource/audio-hal/st-hal-ar
+SOONG_NINJA=ninja
+USE_RBE=true
+SOONG_ONLY=false
+SOONG_INCREMENTAL_ANALYSIS=true
+============================================
+[100% 1/1] bootstrap blueprint
+Running globs...
+ninja: no work to do.
+No need to regenerate ninja file
+No need to regenerate ninja file
+No need to regenerate ninja file
+Starting ninja...
+[  1% 2/198] target Prebuilt: plat_sepolicy.cil (out/target/product/giulia/obj/ETC/plat_sepolicy.cil_intermediates/plat_sepolicy.cil)
+[  1% 3/198] host Prebuilt: property_info_checker (out/host/linux-x86/obj/EXECUTABLES/property_info_checker_intermediates/property_info_checker)
+[  2% 4/198] target Prebuilt: userdebug_plat_sepolicy.cil (out/target/product/giulia/obj/ETC/userdebug_plat_sepolicy.cil_intermediates/userdebug_plat_sepolicy.cil)
+[  2% 5/198] //system/sepolicy:plat_mapping_file Versioning mapping file plat_mapping_file
+[  3% 6/198] Install: out/target/product/giulia/system/etc/selinux/plat_sepolicy.cil
+[  3% 7/198] target Prebuilt: plat_mapping_file (out/target/product/giulia/obj/ETC/plat_mapping_file_intermediates/plat_mapping_file)
+[  4% 8/198] Install: out/target/product/giulia/debug_ramdisk/userdebug_plat_sepolicy.cil
+[  4% 9/198] Install: out/host/linux-x86/bin/property_info_checker
+[  5% 10/198] Install: out/target/product/giulia/system/etc/selinux/mapping/202604.cil
+[  5% 11/198] //system/sepolicy:plat_sepolicy_and_mapping.sha256_gen generate plat_sepolicy_and_mapping.sha256
+[  6% 12/198] cp out/soong/.intermediates/system/sepolicy/plat_sepolicy_and_mapping.sha256/android_arm64_armv8-2a-dotprod/plat_sepolicy_and_mapping.sha256
+[  6% 13/198] cp out/soong/.intermediates/system/sepolicy/precompiled_sepolicy.plat_sepolicy_and_mapping.sha256/android_vendor_arm64_armv8-2a-dotprod/precompiled_sepolicy.plat_sepolicy_and_mapping.sha256
+[  7% 14/198] target Prebuilt: plat_sepolicy_and_mapping.sha256 (out/target/product/giulia/obj/ETC/plat_sepolicy_and_mapping.sha256_intermediates/plat_sepolicy_and_mapping.sha256)
+[  7% 15/198] target Prebuilt: precompiled_sepolicy.plat_sepolicy_and_mapping.sha256 (out/target/product/giulia/obj/ETC/precompiled_sepolicy.plat_sepolicy_and_mapping.sha256_intermediates/precompiled_sepolicy.plat_sepolicy_and_mapping.sha256)
+[  8% 16/198] Install: out/target/product/giulia/system/etc/selinux/plat_sepolicy_and_mapping.sha256
+[  8% 17/198] Install: out/target/product/giulia/odm/etc/selinux/precompiled_sepolicy.plat_sepolicy_and_mapping.sha256
+[  9% 18/198] //system/sepolicy:odm_sepolicy.conf Transform policy to conf: odm_sepolicy.conf
+[  9% 19/198] //system/sepolicy:vendor_sepolicy.conf Transform policy to conf: vendor_sepolicy.conf
+[ 10% 20/198] //system/sepolicy/treble_sepolicy_tests_for_release:treble_sepolicy_tests_202604 generate treble_sepolicy_tests_202604
+[ 10% 21/198] //system/sepolicy:sepolicy_neverallows.sepolicy_analyze.conf Transform policy to conf: sepolicy_neverallows.sepolicy_analyze.conf
+[ 11% 22/198] //system/sepolicy:sepolicy_neverallows.checkpolicy.conf Transform policy to conf: sepolicy_neverallows.checkpolicy.conf
+[ 11% 23/198] //system/sepolicy/tests:sepolicy_tests Precompile the python sources of sepolicy_tests [linux_glibc]
+[ 12% 24/198] //system/sepolicy:system_ext_mapping_file Versioning mapping file system_ext_mapping_file
+[ 12% 25/198] target Prebuilt: system_ext_mapping_file (out/target/product/giulia/obj/ETC/system_ext_mapping_file_intermediates/system_ext_mapping_file)
+[ 13% 26/198] Install: out/target/product/giulia/system_ext/etc/selinux/mapping/202604.cil
+[ 13% 27/198] //system/sepolicy:se_freeze_test sepolicy_freeze_test
+[ 14% 28/198] Fake: out/target/product/giulia/obj/FAKE/se_freeze_test_intermediates/se_freeze_test-timestamp
+[ 14% 29/198] //system/sepolicy/tests:sepolicy_tests embedded python archive [linux_glibc]
+[ 15% 30/198] Install: out/target/product/giulia/fake_packages/se_freeze_test-timestamp
+[ 15% 31/198] //system/sepolicy/treble_sepolicy_tests_for_release:treble_sepolicy_tests_202504 generate treble_sepolicy_tests_202504
+[ 16% 32/198] //system/sepolicy/prebuilts/api/202504:202504_plat_pub_versioned.cil Versioning mapping file 202504_plat_pub_versioned.cil
+[ 16% 33/198] //system/sepolicy:product_mapping_file Versioning mapping file product_mapping_file
+[ 17% 34/198] target Prebuilt: product_mapping_file (out/target/product/giulia/obj/ETC/product_mapping_file_intermediates/product_mapping_file)
+[ 17% 35/198] Install: out/target/product/giulia/product/etc/selinux/mapping/202604.cil
+[ 18% 36/198] //system/sepolicy:plat_pub_versioned.cil Versioning mapping file plat_pub_versioned.cil
+[ 18% 37/198] target Prebuilt: plat_pub_versioned.cil (out/target/product/giulia/obj/ETC/plat_pub_versioned.cil_intermediates/plat_pub_versioned.cil)
+[ 19% 38/198] Install: out/target/product/giulia/vendor/etc/selinux/plat_pub_versioned.cil
+[ 19% 39/198] //system/sepolicy/treble_sepolicy_tests_for_release:treble_sepolicy_tests_31.0 generate treble_sepolicy_tests_31.0
+[ 20% 40/198] //system/sepolicy/treble_sepolicy_tests_for_release:treble_sepolicy_tests_32.0 generate treble_sepolicy_tests_32.0
+[ 20% 41/198] //system/sepolicy/treble_sepolicy_tests_for_release:treble_sepolicy_tests_33.0 generate treble_sepolicy_tests_33.0
+[ 21% 42/198] //system/sepolicy/treble_sepolicy_tests_for_release:treble_sepolicy_tests_34.0 generate treble_sepolicy_tests_34.0
+[ 21% 43/198] //system/sepolicy/treble_sepolicy_tests_for_release:treble_sepolicy_tests_202404 generate treble_sepolicy_tests_202404
+[ 22% 44/198] //system/sepolicy/prebuilts/api/31.0:31.0_plat_pub_versioned.cil Versioning mapping file 31.0_plat_pub_versioned.cil
+[ 22% 45/198] //system/sepolicy/prebuilts/api/32.0:32.0_plat_pub_versioned.cil Versioning mapping file 32.0_plat_pub_versioned.cil
+[ 23% 46/198] //system/sepolicy/prebuilts/api/33.0:33.0_plat_pub_versioned.cil Versioning mapping file 33.0_plat_pub_versioned.cil
+[ 23% 47/198] //system/sepolicy/prebuilts/api/34.0:34.0_plat_pub_versioned.cil Versioning mapping file 34.0_plat_pub_versioned.cil
+[ 24% 48/198] //system/sepolicy/prebuilts/api/202404:202404_plat_pub_versioned.cil Versioning mapping file 202404_plat_pub_versioned.cil
+[ 24% 49/198] //system/sepolicy:vendor_sepolicy.unversioned.cil Building cil for vendor_sepolicy.unversioned.cil
+system/sepolicy/vendor/hal_vm_capabilities_default.te:10:WARNING 'omitting avrule with no permission set' at token ';' on line 20980:
+neverallow hal_vm_capabilities_default crosvm_vendor:fd ~use;
+allow hal_vm_capabilities_default crosvm_vendor:fd use;
+[ 25% 50/198] //system/sepolicy/contexts:plat_precompiled_sepolicy Compiling cil files for plat_precompiled_sepolicy
+[ 25% 51/198] //system/sepolicy/contexts:plat_seapp_contexts Building seapp_contexts: plat_seapp_contexts
+[ 26% 52/198] //system/sepolicy/contexts:plat_seapp_contexts copy plat_seapp_contexts
+[ 26% 53/198] target Prebuilt: plat_seapp_contexts (out/target/product/giulia/obj/ETC/plat_seapp_contexts_intermediates/plat_seapp_contexts)
+[ 27% 54/198] Install: out/target/product/giulia/system/etc/selinux/plat_seapp_contexts
+[ 27% 55/198] //system/sepolicy:odm_sepolicy.unversioned.cil Building cil for odm_sepolicy.unversioned.cil
+system/sepolicy/vendor/hal_vm_capabilities_default.te:10:WARNING 'omitting avrule with no permission set' at token ';' on line 20980:
+neverallow hal_vm_capabilities_default crosvm_vendor:fd ~use;
+allow hal_vm_capabilities_default crosvm_vendor:fd use;
+[ 28% 56/198] //system/sepolicy:sepolicy_neverallows Neverallow check: sepolicy_neverallows
+system/sepolicy/vendor/hal_vm_capabilities_default.te:10:WARNING 'omitting avrule with no permission set' at token ';' on line 119650:
+neverallow hal_vm_capabilities_default crosvm_vendor:fd ~use;
+allow hal_vm_capabilities_default crosvm_vendor:fd use;
+[ 28% 57/198] //system/sepolicy:sepolicy_neverallows Neverallow check: sepolicy_neverallows
+[ 29% 58/198] Fake: out/target/product/giulia/obj/FAKE/sepolicy_neverallows_intermediates/sepolicy_neverallows-timestamp
+[ 29% 59/198] Install: out/target/product/giulia/fake_packages/sepolicy_neverallows-timestamp
+[ 30% 60/198] //system/sepolicy:system_ext_sepolicy.cil Building cil for system_ext_sepolicy.cil
+[ 30% 61/198] target Prebuilt: system_ext_sepolicy.cil (out/target/product/giulia/obj/ETC/system_ext_sepolicy.cil_intermediates/system_ext_sepolicy.cil)
+[ 31% 62/198] Install: out/target/product/giulia/system_ext/etc/selinux/system_ext_sepolicy.cil
+[ 31% 63/198] //system/sepolicy:system_ext_sepolicy_and_mapping.sha256_gen generate system_ext_sepolicy_and_mapping.sha256
+[ 32% 64/198] cp out/soong/.intermediates/system/sepolicy/system_ext_sepolicy_and_mapping.sha256/android_arm64_armv8-2a-dotprod/system_ext_sepolicy_and_mapping.sha256
+[ 32% 65/198] cp out/soong/.intermediates/system/sepolicy/precompiled_sepolicy.system_ext_sepolicy_and_mapping.sha256/android_vendor_arm64_armv8-2a-dotprod/precompiled_sepolicy.system_ext_sepolicy_and_mapping.sha256
+[ 33% 66/198] target Prebuilt: system_ext_sepolicy_and_mapping.sha256 (out/target/product/giulia/obj/ETC/system_ext_sepolicy_and_mapping.sha256_intermediates/system_ext_sepolicy_and_mapping.sha256)
+[ 33% 67/198] target Prebuilt: precompiled_sepolicy.system_ext_sepolicy_and_mapping.sha256 (out/target/product/giulia/obj/ETC/precompiled_sepolicy.system_ext_sepolicy_and_mapping.sha256_intermediates/precompiled_sepolicy.system_ext_sepolicy_and_mapping.sha256)
+[ 34% 68/198] Install: out/target/product/giulia/system_ext/etc/selinux/system_ext_sepolicy_and_mapping.sha256
+[ 34% 69/198] Install: out/target/product/giulia/odm/etc/selinux/precompiled_sepolicy.system_ext_sepolicy_and_mapping.sha256
+[ 35% 70/198] //system/sepolicy:product_sepolicy.cil Building cil for product_sepolicy.cil
+[ 35% 71/198] target Prebuilt: product_sepolicy.cil (out/target/product/giulia/obj/ETC/product_sepolicy.cil_intermediates/product_sepolicy.cil)
+[ 36% 72/198] //system/sepolicy:product_sepolicy_and_mapping.sha256_gen generate product_sepolicy_and_mapping.sha256
+[ 36% 73/198] Install: out/target/product/giulia/product/etc/selinux/product_sepolicy.cil
+[ 37% 74/198] cp out/soong/.intermediates/system/sepolicy/precompiled_sepolicy.product_sepolicy_and_mapping.sha256/android_vendor_arm64_armv8-2a-dotprod/precompiled_sepolicy.product_sepolicy_and_mapping.sha256
+[ 37% 75/198] cp out/soong/.intermediates/system/sepolicy/product_sepolicy_and_mapping.sha256/android_arm64_armv8-2a-dotprod/product_sepolicy_and_mapping.sha256
+[ 38% 76/198] target Prebuilt: precompiled_sepolicy.product_sepolicy_and_mapping.sha256 (out/target/product/giulia/obj/ETC/precompiled_sepolicy.product_sepolicy_and_mapping.sha256_intermediates/precompiled_sepolicy.product_sepolicy_and_mapping.sha256)
+[ 38% 77/198] target Prebuilt: product_sepolicy_and_mapping.sha256 (out/target/product/giulia/obj/ETC/product_sepolicy_and_mapping.sha256_intermediates/product_sepolicy_and_mapping.sha256)
+[ 39% 78/198] Install: out/target/product/giulia/odm/etc/selinux/precompiled_sepolicy.product_sepolicy_and_mapping.sha256
+[ 39% 79/198] Install: out/target/product/giulia/product/etc/selinux/product_sepolicy_and_mapping.sha256
+[ 40% 80/198] //system/sepolicy/compat:202504_compat_test Compiling cil files for 202504_compat_test
+[ 40% 81/198] //system/sepolicy/compat:202404_compat_test Compiling cil files for 202404_compat_test
+[ 41% 82/198] //system/sepolicy/compat:31.0_compat_test Compiling cil files for 31.0_compat_test
+[ 41% 83/198] //system/sepolicy/compat:34.0_compat_test Compiling cil files for 34.0_compat_test
+[ 42% 84/198] //system/sepolicy/compat:33.0_compat_test Compiling cil files for 33.0_compat_test
+[ 42% 85/198] //system/sepolicy/compat:32.0_compat_test Compiling cil files for 32.0_compat_test
+[ 43% 86/198] //system/sepolicy/compat:sepolicy_compat_test compat test timestamp for: sepolicy_compat_test
+[ 43% 87/198] Fake: out/target/product/giulia/obj/FAKE/sepolicy_compat_test_intermediates/sepolicy_compat_test-timestamp
+[ 44% 88/198] Install: out/target/product/giulia/fake_packages/sepolicy_compat_test-timestamp
+[ 44% 89/198] //system/sepolicy:vendor_sepolicy.cil Versioning mapping file vendor_sepolicy.cil
+[ 45% 90/198] target Prebuilt: vendor_sepolicy.cil (out/target/product/giulia/obj/ETC/vendor_sepolicy.cil_intermediates/vendor_sepolicy.cil)
+[ 45% 91/198] Install: out/target/product/giulia/vendor/etc/selinux/vendor_sepolicy.cil
+[ 46% 92/198] //system/sepolicy:odm_sepolicy.cil Versioning mapping file odm_sepolicy.cil
+[ 46% 93/198] target Prebuilt: odm_sepolicy.cil (out/target/product/giulia/obj/ETC/odm_sepolicy.cil_intermediates/odm_sepolicy.cil)
+[ 47% 94/198] Install: out/target/product/giulia/odm/etc/selinux/odm_sepolicy.cil
+[ 47% 95/198] //system/sepolicy:precompiled_sepolicy Compiling cil files for precompiled_sepolicy
+[ 48% 96/198] target Prebuilt: precompiled_sepolicy (out/target/product/giulia/obj/ETC/precompiled_sepolicy_intermediates/precompiled_sepolicy)
+[ 48% 97/198] //system/sepolicy/contexts:odm_hwservice_contexts_test running contexts test: odm_hwservice_contexts_test
+[ 49% 98/198] //system/sepolicy/contexts:product_hwservice_contexts_test running contexts test: product_hwservice_contexts_test
+[ 50% 99/198] Fake: out/target/product/giulia/obj/FAKE/odm_hwservice_contexts_test_intermediates/odm_hwservice_contexts_test-timestamp
+[ 50% 100/198] Fake: out/target/product/giulia/obj/FAKE/product_hwservice_contexts_test_intermediates/product_hwservice_contexts_test-timestamp
+[ 51% 101/198] Install: out/target/product/giulia/odm/etc/selinux/precompiled_sepolicy
+[ 51% 102/198] Install: out/target/product/giulia/fake_packages/product_hwservice_contexts_test-timestamp
+[ 52% 103/198] Install: out/target/product/giulia/fake_packages/odm_hwservice_contexts_test-timestamp
+[ 52% 104/198] //system/sepolicy/contexts:product_service_contexts_test running contexts test: product_service_contexts_test
+[ 53% 105/198] Fake: out/target/product/giulia/obj/FAKE/product_service_contexts_test_intermediates/product_service_contexts_test-timestamp
+[ 53% 106/198] //system/sepolicy/contexts:odm_seapp_contexts Building seapp_contexts: odm_seapp_contexts
+[ 54% 107/198] //system/sepolicy/contexts:system_ext_file_contexts_test running contexts test: system_ext_file_contexts_test
+[ 54% 108/198] //system/sepolicy/contexts:odm_property_contexts_test running contexts test: odm_property_contexts_test
+[ 55% 109/198] Install: out/target/product/giulia/fake_packages/product_service_contexts_test-timestamp
+[ 55% 110/198] //system/sepolicy/contexts:system_ext_seapp_contexts Building seapp_contexts: system_ext_seapp_contexts
+[ 56% 111/198] //system/sepolicy/contexts:vendor_hwservice_contexts_test running contexts test: vendor_hwservice_contexts_test
+FAILED: out/soong/.intermediates/system/sepolicy/contexts/vendor_hwservice_contexts_test/android_common/timestamp
+out/host/linux-x86/bin/checkfc -e -l out/soong/.intermediates/system/sepolicy/precompiled_sepolicy/android_common/giulia/precompiled_sepolicy out/soong/.intermediates/system/sepolicy/contexts/vendor_hwservice_contexts/android_common/giulia/vendor_hwservice_contexts && touch out/soong/.intermediates/system/sepolicy/contexts/vendor_hwservice_contexts_test/android_common/timestamp # hash of input list: 785983c1c816f9dd7d8e2ad5b45db963531ef7061c021c48252495d0382d47dc
+libsepol.context_from_record: type vendor_hal_iop_hwservice is not defined
+libsepol.context_from_record: could not create context structure
+out/soong/.intermediates/system/sepolicy/contexts/vendor_hwservice_contexts/android_common/giulia/vendor_hwservice_contexts:  line 116 has invalid context u:object_r:vendor_hal_iop_hwservice:s0
+Error: could not load context file from out/soong/.intermediates/system/sepolicy/contexts/vendor_hwservice_contexts/android_common/giulia/vendor_hwservice_contexts
+[ 56% 112/198] Fake: out/target/product/giulia/obj/FAKE/system_ext_file_contexts_test_intermediates/system_ext_file_contexts_test-timestamp
+[ 57% 113/198] //system/sepolicy/contexts:odm_seapp_contexts copy odm_seapp_contexts
+[ 57% 114/198] //system/sepolicy/contexts:vndservice_contexts_test running contexts test: vndservice_contexts_test
+FAILED: out/soong/.intermediates/system/sepolicy/contexts/vndservice_contexts_test/android_common/timestamp
+out/host/linux-x86/bin/checkfc -e -v out/soong/.intermediates/system/sepolicy/precompiled_sepolicy/android_common/giulia/precompiled_sepolicy out/soong/.intermediates/system/sepolicy/contexts/vndservice_contexts/android_common/giulia/vndservice_contexts && touch out/soong/.intermediates/system/sepolicy/contexts/vndservice_contexts_test/android_common/timestamp # hash of input list: 69d9de5ee4d0eb124b752fdbd1d1b43ec2496676529669c57daf174bf6b73486
+Error: type "vendor_qms_service" is not of set: "vndservice_manager_type"
+out/soong/.intermediates/system/sepolicy/contexts/vndservice_contexts/android_common/giulia/vndservice_contexts:  line 126 has invalid context u:object_r:vendor_qms_service:s0
+Error: could not load context file from out/soong/.intermediates/system/sepolicy/contexts/vndservice_contexts/android_common/giulia/vndservice_contexts
+[ 58% 115/198] //system/sepolicy/contexts:system_ext_seapp_contexts copy system_ext_seapp_contexts
+[ 58% 116/198] //system/sepolicy/contexts:odm_file_contexts_test running contexts test: odm_file_contexts_test
+[ 59% 117/198] Fake: out/target/product/giulia/obj/FAKE/odm_property_contexts_test_intermediates/odm_property_contexts_test-timestamp
+[ 59% 118/198] //system/sepolicy/contexts:product_seapp_contexts Building seapp_contexts: product_seapp_contexts
+[ 60% 119/198] //system/sepolicy/contexts:vendor_seapp_contexts Building seapp_contexts: vendor_seapp_contexts
+[ 60% 120/198] //system/sepolicy/contexts:merged_hwservice_contexts_test running contexts test: merged_hwservice_contexts_test
+FAILED: out/soong/.intermediates/system/sepolicy/contexts/merged_hwservice_contexts_test/android_common/timestamp
+out/host/linux-x86/bin/checkfc -e -l out/soong/.intermediates/system/sepolicy/precompiled_sepolicy/android_common/giulia/precompiled_sepolicy out/soong/.intermediates/system/sepolicy/contexts/merged_hwservice_contexts/android_common/merged_hwservice_contexts && touch out/soong/.intermediates/system/sepolicy/contexts/merged_hwservice_contexts_test/android_common/timestamp # hash of input list: 42921800b52c377b77d02fe1f8655dba45d36c005126742d320eb2316af40047
+libsepol.context_from_record: type vendor_hal_iop_hwservice is not defined
+libsepol.context_from_record: could not create context structure
+out/soong/.intermediates/system/sepolicy/contexts/merged_hwservice_contexts/android_common/merged_hwservice_contexts:  line 208 has invalid context u:object_r:vendor_hal_iop_hwservice:s0
+Error: could not load context file from out/soong/.intermediates/system/sepolicy/contexts/merged_hwservice_contexts/android_common/merged_hwservice_contexts
+[ 61% 121/198] //system/sepolicy/contexts:odm_service_contexts_test running contexts test: odm_service_contexts_test
+[ 61% 122/198] //system/sepolicy/contexts:product_property_contexts_test running contexts test: product_property_contexts_test
+[ 62% 123/198] //system/sepolicy/contexts:vendor_service_contexts_test running contexts test: vendor_service_contexts_test
+[ 62% 124/198] //system/sepolicy/contexts:vendor_property_contexts_test running contexts test: vendor_property_contexts_test
+[ 63% 125/198] //system/sepolicy/contexts:plat_service_contexts_test running contexts test: plat_service_contexts_test
+[ 63% 126/198] //system/sepolicy/contexts:plat_hwservice_contexts_test running contexts test: plat_hwservice_contexts_test
+[ 64% 127/198] //system/sepolicy/contexts:system_ext_property_contexts_test running contexts test: system_ext_property_contexts_test
+[ 64% 128/198] //system/sepolicy/contexts:plat_file_contexts_test running contexts test: plat_file_contexts_test
+[ 65% 129/198] //system/sepolicy/contexts:system_ext_hwservice_contexts_test running contexts test: system_ext_hwservice_contexts_test
+[ 65% 130/198] //system/sepolicy/contexts:vendor_file_contexts_test running contexts test: vendor_file_contexts_test
+[ 66% 131/198] //system/sepolicy/contexts:product_file_contexts_test running contexts test: product_file_contexts_test
+[ 66% 132/198] //system/sepolicy/contexts:plat_property_contexts_test running contexts test: plat_property_contexts_test
+[ 67% 133/198] //system/sepolicy/contexts:merged_service_contexts_test running contexts test: merged_service_contexts_test
+Multiple same specifications for android.hardware.media.c2.IComponentStore/default2.
+Multiple same specifications for vendor.qti.gnss.ILocAidlGnss/default.
+[ 67% 134/198] //system/sepolicy/contexts:system_ext_service_contexts_test running contexts test: system_ext_service_contexts_test
+[ 68% 135/198] //system/sepolicy:sepolicy_dev_type_test generate sepolicy_dev_type_test
+[ 68% 136/198] //system/sepolicy:sepolicy_test generate sepolicy_test
+FAILED: out/soong/.intermediates/system/sepolicy/sepolicy_test/android_common/gen/sepolicy_test
+out/host/linux-x86/bin/sbox --sandbox-path out/soong/.temp --output-dir out/soong/.intermediates/system/sepolicy/sepolicy_test/android_common/gen --manifest out/soong/.intermediates/system/sepolicy/sepolicy_test/android_common/genrule.sbox.textproto
+The failing command was run inside an sbox sandbox in temporary directory
+out/soong/.temp/sbox/5ac99d7d5f2e855b88bc8a1c7a0d757dd6444e91
+The failing command line can be found in
+out/soong/.temp/sbox/5ac99d7d5f2e855b88bc8a1c7a0d757dd6444e91/sbox_command.0.bash
+"isolated_compute_allowed_property_type" does not exist
+"isolated_compute_allowed_property_type" does not exist
+"isolated_compute_allowed_property_type" does not exist
+"isolated_compute_allowed_property_type" does not exist
+"isolated_compute_allowed_property_type" does not exist
+"isolated_compute_allowed_property_type" does not exist
+"isolated_compute_allowed_property_type" does not exist
+"isolated_compute_allowed_property_type" does not exist
+"isolated_compute_allowed_property_type" does not exist
+"isolated_compute_allowed_property_type" does not exist
+"isolated_compute_allowed_property_type" does not exist
+"isolated_compute_allowed_property_type" does not exist
+"isolated_compute_allowed_property_type" does not exist
+"isolated_compute_allowed_property_type" does not exist
+"isolated_compute_allowed_property_type" does not exist
+"isolated_compute_allowed_property_type" does not exist
+"isolated_compute_allowed_property_type" does not exist
+"isolated_compute_allowed_property_type" does not exist
+"isolated_compute_allowed_property_type" does not exist
+"isolated_compute_allowed_property_type" does not exist
+"isolated_compute_allowed_property_type" does not exist
+"isolated_compute_allowed_property_type" does not exist
+"isolated_compute_allowed_property_type" does not exist
+"isolated_compute_allowed_property_type" does not exist
+"isolated_compute_allowed_property_type" does not exist
+"isolated_compute_allowed_property_type" does not exist
+"isolated_compute_allowed_property_type" does not exist
+"isolated_compute_allowed_property_type" does not exist
+"isolated_compute_allowed_property_type" does not exist
+"isolated_compute_allowed_property_type" does not exist
+"isolated_compute_allowed_property_type" does not exist
+"isolated_compute_allowed_property_type" does not exist
+"isolated_compute_allowed_property_type" does not exist
+"isolated_compute_allowed_property_type" does not exist
+"isolated_compute_allowed_property_type" does not exist
+"isolated_compute_allowed_property_type" does not exist
+"isolated_compute_allowed_property_type" does not exist
+"isolated_compute_allowed_property_type" does not exist
+"isolated_compute_allowed_property_type" does not exist
+"isolated_compute_allowed_property_type" does not exist
+"isolated_compute_allowed_property_type" does not exist
+"isolated_compute_allowed_property_type" does not exist
+"isolated_compute_allowed_property_type" does not exist
+"isolated_compute_allowed_property_type" does not exist
+"isolated_compute_allowed_property_type" does not exist
+"isolated_compute_allowed_property_type" does not exist
+"isolated_compute_allowed_property_type" does not exist
+"isolated_compute_allowed_property_type" does not exist
+"isolated_compute_allowed_property_type" does not exist
+"isolated_compute_allowed_property_type" does not exist
+"isolated_compute_allowed_property_type" does not exist
+"isolated_compute_allowed_property_type" does not exist
+"isolated_compute_allowed_property_type" does not exist
+"isolated_compute_allowed_property_type" does not exist
+"isolated_compute_allowed_property_type" does not exist
+"isolated_compute_allowed_property_type" does not exist
+"isolated_compute_allowed_property_type" does not exist
+"isolated_compute_allowed_property_type" does not exist
+"isolated_compute_allowed_property_type" does not exist
+"isolated_compute_allowed_property_type" does not exist
+"isolated_compute_allowed_property_type" does not exist
+"isolated_compute_allowed_property_type" does not exist
+"isolated_compute_allowed_property_type" does not exist
+"isolated_compute_allowed_property_type" does not exist
+"isolated_compute_allowed_property_type" does not exist
+"isolated_compute_allowed_property_type" does not exist
+"isolated_compute_allowed_property_type" does not exist
+"isolated_compute_allowed_property_type" does not exist
+"isolated_compute_allowed_property_type" does not exist
+"isolated_compute_allowed_property_type" does not exist
+"isolated_compute_allowed_property_type" does not exist
+"isolated_compute_allowed_property_type" does not exist
+"isolated_compute_allowed_property_type" does not exist
+"isolated_compute_allowed_property_type" does not exist
+"isolated_compute_allowed_property_type" does not exist
+"isolated_compute_allowed_property_type" does not exist
+"isolated_compute_allowed_property_type" does not exist
+"isolated_compute_allowed_property_type" does not exist
+"isolated_compute_allowed_property_type" does not exist
+"isolated_compute_allowed_property_type" does not exist
+"isolated_compute_allowed_property_type" does not exist
+"isolated_compute_allowed_property_type" does not exist
+"isolated_compute_allowed_property_type" does not exist
+"isolated_compute_allowed_property_type" does not exist
+"isolated_compute_allowed_property_type" does not exist
+"isolated_compute_allowed_property_type" does not exist
+"isolated_compute_allowed_property_type" does not exist
+"isolated_compute_allowed_property_type" does not exist
+"isolated_compute_allowed_property_type" does not exist
+"isolated_compute_allowed_property_type" does not exist
+"isolated_compute_allowed_property_type" does not exist
+"isolated_compute_allowed_property_type" does not exist
+"isolated_compute_allowed_property_type" does not exist
+"isolated_compute_allowed_property_type" does not exist
+"isolated_compute_allowed_property_type" does not exist
+"isolated_compute_allowed_property_type" does not exist
+"isolated_compute_allowed_property_type" does not exist
+"isolated_compute_allowed_property_type" does not exist
+"isolated_compute_allowed_property_type" does not exist
+"isolated_compute_allowed_property_type" does not exist
+"isolated_compute_allowed_property_type" does not exist
+"isolated_compute_allowed_property_type" does not exist
+"isolated_compute_allowed_property_type" does not exist
+"isolated_compute_allowed_property_type" does not exist
+"isolated_compute_allowed_property_type" does not exist
+"isolated_compute_allowed_property_type" does not exist
+"isolated_compute_allowed_property_type" does not exist
+"isolated_compute_allowed_property_type" does not exist
+"isolated_compute_allowed_property_type" does not exist
+"isolated_compute_allowed_property_type" does not exist
+"isolated_compute_allowed_property_type" does not exist
+"isolated_compute_allowed_property_type" does not exist
+"isolated_compute_allowed_property_type" does not exist
+"isolated_compute_allowed_property_type" does not exist
+"isolated_compute_allowed_property_type" does not exist
+"isolated_compute_allowed_property_type" does not exist
+"isolated_compute_allowed_property_type" does not exist
+"isolated_compute_allowed_property_type" does not exist
+"isolated_compute_allowed_property_type" does not exist
+"isolated_compute_allowed_property_type" does not exist
+"isolated_compute_allowed_property_type" does not exist
+"isolated_compute_allowed_property_type" does not exist
+"isolated_compute_allowed_property_type" does not exist
+"isolated_compute_allowed_property_type" does not exist
+"isolated_compute_allowed_property_type" does not exist
+"isolated_compute_allowed_property_type" does not exist
+"isolated_compute_allowed_property_type" does not exist
+"isolated_compute_allowed_property_type" does not exist
+"isolated_compute_allowed_property_type" does not exist
+"isolated_compute_allowed_property_type" does not exist
+"isolated_compute_allowed_property_type" does not exist
+"isolated_compute_allowed_property_type" does not exist
+"isolated_compute_allowed_property_type" does not exist
+"isolated_compute_allowed_property_type" does not exist
+"isolated_compute_allowed_property_type" does not exist
+"isolated_compute_allowed_property_type" does not exist
+"isolated_compute_allowed_property_type" does not exist
+"isolated_compute_allowed_property_type" does not exist
+"isolated_compute_allowed_property_type" does not exist
+"isolated_compute_allowed_property_type" does not exist
+"isolated_compute_allowed_property_type" does not exist
+"isolated_compute_allowed_property_type" does not exist
+"isolated_compute_allowed_property_type" does not exist
+"isolated_compute_allowed_property_type" does not exist
+"isolated_compute_allowed_property_type" does not exist
+"isolated_compute_allowed_property_type" does not exist
+"isolated_compute_allowed_property_type" does not exist
+"isolated_compute_allowed_property_type" does not exist
+"isolated_compute_allowed_property_type" does not exist
+"isolated_compute_allowed_property_type" does not exist
+"isolated_compute_allowed_property_type" does not exist
+"isolated_compute_allowed_property_type" does not exist
+"isolated_compute_allowed_property_type" does not exist
+"isolated_compute_allowed_property_type" does not exist
+"isolated_compute_allowed_property_type" does not exist
+"isolated_compute_allowed_property_type" does not exist
+"isolated_compute_allowed_property_type" does not exist
+"isolated_compute_allowed_property_type" does not exist
+The following types on /odm/ /vendor/ must be associated with the "vendor_file_type" attribute.
+Violator types and corresponding paths:
+('vendor_richtap_resources', '/vendor/etc/richtapresources(/.*)?')
+Found prohibited permission granted for isolated like types. Please replace your allow statements that involve "-isolated_app" with "-isolated_app_all". Violations are shown as the following: 
+allow isolated_compute_app vendor_hal_dspmanager_aidlservice:service_manager find 
+allow isolated_compute_app vendor_hal_dspmanager_hwservice:hwservice_manager find 
+
+exit status 1
+ninja: build stopped: subcommand failed.
+19:04:45 ninja failed with: exit status 1
+
+#### failed to build some targets (04:20 (mm:ss)) ####
+

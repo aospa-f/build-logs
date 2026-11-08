@@ -1,0 +1,185 @@
+=== Launching Launcher3 feature compile at Mon Nov  2 02:02:06 PM UTC 2026 ===
+Launcher3QuickStep
+[m[1m[34mSetting up the environment[m
+
+including vendor/aospa/vendorsetup.sh
+including vendor/google/gms/vendorsetup.sh
+including vendor/oplus/camera/vendorsetup.sh
+including vendor/qcom/opensource/core-utils/vendorsetup.sh
+including vendor/qcom/sdclang/config/vendorsetup.sh
+
+[m[1m[32mBuilding AOSPA calcite for giulia[m
+[m[32mStart time: Mon Nov  2 02:02:08 PM UTC 2026[m
+
+[m[1m[34mLunching giulia[m [m[36m(Including dependencies sync)[m
+
+Release not specified, defaulting to cp2a build
+No changes were necessary to the barista recipe.
+No ingredients need to be brewed.
+14:02:11 Build sandboxing disabled due to nsjail error.
+hardware/qcom/display/config/display-product.mk:244: warning: "Using smmu proxy"
+hardware/qcom/display/config/display-product.mk:244: warning: "Using smmu proxy"
+
+============================================
+PLATFORM_VERSION_CODENAME=REL
+PLATFORM_VERSION=17
+PRODUCT_SOURCE_ROOT_DIRS=-prebuilts/misc/protobuf_vendorcompat -platform_testing/libraries/sdv -platform_testing/tests/sdv -platform_testing/libraries/automotive/display_safety -platform_testing/tests/automotive/display_safety -device/generic/trusty/microdroid
+AOSPA_VERSION=calcite-unofficial-giulia-20261102
+TARGET_PRODUCT=aospa_giulia
+TARGET_BUILD_VARIANT=userdebug
+TARGET_ARCH=arm64
+TARGET_ARCH_VARIANT=armv8-2a-dotprod
+TARGET_CPU_VARIANT=generic
+HOST_OS=linux
+HOST_OS_EXTRA=Linux-7.0.0-42-generic-x86_64-Ubuntu-24.04.5-LTS
+HOST_CROSS_OS=windows
+BUILD_ID=CQ2A.260820.002-CP2A.260605.016
+OUT_DIR=out
+PRODUCT_SOONG_NAMESPACES=vendor/oplus/camera/giulia/blobs device/oneplus/giulia vendor/sony/dolby hardware/nxp/keymint/generic hardware/nxp/weaver/generic vendor/oneplus/ir hardware/oplus/overlay device/oneplus/sm8650-common hardware/oplus vendor/oneplus/sm8650-common vendor/oneplus/giulia vendor/google/gms vendor/qcom/common/vendor/adreno/u vendor/qcom/common/system/alarm device/qcom/common/vendor/alarm vendor/qcom/common/vendor/alarm vendor/qcom/common/system/audio vendor/qcom/common/system/av vendor/qcom/common/system/bt vendor/qcom/common/system/display vendor/qcom/common/vendor/display vendor/qcom/common/system/gps device/qcom/common/vendor/gps device/qcom/common/system/overlay device/qcom/common/vendor/overlay vendor/qcom/common/system/perf device/qcom/common/vendor/perf vendor/qcom/common/vendor/perf vendor/qcom/common/system/telephony device/qcom/common/vendor/telephony vendor/qcom/opensource/data-ipa-cfg-mgr device/qcom/common/vendor/usb vendor/qcom/common/system/wfd device/qcom/common/vendor/wlan hardware/qcom/wlan/qcwcn vendor/qcom/opensource/data-ipa-cfg-mgr vendor/qcom/common/vendor/wlan device/qcom/common vendor/qcom/opensource/audio-hal/st-hal-ar
+SOONG_NINJA=ninja
+USE_RBE=true
+SOONG_ONLY=false
+SOONG_INCREMENTAL_ANALYSIS=false
+============================================
+14:02:14 Build sandboxing disabled due to nsjail error.
+hardware/qcom/display/config/display-product.mk:244: warning: "Using smmu proxy"
+hardware/qcom/display/config/display-product.mk:244: warning: "Using smmu proxy"
+14:02:17 Build sandboxing disabled due to nsjail error.
+hardware/qcom/display/config/display-product.mk:244: warning: "Using smmu proxy"
+hardware/qcom/display/config/display-product.mk:244: warning: "Using smmu proxy"
+14:02:19 Build sandboxing disabled due to nsjail error.
+hardware/qcom/display/config/display-product.mk:244: warning: "Using smmu proxy"
+hardware/qcom/display/config/display-product.mk:244: warning: "Using smmu proxy"
+
+[m[1m[34mStarting compilation[m
+
+14:02:22 Build sandboxing disabled due to nsjail error.
+Starting ninja...
+hardware/qcom/display/config/display-product.mk:244: warning: "Using smmu proxy"
+Running product configuration...
+hardware/qcom/display/config/display-product.mk:244: warning: "Using smmu proxy"
+============================================
+PLATFORM_VERSION_CODENAME=REL
+PLATFORM_VERSION=17
+PRODUCT_SOURCE_ROOT_DIRS=-prebuilts/misc/protobuf_vendorcompat -platform_testing/libraries/sdv -platform_testing/tests/sdv -platform_testing/libraries/automotive/display_safety -platform_testing/tests/automotive/display_safety -device/generic/trusty/microdroid
+AOSPA_VERSION=calcite-unofficial-giulia-20261102
+TARGET_PRODUCT=aospa_giulia
+TARGET_BUILD_VARIANT=userdebug
+TARGET_ARCH=arm64
+TARGET_ARCH_VARIANT=armv8-2a-dotprod
+TARGET_CPU_VARIANT=generic
+HOST_OS=linux
+HOST_OS_EXTRA=Linux-7.0.0-42-generic-x86_64-Ubuntu-24.04.5-LTS
+HOST_CROSS_OS=windows
+BUILD_ID=CQ2A.260820.002-CP2A.260605.016
+OUT_DIR=out
+PRODUCT_SOONG_NAMESPACES=vendor/oplus/camera/giulia/blobs device/oneplus/giulia vendor/sony/dolby hardware/nxp/keymint/generic hardware/nxp/weaver/generic vendor/oneplus/ir hardware/oplus/overlay device/oneplus/sm8650-common hardware/oplus vendor/oneplus/sm8650-common vendor/oneplus/giulia vendor/google/gms vendor/qcom/common/vendor/adreno/u vendor/qcom/common/system/alarm device/qcom/common/vendor/alarm vendor/qcom/common/vendor/alarm vendor/qcom/common/system/audio vendor/qcom/common/system/av vendor/qcom/common/system/bt vendor/qcom/common/system/display vendor/qcom/common/vendor/display vendor/qcom/common/system/gps device/qcom/common/vendor/gps device/qcom/common/system/overlay device/qcom/common/vendor/overlay vendor/qcom/common/system/perf device/qcom/common/vendor/perf vendor/qcom/common/vendor/perf vendor/qcom/common/system/telephony device/qcom/common/vendor/telephony vendor/qcom/opensource/data-ipa-cfg-mgr device/qcom/common/vendor/usb vendor/qcom/common/system/wfd device/qcom/common/vendor/wlan hardware/qcom/wlan/qcwcn vendor/qcom/opensource/data-ipa-cfg-mgr vendor/qcom/common/vendor/wlan device/qcom/common vendor/qcom/opensource/audio-hal/st-hal-ar
+SOONG_NINJA=ninja
+USE_RBE=true
+SOONG_ONLY=false
+SOONG_INCREMENTAL_ANALYSIS=true
+============================================
+[100% 1/1] bootstrap blueprint
+Running globs...
+ninja: no work to do.
+No need to regenerate ninja file
+No need to regenerate ninja file
+No need to regenerate ninja file
+Starting ninja...
+[  4% 2/42] //packages/apps/Launcher3/modules/widgetpicker:widget_picker_ui_components javac
+[  7% 3/42] //packages/apps/Launcher3:Launcher3ResLib aapt2 compile packages/apps/Launcher3/res 4
+[  9% 4/42] //packages/apps/Launcher3:Launcher3ResLib overlay resource file list
+[ 11% 5/42] //packages/apps/Launcher3/modules/widgetpicker:widget_picker_ui_components turbine
+[ 14% 6/42] //packages/apps/Launcher3:Launcher3ResLib aapt2 link
+warn: removing resource com.android.launcher3:string/allow_rotation_title without required default value.
+warn: removing resource com.android.launcher3:string/folder_name_format_exact without required default value.
+warn: removing resource com.android.launcher3:string/folder_name_format_overflow without required default value.
+warn: removing resource com.android.launcher3:string/item_added_to_workspace without required default value.
+warn: removing resource com.android.launcher3:string/widgets_full_sheet_cancel_button_description without required default value.
+warn: removing resource com.android.launcher3:string/widgets_full_sheet_search_bar_hint without required default value.
+warn: removing resource com.android.launcher3:string/work_profile_edu_accept without required default value.
+[ 16% 7/42] //packages/apps/Launcher3:QuickstepResLib aapt2 link
+warn: removing resource com.android.launcher3:string/back_gesture_spoken_intro_subtitle without required default value.
+warn: removing resource com.android.launcher3:string/bubble_bar_accessibility_announce_collapse without required default value.
+warn: removing resource com.android.launcher3:string/bubble_bar_accessibility_announce_expand without required default value.
+warn: removing resource com.android.launcher3:string/default_device_name without required default value.
+warn: removing resource com.android.launcher3:string/gesture_tutorial_action_button_label_cancel without required default value.
+warn: removing resource com.android.launcher3:string/gesture_tutorial_action_button_label_skip without required default value.
+warn: removing resource com.android.launcher3:string/home_gesture_spoken_intro_subtitle without required default value.
+warn: removing resource com.android.launcher3:string/hotseat_edu_accept without required default value.
+warn: removing resource com.android.launcher3:string/hotseat_edu_dismiss without required default value.
+warn: removing resource com.android.launcher3:string/hotseat_edu_message_migrate without required default value.
+warn: removing resource com.android.launcher3:string/hotseat_edu_message_migrate_landscape without required default value.
+warn: removing resource com.android.launcher3:string/hotseat_edu_title_migrate without required default value.
+warn: removing resource com.android.launcher3:string/hotseat_edu_title_migrate_landscape without required default value.
+warn: removing resource com.android.launcher3:string/hotseat_prediction_content_description without required default value.
+warn: removing resource com.android.launcher3:string/overview_gesture_spoken_intro_subtitle without required default value.
+warn: removing resource com.android.launcher3:string/skip_tutorial_dialog_subtitle without required default value.
+warn: removing resource com.android.launcher3:string/skip_tutorial_dialog_title without required default value.
+warn: removing resource com.android.launcher3:string/task_view_closed without required default value.
+warn: removing resource com.android.launcher3:string/taskbar_a11y_hidden_title without required default value.
+warn: removing resource com.android.launcher3:string/taskbar_a11y_hidden_with_bubbles_title without required default value.
+warn: removing resource com.android.launcher3:string/taskbar_a11y_shown_title without required default value.
+warn: removing resource com.android.launcher3:string/taskbar_a11y_shown_with_bubbles_left_title without required default value.
+warn: removing resource com.android.launcher3:string/taskbar_a11y_shown_with_bubbles_right_title without required default value.
+warn: removing resource com.android.launcher3:string/taskbar_overflow_a11y_title without required default value.
+[ 19% 8/42] //packages/apps/Launcher3:Launcher3QuickStepLib overlay resource file list
+[ 21% 9/42] //packages/apps/Launcher3/modules/widgetpicker:widget_picker_ui kapt stubs
+[ 23% 10/42] //packages/apps/Launcher3/modules/widgetpicker:widget_picker_ui turbine apt
+[ 26% 11/42] //packages/apps/Launcher3:Launcher3QuickStepLib aapt2 link
+[ 28% 12/42] //packages/apps/Launcher3:Launcher3QuickStep overlay resource file list
+[ 30% 13/42] //packages/apps/Launcher3/modules/widgetpicker:widget_picker_ui kotlinc
+[ 33% 14/42] //packages/apps/Launcher3/modules/widgetpicker:widget_picker_ui turbine
+[ 35% 15/42] //packages/apps/Launcher3/modules/widgetpicker:widget_picker_ui javac
+[ 38% 16/42] //packages/apps/Launcher3/modules/widgetpicker:widget_picker_component kotlinc
+[ 40% 17/42] //packages/apps/Launcher3:Launcher3QuickStep aapt2 link
+warn: removing resource com.android.launcher3:string/back_gesture_spoken_intro_subtitle without required default value.
+warn: removing resource com.android.launcher3:string/bubble_bar_accessibility_announce_collapse without required default value.
+warn: removing resource com.android.launcher3:string/bubble_bar_accessibility_announce_expand without required default value.
+warn: removing resource com.android.launcher3:string/default_device_name without required default value.
+warn: removing resource com.android.launcher3:string/gesture_tutorial_action_button_label_cancel without required default value.
+warn: removing resource com.android.launcher3:string/gesture_tutorial_action_button_label_skip without required default value.
+warn: removing resource com.android.launcher3:string/home_gesture_spoken_intro_subtitle without required default value.
+warn: removing resource com.android.launcher3:string/hotseat_edu_accept without required default value.
+warn: removing resource com.android.launcher3:string/hotseat_edu_dismiss without required default value.
+warn: removing resource com.android.launcher3:string/hotseat_edu_message_migrate without required default value.
+warn: removing resource com.android.launcher3:string/hotseat_edu_message_migrate_landscape without required default value.
+warn: removing resource com.android.launcher3:string/hotseat_edu_title_migrate without required default value.
+warn: removing resource com.android.launcher3:string/hotseat_edu_title_migrate_landscape without required default value.
+warn: removing resource com.android.launcher3:string/overview_gesture_spoken_intro_subtitle without required default value.
+warn: removing resource com.android.launcher3:string/skip_tutorial_dialog_subtitle without required default value.
+warn: removing resource com.android.launcher3:string/skip_tutorial_dialog_title without required default value.
+warn: removing resource com.android.launcher3:string/task_view_closed without required default value.
+warn: removing resource com.android.launcher3:string/taskbar_a11y_hidden_title without required default value.
+warn: removing resource com.android.launcher3:string/taskbar_a11y_hidden_with_bubbles_title without required default value.
+warn: removing resource com.android.launcher3:string/taskbar_a11y_shown_title without required default value.
+warn: removing resource com.android.launcher3:string/taskbar_a11y_shown_with_bubbles_left_title without required default value.
+warn: removing resource com.android.launcher3:string/taskbar_a11y_shown_with_bubbles_right_title without required default value.
+warn: removing resource com.android.launcher3:string/taskbar_overflow_a11y_title without required default value.
+[ 42% 18/42] //packages/apps/Launcher3:Launcher3QuickStep merge assets from dependencies
+[ 45% 19/42] Copy: out/target/common/obj/APPS/Launcher3QuickStep_intermediates/package-export.apk
+[ 47% 20/42] //packages/apps/Launcher3:Launcher3QuickStep ResourceProcessorBusyBox
+[ 50% 21/42] //packages/apps/Launcher3:Launcher3QuickStep convert to proto
+[ 52% 22/42] //packages/apps/Launcher3:Launcher3QuickStepLib kapt stubs
+[ 54% 23/42] //packages/apps/Launcher3:Launcher3QuickStepLib turbine apt
+FAILED: out/soong/.intermediates/packages/apps/Launcher3/Launcher3QuickStepLib/android_common/kapt/kapt-sources.jar out/soong/.intermediates/packages/apps/Launcher3/Launcher3QuickStepLib/android_common/kapt/kapt-res.jar
+/srv/.rbe/rewrapper --labels=name=turbine,type=tool --platform="Pool=default,container-image=docker://gcr.io/androidbuild-re-dockerimage/android-build-remoteexec-image@sha256:1eb7f64b9e17102b970bd7a1af7daaebdb01c3fb777715899ef462d6c6d01a45" --exec_strategy=remote_local_fallback --inputs=out/host/linux-x86/framework/turbine.jar,out/soong/.intermediates/packages/apps/Launcher3/Launcher3QuickStepLib/android_common/kapt/kapt-sources.jar.rsp,out/soong/.intermediates/packages/apps/Launcher3/Launcher3QuickStepLib/android_common/kapt/stubs.jar,out/soong/.intermediates/packages/apps/Launcher3/launcher-quickstep-processed-protolog-src/android_common/gen/launcher.quickstep.protolog.srcjar,out/soong/.intermediates/packages/apps/Launcher3/Launcher3QuickStepLib/android_common/gen/android/R.srcjar,out/soong/.intermediates/build/soong/java/core-libraries/stable-core-platform-api-stubs-system-modules/android_common/system/lib/modules,out/soong/.intermediates/build/soong/java/core-libraries/stable-core-platform-api-stubs-system-modules/android_common/system/lib/jrt-fs.jar,out/soong/.intermediates/build/soong/java/core-libraries/stable-core-platform-api-stubs-system-modules/android_common/system/release,out/soong/.intermediates/packages/apps/Launcher3/Launcher3QuickStepLib/android_common/turbine-apt/classpath.rsp,out/soong/.intermediates/external/dagger2/dagger2-compiler/linux_glibc_common/jarjar/dagger2-compiler.jar --input_list_paths=out/soong/.intermediates/packages/apps/Launcher3/Launcher3QuickStepLib/android_common/kapt/kapt-sources.jar.rsp,out/soong/.intermediates/packages/apps/Launcher3/Launcher3QuickStepLib/android_common/turbine-apt/classpath.rsp --output_files=out/soong/.intermediates/packages/apps/Launcher3/Launcher3QuickStepLib/android_common/kapt/kapt-sources.jar.tmp,out/soong/.intermediates/packages/apps/Launcher3/Launcher3QuickStepLib/android_common/kapt/kapt-res.jar.tmp --toolchain_inputs=prebuilts/jdk/jdk21/linux-x86/bin/java --env_var_allowlist=LANG,LC_MESSAGES,PYTHONDONTWRITEBYTECODE -- prebuilts/jdk/jdk21/linux-x86/bin/java -XX:OnError="cat hs_err_pid%p.log" -XX:CICompilerCount=6 -XX:+UseDynamicNumberOfGCThreads -jar out/host/linux-x86/framework/turbine.jar --gensrc_output out/soong/.intermediates/packages/apps/Launcher3/Launcher3QuickStepLib/android_common/kapt/kapt-sources.jar.tmp --resource_output out/soong/.intermediates/packages/apps/Launcher3/Launcher3QuickStepLib/android_common/kapt/kapt-res.jar.tmp --sources @out/soong/.intermediates/packages/apps/Launcher3/Launcher3QuickStepLib/android_common/kapt/kapt-sources.jar.rsp --javacopts -Xmaxerrs 9999999 -encoding UTF-8 -sourcepath "" -g -XDskipDuplicateBridges=true -XDstringConcat=inline -XDturbine.noMethodParameters -g:source,lines -Xlint:-dep-ann -source 21 -target 21 -- --source_jars out/soong/.intermediates/packages/apps/Launcher3/Launcher3QuickStepLib/android_common/kapt/stubs.jar out/soong/.intermediates/packages/apps/Launcher3/launcher-quickstep-processed-protolog-src/android_common/gen/launcher.quickstep.protolog.srcjar out/soong/.intermediates/packages/apps/Launcher3/Launcher3QuickStepLib/android_common/gen/android/R.srcjar --system out/soong/.intermediates/build/soong/java/core-libraries/stable-core-platform-api-stubs-system-modules/android_common/system --classpath @out/soong/.intermediates/packages/apps/Launcher3/Launcher3QuickStepLib/android_common/turbine-apt/classpath.rsp --processorpath out/soong/.intermediates/external/dagger2/dagger2-compiler/linux_glibc_common/jarjar/dagger2-compiler.jar --processors dagger.internal.codegen.ComponentProcessor && (for o in out/soong/.intermediates/packages/apps/Launcher3/Launcher3QuickStepLib/android_common/kapt/kapt-sources.jar out/soong/.intermediates/packages/apps/Launcher3/Launcher3QuickStepLib/android_common/kapt/kapt-res.jar; do if cmp -s ${o}.tmp ${o} ; then rm ${o}.tmp ; else mv ${o}.tmp ${o} ; fi; done )
+packages/apps/Launcher3/src/com/android/launcher3/graphics/DrawableFactory.java:41: error: symbol not found com.android.launcher3.util.override.ResourceBasedOverride
+import com.android.launcher3.util.override.ResourceBasedOverride;
+       ^
+packages/apps/Launcher3/src/com/android/launcher3/graphics/DrawableFactory.java:47: error: could not resolve ResourceBasedOverride
+public class DrawableFactory implements ResourceBasedOverride, SafeCloseable {
+                                        ^
+packages/apps/Launcher3/src/com/android/launcher3/graphics/DrawableFactory.java:42: error: symbol not found com.android.launcher3.util.override.MainThreadInitializedObject
+import com.android.launcher3.util.override.MainThreadInitializedObject;
+       ^
+packages/apps/Launcher3/src/com/android/launcher3/graphics/DrawableFactory.java:49: error: could not resolve MainThreadInitializedObject
+    public static final MainThreadInitializedObject<DrawableFactory> INSTANCE =
+                        ^
+ninja: build stopped: subcommand failed.
+14:03:55 ninja failed with: exit status 1
+
+[0;31m#### failed to build some targets (01:35 (mm:ss)) ####
+[00m
+[m[1m[31mBuild failed![m
+

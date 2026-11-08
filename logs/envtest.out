@@ -1,0 +1,1 @@
+INNER_SSH_TTY=/dev/pts/49 INNER_TMUX=/tmp/tmux-1447/default,2311800,0 INNER_CUSTOM=/opt/ninja INNER_TERM=tmux-256color

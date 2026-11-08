@@ -1,0 +1,94 @@
+=== SystemUI media compile start Tue Nov  3 05:07:50 PM UTC 2026 ===
+SystemUI
+[m[1m[34mSetting up the environment[m
+
+including vendor/aospa/vendorsetup.sh
+including vendor/google/gms/vendorsetup.sh
+including vendor/oplus/camera/vendorsetup.sh
+including vendor/qcom/opensource/core-utils/vendorsetup.sh
+including vendor/qcom/sdclang/config/vendorsetup.sh
+
+[m[1m[32mBuilding AOSPA calcite for giulia[m
+[m[32mStart time: Tue Nov  3 05:07:51 PM UTC 2026[m
+
+[m[1m[34mLunching giulia[m [m[36m(Including dependencies sync)[m
+
+Release not specified, defaulting to cp2a build
+No changes were necessary to the barista recipe.
+No ingredients need to be brewed.
+17:07:53 Build sandboxing disabled due to nsjail error.
+hardware/qcom/display/config/display-product.mk:244: warning: "Using smmu proxy"
+hardware/qcom/display/config/display-product.mk:244: warning: "Using smmu proxy"
+
+============================================
+PLATFORM_VERSION_CODENAME=REL
+PLATFORM_VERSION=17
+PRODUCT_SOURCE_ROOT_DIRS=-prebuilts/misc/protobuf_vendorcompat -platform_testing/libraries/sdv -platform_testing/tests/sdv -platform_testing/libraries/automotive/display_safety -platform_testing/tests/automotive/display_safety -device/generic/trusty/microdroid
+AOSPA_VERSION=calcite-unofficial-giulia-20261103
+TARGET_PRODUCT=aospa_giulia
+TARGET_BUILD_VARIANT=userdebug
+TARGET_ARCH=arm64
+TARGET_ARCH_VARIANT=armv8-2a-dotprod
+TARGET_CPU_VARIANT=generic
+HOST_OS=linux
+HOST_OS_EXTRA=Linux-7.0.0-42-generic-x86_64-Ubuntu-24.04.5-LTS
+HOST_CROSS_OS=windows
+BUILD_ID=CQ2A.260820.002-CP2A.260605.016
+OUT_DIR=out
+PRODUCT_SOONG_NAMESPACES=vendor/oplus/camera/giulia/blobs device/oneplus/giulia vendor/sony/dolby hardware/nxp/keymint/generic hardware/nxp/weaver/generic vendor/oneplus/ir hardware/oplus/overlay device/oneplus/sm8650-common hardware/oplus vendor/oneplus/sm8650-oss/vendor.oplus.hardware.touch@2.0-service vendor/oneplus/sm8650-common vendor/oneplus/giulia vendor/google/gms vendor/qcom/common/vendor/adreno/u vendor/qcom/common/system/alarm device/qcom/common/vendor/alarm vendor/qcom/common/vendor/alarm vendor/qcom/common/system/audio vendor/qcom/common/system/av vendor/qcom/common/system/bt vendor/qcom/common/system/display vendor/qcom/common/vendor/display vendor/qcom/common/system/gps device/qcom/common/vendor/gps device/qcom/common/system/overlay device/qcom/common/vendor/overlay vendor/qcom/common/system/perf device/qcom/common/vendor/perf vendor/qcom/common/vendor/perf vendor/qcom/common/system/telephony device/qcom/common/vendor/telephony vendor/qcom/opensource/data-ipa-cfg-mgr device/qcom/common/vendor/usb vendor/qcom/common/system/wfd device/qcom/common/vendor/wlan hardware/qcom/wlan/qcwcn vendor/qcom/opensource/data-ipa-cfg-mgr vendor/qcom/common/vendor/wlan device/qcom/common vendor/qcom/opensource/audio-hal/st-hal-ar
+SOONG_NINJA=ninja
+USE_RBE=true
+SOONG_ONLY=false
+SOONG_INCREMENTAL_ANALYSIS=false
+============================================
+17:07:56 Build sandboxing disabled due to nsjail error.
+hardware/qcom/display/config/display-product.mk:244: warning: "Using smmu proxy"
+hardware/qcom/display/config/display-product.mk:244: warning: "Using smmu proxy"
+17:07:59 Build sandboxing disabled due to nsjail error.
+hardware/qcom/display/config/display-product.mk:244: warning: "Using smmu proxy"
+hardware/qcom/display/config/display-product.mk:244: warning: "Using smmu proxy"
+17:08:02 Build sandboxing disabled due to nsjail error.
+hardware/qcom/display/config/display-product.mk:244: warning: "Using smmu proxy"
+hardware/qcom/display/config/display-product.mk:244: warning: "Using smmu proxy"
+
+[m[1m[34mStarting compilation[m
+
+17:08:05 Build sandboxing disabled due to nsjail error.
+Starting ninja...
+hardware/qcom/display/config/display-product.mk:244: warning: "Using smmu proxy"
+Running product configuration...
+hardware/qcom/display/config/display-product.mk:244: warning: "Using smmu proxy"
+============================================
+PLATFORM_VERSION_CODENAME=REL
+PLATFORM_VERSION=17
+PRODUCT_SOURCE_ROOT_DIRS=-prebuilts/misc/protobuf_vendorcompat -platform_testing/libraries/sdv -platform_testing/tests/sdv -platform_testing/libraries/automotive/display_safety -platform_testing/tests/automotive/display_safety -device/generic/trusty/microdroid
+AOSPA_VERSION=calcite-unofficial-giulia-20261103
+TARGET_PRODUCT=aospa_giulia
+TARGET_BUILD_VARIANT=userdebug
+TARGET_ARCH=arm64
+TARGET_ARCH_VARIANT=armv8-2a-dotprod
+TARGET_CPU_VARIANT=generic
+HOST_OS=linux
+HOST_OS_EXTRA=Linux-7.0.0-42-generic-x86_64-Ubuntu-24.04.5-LTS
+HOST_CROSS_OS=windows
+BUILD_ID=CQ2A.260820.002-CP2A.260605.016
+OUT_DIR=out
+PRODUCT_SOONG_NAMESPACES=vendor/oplus/camera/giulia/blobs device/oneplus/giulia vendor/sony/dolby hardware/nxp/keymint/generic hardware/nxp/weaver/generic vendor/oneplus/ir hardware/oplus/overlay device/oneplus/sm8650-common hardware/oplus vendor/oneplus/sm8650-oss/vendor.oplus.hardware.touch@2.0-service vendor/oneplus/sm8650-common vendor/oneplus/giulia vendor/google/gms vendor/qcom/common/vendor/adreno/u vendor/qcom/common/system/alarm device/qcom/common/vendor/alarm vendor/qcom/common/vendor/alarm vendor/qcom/common/system/audio vendor/qcom/common/system/av vendor/qcom/common/system/bt vendor/qcom/common/system/display vendor/qcom/common/vendor/display vendor/qcom/common/system/gps device/qcom/common/vendor/gps device/qcom/common/system/overlay device/qcom/common/vendor/overlay vendor/qcom/common/system/perf device/qcom/common/vendor/perf vendor/qcom/common/vendor/perf vendor/qcom/common/system/telephony device/qcom/common/vendor/telephony vendor/qcom/opensource/data-ipa-cfg-mgr device/qcom/common/vendor/usb vendor/qcom/common/system/wfd device/qcom/common/vendor/wlan hardware/qcom/wlan/qcwcn vendor/qcom/opensource/data-ipa-cfg-mgr vendor/qcom/common/vendor/wlan device/qcom/common vendor/qcom/opensource/audio-hal/st-hal-ar
+SOONG_NINJA=ninja
+USE_RBE=true
+SOONG_ONLY=false
+SOONG_INCREMENTAL_ANALYSIS=true
+============================================
+[100% 1/1] bootstrap blueprint
+Running globs...
+ninja: no work to do.
+No need to regenerate ninja file
+No need to regenerate ninja file
+No need to regenerate ninja file
+Starting ninja...
+17:08:18 Got signal: hangup
+17:08:20 Got signal: terminated
+17:08:20 Still alive, killing subprocesses...
+17:08:21 ninja failed with: signal: killed
+17:08:21 soong bootstrap with shutdown failed with: context canceled
+

@@ -1,0 +1,131 @@
+=== final services/policy compile start Mon Nov  2 11:36:43 PM UTC 2026 ===
+services
+vendor_sepolicy.cil
+[m[1m[34mSetting up the environment[m
+
+including vendor/aospa/vendorsetup.sh
+including vendor/google/gms/vendorsetup.sh
+including vendor/oplus/camera/vendorsetup.sh
+including vendor/qcom/opensource/core-utils/vendorsetup.sh
+including vendor/qcom/sdclang/config/vendorsetup.sh
+
+[m[1m[32mBuilding AOSPA calcite for giulia[m
+[m[32mStart time: Mon Nov  2 11:36:43 PM UTC 2026[m
+
+[m[1m[34mLunching giulia[m [m[36m(Including dependencies sync)[m
+
+Release not specified, defaulting to cp2a build
+No changes were necessary to the barista recipe.
+No ingredients need to be brewed.
+23:36:44 Build sandboxing disabled due to nsjail error.
+hardware/qcom/display/config/display-product.mk:244: warning: "Using smmu proxy"
+hardware/qcom/display/config/display-product.mk:244: warning: "Using smmu proxy"
+
+============================================
+PLATFORM_VERSION_CODENAME=REL
+PLATFORM_VERSION=17
+PRODUCT_SOURCE_ROOT_DIRS=-prebuilts/misc/protobuf_vendorcompat -platform_testing/libraries/sdv -platform_testing/tests/sdv -platform_testing/libraries/automotive/display_safety -platform_testing/tests/automotive/display_safety -device/generic/trusty/microdroid
+AOSPA_VERSION=calcite-unofficial-giulia-20261102
+TARGET_PRODUCT=aospa_giulia
+TARGET_BUILD_VARIANT=userdebug
+TARGET_ARCH=arm64
+TARGET_ARCH_VARIANT=armv8-2a-dotprod
+TARGET_CPU_VARIANT=generic
+HOST_OS=linux
+HOST_OS_EXTRA=Linux-7.0.0-42-generic-x86_64-Ubuntu-24.04.5-LTS
+HOST_CROSS_OS=windows
+BUILD_ID=CQ2A.260820.002-CP2A.260605.016
+OUT_DIR=out
+PRODUCT_SOONG_NAMESPACES=vendor/oplus/camera/giulia/blobs device/oneplus/giulia vendor/sony/dolby hardware/nxp/keymint/generic hardware/nxp/weaver/generic vendor/oneplus/ir hardware/oplus/overlay device/oneplus/sm8650-common hardware/oplus vendor/oneplus/sm8650-oss/vendor.oplus.hardware.touch@2.0-service vendor/oneplus/sm8650-common vendor/oneplus/giulia vendor/google/gms vendor/qcom/common/vendor/adreno/u vendor/qcom/common/system/alarm device/qcom/common/vendor/alarm vendor/qcom/common/vendor/alarm vendor/qcom/common/system/audio vendor/qcom/common/system/av vendor/qcom/common/system/bt vendor/qcom/common/system/display vendor/qcom/common/vendor/display vendor/qcom/common/system/gps device/qcom/common/vendor/gps device/qcom/common/system/overlay device/qcom/common/vendor/overlay vendor/qcom/common/system/perf device/qcom/common/vendor/perf vendor/qcom/common/vendor/perf vendor/qcom/common/system/telephony device/qcom/common/vendor/telephony vendor/qcom/opensource/data-ipa-cfg-mgr device/qcom/common/vendor/usb vendor/qcom/common/system/wfd device/qcom/common/vendor/wlan hardware/qcom/wlan/qcwcn vendor/qcom/opensource/data-ipa-cfg-mgr vendor/qcom/common/vendor/wlan device/qcom/common vendor/qcom/opensource/audio-hal/st-hal-ar
+SOONG_NINJA=ninja
+USE_RBE=true
+SOONG_ONLY=false
+SOONG_INCREMENTAL_ANALYSIS=false
+============================================
+23:36:47 Build sandboxing disabled due to nsjail error.
+hardware/qcom/display/config/display-product.mk:244: warning: "Using smmu proxy"
+hardware/qcom/display/config/display-product.mk:244: warning: "Using smmu proxy"
+23:36:50 Build sandboxing disabled due to nsjail error.
+hardware/qcom/display/config/display-product.mk:244: warning: "Using smmu proxy"
+hardware/qcom/display/config/display-product.mk:244: warning: "Using smmu proxy"
+23:36:53 Build sandboxing disabled due to nsjail error.
+hardware/qcom/display/config/display-product.mk:244: warning: "Using smmu proxy"
+hardware/qcom/display/config/display-product.mk:244: warning: "Using smmu proxy"
+
+[m[1m[34mStarting compilation[m
+
+23:36:56 Build sandboxing disabled due to nsjail error.
+Starting ninja...
+hardware/qcom/display/config/display-product.mk:244: warning: "Using smmu proxy"
+Running product configuration...
+hardware/qcom/display/config/display-product.mk:244: warning: "Using smmu proxy"
+============================================
+PLATFORM_VERSION_CODENAME=REL
+PLATFORM_VERSION=17
+PRODUCT_SOURCE_ROOT_DIRS=-prebuilts/misc/protobuf_vendorcompat -platform_testing/libraries/sdv -platform_testing/tests/sdv -platform_testing/libraries/automotive/display_safety -platform_testing/tests/automotive/display_safety -device/generic/trusty/microdroid
+AOSPA_VERSION=calcite-unofficial-giulia-20261102
+TARGET_PRODUCT=aospa_giulia
+TARGET_BUILD_VARIANT=userdebug
+TARGET_ARCH=arm64
+TARGET_ARCH_VARIANT=armv8-2a-dotprod
+TARGET_CPU_VARIANT=generic
+HOST_OS=linux
+HOST_OS_EXTRA=Linux-7.0.0-42-generic-x86_64-Ubuntu-24.04.5-LTS
+HOST_CROSS_OS=windows
+BUILD_ID=CQ2A.260820.002-CP2A.260605.016
+OUT_DIR=out
+PRODUCT_SOONG_NAMESPACES=vendor/oplus/camera/giulia/blobs device/oneplus/giulia vendor/sony/dolby hardware/nxp/keymint/generic hardware/nxp/weaver/generic vendor/oneplus/ir hardware/oplus/overlay device/oneplus/sm8650-common hardware/oplus vendor/oneplus/sm8650-oss/vendor.oplus.hardware.touch@2.0-service vendor/oneplus/sm8650-common vendor/oneplus/giulia vendor/google/gms vendor/qcom/common/vendor/adreno/u vendor/qcom/common/system/alarm device/qcom/common/vendor/alarm vendor/qcom/common/vendor/alarm vendor/qcom/common/system/audio vendor/qcom/common/system/av vendor/qcom/common/system/bt vendor/qcom/common/system/display vendor/qcom/common/vendor/display vendor/qcom/common/system/gps device/qcom/common/vendor/gps device/qcom/common/system/overlay device/qcom/common/vendor/overlay vendor/qcom/common/system/perf device/qcom/common/vendor/perf vendor/qcom/common/vendor/perf vendor/qcom/common/system/telephony device/qcom/common/vendor/telephony vendor/qcom/opensource/data-ipa-cfg-mgr device/qcom/common/vendor/usb vendor/qcom/common/system/wfd device/qcom/common/vendor/wlan hardware/qcom/wlan/qcwcn vendor/qcom/opensource/data-ipa-cfg-mgr vendor/qcom/common/vendor/wlan device/qcom/common vendor/qcom/opensource/audio-hal/st-hal-ar
+SOONG_NINJA=ninja
+USE_RBE=true
+SOONG_ONLY=false
+SOONG_INCREMENTAL_ANALYSIS=true
+============================================
+[100% 1/1] bootstrap blueprint
+Running globs...
+ninja: no work to do.
+No need to regenerate ninja file
+No need to regenerate ninja file
+No need to regenerate ninja file
+Starting ninja...
+[  0% 2/355 2m20s remaining] //system/sepolicy:vendor_sepolicy.conf Transform policy to conf: vendor_sepolicy.conf
+[  0% 3/355 2m19s remaining] //system/sepolicy:vendor_sepolicy.unversioned.cil Building cil for vendor_sepolicy.unversioned.cil
+system/sepolicy/vendor/hal_vm_capabilities_default.te:10:WARNING 'omitting avrule with no permission set' at token ';' on line 20980:
+allow hal_vm_capabilities_default crosvm_vendor:fd use;
+neverallow hal_vm_capabilities_default crosvm_vendor:fd ~use;
+[  1% 4/355 2m18s remaining] //frameworks/base/services/core:gen-core.protolog.pb generate core.protolog.pb
+[  1% 5/355 2m18s remaining] cp out/soong/.intermediates/frameworks/base/services/core/core.protolog.pb/android_arm64_armv8-2a-dotprod/core.protolog.pb
+[  1% 6/355 2m18s remaining] target Prebuilt: core.protolog.pb (out/target/product/giulia/obj/ETC/core.protolog.pb_intermediates/core.protolog.pb)
+[  1% 7/355 2m18s remaining] Install: out/target/product/giulia/system/etc/core.protolog.pb
+[  2% 8/355 2m17s remaining] //frameworks/base/services/core:services.core.protologsrc generate services.core.protolog.srcjar
+[  2% 9/355 2m12s remaining] //system/sepolicy:vendor_sepolicy.cil Versioning mapping file vendor_sepolicy.cil
+[  2% 10/355 2m12s remaining] target Prebuilt: vendor_sepolicy.cil (out/target/product/giulia/obj/ETC/vendor_sepolicy.cil_intermediates/vendor_sepolicy.cil)
+[  3% 11/355 2m12s remaining] Install: out/target/product/giulia/vendor/etc/selinux/vendor_sepolicy.cil
+[  3% 12/355 2m12s remaining] //frameworks/base/services/core:services.core.unboosted turbine
+[ 40% 13/32 2m0s remaining] //frameworks/base/services/core:services.core.unboosted javac46
+[ 43% 14/32 1m58s remaining] //frameworks/base/services/core:services.core.unboosted jarjar
+[ 46% 15/32 1m58s remaining] //frameworks/base/services/core:services.core.unboosted for javac
+[ 50% 16/32 1m53s remaining] //frameworks/base/services/core:services.core.unboosted jarjar
+[ 53% 17/32 1m49s remaining] //frameworks/base/services/core:services.core.priorityboosted generate services.core.priorityboosted.jar
+[ 56% 18/32 1m48s remaining] //frameworks/base/services:services for javac
+[ 59% 19/32 1m48s remaining] Copy: out/target/common/obj/JAVA_LIBRARIES/services_intermediates/classes.jar
+[ 62% 20/32 1m11s remaining] //frameworks/base/services:services-non-updatable-stubs metalava merged
+[ 65% 21/32 1m11s remaining] //frameworks/base/services:services-non-updatable-stubs check current API
+[ 68% 22/32 34s remaining] //frameworks/base/services:services r8
+Warning: An API level of 37 is not supported by this compiler. Please use an API level of 36 or earlier)
+[ 71% 23/32 34s remaining] verify depfile
+[ 75% 24/32 34s remaining] //frameworks/base/services:services align
+[ 78% 25/32 34s remaining] Copy: out/target/common/obj/JAVA_LIBRARIES/services_intermediates/javalib.jar
+[ 81% 26/32 34s remaining] Copy: out/target/product/giulia/obj/JAVA_LIBRARIES/services_intermediates/javalib.jar
+[ 84% 27/32 34s remaining] Install: out/target/product/giulia/system/framework/services.jar
+[ 87% 28/32 29s remaining] //frameworks/base/services:services dexpreopt
+[ 90% 29/32 29s remaining] Install: out/target/product/giulia/system/framework/services.jar.prof
+[ 93% 30/32 29s remaining] Install: out/target/product/giulia/system/framework/oat/arm64/services.art
+[ 96% 31/32 29s remaining] Install: out/target/product/giulia/system/framework/oat/arm64/services.vdex
+[100% 32/32 29s remaining] Install: out/target/product/giulia/system/framework/oat/arm64/services.odex
+
+[0;32m#### build completed successfully (02:12 (mm:ss)) ####
+[00m
+
+[m[1m[32mTotal time elapsed:[m [m[32m2 minutes (143.410731451 seconds)[m
+
+=== final services/policy compile done Mon Nov  2 11:39:07 PM UTC 2026 ===

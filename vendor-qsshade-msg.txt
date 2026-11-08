@@ -1,0 +1,8 @@
+axion: Restore AxQsShadePolicy and fix landscape QS layout
+
+Re-add the Axion separate-shade policy removed during the QS import and
+use one shared split-layout flag in the QS fragment and grid. Landscape
+now consistently uses split-shade measurements and separate mode is
+disabled while the split layout is active.
+
+Ported from AxionOS 2.9.

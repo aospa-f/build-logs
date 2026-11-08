@@ -1,0 +1,6 @@
+Launcher3: Lift app drawer search bar above gesture inset
+
+Use the mandatory system gesture inset when computing the bottom search
+bar margin and make sure the search container always has
+RelativeLayout.LayoutParams so the margin is applied. Add temporary
+layout logging for on-device verification.

@@ -1,0 +1,132 @@
+=== ParanoidSystemUI compile start Mon Nov  2 09:05:27 PM UTC 2026 ===
+ParanoidSystemUI
+[m[1m[34mSetting up the environment[m
+
+including vendor/aospa/vendorsetup.sh
+including vendor/google/gms/vendorsetup.sh
+including vendor/oplus/camera/vendorsetup.sh
+including vendor/qcom/opensource/core-utils/vendorsetup.sh
+including vendor/qcom/sdclang/config/vendorsetup.sh
+
+[m[1m[32mBuilding AOSPA calcite for giulia[m
+[m[32mStart time: Mon Nov  2 09:05:28 PM UTC 2026[m
+
+[m[1m[34mLunching giulia[m [m[36m(Including dependencies sync)[m
+
+Release not specified, defaulting to cp2a build
+No changes were necessary to the barista recipe.
+No ingredients need to be brewed.
+21:05:31 Build sandboxing disabled due to nsjail error.
+hardware/qcom/display/config/display-product.mk:244: warning: "Using smmu proxy"
+hardware/qcom/display/config/display-product.mk:244: warning: "Using smmu proxy"
+
+============================================
+PLATFORM_VERSION_CODENAME=REL
+PLATFORM_VERSION=17
+PRODUCT_SOURCE_ROOT_DIRS=-prebuilts/misc/protobuf_vendorcompat -platform_testing/libraries/sdv -platform_testing/tests/sdv -platform_testing/libraries/automotive/display_safety -platform_testing/tests/automotive/display_safety -device/generic/trusty/microdroid
+AOSPA_VERSION=calcite-unofficial-giulia-20261102
+TARGET_PRODUCT=aospa_giulia
+TARGET_BUILD_VARIANT=userdebug
+TARGET_ARCH=arm64
+TARGET_ARCH_VARIANT=armv8-2a-dotprod
+TARGET_CPU_VARIANT=generic
+HOST_OS=linux
+HOST_OS_EXTRA=Linux-7.0.0-42-generic-x86_64-Ubuntu-24.04.5-LTS
+HOST_CROSS_OS=windows
+BUILD_ID=CQ2A.260820.002-CP2A.260605.016
+OUT_DIR=out
+PRODUCT_SOONG_NAMESPACES=vendor/oplus/camera/giulia/blobs device/oneplus/giulia vendor/sony/dolby hardware/nxp/keymint/generic hardware/nxp/weaver/generic vendor/oneplus/ir hardware/oplus/overlay device/oneplus/sm8650-common hardware/oplus vendor/oneplus/sm8650-oss/vendor.oplus.hardware.touch@2.0-service vendor/oneplus/sm8650-common vendor/oneplus/giulia vendor/google/gms vendor/qcom/common/vendor/adreno/u vendor/qcom/common/system/alarm device/qcom/common/vendor/alarm vendor/qcom/common/vendor/alarm vendor/qcom/common/system/audio vendor/qcom/common/system/av vendor/qcom/common/system/bt vendor/qcom/common/system/display vendor/qcom/common/vendor/display vendor/qcom/common/system/gps device/qcom/common/vendor/gps device/qcom/common/system/overlay device/qcom/common/vendor/overlay vendor/qcom/common/system/perf device/qcom/common/vendor/perf vendor/qcom/common/vendor/perf vendor/qcom/common/system/telephony device/qcom/common/vendor/telephony vendor/qcom/opensource/data-ipa-cfg-mgr device/qcom/common/vendor/usb vendor/qcom/common/system/wfd device/qcom/common/vendor/wlan hardware/qcom/wlan/qcwcn vendor/qcom/opensource/data-ipa-cfg-mgr vendor/qcom/common/vendor/wlan device/qcom/common vendor/qcom/opensource/audio-hal/st-hal-ar
+SOONG_NINJA=ninja
+USE_RBE=true
+SOONG_ONLY=false
+SOONG_INCREMENTAL_ANALYSIS=false
+============================================
+21:05:37 Build sandboxing disabled due to nsjail error.
+hardware/qcom/display/config/display-product.mk:244: warning: "Using smmu proxy"
+hardware/qcom/display/config/display-product.mk:244: warning: "Using smmu proxy"
+21:05:42 Build sandboxing disabled due to nsjail error.
+hardware/qcom/display/config/display-product.mk:244: warning: "Using smmu proxy"
+hardware/qcom/display/config/display-product.mk:244: warning: "Using smmu proxy"
+21:05:48 Build sandboxing disabled due to nsjail error.
+hardware/qcom/display/config/display-product.mk:244: warning: "Using smmu proxy"
+hardware/qcom/display/config/display-product.mk:244: warning: "Using smmu proxy"
+
+[m[1m[34mStarting compilation[m
+
+21:05:53 Build sandboxing disabled due to nsjail error.
+Starting ninja...
+hardware/qcom/display/config/display-product.mk:244: warning: "Using smmu proxy"
+Running product configuration...
+hardware/qcom/display/config/display-product.mk:244: warning: "Using smmu proxy"
+============================================
+PLATFORM_VERSION_CODENAME=REL
+PLATFORM_VERSION=17
+PRODUCT_SOURCE_ROOT_DIRS=-prebuilts/misc/protobuf_vendorcompat -platform_testing/libraries/sdv -platform_testing/tests/sdv -platform_testing/libraries/automotive/display_safety -platform_testing/tests/automotive/display_safety -device/generic/trusty/microdroid
+AOSPA_VERSION=calcite-unofficial-giulia-20261102
+TARGET_PRODUCT=aospa_giulia
+TARGET_BUILD_VARIANT=userdebug
+TARGET_ARCH=arm64
+TARGET_ARCH_VARIANT=armv8-2a-dotprod
+TARGET_CPU_VARIANT=generic
+HOST_OS=linux
+HOST_OS_EXTRA=Linux-7.0.0-42-generic-x86_64-Ubuntu-24.04.5-LTS
+HOST_CROSS_OS=windows
+BUILD_ID=CQ2A.260820.002-CP2A.260605.016
+OUT_DIR=out
+PRODUCT_SOONG_NAMESPACES=vendor/oplus/camera/giulia/blobs device/oneplus/giulia vendor/sony/dolby hardware/nxp/keymint/generic hardware/nxp/weaver/generic vendor/oneplus/ir hardware/oplus/overlay device/oneplus/sm8650-common hardware/oplus vendor/oneplus/sm8650-oss/vendor.oplus.hardware.touch@2.0-service vendor/oneplus/sm8650-common vendor/oneplus/giulia vendor/google/gms vendor/qcom/common/vendor/adreno/u vendor/qcom/common/system/alarm device/qcom/common/vendor/alarm vendor/qcom/common/vendor/alarm vendor/qcom/common/system/audio vendor/qcom/common/system/av vendor/qcom/common/system/bt vendor/qcom/common/system/display vendor/qcom/common/vendor/display vendor/qcom/common/system/gps device/qcom/common/vendor/gps device/qcom/common/system/overlay device/qcom/common/vendor/overlay vendor/qcom/common/system/perf device/qcom/common/vendor/perf vendor/qcom/common/vendor/perf vendor/qcom/common/system/telephony device/qcom/common/vendor/telephony vendor/qcom/opensource/data-ipa-cfg-mgr device/qcom/common/vendor/usb vendor/qcom/common/system/wfd device/qcom/common/vendor/wlan hardware/qcom/wlan/qcwcn vendor/qcom/opensource/data-ipa-cfg-mgr vendor/qcom/common/vendor/wlan device/qcom/common vendor/qcom/opensource/audio-hal/st-hal-ar
+SOONG_NINJA=ninja
+USE_RBE=true
+SOONG_ONLY=false
+SOONG_INCREMENTAL_ANALYSIS=true
+============================================
+[100% 1/1] bootstrap blueprint
+Running globs...
+ninja: no work to do.
+No need to regenerate ninja file
+No need to regenerate ninja file
+No need to regenerate ninja file
+Starting ninja...
+[  9% 2/22 6m43s remaining] //packages/apps/ParanoidSystemUI:ParanoidSystemUI-core kapt stubs
+[ 13% 3/22 6m21s remaining] //packages/apps/ParanoidSystemUI:ParanoidSystemUI-core turbine apt
+[ 18% 4/22 6m16s remaining] //packages/apps/ParanoidSystemUI:ParanoidSystemUI-core kotlinc
+packages/apps/ParanoidSystemUI/src/co/aospa/systemui/biometrics/FingerprintInteractiveToAuthProviderImpl.kt:38:3: warning: this annotation is currently applied to the value parameter only, but in the future it will also be applied to property.
+- To opt in to applying to both value parameter and property, add '-Xannotation-default-target=param-property' to your compiler arguments.
+- To keep applying to the value parameter only, use the '@param:' annotation target.
+
+See https://youtrack.jetbrains.com/issue/KT-73255 for more details.
+  @Background private val backgroundDispatcher: CoroutineDispatcher,
+  ^^^^^^^^^^^
+packages/apps/ParanoidSystemUI/src/co/aospa/systemui/biometrics/FingerprintInteractiveToAuthProviderImpl.kt:53:8: warning: this declaration needs opt-in. Its usage should be marked with '@kotlinx.coroutines.ExperimentalCoroutinesApi' or '@OptIn(kotlinx.coroutines.ExperimentalCoroutinesApi::class)'
+      .flatMapLatest { currentUserId ->
+       ^^^^^^^^^^^^^
+[ 23% 5/21 5m52s remaining] //packages/apps/ParanoidSystemUI:ParanoidSystemUI-core javac
+[ 28% 6/21 5m52s remaining] //packages/apps/ParanoidSystemUI:ParanoidSystemUI-core jarjar
+[ 33% 7/21 5m50s remaining] //packages/apps/ParanoidSystemUI:ParanoidSystemUI for resources
+[ 38% 8/21 5m50s remaining] Copy: out/target/common/obj/APPS/ParanoidSystemUI_intermediates/classes.jar
+[ 42% 9/21 2m10s remaining] //packages/apps/ParanoidSystemUI:ParanoidSystemUI r8
+Warning: An API level of 37 is not supported by this compiler. Please use an API level of 36 or earlier)
+Warning in ./out/soong/.intermediates/packages/apps/ParanoidSystemUI/ParanoidSystemUI/android_common/withres/ParanoidSystemUI.jar:android/gui/BorderSettings.class:
+Type android.gui.BorderSettings is defined by both the program: ./out/soong/.intermediates/packages/apps/ParanoidSystemUI/ParanoidSystemUI/android_common/withres/ParanoidSystemUI.jar:android/gui/BorderSettings.class and the library: out/soong/.intermediates/frameworks/base/framework/android_common/repackaged-jarjar/turbine/framework.jar:android/gui/BorderSettings.class
+Warning in ./out/soong/.intermediates/packages/apps/ParanoidSystemUI/ParanoidSystemUI/android_common/withres/ParanoidSystemUI.jar:android/gui/BoxShadowSettings$BoxShadowParams.class:
+Type android.gui.BoxShadowSettings$BoxShadowParams is defined by both the program: ./out/soong/.intermediates/packages/apps/ParanoidSystemUI/ParanoidSystemUI/android_common/withres/ParanoidSystemUI.jar:android/gui/BoxShadowSettings$BoxShadowParams.class and the library: out/soong/.intermediates/frameworks/base/framework/android_common/repackaged-jarjar/turbine/framework.jar:android/gui/BoxShadowSettings$BoxShadowParams.class
+Warning in ./out/soong/.intermediates/packages/apps/ParanoidSystemUI/ParanoidSystemUI/android_common/withres/ParanoidSystemUI.jar:android/gui/BoxShadowSettings.class:
+Type android.gui.BoxShadowSettings is defined by both the program: ./out/soong/.intermediates/packages/apps/ParanoidSystemUI/ParanoidSystemUI/android_common/withres/ParanoidSystemUI.jar:android/gui/BoxShadowSettings.class and the library: out/soong/.intermediates/frameworks/base/framework/android_common/repackaged-jarjar/turbine/framework.jar:android/gui/BoxShadowSettings.class
+[ 47% 10/21 2m10s remaining] verify depfile
+[ 52% 11/21 2m10s remaining] //packages/apps/ParanoidSystemUI:ParanoidSystemUI align
+[ 57% 12/21 2m10s remaining] //packages/apps/ParanoidSystemUI:ParanoidSystemUI for dex resources
+[ 61% 13/21 2m10s remaining] //packages/apps/ParanoidSystemUI:ParanoidSystemUI align
+[ 66% 14/21 2m8s remaining] //packages/apps/ParanoidSystemUI:ParanoidSystemUI convert to binary
+[ 71% 15/21 2m8s remaining] out/host/linux-x86/bin/merge_zips out/soong/.intermediates/packages/apps/ParanoidSystemUI/ParanoidSystemUI/android_common/ParanoidSystemUI-unsigned.apk out/soong/.intermediates/packages/apps/ParanoidSystemUI/ParanoidSystemUI/android_common/dex-withres-aligned/ParanoidSystemUI.jar out/soong/.intermediates/packages/apps/ParanoidSystemUI/ParanoidSystemUI/android_common/package-res.apk.binary.out.apk out/soong/.intermediates/packages/apps/ParanoidSystemUI/ParanoidSystemUI/android_common/jnilibs.zip
+[ 76% 16/21 2m2s remaining] //packages/apps/ParanoidSystemUI:ParanoidSystemUI signapk
+[ 80% 17/21 2m1s remaining] Copy: out/target/product/giulia/obj/APPS/ParanoidSystemUI_intermediates/package.apk
+[ 85% 18/21 2m1s remaining] Install: out/target/product/giulia/system_ext/priv-app/ParanoidSystemUI/ParanoidSystemUI.apk
+[ 90% 19/21 1m52s remaining] //packages/apps/ParanoidSystemUI:ParanoidSystemUI dexpreopt
+[ 95% 20/21 1m52s remaining] Install: out/target/product/giulia/system_ext/priv-app/ParanoidSystemUI/oat/arm64/ParanoidSystemUI.vdex
+[100% 21/21 1m52s remaining] Install: out/target/product/giulia/system_ext/priv-app/ParanoidSystemUI/oat/arm64/ParanoidSystemUI.odex
+
+[0;32m#### build completed successfully (05:25 (mm:ss)) ####
+[00m
+
+[m[1m[32mTotal time elapsed:[m [m[32m5 minutes (349.292747647 seconds)[m
+
+=== ParanoidSystemUI compile done Mon Nov  2 09:11:17 PM UTC 2026 ===

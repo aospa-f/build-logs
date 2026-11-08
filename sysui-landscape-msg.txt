@@ -1,0 +1,4 @@
+SystemUI: Use split shade in phone landscape
+
+Enable config_use_split_notification_shade in values-land so the Axion
+split-layout QS measurements match the active shade mode on phones.

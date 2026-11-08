@@ -1,0 +1,322 @@
+=== services recompile start Mon Nov  2 11:30:57 PM UTC 2026 ===
+services
+[m[1m[34mSetting up the environment[m
+
+including vendor/aospa/vendorsetup.sh
+including vendor/google/gms/vendorsetup.sh
+including vendor/oplus/camera/vendorsetup.sh
+including vendor/qcom/opensource/core-utils/vendorsetup.sh
+including vendor/qcom/sdclang/config/vendorsetup.sh
+
+[m[1m[32mBuilding AOSPA calcite for giulia[m
+[m[32mStart time: Mon Nov  2 11:30:57 PM UTC 2026[m
+
+[m[1m[34mLunching giulia[m [m[36m(Including dependencies sync)[m
+
+Release not specified, defaulting to cp2a build
+No changes were necessary to the barista recipe.
+No ingredients need to be brewed.
+23:30:59 Build sandboxing disabled due to nsjail error.
+hardware/qcom/display/config/display-product.mk:244: warning: "Using smmu proxy"
+hardware/qcom/display/config/display-product.mk:244: warning: "Using smmu proxy"
+
+============================================
+PLATFORM_VERSION_CODENAME=REL
+PLATFORM_VERSION=17
+PRODUCT_SOURCE_ROOT_DIRS=-prebuilts/misc/protobuf_vendorcompat -platform_testing/libraries/sdv -platform_testing/tests/sdv -platform_testing/libraries/automotive/display_safety -platform_testing/tests/automotive/display_safety -device/generic/trusty/microdroid
+AOSPA_VERSION=calcite-unofficial-giulia-20261102
+TARGET_PRODUCT=aospa_giulia
+TARGET_BUILD_VARIANT=userdebug
+TARGET_ARCH=arm64
+TARGET_ARCH_VARIANT=armv8-2a-dotprod
+TARGET_CPU_VARIANT=generic
+HOST_OS=linux
+HOST_OS_EXTRA=Linux-7.0.0-42-generic-x86_64-Ubuntu-24.04.5-LTS
+HOST_CROSS_OS=windows
+BUILD_ID=CQ2A.260820.002-CP2A.260605.016
+OUT_DIR=out
+PRODUCT_SOONG_NAMESPACES=vendor/oplus/camera/giulia/blobs device/oneplus/giulia vendor/sony/dolby hardware/nxp/keymint/generic hardware/nxp/weaver/generic vendor/oneplus/ir hardware/oplus/overlay device/oneplus/sm8650-common hardware/oplus vendor/oneplus/sm8650-oss/vendor.oplus.hardware.touch@2.0-service vendor/oneplus/sm8650-common vendor/oneplus/giulia vendor/google/gms vendor/qcom/common/vendor/adreno/u vendor/qcom/common/system/alarm device/qcom/common/vendor/alarm vendor/qcom/common/vendor/alarm vendor/qcom/common/system/audio vendor/qcom/common/system/av vendor/qcom/common/system/bt vendor/qcom/common/system/display vendor/qcom/common/vendor/display vendor/qcom/common/system/gps device/qcom/common/vendor/gps device/qcom/common/system/overlay device/qcom/common/vendor/overlay vendor/qcom/common/system/perf device/qcom/common/vendor/perf vendor/qcom/common/vendor/perf vendor/qcom/common/system/telephony device/qcom/common/vendor/telephony vendor/qcom/opensource/data-ipa-cfg-mgr device/qcom/common/vendor/usb vendor/qcom/common/system/wfd device/qcom/common/vendor/wlan hardware/qcom/wlan/qcwcn vendor/qcom/opensource/data-ipa-cfg-mgr vendor/qcom/common/vendor/wlan device/qcom/common vendor/qcom/opensource/audio-hal/st-hal-ar
+SOONG_NINJA=ninja
+USE_RBE=true
+SOONG_ONLY=false
+SOONG_INCREMENTAL_ANALYSIS=false
+============================================
+23:31:02 Build sandboxing disabled due to nsjail error.
+hardware/qcom/display/config/display-product.mk:244: warning: "Using smmu proxy"
+hardware/qcom/display/config/display-product.mk:244: warning: "Using smmu proxy"
+23:31:05 Build sandboxing disabled due to nsjail error.
+hardware/qcom/display/config/display-product.mk:244: warning: "Using smmu proxy"
+hardware/qcom/display/config/display-product.mk:244: warning: "Using smmu proxy"
+23:31:07 Build sandboxing disabled due to nsjail error.
+hardware/qcom/display/config/display-product.mk:244: warning: "Using smmu proxy"
+hardware/qcom/display/config/display-product.mk:244: warning: "Using smmu proxy"
+
+[m[1m[34mStarting compilation[m
+
+23:31:10 Build sandboxing disabled due to nsjail error.
+Starting ninja...
+hardware/qcom/display/config/display-product.mk:244: warning: "Using smmu proxy"
+Running product configuration...
+hardware/qcom/display/config/display-product.mk:244: warning: "Using smmu proxy"
+============================================
+PLATFORM_VERSION_CODENAME=REL
+PLATFORM_VERSION=17
+PRODUCT_SOURCE_ROOT_DIRS=-prebuilts/misc/protobuf_vendorcompat -platform_testing/libraries/sdv -platform_testing/tests/sdv -platform_testing/libraries/automotive/display_safety -platform_testing/tests/automotive/display_safety -device/generic/trusty/microdroid
+AOSPA_VERSION=calcite-unofficial-giulia-20261102
+TARGET_PRODUCT=aospa_giulia
+TARGET_BUILD_VARIANT=userdebug
+TARGET_ARCH=arm64
+TARGET_ARCH_VARIANT=armv8-2a-dotprod
+TARGET_CPU_VARIANT=generic
+HOST_OS=linux
+HOST_OS_EXTRA=Linux-7.0.0-42-generic-x86_64-Ubuntu-24.04.5-LTS
+HOST_CROSS_OS=windows
+BUILD_ID=CQ2A.260820.002-CP2A.260605.016
+OUT_DIR=out
+PRODUCT_SOONG_NAMESPACES=vendor/oplus/camera/giulia/blobs device/oneplus/giulia vendor/sony/dolby hardware/nxp/keymint/generic hardware/nxp/weaver/generic vendor/oneplus/ir hardware/oplus/overlay device/oneplus/sm8650-common hardware/oplus vendor/oneplus/sm8650-oss/vendor.oplus.hardware.touch@2.0-service vendor/oneplus/sm8650-common vendor/oneplus/giulia vendor/google/gms vendor/qcom/common/vendor/adreno/u vendor/qcom/common/system/alarm device/qcom/common/vendor/alarm vendor/qcom/common/vendor/alarm vendor/qcom/common/system/audio vendor/qcom/common/system/av vendor/qcom/common/system/bt vendor/qcom/common/system/display vendor/qcom/common/vendor/display vendor/qcom/common/system/gps device/qcom/common/vendor/gps device/qcom/common/system/overlay device/qcom/common/vendor/overlay vendor/qcom/common/system/perf device/qcom/common/vendor/perf vendor/qcom/common/vendor/perf vendor/qcom/common/system/telephony device/qcom/common/vendor/telephony vendor/qcom/opensource/data-ipa-cfg-mgr device/qcom/common/vendor/usb vendor/qcom/common/system/wfd device/qcom/common/vendor/wlan hardware/qcom/wlan/qcwcn vendor/qcom/opensource/data-ipa-cfg-mgr vendor/qcom/common/vendor/wlan device/qcom/common vendor/qcom/opensource/audio-hal/st-hal-ar
+SOONG_NINJA=ninja
+USE_RBE=true
+SOONG_ONLY=false
+SOONG_INCREMENTAL_ANALYSIS=true
+============================================
+[100% 1/1] bootstrap blueprint
+Running globs...
+ninja: no work to do.
+No need to regenerate ninja file
+No need to regenerate ninja file
+No need to regenerate ninja file
+Starting ninja...
+[  0% 2/350 2m5s remaining] //frameworks/base/services/core:gen-core.protolog.pb generate core.protolog.pb
+[  0% 3/350 2m5s remaining] cp out/soong/.intermediates/frameworks/base/services/core/core.protolog.pb/android_arm64_armv8-2a-dotprod/core.protolog.pb
+[  1% 4/350 2m4s remaining] target Prebuilt: core.protolog.pb (out/target/product/giulia/obj/ETC/core.protolog.pb_intermediates/core.protolog.pb)
+[  1% 5/350 2m4s remaining] Install: out/target/product/giulia/system/etc/core.protolog.pb
+[  1% 6/350 2m3s remaining] //frameworks/base/services/core:services.core.protologsrc generate services.core.protolog.srcjar
+[  2% 7/350 1m55s remaining] //frameworks/base/services/core:services.core.unboosted turbine
+[  2% 8/350 1m55s remaining] //frameworks/base/services/core:services.core.unboosted for turbine
+[  2% 9/350 1m53s remaining] //frameworks/base/services/core:services.core.unboosted jarjar
+[  2% 10/350 1m53s remaining] //frameworks/base/services/core:services.core.unboosted javac1
+[  3% 11/349 1m52s remaining] //frameworks/base/services/core:services.core.unboosted javac35
+[  3% 12/348 1m52s remaining] //frameworks/base/services/core:services.core.unboosted javac47
+[  3% 13/347 1m52s remaining] //frameworks/base/services/core:services.core.unboosted javac8
+[  4% 14/346 1m52s remaining] //frameworks/base/services/core:services.core.unboosted javac2
+[  4% 15/345 1m51s remaining] //frameworks/base/services/core:services.core.unboosted javac22
+[  4% 16/344 1m51s remaining] //frameworks/base/services/core:services.core.unboosted javac13
+[  4% 17/343 1m51s remaining] //frameworks/base/services/core:services.core.unboosted javac42
+[  5% 18/342 1m51s remaining] //frameworks/base/services/core:services.core.unboosted javac32
+[  5% 19/341 1m51s remaining] //frameworks/base/services/core:services.core.unboosted javac27
+[  5% 20/340 1m51s remaining] //frameworks/base/services/core:services.core.unboosted javac18
+[  6% 21/339 1m51s remaining] //frameworks/base/services/core:services.core.unboosted javac39
+[  6% 22/338 1m51s remaining] //frameworks/base/services/core:services.core.unboosted javac14
+[  6% 23/337 1m51s remaining] //frameworks/base/services/core:services.core.unboosted jarjar
+[  7% 24/337 1m51s remaining] //frameworks/base/services/core:services.core.unboosted javac19
+[  7% 25/336 1m51s remaining] //frameworks/base/services/core:services.core.unboosted javac40
+[  7% 26/335 1m51s remaining] //frameworks/base/services/core:services.core.unboosted javac38
+[  8% 27/334 1m51s remaining] //frameworks/base/services/core:services.core.unboosted javac25
+[  8% 28/333 1m51s remaining] //frameworks/base/services/core:services.core.unboosted javac11
+[  8% 29/332 1m51s remaining] //frameworks/base/services/core:services.core.unboosted javac16
+[  9% 30/331 1m50s remaining] //frameworks/base/services/core:services.core.unboosted javac17
+[  9% 31/330 1m50s remaining] //frameworks/base/services/core:services.core.unboosted javac10
+[  9% 32/329 1m50s remaining] //frameworks/base/services/core:services.core.unboosted javac4
+[ 10% 33/328 1m50s remaining] //frameworks/base/services/core:services.core.unboosted javac3
+[ 10% 34/327 1m50s remaining] //frameworks/base/services/core:services.core.unboosted javac0
+[ 10% 35/326 1m50s remaining] //frameworks/base/services/core:services.core.unboosted javac41
+[ 11% 36/325 1m50s remaining] //frameworks/base/services/core:services.core.unboosted javac45
+[ 11% 37/324 1m50s remaining] //frameworks/base/services/core:services.core.unboosted javac30
+[ 11% 38/323 1m50s remaining] //frameworks/base/services/core:services.core.unboosted javac23
+[ 12% 39/322 1m50s remaining] //frameworks/base/services/core:services.core.unboosted javac34
+[ 12% 40/321 1m49s remaining] //frameworks/base/services/core:services.core.unboosted javac44
+[ 12% 41/320 1m49s remaining] //frameworks/base/services/core:services.core.unboosted javac5
+[ 13% 42/319 1m49s remaining] //frameworks/base/services/core:services.core.unboosted javac9
+[ 13% 43/318 1m49s remaining] //frameworks/base/services/systemcaptions:services.systemcaptions turbine apt
+[ 13% 44/318 1m49s remaining] //frameworks/base/services/credentials:services.credentials turbine apt
+[ 14% 45/318 1m49s remaining] //frameworks/base/services/smartspace:services.smartspace turbine apt
+[ 14% 46/318 1m49s remaining] //frameworks/base/services/core:services.core.unboosted javac20
+[ 14% 47/317 1m49s remaining] //frameworks/base/services/signalcollector:services.signal-collectors turbine
+[ 15% 48/316 1m49s remaining] //frameworks/base/services/core:services.core.unboosted javac33
+[ 15% 49/315 1m49s remaining] //frameworks/base/services/people:services.people turbine apt
+[ 15% 50/315 1m49s remaining] //frameworks/base/services/contentrestriction:services.contentrestriction turbine apt
+[ 16% 51/315 1m49s remaining] //frameworks/base/services/selectiontoolbar:services.selectiontoolbar turbine apt
+[ 16% 52/315 1m49s remaining] //frameworks/base/services/texttospeech:services.texttospeech turbine apt
+[ 16% 53/315 1m49s remaining] //frameworks/base/services/supervision:services.supervision turbine apt
+[ 17% 54/315 1m49s remaining] //frameworks/base/services/lskfreset:services.lskfreset turbine apt
+[ 17% 55/315 1m49s remaining] //frameworks/base/services/core:services.core.unboosted javac43
+[ 17% 56/314 1m49s remaining] //frameworks/base/services/appwidget:services.appwidget turbine apt
+[ 18% 57/314 1m49s remaining] //frameworks/base/services/usb:services.usb turbine apt
+[ 18% 58/314 1m49s remaining] //frameworks/base/services/serial:services.serial turbine apt
+[ 18% 59/314 1m49s remaining] //frameworks/base/services/translation:services.translation turbine apt
+[ 19% 60/314 1m49s remaining] //frameworks/base/services/files:services.files turbine apt
+[ 19% 61/314 1m49s remaining] //frameworks/base/services/flags:services.flags turbine apt
+[ 19% 62/314 1m49s remaining] //frameworks/base/services/musicrecognition:services.musicsearch turbine apt
+[ 20% 63/314 1m49s remaining] //frameworks/base/services/midi:services.midi turbine apt
+[ 20% 64/314 1m49s remaining] //frameworks/base/services/core:services.core.unboosted javac7
+[ 20% 65/313 1m49s remaining] //frameworks/base/services/restrictions:services.restrictions turbine apt
+[ 21% 66/313 1m49s remaining] //frameworks/base/services/appfunctions:services.appfunctions turbine apt
+[ 21% 67/313 1m49s remaining] //frameworks/base/services/signalcollector:services.signal-collectors javac
+[ 21% 68/312 1m49s remaining] //frameworks/base/services/contentsuggestions:services.contentsuggestions turbine apt
+[ 22% 69/312 1m48s remaining] //frameworks/base/services/profcollect:services.profcollect turbine apt
+[ 22% 70/312 1m48s remaining] //frameworks/base/services/usage:services.usage turbine apt
+[ 22% 71/312 1m48s remaining] //frameworks/base/services/companion:services.companion turbine apt
+[ 23% 72/312 1m48s remaining] //frameworks/base/services/backup:services.backup turbine apt
+[ 23% 73/312 1m48s remaining] //frameworks/base/services/aiseal:services.aiseal javac
+[ 23% 74/311 1m48s remaining] //frameworks/base/services/appprediction:services.appprediction turbine apt
+[ 24% 75/311 1m48s remaining] //frameworks/base/services/contentcapture:services.contentcapture turbine apt
+[ 24% 76/311 1m48s remaining] //frameworks/base/services/searchui:services.searchui turbine apt
+[ 24% 77/311 1m48s remaining] //frameworks/base/apex/jobscheduler/service:service-jobscheduler turbine apt
+[ 25% 78/311 1m48s remaining] //frameworks/base/services/autofill:services.autofill turbine apt
+[ 25% 79/311 1m48s remaining] //frameworks/base/services/core:services.core.unboosted javac21
+[ 25% 80/310 1m48s remaining] //frameworks/base/services/core:services.core.unboosted javac37
+[ 26% 81/309 1m48s remaining] //frameworks/base/services/accessibility:services.accessibility turbine apt
+[ 26% 82/309 1m48s remaining] //frameworks/base/services/core:services.core.unboosted javac28
+[ 26% 83/308 1m48s remaining] //frameworks/base/services/aiseal:services.aiseal turbine
+[ 27% 84/307 1m48s remaining] //frameworks/base/services/core:services.core.unboosted javac12
+[ 27% 85/306 1m48s remaining] //frameworks/base/services/systemcaptions:services.systemcaptions turbine
+[ 28% 86/305 1m48s remaining] //frameworks/base/services/core:services.core.unboosted javac24
+[ 28% 87/304 1m47s remaining] //frameworks/base/services/selectiontoolbar:services.selectiontoolbar turbine
+[ 29% 88/303 1m47s remaining] //frameworks/base/services/texttospeech:services.texttospeech turbine
+[ 29% 89/302 1m47s remaining] //frameworks/base/services/restrictions:services.restrictions turbine
+[ 29% 90/301 1m47s remaining] //frameworks/base/services/flags:services.flags turbine
+[ 30% 91/300 1m47s remaining] //frameworks/base/services/lskfreset:services.lskfreset turbine
+[ 30% 92/299 1m47s remaining] //frameworks/base/services/supervision:services.supervision turbine
+[ 31% 93/298 1m47s remaining] //frameworks/base/services/usb:services.usb turbine
+[ 31% 94/297 1m47s remaining] //frameworks/base/services/core:services.core.unboosted javac31
+[ 32% 95/296 1m47s remaining] //frameworks/base/services/contextualsearch:services.contextualsearch turbine apt
+[ 32% 96/296 1m47s remaining] //frameworks/base/services/contentrestriction:services.contentrestriction turbine
+[ 32% 97/295 1m47s remaining] //frameworks/base/services/serial:services.serial turbine
+[ 33% 98/294 1m47s remaining] //frameworks/base/services/selectiontoolbar:services.selectiontoolbar javac
+[ 33% 99/293 1m47s remaining] //frameworks/base/services/smartspace:services.smartspace javac
+[ 34% 100/292 1m47s remaining] //frameworks/base/services/appprediction:services.appprediction turbine
+[ 34% 101/291 1m47s remaining] //frameworks/base/services/restrictions:services.restrictions javac
+[ 35% 102/290 1m47s remaining] //frameworks/base/services/translation:services.translation turbine
+[ 35% 103/289 1m47s remaining] //frameworks/base/services/wallpapereffectsgeneration:services.wallpapereffectsgeneration turbine apt
+[ 35% 104/289 1m47s remaining] //frameworks/base/services/lskfreset:services.lskfreset javac
+[ 36% 105/288 1m47s remaining] //frameworks/base/services/smartspace:services.smartspace turbine
+[ 36% 106/287 1m47s remaining] //frameworks/base/services/people:services.people turbine
+[ 37% 107/286 1m47s remaining] //frameworks/base/services/musicrecognition:services.musicsearch turbine
+[ 37% 108/285 1m47s remaining] //frameworks/base/services/translation:services.translation javac
+[ 38% 109/284 1m47s remaining] //frameworks/base/services/musicrecognition:services.musicsearch javac
+[ 38% 110/283 1m47s remaining] //frameworks/base/services/contentsuggestions:services.contentsuggestions turbine
+[ 39% 111/282 1m46s remaining] //frameworks/base/services/voiceinteraction:services.voiceinteraction turbine apt
+[ 39% 112/282 1m46s remaining] //frameworks/base/services/core:services.core.unboosted javac6
+[ 40% 113/281 1m46s remaining] //frameworks/base/services/credentials:services.credentials javac
+[ 40% 114/280 1m46s remaining] //frameworks/base/services/files:services.files turbine
+[ 41% 115/279 1m46s remaining] //frameworks/base/services/companion:services.companion turbine
+[ 41% 116/278 1m46s remaining] //frameworks/base/services/contentsuggestions:services.contentsuggestions javac
+[ 42% 117/277 1m46s remaining] //frameworks/base/services/print:services.print turbine apt
+[ 42% 118/277 1m46s remaining] //frameworks/base/services/credentials:services.credentials turbine
+[ 43% 119/276 1m46s remaining] //frameworks/base/services/profcollect:services.profcollect turbine
+[ 43% 120/275 1m46s remaining] //frameworks/base/services/searchui:services.searchui javac
+[ 44% 121/274 1m46s remaining] //frameworks/base/services/appfunctions:services.appfunctions turbine
+[ 44% 122/273 1m46s remaining] //frameworks/base/services/supervision:services.supervision javac
+[ 45% 123/272 1m46s remaining] //frameworks/base/services/texttospeech:services.texttospeech javac
+[ 45% 124/271 1m46s remaining] //frameworks/base/services/usage:services.usage turbine
+[ 46% 125/270 1m46s remaining] //frameworks/base/services/midi:services.midi javac
+[ 46% 126/269 1m46s remaining] //frameworks/base/services/appprediction:services.appprediction javac
+[ 47% 127/268 1m46s remaining] //frameworks/base/services/contentrestriction:services.contentrestriction javac
+[ 47% 128/267 1m46s remaining] //frameworks/base/services/contentcapture:services.contentcapture turbine
+[ 48% 129/266 1m46s remaining] //frameworks/base/services/serial:services.serial javac
+[ 49% 130/265 1m46s remaining] //frameworks/base/services/core:services.core.unboosted javac26
+[ 49% 131/264 1m46s remaining] //frameworks/base/services/profcollect:services.profcollect javac
+[ 50% 132/263 1m45s remaining] //frameworks/base/apex/jobscheduler/service:service-jobscheduler turbine
+[ 51% 133/260 1m45s remaining] //frameworks/base/services/usage:services.usage javac
+[ 51% 134/259 1m45s remaining] //frameworks/base/services/backup:services.backup turbine
+[ 52% 135/258 1m45s remaining] //frameworks/base/services/accessibility:services.accessibility turbine
+[ 52% 136/257 1m45s remaining] //frameworks/base/services/files:services.files javac
+[ 53% 137/256 1m45s remaining] //frameworks/base/services/flags:services.flags javac
+[ 54% 138/255 1m45s remaining] //frameworks/base/services/appwidget:services.appwidget turbine
+[ 54% 139/254 1m45s remaining] //frameworks/base/services/contentcapture:services.contentcapture javac
+[ 55% 140/253 1m45s remaining] //frameworks/base/services/searchui:services.searchui turbine
+[ 55% 141/252 1m45s remaining] //frameworks/base/services/devicepolicy:services.devicepolicy turbine apt
+[ 56% 142/252 1m45s remaining] //frameworks/base/services/contextualsearch:services.contextualsearch turbine
+[ 56% 143/251 1m45s remaining] //frameworks/base/services/voiceinteraction:services.soundtrigger_middleware turbine apt
+[ 57% 144/251 1m45s remaining] //frameworks/base/services/wallpapereffectsgeneration:services.wallpapereffectsgeneration javac
+[ 58% 145/250 1m45s remaining] //frameworks/base/services/wallpapereffectsgeneration:services.wallpapereffectsgeneration turbine
+[ 58% 146/249 1m45s remaining] //frameworks/base/services/appfunctions:services.appfunctions javac
+[ 59% 147/248 1m45s remaining] //frameworks/base/services/usb:services.usb javac
+[ 59% 148/247 1m44s remaining] //frameworks/base/services/voiceinteraction:services.voiceinteraction turbine
+[ 60% 149/246 1m44s remaining] //frameworks/base/services/autofill:services.autofill turbine
+[ 61% 150/245 1m44s remaining] //frameworks/base/apex/blobstore/service:service-blobstore turbine
+[ 61% 151/244 1m44s remaining] //frameworks/base/services/appwidget:services.appwidget javac
+[ 62% 152/243 1m44s remaining] //frameworks/base/services/print:services.print javac
+[ 63% 153/242 1m44s remaining] //frameworks/base/services/devicepolicy:services.devicepolicy turbine
+[ 63% 154/241 1m44s remaining] //frameworks/base/services/voiceinteraction:services.voiceinteraction javac
+[ 64% 155/240 1m43s remaining] //frameworks/base/services/print:services.print turbine
+[ 65% 156/239 1m43s remaining] //frameworks/base/services/core:services.core.unboosted javac15
+[ 65% 157/238 1m43s remaining] //frameworks/base/services/people:services.people javac
+[ 66% 158/237 1m42s remaining] //frameworks/base/services/core:services.core.unboosted javac36
+[ 67% 159/236 1m42s remaining] //frameworks/base/services/midi:services.midi turbine
+[ 68% 160/235 1m42s remaining] //frameworks/base/apex/blobstore/service:service-blobstore javac
+[ 68% 161/234 1m42s remaining] //frameworks/base/services/core:services.core.unboosted javac46
+[ 69% 162/234 1m41s remaining] //frameworks/base/services/voiceinteraction:services.soundtrigger_middleware turbine
+[ 69% 163/233 1m41s remaining] //frameworks/base/services/core:services.core.unboosted javac29
+[ 70% 164/232 1m41s remaining] //frameworks/base/services/systemcaptions:services.systemcaptions javac
+[ 71% 165/231 1m40s remaining] //frameworks/base/services/autofill:services.autofill javac
+[ 72% 166/230 1m40s remaining] //frameworks/base/services/devicepolicy:services.devicepolicy javac
+[ 72% 167/229 1m40s remaining] //frameworks/base/services/voiceinteraction:services.soundtrigger_middleware javac
+[ 73% 168/228 1m40s remaining] //frameworks/base/services/voiceinteraction:services.soundtrigger turbine apt
+[ 74% 169/228 1m40s remaining] //frameworks/base/services/backup:services.backup javac
+[ 74% 170/227 1m40s remaining] //frameworks/base/apex/jobscheduler/service:service-jobscheduler javac
+[ 76% 171/224 1m39s remaining] //frameworks/base/services/core:services.core.unboosted jarjar
+[ 76% 172/224 1m39s remaining] //frameworks/base/services/core:services.core.unboosted for javac
+[ 77% 173/224 1m39s remaining] //frameworks/base/services/allowlist:services.allowlist turbine apt
+[ 77% 174/224 1m38s remaining] //frameworks/base/services/accessibility:services.accessibility javac
+[ 78% 175/223 1m38s remaining] //frameworks/base/services/companion:services.companion javac
+[ 79% 176/222 1m37s remaining] //frameworks/base/services/allowlist:services.allowlist turbine
+[ 80% 177/221 1m37s remaining] //frameworks/base/services/voiceinteraction:services.soundtrigger javac
+[ 80% 178/220 1m37s remaining] //frameworks/base/services/voiceinteraction:services.soundtrigger turbine
+[ 81% 179/219 1m37s remaining] //frameworks/base/services/allowlist:services.allowlist javac
+[ 82% 180/218 1m36s remaining] //frameworks/base/services/contextualsearch:services.contextualsearch javac
+[ 83% 181/217 1m33s remaining] //frameworks/base/services/permission:services.permission-pre-jarjar kapt stubs
+[ 83% 182/217 1m32s remaining] //frameworks/base/services/core:services.core.unboosted jarjar
+[ 84% 183/217 1m30s remaining] //frameworks/base/services/permission:services.permission-pre-jarjar turbine apt
+[ 84% 184/217 1m26s remaining] //frameworks/base/services/core:services.core.priorityboosted generate services.core.priorityboosted.jar
+[ 85% 185/217 1m14s remaining] //frameworks/base/services/permission:services.permission-pre-jarjar kotlinc
+frameworks/base/services/permission/java/com/android/server/permission/access/appfunction/AppFunctionAccessPregrant.kt:130:28: warning: Java type mismatch: inferred type is 'Array<(out) File!>?', but 'Array<out File!>' was expected.
+                    addAll(directory.listFiles())
+                           ^^^^^^^^^^^^^^^^^^^^^
+frameworks/base/services/permission/java/com/android/server/permission/access/appfunction/AppFunctionAccessPregrant.kt:134:28: warning: Java type mismatch: inferred type is 'Array<(out) File!>?', but 'Array<out File!>' was expected.
+                    addAll(directory.listFiles())
+                           ^^^^^^^^^^^^^^^^^^^^^
+frameworks/base/services/permission/java/com/android/server/permission/access/appfunction/AppFunctionAccessPregrant.kt:138:28: warning: Java type mismatch: inferred type is 'Array<(out) File!>?', but 'Array<out File!>' was expected.
+                    addAll(directory.listFiles())
+                           ^^^^^^^^^^^^^^^^^^^^^
+frameworks/base/services/permission/java/com/android/server/permission/access/appfunction/AppFunctionAccessPregrant.kt:142:28: warning: Java type mismatch: inferred type is 'Array<(out) File!>?', but 'Array<out File!>' was expected.
+                    addAll(directory.listFiles())
+                           ^^^^^^^^^^^^^^^^^^^^^
+frameworks/base/services/permission/java/com/android/server/permission/access/appfunction/AppFunctionAccessPregrant.kt:146:28: warning: Java type mismatch: inferred type is 'Array<(out) File!>?', but 'Array<out File!>' was expected.
+                    addAll(directory.listFiles())
+                           ^^^^^^^^^^^^^^^^^^^^^
+frameworks/base/services/permission/java/com/android/server/permission/access/appfunction/AppFunctionAccessPregrant.kt:150:28: warning: Java type mismatch: inferred type is 'Array<(out) File!>?', but 'Array<out File!>' was expected.
+                    addAll(directory.listFiles())
+                           ^^^^^^^^^^^^^^^^^^^^^
+frameworks/base/services/permission/java/com/android/server/permission/access/permission/AppIdPermissionUpgrade.kt:592:37: warning: 'static field PROCESS_OUTGOING_CALLS: String' is deprecated. Deprecated in Java.
+                Manifest.permission.PROCESS_OUTGOING_CALLS,
+                                    ^^^^^^^^^^^^^^^^^^^^^^
+[ 86% 186/215 1m14s remaining] //frameworks/base/services/permission:services.permission-pre-jarjar javac
+[ 88% 187/212 1m13s remaining] //frameworks/base/services/permission:services.permission-pre-jarjar turbine
+[ 90% 188/208 1m12s remaining] //frameworks/base/services:services.impl turbine
+[ 91% 189/207 1m11s remaining] //frameworks/base/services:services for turbine
+[ 91% 190/207 1m11s remaining] Copy: out/target/common/obj/JAVA_LIBRARIES/services_intermediates/classes-header.jar
+[ 92% 191/207 1m10s remaining] //frameworks/base/services:services.impl javac
+[ 93% 192/206 1m10s remaining] //frameworks/base/services:services for javac
+[ 93% 193/206 1m10s remaining] Copy: out/target/common/obj/JAVA_LIBRARIES/services_intermediates/classes.jar
+[ 94% 194/206 36s remaining] //frameworks/base/services:services-non-updatable-stubs metalava merged
+[ 94% 195/206 36s remaining] //frameworks/base/services:services-non-updatable-stubs check current API
+[ 95% 196/206 0s remaining] //frameworks/base/services:services r8
+Warning: An API level of 37 is not supported by this compiler. Please use an API level of 36 or earlier)
+[ 95% 197/206 0s remaining] verify depfile
+[ 96% 198/206 0s remaining] //frameworks/base/services:services align
+[ 96% 199/206 0s remaining] Copy: out/target/common/obj/JAVA_LIBRARIES/services_intermediates/javalib.jar
+[ 97% 200/206 0s remaining] Copy: out/target/product/giulia/obj/JAVA_LIBRARIES/services_intermediates/javalib.jar
+[ 97% 201/206 0s remaining] Install: out/target/product/giulia/system/framework/services.jar
+[ 98% 202/206 0s remaining] //frameworks/base/services:services dexpreopt
+[ 98% 203/206 0s remaining] Install: out/target/product/giulia/system/framework/oat/arm64/services.art
+[ 99% 204/206 0s remaining] Install: out/target/product/giulia/system/framework/oat/arm64/services.vdex
+[ 99% 205/206 0s remaining] Install: out/target/product/giulia/system/framework/services.jar.prof
+[100% 206/206 0s remaining] Install: out/target/product/giulia/system/framework/oat/arm64/services.odex
+
+[0;32m#### build completed successfully (02:43 (mm:ss)) ####
+[00m
+
+[m[1m[32mTotal time elapsed:[m [m[32m2 minutes (175.032339644 seconds)[m
+
+=== services recompile done Mon Nov  2 11:33:52 PM UTC 2026 ===

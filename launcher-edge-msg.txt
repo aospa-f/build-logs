@@ -1,0 +1,5 @@
+Launcher3: Open QS or notifications from home screen edge swipes
+
+Detect a downward swipe from the left or right screen edge on the
+normal home screen and open notifications from the left edge or QS from
+the right edge. Requires EXPAND_STATUS_BAR.

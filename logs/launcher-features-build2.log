@@ -1,0 +1,278 @@
+=== Launching Launcher3 feature compile at Mon Nov  2 01:57:35 PM UTC 2026 ===
+Launcher3QuickStep
+[m[1m[34mSetting up the environment[m
+
+including vendor/aospa/vendorsetup.sh
+including vendor/google/gms/vendorsetup.sh
+including vendor/oplus/camera/vendorsetup.sh
+including vendor/qcom/opensource/core-utils/vendorsetup.sh
+including vendor/qcom/sdclang/config/vendorsetup.sh
+
+[m[1m[32mBuilding AOSPA calcite for giulia[m
+[m[32mStart time: Mon Nov  2 01:57:37 PM UTC 2026[m
+
+[m[1m[34mLunching giulia[m [m[36m(Including dependencies sync)[m
+
+Release not specified, defaulting to cp2a build
+No changes were necessary to the barista recipe.
+No ingredients need to be brewed.
+13:57:41 Build sandboxing disabled due to nsjail error.
+hardware/qcom/display/config/display-product.mk:244: warning: "Using smmu proxy"
+hardware/qcom/display/config/display-product.mk:244: warning: "Using smmu proxy"
+
+============================================
+PLATFORM_VERSION_CODENAME=REL
+PLATFORM_VERSION=17
+PRODUCT_SOURCE_ROOT_DIRS=-prebuilts/misc/protobuf_vendorcompat -platform_testing/libraries/sdv -platform_testing/tests/sdv -platform_testing/libraries/automotive/display_safety -platform_testing/tests/automotive/display_safety -device/generic/trusty/microdroid
+AOSPA_VERSION=calcite-unofficial-giulia-20261102
+TARGET_PRODUCT=aospa_giulia
+TARGET_BUILD_VARIANT=userdebug
+TARGET_ARCH=arm64
+TARGET_ARCH_VARIANT=armv8-2a-dotprod
+TARGET_CPU_VARIANT=generic
+HOST_OS=linux
+HOST_OS_EXTRA=Linux-7.0.0-42-generic-x86_64-Ubuntu-24.04.5-LTS
+HOST_CROSS_OS=windows
+BUILD_ID=CQ2A.260820.002-CP2A.260605.016
+OUT_DIR=out
+PRODUCT_SOONG_NAMESPACES=vendor/oplus/camera/giulia/blobs device/oneplus/giulia vendor/sony/dolby hardware/nxp/keymint/generic hardware/nxp/weaver/generic vendor/oneplus/ir hardware/oplus/overlay device/oneplus/sm8650-common hardware/oplus vendor/oneplus/sm8650-common vendor/oneplus/giulia vendor/google/gms vendor/qcom/common/vendor/adreno/u vendor/qcom/common/system/alarm device/qcom/common/vendor/alarm vendor/qcom/common/vendor/alarm vendor/qcom/common/system/audio vendor/qcom/common/system/av vendor/qcom/common/system/bt vendor/qcom/common/system/display vendor/qcom/common/vendor/display vendor/qcom/common/system/gps device/qcom/common/vendor/gps device/qcom/common/system/overlay device/qcom/common/vendor/overlay vendor/qcom/common/system/perf device/qcom/common/vendor/perf vendor/qcom/common/vendor/perf vendor/qcom/common/system/telephony device/qcom/common/vendor/telephony vendor/qcom/opensource/data-ipa-cfg-mgr device/qcom/common/vendor/usb vendor/qcom/common/system/wfd device/qcom/common/vendor/wlan hardware/qcom/wlan/qcwcn vendor/qcom/opensource/data-ipa-cfg-mgr vendor/qcom/common/vendor/wlan device/qcom/common vendor/qcom/opensource/audio-hal/st-hal-ar
+SOONG_NINJA=ninja
+USE_RBE=true
+SOONG_ONLY=false
+SOONG_INCREMENTAL_ANALYSIS=false
+============================================
+13:57:46 Build sandboxing disabled due to nsjail error.
+hardware/qcom/display/config/display-product.mk:244: warning: "Using smmu proxy"
+hardware/qcom/display/config/display-product.mk:244: warning: "Using smmu proxy"
+13:57:51 Build sandboxing disabled due to nsjail error.
+hardware/qcom/display/config/display-product.mk:244: warning: "Using smmu proxy"
+hardware/qcom/display/config/display-product.mk:244: warning: "Using smmu proxy"
+13:57:56 Build sandboxing disabled due to nsjail error.
+hardware/qcom/display/config/display-product.mk:244: warning: "Using smmu proxy"
+hardware/qcom/display/config/display-product.mk:244: warning: "Using smmu proxy"
+
+[m[1m[34mStarting compilation[m
+
+13:58:00 Build sandboxing disabled due to nsjail error.
+Starting ninja...
+hardware/qcom/display/config/display-product.mk:244: warning: "Using smmu proxy"
+Running product configuration...
+hardware/qcom/display/config/display-product.mk:244: warning: "Using smmu proxy"
+============================================
+PLATFORM_VERSION_CODENAME=REL
+PLATFORM_VERSION=17
+PRODUCT_SOURCE_ROOT_DIRS=-prebuilts/misc/protobuf_vendorcompat -platform_testing/libraries/sdv -platform_testing/tests/sdv -platform_testing/libraries/automotive/display_safety -platform_testing/tests/automotive/display_safety -device/generic/trusty/microdroid
+AOSPA_VERSION=calcite-unofficial-giulia-20261102
+TARGET_PRODUCT=aospa_giulia
+TARGET_BUILD_VARIANT=userdebug
+TARGET_ARCH=arm64
+TARGET_ARCH_VARIANT=armv8-2a-dotprod
+TARGET_CPU_VARIANT=generic
+HOST_OS=linux
+HOST_OS_EXTRA=Linux-7.0.0-42-generic-x86_64-Ubuntu-24.04.5-LTS
+HOST_CROSS_OS=windows
+BUILD_ID=CQ2A.260820.002-CP2A.260605.016
+OUT_DIR=out
+PRODUCT_SOONG_NAMESPACES=vendor/oplus/camera/giulia/blobs device/oneplus/giulia vendor/sony/dolby hardware/nxp/keymint/generic hardware/nxp/weaver/generic vendor/oneplus/ir hardware/oplus/overlay device/oneplus/sm8650-common hardware/oplus vendor/oneplus/sm8650-common vendor/oneplus/giulia vendor/google/gms vendor/qcom/common/vendor/adreno/u vendor/qcom/common/system/alarm device/qcom/common/vendor/alarm vendor/qcom/common/vendor/alarm vendor/qcom/common/system/audio vendor/qcom/common/system/av vendor/qcom/common/system/bt vendor/qcom/common/system/display vendor/qcom/common/vendor/display vendor/qcom/common/system/gps device/qcom/common/vendor/gps device/qcom/common/system/overlay device/qcom/common/vendor/overlay vendor/qcom/common/system/perf device/qcom/common/vendor/perf vendor/qcom/common/vendor/perf vendor/qcom/common/system/telephony device/qcom/common/vendor/telephony vendor/qcom/opensource/data-ipa-cfg-mgr device/qcom/common/vendor/usb vendor/qcom/common/system/wfd device/qcom/common/vendor/wlan hardware/qcom/wlan/qcwcn vendor/qcom/opensource/data-ipa-cfg-mgr vendor/qcom/common/vendor/wlan device/qcom/common vendor/qcom/opensource/audio-hal/st-hal-ar
+SOONG_NINJA=ninja
+USE_RBE=true
+SOONG_ONLY=false
+SOONG_INCREMENTAL_ANALYSIS=true
+============================================
+[100% 1/1] bootstrap blueprint
+Running globs...
+
+Globs changed, rerunning soong...
+One culprit glob (may be more): packages/apps/Launcher3/res/**/* (excluding 9 other patterns)
+[100% 2/2] analyzing Android.bp files and generating ninja file at out/soong/build.aospa_giulia.ninja
+Clang SA is not enabled
+No need to regenerate ninja file
+No need to regenerate ninja file
+No need to regenerate ninja file
+Starting ninja...
+[  1% 3/153] //prebuilts/sdk/current/androidx/m2repository/androidx/compose/ui/ui-tooling-data-android/1.12.0-alpha01:androidx.compose.ui_ui-tooling-data merge assets from dependencies
+[  2% 4/153] //prebuilts/sdk/current/androidx/m2repository/androidx/appsearch/appsearch-platform-storage/1.2.0-alpha01:androidx.appsearch_appsearch-platform-storage merge assets from dependencies
+[  3% 5/153] //packages/apps/Launcher3:QuickstepResLib overlay resource file list
+[  3% 6/153] //packages/apps/Launcher3/modules/widgetpicker:widget_picker_component raw classpath.rsp
+[  4% 7/153] //packages/apps/Launcher3:Launcher3QuickStepLib raw classpath.rsp
+[  5% 8/153] //packages/apps/Launcher3:libGoogleFeed combine local prebuilt implementation jars
+[  5% 9/153] //packages/apps/Launcher3:Launcher3QuickStepLib raw classpath.rsp
+[  6% 10/153] //packages/apps/Launcher3:Launcher3QuickStepLib raw classpath.rsp
+[  7% 11/153] //packages/apps/Launcher3:Launcher3QuickStepLib raw Launcher3QuickStepLib.jar.classpath
+[  7% 12/153] //packages/apps/Launcher3:launcher-build-config generate BuildConfig.java
+[  8% 13/153] //packages/apps/Launcher3:Launcher3QuickStepLib raw repackaging.txt
+[  9% 14/153] //packages/apps/Launcher3:gen-launcher.quickstep.protolog.pb raw genrule.sbox.textproto
+[  9% 15/153] cp out/soong/.intermediates/packages/apps/Launcher3/privapp_whitelist_aospa_launcher3/android_arm64_armv8-2a-dotprod/privapp_whitelist_aospa_launcher3.xml
+[ 10% 16/153] //packages/apps/Launcher3:Launcher3QuickStep raw Launcher3QuickStep.jar.depfile_verifier.inputs_list
+[ 11% 17/153] //frameworks/base/libs/appfunctions:com.android.extensions.appfunctions.stubs.source raw metalava.sbox.textproto
+[ 11% 18/153] cp out/soong/.intermediates/frameworks/base/data/etc/privapp_whitelist_com.android.launcher3/android_arm64_armv8-2a-dotprod/com.android.launcher3.xml
+[ 12% 19/153] //frameworks/base/libs/appfunctions:com.android.extensions.appfunctions.stubs.source raw metalava.sbox.rbe_inputs.list
+[ 13% 20/153] //frameworks/base/libs/appfunctions:com.android.extensions.appfunctions.stubs.source everything gather aconfig flags
+[ 13% 21/153] target Prebuilt: privapp_whitelist_aospa_launcher3 (out/target/product/giulia/obj/ETC/privapp_whitelist_aospa_launcher3_intermediates/privapp_whitelist_aospa_launcher3)
+[ 14% 22/153] //packages/apps/Launcher3:libGoogleFeed combine prebuilt implementation jars
+[ 15% 23/153] Install: out/target/product/giulia/system_ext/etc/permissions/privapp_whitelist_aospa_launcher3.xml
+[ 15% 24/153] //packages/apps/Launcher3:launcher_quickstep_log_protos_lite protoc
+[ 16% 25/153] //packages/apps/Launcher3:Launcher3QuickStep dexpreopt product_packages
+[ 16% 26/153] target Prebuilt: privapp_whitelist_com.android.launcher3 (out/target/product/giulia/obj/ETC/privapp_whitelist_com.android.launcher3_intermediates/privapp_whitelist_com.android.launcher3)
+[ 17% 27/153] //packages/apps/Launcher3:Launcher3QuickStep raw dexpreopt.config
+[ 18% 28/153] //packages/apps/Launcher3:Launcher3QuickStep aapt2 compile packages/apps/Launcher3/quickstep/res 2
+[ 18% 29/153] Install: out/target/product/giulia/system_ext/etc/permissions/com.android.launcher3.xml
+[ 19% 30/153] //packages/apps/Launcher3:Launcher3QuickStep aapt2 compile packages/apps/Launcher3/quickstep/res
+[ 20% 31/153] //packages/apps/Launcher3/modules/widgetpicker:widget_picker_ui_data_types aapt2 link
+[ 20% 32/153] Copy: out/target/product/giulia/dexpreopt_config/Launcher3QuickStep_dexpreopt.config
+[ 21% 33/153] //packages/apps/Launcher3/modules/widgetpicker:widget_picker_event_listeners aapt2 link
+[ 22% 34/153] //packages/apps/Launcher3/modules/widgetpicker:widget_picker_data_repositories aapt2 link
+[ 22% 35/153] //packages/apps/Launcher3:Launcher3QuickStep fix manifest
+[ 23% 36/153] //packages/apps/Launcher3:Launcher3QuickStep aapt2 compile packages/apps/Launcher3/quickstep/res 3
+[ 24% 37/153] //packages/apps/Launcher3:Launcher3QuickStep aapt2 compile packages/apps/Launcher3/quickstep/res 4
+[ 24% 38/153] //packages/apps/Launcher3:Launcher3ResLib aapt2 compile packages/apps/Launcher3/res 4
+[ 25% 39/153] //packages/apps/Launcher3:Launcher3ResLib overlay resource file list
+[ 26% 40/153] //prebuilts/sdk/current/androidx/m2repository/androidx/appfunctions/appfunctions/1.0.0-alpha08:androidx.appfunctions_appfunctions aapt2 link
+[ 26% 41/153] //packages/apps/Launcher3/modules/widgetpicker:widget_picker_domain_layer aapt2 link
+[ 27% 42/153] //prebuilts/sdk/current/androidx/m2repository/androidx/appfunctions/appfunctions/1.0.0-alpha08:androidx.appfunctions_appfunctions merge assets from dependencies
+[ 28% 43/153] //prebuilts/sdk/current/androidx/m2repository/androidx/compose/ui/ui-tooling-android/1.12.0-alpha01:androidx.compose.ui_ui-tooling aapt2 link
+[ 28% 44/153] //prebuilts/sdk/current/androidx/m2repository/androidx/compose/ui/ui-tooling-android/1.12.0-alpha01:androidx.compose.ui_ui-tooling merge assets from dependencies
+[ 29% 45/153] //frameworks/base/libs/appfunctions:com.android.extensions.appfunctions.stubs.source everything metalava flags config
+[ 30% 46/153] //packages/apps/Launcher3/dagger:launcher-dagger-qualifiers jarjar
+[ 30% 47/153] //frameworks/base/core/java:protolog-group jarjar
+[ 31% 48/153] //packages/apps/Launcher3/dagger:launcher-dagger-qualifiers jarjar
+[ 32% 49/153] //frameworks/base/core/java:protolog-group jarjar
+[ 32% 50/153] //frameworks/base/libs/computercontrol:com.android.extensions.computercontrol jarjar
+[ 33% 51/153] //frameworks/base/libs/computercontrol:com.android.extensions.computercontrol jarjar
+[ 33% 52/153] //prebuilts/sdk/current/androidx/m2repository/androidx/appfunctions/appfunctions-service/1.0.0-alpha08:androidx.appfunctions_appfunctions-service aapt2 link
+[ 34% 53/153] out/host/linux-x86/bin/extract-r8-rules --rules-output out/soong/.intermediates/packages/apps/Launcher3/libGoogleFeed/android_common/proguard_flags --include-origin-comments out/soong/.intermediates/packages/apps/Launcher3/libGoogleFeed/android_common/combined/libGoogleFeed.jar
+[ 35% 54/153] //prebuilts/sdk/current/androidx/m2repository/androidx/appfunctions/appfunctions-service/1.0.0-alpha08:androidx.appfunctions_appfunctions-service merge assets from dependencies
+[ 35% 55/153] //packages/apps/Launcher3/modules/widgetpicker:widget_picker_ui_components aapt2 link
+[ 36% 56/153] //packages/apps/Launcher3/modules/widgetpicker:widget_picker_ui_theme ResourceProcessorBusyBox
+[ 37% 57/153] //packages/apps/Launcher3/modules/widgetpicker:widget_picker_cui_reporter ResourceProcessorBusyBox
+[ 37% 58/153] //packages/apps/Launcher3/modules/appfunctions:workspace-functions aapt2 link
+[ 38% 59/153] //packages/apps/Launcher3/modules/widgetpicker:widget_picker_event_listeners ResourceProcessorBusyBox
+[ 39% 60/153] //packages/apps/Launcher3/modules/widgetpicker:widget_picker_data_repositories ResourceProcessorBusyBox
+[ 39% 61/153] //packages/apps/Launcher3/modules/widgetpicker:widget_picker_ui_data_types ResourceProcessorBusyBox
+[ 40% 62/153] //packages/apps/Launcher3/modules/widgetpicker:widget_picker_dagger_annotations ResourceProcessorBusyBox
+[ 41% 63/153] //packages/apps/Launcher3/modules/widgetpicker:widget_picker_shared_data_types ResourceProcessorBusyBox
+[ 41% 64/153] //packages/apps/Launcher3/modules/widgetpicker:widget_picker_domain_layer ResourceProcessorBusyBox
+[ 42% 65/153] //packages/apps/Launcher3/modules/widgetpicker:widget_picker_ui aapt2 link
+[ 43% 66/153] //packages/apps/Launcher3/modules/appfunctions:workspace-functions ResourceProcessorBusyBox
+[ 43% 67/153] //packages/apps/Launcher3/modules/widgetpicker:widget_picker_component aapt2 link
+[ 44% 68/153] //packages/apps/Launcher3/modules/widgetpicker:widget_picker_ui_components ResourceProcessorBusyBox
+[ 45% 69/153] //packages/apps/Launcher3:Launcher3QuickStep merge manifest
+[ 45% 70/153] //packages/apps/Launcher3/modules/widgetpicker:widget_picker_ui ResourceProcessorBusyBox
+[ 46% 71/153] //packages/apps/Launcher3:Launcher3QuickStep verify <uses-library>
+[ 47% 72/153] //packages/apps/Launcher3/shared:launcher-testing-shared turbine
+[ 47% 73/153] //packages/apps/Launcher3:launcher_log_protos_lite turbine
+[ 48% 74/153] //packages/providers/MediaProvider:mediaprovider_exported_aconfig_flag_lib turbine
+[ 49% 75/153] //packages/apps/Launcher3/modules/widgetpicker:widget_picker_component ResourceProcessorBusyBox
+[ 49% 76/153] //packages/apps/Launcher3:launcher_quickstep_log_protos_lite turbine
+[ 50% 77/153] //packages/apps/Launcher3/shared:launcher-testing-shared javac
+[ 50% 78/153] //packages/providers/MediaProvider:mediaprovider_exported_aconfig_flag_lib javac
+[ 51% 79/153] //packages/apps/Launcher3:launcher_quickstep_log_protos_lite javac
+[ 52% 80/153] //packages/apps/Launcher3:launcher_log_protos_lite javac
+[ 52% 81/153] //packages/apps/Launcher3:Launcher3ResLib aapt2 link
+warn: removing resource com.android.launcher3:string/allow_rotation_title without required default value.
+warn: removing resource com.android.launcher3:string/folder_name_format_exact without required default value.
+warn: removing resource com.android.launcher3:string/folder_name_format_overflow without required default value.
+warn: removing resource com.android.launcher3:string/item_added_to_workspace without required default value.
+warn: removing resource com.android.launcher3:string/widgets_full_sheet_cancel_button_description without required default value.
+warn: removing resource com.android.launcher3:string/widgets_full_sheet_search_bar_hint without required default value.
+warn: removing resource com.android.launcher3:string/work_profile_edu_accept without required default value.
+[ 53% 82/153] //packages/apps/Launcher3:QuickstepResLib aapt2 link
+warn: removing resource com.android.launcher3:string/back_gesture_spoken_intro_subtitle without required default value.
+warn: removing resource com.android.launcher3:string/bubble_bar_accessibility_announce_collapse without required default value.
+warn: removing resource com.android.launcher3:string/bubble_bar_accessibility_announce_expand without required default value.
+warn: removing resource com.android.launcher3:string/default_device_name without required default value.
+warn: removing resource com.android.launcher3:string/gesture_tutorial_action_button_label_cancel without required default value.
+warn: removing resource com.android.launcher3:string/gesture_tutorial_action_button_label_skip without required default value.
+warn: removing resource com.android.launcher3:string/home_gesture_spoken_intro_subtitle without required default value.
+warn: removing resource com.android.launcher3:string/hotseat_edu_accept without required default value.
+warn: removing resource com.android.launcher3:string/hotseat_edu_dismiss without required default value.
+warn: removing resource com.android.launcher3:string/hotseat_edu_message_migrate without required default value.
+warn: removing resource com.android.launcher3:string/hotseat_edu_message_migrate_landscape without required default value.
+warn: removing resource com.android.launcher3:string/hotseat_edu_title_migrate without required default value.
+warn: removing resource com.android.launcher3:string/hotseat_edu_title_migrate_landscape without required default value.
+warn: removing resource com.android.launcher3:string/hotseat_prediction_content_description without required default value.
+warn: removing resource com.android.launcher3:string/overview_gesture_spoken_intro_subtitle without required default value.
+warn: removing resource com.android.launcher3:string/skip_tutorial_dialog_subtitle without required default value.
+warn: removing resource com.android.launcher3:string/skip_tutorial_dialog_title without required default value.
+warn: removing resource com.android.launcher3:string/task_view_closed without required default value.
+warn: removing resource com.android.launcher3:string/taskbar_a11y_hidden_title without required default value.
+warn: removing resource com.android.launcher3:string/taskbar_a11y_hidden_with_bubbles_title without required default value.
+warn: removing resource com.android.launcher3:string/taskbar_a11y_shown_title without required default value.
+warn: removing resource com.android.launcher3:string/taskbar_a11y_shown_with_bubbles_left_title without required default value.
+warn: removing resource com.android.launcher3:string/taskbar_a11y_shown_with_bubbles_right_title without required default value.
+warn: removing resource com.android.launcher3:string/taskbar_overflow_a11y_title without required default value.
+[ 54% 83/153] //packages/apps/Launcher3:Launcher3QuickStepLib overlay resource file list
+[ 54% 84/153] //frameworks/base/libs/appfunctions:com.android.extensions.appfunctions.stubs.from-text javac0
+[ 55% 85/153] //frameworks/base/libs/appfunctions:com.android.extensions.appfunctions.stubs.from-text merge jar files
+[ 56% 86/153] //frameworks/base/libs/appfunctions:com.android.extensions.appfunctions.stubs for turbine
+[ 56% 87/153] //packages/apps/Launcher3:launcher-quickstep_protolog-groups javac
+[ 57% 88/153] //packages/apps/Launcher3:launcher-quickstep_protolog-groups jarjar
+[ 58% 89/153] //packages/apps/Launcher3:launcher-quickstep_protolog-groups for javac
+[ 58% 90/153] //packages/apps/Launcher3/modules/concurrent:launcher-executors-module kapt stubs
+[ 59% 91/153] //packages/apps/Launcher3/modules/widgetpicker:widget_picker_dagger_annotations kotlinc
+[ 60% 92/153] //frameworks/libs/systemui/cuebarlib:cuebarlib kotlinc
+[ 60% 93/153] //packages/apps/Launcher3/modules/concurrent:launcher-executors-module turbine apt
+[ 61% 94/153] //packages/apps/Launcher3/modules/widgetpicker:widget_picker_cui_reporter kotlinc
+[ 62% 95/153] //packages/apps/Launcher3:launcher-quickstep-processed-protolog-src generate launcher.quickstep.protolog.srcjar
+[ 62% 96/153] //packages/apps/Launcher3:gen-launcher.quickstep.protolog.pb generate launcher.quickstep.protolog.pb
+[ 63% 97/153] cp out/soong/.intermediates/packages/apps/Launcher3/launcher.quickstep.protolog.pb/android_arm64_armv8-2a-dotprod/launcher.quickstep.protolog.pb
+[ 64% 98/153] target Prebuilt: launcher.quickstep.protolog.pb (out/target/product/giulia/obj/ETC/launcher.quickstep.protolog.pb_intermediates/launcher.quickstep.protolog.pb)
+[ 64% 99/153] Install: out/target/product/giulia/system_ext/etc/launcher.quickstep.protolog.pb
+[ 65% 100/153] //packages/apps/Launcher3/modules/widgetpicker:widget_picker_shared_data_types kotlinc
+[ 66% 101/153] //packages/apps/Launcher3/modules/widgetpicker:widget_picker_ui_theme kotlinc
+[ 66% 102/153] //frameworks/base/libs/appfunctions:com.android.extensions.appfunctions.stubs.source metalava merged
+[ 67% 103/153] //frameworks/base/libs/appfunctions:com.android.extensions.appfunctions.stubs.source check current API
+[ 67% 104/153] //packages/apps/Launcher3/modules/appfunctions:workspace-functions ksp annotation processing
+[ 68% 105/153] //packages/apps/Launcher3/modules/concurrent:launcher-executors-module kotlinc
+[ 69% 106/153] //packages/apps/Launcher3/modules/concurrent:launcher-executors-module turbine
+[ 69% 107/153] //packages/apps/Launcher3/modules/concurrent:launcher-executors-module javac
+[ 70% 108/153] //packages/apps/Launcher3/modules/widgetpicker:widget_picker_event_listeners kotlinc
+[ 71% 109/153] //packages/apps/Launcher3/modules/widgetpicker:widget_picker_data_repositories kotlinc
+[ 71% 110/153] //packages/apps/Launcher3/modules/widgetpicker:widget_picker_ui_data_types kotlinc
+[ 72% 111/153] //packages/apps/Launcher3/modules/widgetpicker:widget_picker_domain_layer kotlinc
+[ 73% 112/153] //packages/apps/Launcher3/modules/appfunctions:workspace-functions kotlinc
+[ 73% 113/153] //packages/apps/Launcher3/modules/appfunctions:workspace-functions turbine
+[ 74% 114/153] //packages/apps/Launcher3/modules/appfunctions:workspace-functions javac
+[ 75% 115/153] //packages/apps/Launcher3:Launcher3QuickStepLib aapt2 link
+[ 75% 116/153] //packages/apps/Launcher3:Launcher3QuickStep overlay resource file list
+[ 76% 117/153] //packages/apps/Launcher3/modules/widgetpicker:widget_picker_ui_components kapt stubs
+[ 77% 118/153] //packages/apps/Launcher3/modules/widgetpicker:widget_picker_ui_components turbine apt
+[ 77% 119/153] //packages/apps/Launcher3:Launcher3QuickStep aapt2 link
+FAILED: out/soong/.intermediates/packages/apps/Launcher3/Launcher3QuickStep/android_common/aapt2/package-res.apk out/soong/.intermediates/packages/apps/Launcher3/Launcher3QuickStep/android_common/gen/proguard.options out/soong/.intermediates/packages/apps/Launcher3/Launcher3QuickStep/android_common/R.txt
+out/host/linux-x86/bin/aapt2 link -o out/soong/.intermediates/packages/apps/Launcher3/Launcher3QuickStep/android_common/aapt2/package-res.apk --enable-compact-entries --enable-sparse-encoding --no-compress-fonts --manifest out/soong/.intermediates/packages/apps/Launcher3/Launcher3QuickStep/android_common/manifest_merger/AndroidManifest.xml  $(: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855) --min-sdk-version 37 --target-sdk-version 37 --version-code 37 --version-name  17 --auto-add-overlay -I out/soong/.intermediates/frameworks/base/core/res/framework-res/android_common/package-res.apk --product nosdcard -c en_US,en_US,af_ZA,am_ET,ar_EG,ar_XB,as_IN,az_AZ,be_BY,bg_BG,bn_BD,bs_BA,ca_ES,cs_CZ,da_DK,de_DE,el_GR,en_AU,en_CA,en_GB,en_IN,en_XA,es_ES,es_US,et_EE,eu_ES,fa_IR,fi_FI,fr_CA,fr_FR,gl_ES,gu_IN,hi_IN,hr_HR,hu_HU,hy_AM,in_ID,is_IS,it_IT,iw_IL,ja_JP,ka_GE,kk_KZ,km_KH,kn_IN,ko_KR,ky_KG,lo_LA,lt_LT,lv_LV,mk_MK,ml_IN,mn_MN,mr_IN,ms_MY,my_MM,nb_NO,ne_NP,nl_NL,or_IN,pa_IN,pl_PL,pt_BR,pt_PT,ro_RO,ru_RU,si_LK,sk_SK,sl_SI,sq_AL,sr_Latn_RS,sr_RS,sv_SE,sw_TZ,ta_IN,te_IN,th_TH,tl_PH,tr_TR,uk_UA,ur_PK,uz_UZ,vi_VN,zh_CN,zh_HK,zh_TW,zu_ZA,en_XC,normal --preferred-density xxxhdpi --non-final-ids --no-static-lib-packages --proguard out/soong/.intermediates/packages/apps/Launcher3/Launcher3QuickStep/android_common/gen/proguard.options --output-text-symbols out/soong/.intermediates/packages/apps/Launcher3/Launcher3QuickStep/android_common/R.txt -R @out/soong/.intermediates/packages/apps/Launcher3/Launcher3QuickStep/android_common/aapt2/overlay.list --feature-flags @out/soong/.intermediates/frameworks/base/android.security.flags-aconfig/aconfig-flags.txt --feature-flags @out/soong/.intermediates/frameworks/base/com.android.window.flags.window-aconfig/aconfig-flags.txt --feature-flags @out/soong/.intermediates/frameworks/base/services/core/java/com/android/server/uilatencystats/uilatencystats_flags/aconfig-flags.txt --feature-flags @out/soong/.intermediates/packages/apps/Launcher3/aconfig/com_android_launcher3_flags/aconfig-flags.txt --feature-flags @out/soong/.intermediates/packages/providers/MediaProvider/mediaprovider_flags/aconfig-flags.txt
+warn: removing resource com.android.launcher3:string/back_gesture_spoken_intro_subtitle without required default value.
+warn: removing resource com.android.launcher3:string/bubble_bar_accessibility_announce_collapse without required default value.
+warn: removing resource com.android.launcher3:string/bubble_bar_accessibility_announce_expand without required default value.
+warn: removing resource com.android.launcher3:string/default_device_name without required default value.
+warn: removing resource com.android.launcher3:string/gesture_tutorial_action_button_label_cancel without required default value.
+warn: removing resource com.android.launcher3:string/gesture_tutorial_action_button_label_skip without required default value.
+warn: removing resource com.android.launcher3:string/home_gesture_spoken_intro_subtitle without required default value.
+warn: removing resource com.android.launcher3:string/hotseat_edu_accept without required default value.
+warn: removing resource com.android.launcher3:string/hotseat_edu_dismiss without required default value.
+warn: removing resource com.android.launcher3:string/hotseat_edu_message_migrate without required default value.
+warn: removing resource com.android.launcher3:string/hotseat_edu_message_migrate_landscape without required default value.
+warn: removing resource com.android.launcher3:string/hotseat_edu_title_migrate without required default value.
+warn: removing resource com.android.launcher3:string/hotseat_edu_title_migrate_landscape without required default value.
+warn: removing resource com.android.launcher3:string/overview_gesture_spoken_intro_subtitle without required default value.
+warn: removing resource com.android.launcher3:string/skip_tutorial_dialog_subtitle without required default value.
+warn: removing resource com.android.launcher3:string/skip_tutorial_dialog_title without required default value.
+warn: removing resource com.android.launcher3:string/task_view_closed without required default value.
+warn: removing resource com.android.launcher3:string/taskbar_a11y_hidden_title without required default value.
+warn: removing resource com.android.launcher3:string/taskbar_a11y_hidden_with_bubbles_title without required default value.
+warn: removing resource com.android.launcher3:string/taskbar_a11y_shown_title without required default value.
+warn: removing resource com.android.launcher3:string/taskbar_a11y_shown_with_bubbles_left_title without required default value.
+warn: removing resource com.android.launcher3:string/taskbar_a11y_shown_with_bubbles_right_title without required default value.
+warn: removing resource com.android.launcher3:string/taskbar_overflow_a11y_title without required default value.
+packages/apps/Launcher3/res/xml/app_info_preferences.xml:20: error: resource string/placeholder_string (aka com.android.launcher3:string/placeholder_string) not found.
+packages/apps/Launcher3/res/xml/app_info_preferences.xml:27: error: resource string/placeholder_string (aka com.android.launcher3:string/placeholder_string) not found.
+packages/apps/Launcher3/res/xml/app_info_preferences.xml:34: error: resource string/placeholder_string (aka com.android.launcher3:string/placeholder_string) not found.
+packages/apps/Launcher3/res/xml/app_info_preferences.xml:41: error: resource string/placeholder_string (aka com.android.launcher3:string/placeholder_string) not found.
+error: failed linking file resources.
+[ 78% 120/153] //packages/apps/Launcher3/modules/widgetpicker:widget_picker_ui_components kotlinc
+ninja: build stopped: subcommand failed.
+14:01:28 ninja failed with: exit status 1
+
+[0;31m#### failed to build some targets (03:34 (mm:ss)) ####
+[00m
+[m[1m[31mBuild failed![m
+

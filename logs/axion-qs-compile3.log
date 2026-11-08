@@ -1,0 +1,241 @@
+=== axion qs compile start Mon Nov  2 08:24:15 PM UTC 2026 ===
+SystemUI
+[m[1m[34mSetting up the environment[m
+
+including vendor/aospa/vendorsetup.sh
+including vendor/google/gms/vendorsetup.sh
+including vendor/oplus/camera/vendorsetup.sh
+including vendor/qcom/opensource/core-utils/vendorsetup.sh
+including vendor/qcom/sdclang/config/vendorsetup.sh
+
+[m[1m[32mBuilding AOSPA calcite for giulia[m
+[m[32mStart time: Mon Nov  2 08:24:15 PM UTC 2026[m
+
+[m[1m[34mLunching giulia[m [m[36m(Including dependencies sync)[m
+
+Release not specified, defaulting to cp2a build
+No changes were necessary to the barista recipe.
+No ingredients need to be brewed.
+20:24:17 Build sandboxing disabled due to nsjail error.
+hardware/qcom/display/config/display-product.mk:244: warning: "Using smmu proxy"
+hardware/qcom/display/config/display-product.mk:244: warning: "Using smmu proxy"
+
+============================================
+PLATFORM_VERSION_CODENAME=REL
+PLATFORM_VERSION=17
+PRODUCT_SOURCE_ROOT_DIRS=-prebuilts/misc/protobuf_vendorcompat -platform_testing/libraries/sdv -platform_testing/tests/sdv -platform_testing/libraries/automotive/display_safety -platform_testing/tests/automotive/display_safety -device/generic/trusty/microdroid
+AOSPA_VERSION=calcite-unofficial-giulia-20261102
+TARGET_PRODUCT=aospa_giulia
+TARGET_BUILD_VARIANT=userdebug
+TARGET_ARCH=arm64
+TARGET_ARCH_VARIANT=armv8-2a-dotprod
+TARGET_CPU_VARIANT=generic
+HOST_OS=linux
+HOST_OS_EXTRA=Linux-7.0.0-42-generic-x86_64-Ubuntu-24.04.5-LTS
+HOST_CROSS_OS=windows
+BUILD_ID=CQ2A.260820.002-CP2A.260605.016
+OUT_DIR=out
+PRODUCT_SOONG_NAMESPACES=vendor/oplus/camera/giulia/blobs device/oneplus/giulia vendor/sony/dolby hardware/nxp/keymint/generic hardware/nxp/weaver/generic vendor/oneplus/ir hardware/oplus/overlay device/oneplus/sm8650-common hardware/oplus vendor/oneplus/sm8650-oss/vendor.oplus.hardware.touch@2.0-service vendor/oneplus/sm8650-common vendor/oneplus/giulia vendor/google/gms vendor/qcom/common/vendor/adreno/u vendor/qcom/common/system/alarm device/qcom/common/vendor/alarm vendor/qcom/common/vendor/alarm vendor/qcom/common/system/audio vendor/qcom/common/system/av vendor/qcom/common/system/bt vendor/qcom/common/system/display vendor/qcom/common/vendor/display vendor/qcom/common/system/gps device/qcom/common/vendor/gps device/qcom/common/system/overlay device/qcom/common/vendor/overlay vendor/qcom/common/system/perf device/qcom/common/vendor/perf vendor/qcom/common/vendor/perf vendor/qcom/common/system/telephony device/qcom/common/vendor/telephony vendor/qcom/opensource/data-ipa-cfg-mgr device/qcom/common/vendor/usb vendor/qcom/common/system/wfd device/qcom/common/vendor/wlan hardware/qcom/wlan/qcwcn vendor/qcom/opensource/data-ipa-cfg-mgr vendor/qcom/common/vendor/wlan device/qcom/common vendor/qcom/opensource/audio-hal/st-hal-ar
+SOONG_NINJA=ninja
+USE_RBE=true
+SOONG_ONLY=false
+SOONG_INCREMENTAL_ANALYSIS=false
+============================================
+20:24:19 Build sandboxing disabled due to nsjail error.
+hardware/qcom/display/config/display-product.mk:244: warning: "Using smmu proxy"
+hardware/qcom/display/config/display-product.mk:244: warning: "Using smmu proxy"
+20:24:22 Build sandboxing disabled due to nsjail error.
+hardware/qcom/display/config/display-product.mk:244: warning: "Using smmu proxy"
+hardware/qcom/display/config/display-product.mk:244: warning: "Using smmu proxy"
+20:24:25 Build sandboxing disabled due to nsjail error.
+hardware/qcom/display/config/display-product.mk:244: warning: "Using smmu proxy"
+hardware/qcom/display/config/display-product.mk:244: warning: "Using smmu proxy"
+
+[m[1m[34mStarting compilation[m
+
+20:24:29 Build sandboxing disabled due to nsjail error.
+Starting ninja...
+hardware/qcom/display/config/display-product.mk:244: warning: "Using smmu proxy"
+Running product configuration...
+hardware/qcom/display/config/display-product.mk:244: warning: "Using smmu proxy"
+============================================
+PLATFORM_VERSION_CODENAME=REL
+PLATFORM_VERSION=17
+PRODUCT_SOURCE_ROOT_DIRS=-prebuilts/misc/protobuf_vendorcompat -platform_testing/libraries/sdv -platform_testing/tests/sdv -platform_testing/libraries/automotive/display_safety -platform_testing/tests/automotive/display_safety -device/generic/trusty/microdroid
+AOSPA_VERSION=calcite-unofficial-giulia-20261102
+TARGET_PRODUCT=aospa_giulia
+TARGET_BUILD_VARIANT=userdebug
+TARGET_ARCH=arm64
+TARGET_ARCH_VARIANT=armv8-2a-dotprod
+TARGET_CPU_VARIANT=generic
+HOST_OS=linux
+HOST_OS_EXTRA=Linux-7.0.0-42-generic-x86_64-Ubuntu-24.04.5-LTS
+HOST_CROSS_OS=windows
+BUILD_ID=CQ2A.260820.002-CP2A.260605.016
+OUT_DIR=out
+PRODUCT_SOONG_NAMESPACES=vendor/oplus/camera/giulia/blobs device/oneplus/giulia vendor/sony/dolby hardware/nxp/keymint/generic hardware/nxp/weaver/generic vendor/oneplus/ir hardware/oplus/overlay device/oneplus/sm8650-common hardware/oplus vendor/oneplus/sm8650-oss/vendor.oplus.hardware.touch@2.0-service vendor/oneplus/sm8650-common vendor/oneplus/giulia vendor/google/gms vendor/qcom/common/vendor/adreno/u vendor/qcom/common/system/alarm device/qcom/common/vendor/alarm vendor/qcom/common/vendor/alarm vendor/qcom/common/system/audio vendor/qcom/common/system/av vendor/qcom/common/system/bt vendor/qcom/common/system/display vendor/qcom/common/vendor/display vendor/qcom/common/system/gps device/qcom/common/vendor/gps device/qcom/common/system/overlay device/qcom/common/vendor/overlay vendor/qcom/common/system/perf device/qcom/common/vendor/perf vendor/qcom/common/vendor/perf vendor/qcom/common/system/telephony device/qcom/common/vendor/telephony vendor/qcom/opensource/data-ipa-cfg-mgr device/qcom/common/vendor/usb vendor/qcom/common/system/wfd device/qcom/common/vendor/wlan hardware/qcom/wlan/qcwcn vendor/qcom/opensource/data-ipa-cfg-mgr vendor/qcom/common/vendor/wlan device/qcom/common vendor/qcom/opensource/audio-hal/st-hal-ar
+SOONG_NINJA=ninja
+USE_RBE=true
+SOONG_ONLY=false
+SOONG_INCREMENTAL_ANALYSIS=true
+============================================
+[100% 1/1] bootstrap blueprint
+Running globs...
+
+Globs changed, rerunning soong...
+One culprit glob (may be more): vendor/aospa/axion/ax_systemui/src/**/*.kt
+[100% 2/2] analyzing Android.bp files and generating ninja file at out/soong/build.aospa_giulia.ninja
+Clang SA is not enabled
+No need to regenerate ninja file
+out/soong/late-aospa_giulia.mk was modified, regenerating...
+[100% 3/3] initializing Make module parser
+hardware/qcom/display/config/display-product.mk:244: warning: "Using smmu proxy"
+[  5% 4/75] including out/soong/installs-aospa_giulia.mk
+[  6% 5/75] including out/soong/Android-aospa_giulia.mk
+[  8% 6/75] including build/make/target/board/android-info.mk
+[  9% 7/75] including device/amlogic/yukawa/Android.mk
+[ 10% 8/75] including device/qcom/common/Android.mk
+[ 12% 9/75] including device/qcom/qssi/Android.mk
+[ 13% 10/75] including device/qcom/qssi_64/Android.mk
+[ 14% 11/75] including device/qcom/qssi_64go/Android.mk
+[ 16% 12/75] including device/qcom/qssi_tiny/Android.mk
+[ 17% 13/75] including device/qcom/qssi_tiny_32go/Android.mk
+[ 18% 14/75] including device/qcom/wlan/neo61/Android.mk
+[ 20% 15/75] including disregard/Android.mk
+Skipping Android.mk under disregard
+[ 21% 16/75] including hardware/broadcom/libbt/Android.mk
+[ 22% 17/75] including hardware/broadcom/wlan/bcmdhd/Android.mk
+[ 24% 18/75] including hardware/lineage/compat/interfaces/_backend/radio/config/Android.mk
+[ 25% 19/75] including hardware/qcom/bootctrl/Android.mk
+[ 26% 20/75] including hardware/qcom/display/Android.mk
+[ 28% 21/75] including hardware/qcom/gps/Android.mk
+[ 29% 22/75] including hardware/qcom/wlan/Android.mk
+[ 30% 23/75] including hardware/synaptics/wlan/synadhd/Android.mk
+[ 32% 24/75] including kernel/Android.mk
+Skipping Android.mk under kernel
+[ 33% 25/75] including proprietary_vendor_sony_dolby/Android.mk
+[ 34% 26/75] including vendor/aospa/prebuilt/pixel/charger/Android.mk
+[ 36% 27/75] including vendor/google/gms/Android.mk
+[ 37% 28/75] including vendor/oneplus/giulia/Android.mk
+[ 38% 29/75] including vendor/oneplus/ir/Android.mk
+[ 40% 30/75] including vendor/oneplus/sm8650-common/Android.mk
+[ 41% 31/75] including vendor/oplus/camera/giulia/blobs/Android.mk
+[ 42% 32/75] including vendor/qcom/common/system/alarm/Android.mk
+[ 44% 33/75] including vendor/qcom/common/system/audio/Android.mk
+[ 45% 34/75] including vendor/qcom/common/system/av/Android.mk
+[ 46% 35/75] including vendor/qcom/common/system/bt/Android.mk
+[ 48% 36/75] including vendor/qcom/common/system/display/Android.mk
+[ 49% 37/75] including vendor/qcom/common/system/gps/Android.mk
+[ 50% 38/75] including vendor/qcom/common/system/nfc/Android.mk
+[ 52% 39/75] including vendor/qcom/common/system/perf/Android.mk
+[ 53% 40/75] including vendor/qcom/common/system/telephony/Android.mk
+[ 54% 41/75] including vendor/qcom/common/system/wfd/Android.mk
+[ 56% 42/75] including vendor/qcom/common/vendor/adreno/r/Android.mk
+[ 57% 43/75] including vendor/qcom/common/vendor/adreno/s/Android.mk
+[ 58% 44/75] including vendor/qcom/common/vendor/adreno/t/Android.mk
+[ 60% 45/75] including vendor/qcom/common/vendor/adreno/u/Android.mk
+[ 61% 46/75] including vendor/qcom/common/vendor/alarm/Android.mk
+[ 62% 47/75] including vendor/qcom/common/vendor/charging/Android.mk
+[ 64% 48/75] including vendor/qcom/common/vendor/display/Android.mk
+[ 65% 49/75] including vendor/qcom/common/vendor/dsprpcd/Android.mk
+[ 66% 50/75] including vendor/qcom/common/vendor/gps-legacy/Android.mk
+[ 68% 51/75] including vendor/qcom/common/vendor/keymaster/Android.mk
+[ 69% 52/75] including vendor/qcom/common/vendor/media/5.10/Android.mk
+[ 70% 53/75] including vendor/qcom/common/vendor/media/5.4/Android.mk
+[ 72% 54/75] including vendor/qcom/common/vendor/media/legacy/Android.mk
+[ 73% 55/75] including vendor/qcom/common/vendor/nfc/Android.mk
+[ 74% 56/75] including vendor/qcom/common/vendor/perf/Android.mk
+[ 76% 57/75] including vendor/qcom/common/vendor/qseecomd-legacy/Android.mk
+[ 77% 58/75] including vendor/qcom/common/vendor/qseecomd/Android.mk
+[ 78% 59/75] including vendor/qcom/common/vendor/wlan-legacy/Android.mk
+[ 80% 60/75] including vendor/qcom/common/vendor/wlan/Android.mk
+[ 81% 61/75] including vendor/qcom/opensource/commonsys-intf/audio/Android.mk
+[ 82% 62/75] including vendor/qcom/opensource/commonsys/audio/Android.mk
+[ 84% 63/75] including vendor/qcom/opensource/commonsys/dataservices/Android.mk
+[ 85% 64/75] including vendor/qcom/opensource/commonsys/nfc/Android.mk
+[ 86% 65/75] including vendor/qcom/opensource/core-utils-vendor/qspaframework/Android.mk
+[ 88% 66/75] including vendor/qcom/opensource/core-utils/Android.mk
+[ 89% 67/75] including vendor/qcom/opensource/data-ipa-cfg-mgr/ipanat/test/Android.mk
+[ 90% 68/75] including vendor/qcom/opensource/dataservices/datatop/Android.mk
+[ 92% 69/75] including vendor/qcom/opensource/ecosw/nordic_hal/Android.mk
+[ 93% 70/75] including vendor/qcom/opensource/mmc-utils/Android.mk
+[ 94% 71/75] including vendor/qcom/opensource/power/Android.mk
+[ 96% 72/75] including vendor/qcom/opensource/recovery-ext/Android.mk
+[ 97% 73/75] including vendor/qcom/opensource/softap/softap/sdk/Android.mk
+[ 98% 74/75] including vendor/sony/dolby/Android.mk
+[100% 75/75] including out/soong/late-aospa_giulia.mk
+[100% 76/76] finishing Make module rules
+[100% 77/77] finishing Make module rules: Adding module dependencies
+[100% 78/78] finishing Make packaging rules
+[ 74% 79/106] including build/make/core/tasks/art.mk
+[ 75% 80/106] including build/make/core/tasks/build_custom_images.mk
+[ 76% 81/106] including build/make/core/tasks/dex_preopt_check.mk
+[ 77% 82/106] including build/make/core/tasks/find-shareduid-violation.mk
+[ 78% 83/106] including build/make/core/tasks/fontchain_lint.mk
+[ 79% 84/106] including build/make/core/tasks/host_init_verifier.mk
+[ 80% 85/106] including build/make/core/tasks/meta-lic.mk
+[ 81% 86/106] including build/make/core/tasks/module-info.mk
+[ 82% 87/106] including build/make/core/tasks/oem_image.mk
+[ 83% 88/106] including build/make/core/tasks/offline-sdk-docs.mk
+[ 83% 89/106] including build/make/core/tasks/platform_availability_check.mk
+[ 84% 90/106] including build/make/core/tasks/ramdisk_snapshot.mk
+[ 85% 91/106] including build/make/core/tasks/sdv.mk
+[ 86% 92/106] including build/make/core/tasks/vendor_module_check.mk
+[ 87% 93/106] including build/make/core/tasks/with-license.mk
+[ 88% 94/106] including vendor/aospa/build/tasks/kernel.mk
+[ 89% 95/106] including vendor/qcom/build/tasks/QMAA_enforcement.mk
+[ 90% 96/106] including vendor/qcom/build/tasks/QSSI_violators.mk
+[ 91% 97/106] including vendor/qcom/build/tasks/generate_extra_images.mk
+[ 92% 98/106] including vendor/qcom/build/tasks/generate_vendor_bundle.mk
+[ 93% 99/106] including vendor/qcom/build/tasks/vendor_prop_context_restriction.mk
+[ 94% 100/106] including device/amlogic/yukawa/build/tasks/dtimages.mk
+[ 95% 101/106] including device/generic/goldfish/build/tasks/combine_initramfs.mk
+[ 96% 102/106] including device/qcom/qssi_64/build/tasks/symlink_system_dlkm.mk
+[ 97% 103/106] including device/qcom/qssi_64go/build/tasks/symlink_system_dlkm.mk
+[ 98% 104/106] including device/qcom/qssi_tiny/build/tasks/symlink_system_dlkm.mk
+[ 99% 105/106] including device/qcom/qssi_tiny_32go/build/tasks/symlink_system_dlkm.mk
+[100% 106/106] finishing Make packaging rules
+[100% 107/107] finishing Make packaging rules: Adding phony targets
+[100% 108/108] finishing Make packaging rules: Checking licensing and SBOM
+[100% 109/109] writing make module actions
+out/soong/installs-aospa_giulia.mk:213209: warning: overriding commands for target `out/target/product/giulia/vendor/etc/init/android.hardware.authsecret-service.nxp.rc'
+out/soong/installs-aospa_giulia.mk:213205: warning: ignoring old commands for target `out/target/product/giulia/vendor/etc/init/android.hardware.authsecret-service.nxp.rc'
+out/soong/installs-aospa_giulia.mk:213693: warning: overriding commands for target `out/target/product/giulia/vendor/etc/init/android.hardware.security.keymint-service.strongbox.nxp.rc'
+out/soong/installs-aospa_giulia.mk:213689: warning: ignoring old commands for target `out/target/product/giulia/vendor/etc/init/android.hardware.security.keymint-service.strongbox.nxp.rc'
+out/soong/installs-aospa_giulia.mk:213865: warning: overriding commands for target `out/target/product/giulia/vendor/etc/init/android.hardware.weaver-service.nxp.rc'
+out/soong/installs-aospa_giulia.mk:213861: warning: ignoring old commands for target `out/target/product/giulia/vendor/etc/init/android.hardware.weaver-service.nxp.rc'
+out/soong/installs-aospa_giulia.mk:254106: warning: overriding commands for target `out/target/product/giulia/vendor/etc/vintf/manifest/android.hardware.authsecret-service.nxp.xml'
+out/soong/installs-aospa_giulia.mk:254104: warning: ignoring old commands for target `out/target/product/giulia/vendor/etc/vintf/manifest/android.hardware.authsecret-service.nxp.xml'
+out/soong/installs-aospa_giulia.mk:254270: warning: overriding commands for target `out/target/product/giulia/vendor/etc/vintf/manifest/android.hardware.weaver-service.nxp.xml'
+out/soong/installs-aospa_giulia.mk:66232: warning: ignoring old commands for target `out/target/product/giulia/vendor/etc/vintf/manifest/android.hardware.weaver-service.nxp.xml'
+vendor/qcom/opensource/core-utils/build/AndroidBoardCommon.mk:39: warning: overriding commands for target `out/target/product/giulia/vendor/firmware_mnt'
+vendor/aospa/build/core/mkdir.mk:22: warning: ignoring old commands for target `out/target/product/giulia/vendor/firmware_mnt'
+vendor/qcom/opensource/core-utils/build/AndroidBoardCommon.mk:46: warning: overriding commands for target `out/target/product/giulia/vendor/bt_firmware'
+vendor/aospa/build/core/mkdir.mk:22: warning: ignoring old commands for target `out/target/product/giulia/vendor/bt_firmware'
+vendor/qcom/opensource/core-utils/build/AndroidBoardCommon.mk:53: warning: overriding commands for target `out/target/product/giulia/vendor/dsp'
+vendor/aospa/build/core/mkdir.mk:22: warning: ignoring old commands for target `out/target/product/giulia/vendor/dsp'
+build/make/core/Makefile:139: warning: overriding commands for target `out/target/product/giulia/vendor/etc/batching.conf'
+out/soong/installs-aospa_giulia.mk:75907: warning: ignoring old commands for target `out/target/product/giulia/vendor/etc/batching.conf'
+build/make/core/Makefile:139: warning: overriding commands for target `out/target/product/giulia/vendor/etc/gnss_antenna_info.conf'
+out/soong/installs-aospa_giulia.mk:108110: warning: ignoring old commands for target `out/target/product/giulia/vendor/etc/gnss_antenna_info.conf'
+build/make/core/Makefile:139: warning: overriding commands for target `out/target/product/giulia/vendor/etc/gps.conf'
+out/soong/installs-aospa_giulia.mk:108350: warning: ignoring old commands for target `out/target/product/giulia/vendor/etc/gps.conf'
+No need to regenerate ninja file
+Starting ninja...
+[ 80% 110/137 5m58s remaining] //frameworks/base/packages/SystemUI:SystemUI-core ksp annotation processing
+[ 81% 111/137 5m0s remaining] //frameworks/base/packages/SystemUI:SystemUI-core kotlinc
+FAILED: out/soong/.intermediates/frameworks/base/packages/SystemUI/SystemUI-core/android_common/kotlin/SystemUI-core.jar out/soong/.intermediates/frameworks/base/packages/SystemUI/SystemUI-core/android_common/kotlin_headers/SystemUI-core.jar out/soong/.intermediates/frameworks/base/packages/SystemUI/SystemUI-core/android_common/kotlin/SystemUI-core.pc_state
+out/host/linux-x86/bin/find_input_delta --target "out/soong/.intermediates/frameworks/base/packages/SystemUI/SystemUI-core/android_common/kotlin/SystemUI-core.jar" --inputs_file "out/soong/.intermediates/frameworks/base/packages/SystemUI/SystemUI-core/android_common/kotlin/SystemUI-core.jar.rsp" --new_state "out/soong/.intermediates/frameworks/base/packages/SystemUI/SystemUI-core/android_common/kotlin/SystemUI-core.pc_state.new" --prior_state "out/soong/.intermediates/frameworks/base/packages/SystemUI/SystemUI-core/android_common/kotlin/SystemUI-core.pc_state" --inspect out/soong/.intermediates/frameworks/base/packages/SystemUI/SystemUI-core/android_common/gen/aidl/aidl0.srcjar out/soong/.intermediates/frameworks/base/packages/SystemUI/SystemUI-core/android_common/ksp/ksp-java-sources.srcjar out/soong/.intermediates/frameworks/base/packages/SystemUI/SystemUI-core/android_common/ksp/ksp-kotlin-sources.srcjar --version 2 > out/soong/.intermediates/frameworks/base/packages/SystemUI/SystemUI-core/android_common/kotlin/SystemUI-core.source_diff && rm -rf "out/soong/.intermediates/frameworks/base/packages/SystemUI/SystemUI-core/android_common/kotlinc/classes" "out/soong/.intermediates/frameworks/base/packages/SystemUI/SystemUI-core/android_common/kotlinc/header_classes" "out/soong/.intermediates/frameworks/base/packages/SystemUI/SystemUI-core/android_common/kotlinc/srcJars" "out/soong/.intermediates/frameworks/base/packages/SystemUI/SystemUI-core/android_common/kotlinc-build.xml" "out/soong/.intermediates/frameworks/base/packages/SystemUI/SystemUI-core/android_common/kotlinc/empty" && mkdir -p "out/soong/.intermediates/frameworks/base/packages/SystemUI/SystemUI-core/android_common/kotlinc/classes" "out/soong/.intermediates/frameworks/base/packages/SystemUI/SystemUI-core/android_common/kotlinc/header_classes" "out/soong/.intermediates/frameworks/base/packages/SystemUI/SystemUI-core/android_common/kotlinc/empty" && mkdir -p out/soong/.intermediates/frameworks/base/packages/SystemUI/SystemUI-core/android_common/kotlinc/srcJars && out/host/linux-x86/bin/zipsync -d out/soong/.intermediates/frameworks/base/packages/SystemUI/SystemUI-core/android_common/kotlinc/srcJars -l out/soong/.intermediates/frameworks/base/packages/SystemUI/SystemUI-core/android_common/kotlinc/srcJars/list -f "*.java" -f "*.kt" out/soong/.intermediates/frameworks/base/packages/SystemUI/SystemUI-core/android_common/gen/aidl/aidl0.srcjar out/soong/.intermediates/frameworks/base/packages/SystemUI/SystemUI-core/android_common/ksp/ksp-java-sources.srcjar out/soong/.intermediates/frameworks/base/packages/SystemUI/SystemUI-core/android_common/ksp/ksp-kotlin-sources.srcjar && out/host/linux-x86/bin/gen-kotlin-build-file --classpath "out/soong/.intermediates/frameworks/base/packages/SystemUI/SystemUI-core/android_common/kotlinc/classpath.rsp"  --name "frameworks__base__packages__SystemUI__android_common__SystemUI-core" --out_dir "out/soong/.intermediates/frameworks/base/packages/SystemUI/SystemUI-core/android_common/kotlinc/classes" --srcs "out/soong/.intermediates/frameworks/base/packages/SystemUI/SystemUI-core/android_common/kotlin/SystemUI-core.jar.rsp" --srcs "out/soong/.intermediates/frameworks/base/packages/SystemUI/SystemUI-core/android_common/kotlinc/srcJars/list"  --out "out/soong/.intermediates/frameworks/base/packages/SystemUI/SystemUI-core/android_common/kotlinc-build.xml" && external/kotlinc/bin/kotlinc   -J--add-opens=java.base/java.util=ALL-UNNAMED -J-Xmx8192M  -Xjvm-default=all -opt-in=kotlinx.coroutines.ExperimentalCoroutinesApi -P plugin:androidx.compose.compiler.plugins.kotlin:sourceInformation=true -Xsuppress-version-warnings -Xconsistent-data-class-copy-visibility -Xsam-conversions=class -no-stdlib -no-jdk -jvm-target 21 -Xplugin=out/soong/.intermediates/external/kotlin-compose-compiler/kotlin-compose-compiler-hosted/linux_glibc_common/local-combined/kotlin-compose-compiler-hosted.jar  -Xbuild-file=out/soong/.intermediates/frameworks/base/packages/SystemUI/SystemUI-core/android_common/kotlinc-build.xml  -kotlin-home out/soong/.intermediates/frameworks/base/packages/SystemUI/SystemUI-core/android_common/kotlinc/empty  -Xplugin=external/kotlinc/lib/jvm-abi-gen.jar  -P plugin:org.jetbrains.kotlin.jvm.abi:outputDir=out/soong/.intermediates/frameworks/base/packages/SystemUI/SystemUI-core/android_common/kotlinc/header_classes && out/host/linux-x86/bin/soong_zip -jar  -o out/soong/.intermediates/frameworks/base/packages/SystemUI/SystemUI-core/android_common/kotlin/SystemUI-core.jar -C out/soong/.intermediates/frameworks/base/packages/SystemUI/SystemUI-core/android_common/kotlinc/classes -D out/soong/.intermediates/frameworks/base/packages/SystemUI/SystemUI-core/android_common/kotlinc/classes -write_if_changed && out/host/linux-x86/bin/soong_zip -jar  -o out/soong/.intermediates/frameworks/base/packages/SystemUI/SystemUI-core/android_common/kotlin_headers/SystemUI-core.jar -C out/soong/.intermediates/frameworks/base/packages/SystemUI/SystemUI-core/android_common/kotlinc/header_classes -D out/soong/.intermediates/frameworks/base/packages/SystemUI/SystemUI-core/android_common/kotlinc/header_classes -write_if_changed && rm -rf "out/soong/.intermediates/frameworks/base/packages/SystemUI/SystemUI-core/android_common/kotlinc/srcJars" "out/soong/.intermediates/frameworks/base/packages/SystemUI/SystemUI-core/android_common/kotlinc/classes" "out/soong/.intermediates/frameworks/base/packages/SystemUI/SystemUI-core/android_common/kotlinc/header_classes"  && mv out/soong/.intermediates/frameworks/base/packages/SystemUI/SystemUI-core/android_common/kotlin/SystemUI-core.pc_state.new out/soong/.intermediates/frameworks/base/packages/SystemUI/SystemUI-core/android_common/kotlin/SystemUI-core.pc_state && rm out/soong/.intermediates/frameworks/base/packages/SystemUI/SystemUI-core/android_common/kotlin/SystemUI-core.source_diff
+vendor/aospa/axion/ax_systemui/src/com/android/systemui/qs/ax/fragment/AxQsFragmentCompose.kt:1079:26: error: unresolved reference 'VolumeSlider'.
+        Element(Elements.VolumeSlider, modifier = modifier.fillMaxWidth()) {
+                         ^^^^^^^^^^^^
+vendor/aospa/axion/ax_systemui/src/com/android/systemui/qs/ax/ui/grid/AxOneGrid.kt:307:89: error: unresolved reference 'TileSpec'.
+                        editModeViewModel.setTiles(axQsViewModel.defaultTileSpecs.map { TileSpec.create(it) })
+                                                                                        ^^^^^^^^
+ninja: build stopped: subcommand failed.
+20:29:12 ninja failed with: exit status 1
+
+[0;31m#### failed to build some targets (04:46 (mm:ss)) ####
+[00m
+[m[1m[31mBuild failed![m
+

@@ -1,0 +1,8 @@
+SystemUI: Use remedia pipeline for the Axion QS media card
+
+The Axion media card reads MediaRepository/MediaInteractor, which are
+only populated when the new MediaCarouselInteractor is used as the
+MediaDataManager. Prefer that implementation so QS detects active media
+sessions.
+
+Ported from AxionOS 2.9's media host configuration.

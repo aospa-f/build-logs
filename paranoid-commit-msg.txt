@@ -1,0 +1,5 @@
+ParanoidSettings: Match draw gesture labels to physical direction
+
+The OPlus driver reports the physical Draw < gesture with the
+right-arrow keycode and Draw > with the left-arrow keycode. Swap the
+preference order and titles so < means previous and > means next.

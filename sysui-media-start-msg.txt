@@ -1,0 +1,6 @@
+SystemUI: Start remedia media pipeline for Axion QS
+
+MediaDomainModule selects the remedia MediaCarouselInteractor as the
+MediaDataManager, but its start() methods still returned early unless
+the media_controls_in_compose flag was enabled. Start the pipeline
+unconditionally so the Axion QS media card receives sessions.

@@ -1,0 +1,526 @@
+=== axion qs compile start Mon Nov  2 08:14:53 PM UTC 2026 ===
+SystemUI
+[m[1m[34mSetting up the environment[m
+
+including vendor/aospa/vendorsetup.sh
+including vendor/google/gms/vendorsetup.sh
+including vendor/oplus/camera/vendorsetup.sh
+including vendor/qcom/opensource/core-utils/vendorsetup.sh
+including vendor/qcom/sdclang/config/vendorsetup.sh
+
+[m[1m[32mBuilding AOSPA calcite for giulia[m
+[m[32mStart time: Mon Nov  2 08:14:54 PM UTC 2026[m
+
+[m[1m[34mLunching giulia[m [m[36m(Including dependencies sync)[m
+
+Release not specified, defaulting to cp2a build
+No changes were necessary to the barista recipe.
+No ingredients need to be brewed.
+20:14:55 Build sandboxing disabled due to nsjail error.
+hardware/qcom/display/config/display-product.mk:244: warning: "Using smmu proxy"
+hardware/qcom/display/config/display-product.mk:244: warning: "Using smmu proxy"
+
+============================================
+PLATFORM_VERSION_CODENAME=REL
+PLATFORM_VERSION=17
+PRODUCT_SOURCE_ROOT_DIRS=-prebuilts/misc/protobuf_vendorcompat -platform_testing/libraries/sdv -platform_testing/tests/sdv -platform_testing/libraries/automotive/display_safety -platform_testing/tests/automotive/display_safety -device/generic/trusty/microdroid
+AOSPA_VERSION=calcite-unofficial-giulia-20261102
+TARGET_PRODUCT=aospa_giulia
+TARGET_BUILD_VARIANT=userdebug
+TARGET_ARCH=arm64
+TARGET_ARCH_VARIANT=armv8-2a-dotprod
+TARGET_CPU_VARIANT=generic
+HOST_OS=linux
+HOST_OS_EXTRA=Linux-7.0.0-42-generic-x86_64-Ubuntu-24.04.5-LTS
+HOST_CROSS_OS=windows
+BUILD_ID=CQ2A.260820.002-CP2A.260605.016
+OUT_DIR=out
+PRODUCT_SOONG_NAMESPACES=vendor/oplus/camera/giulia/blobs device/oneplus/giulia vendor/sony/dolby hardware/nxp/keymint/generic hardware/nxp/weaver/generic vendor/oneplus/ir hardware/oplus/overlay device/oneplus/sm8650-common hardware/oplus vendor/oneplus/sm8650-oss/vendor.oplus.hardware.touch@2.0-service vendor/oneplus/sm8650-common vendor/oneplus/giulia vendor/google/gms vendor/qcom/common/vendor/adreno/u vendor/qcom/common/system/alarm device/qcom/common/vendor/alarm vendor/qcom/common/vendor/alarm vendor/qcom/common/system/audio vendor/qcom/common/system/av vendor/qcom/common/system/bt vendor/qcom/common/system/display vendor/qcom/common/vendor/display vendor/qcom/common/system/gps device/qcom/common/vendor/gps device/qcom/common/system/overlay device/qcom/common/vendor/overlay vendor/qcom/common/system/perf device/qcom/common/vendor/perf vendor/qcom/common/vendor/perf vendor/qcom/common/system/telephony device/qcom/common/vendor/telephony vendor/qcom/opensource/data-ipa-cfg-mgr device/qcom/common/vendor/usb vendor/qcom/common/system/wfd device/qcom/common/vendor/wlan hardware/qcom/wlan/qcwcn vendor/qcom/opensource/data-ipa-cfg-mgr vendor/qcom/common/vendor/wlan device/qcom/common vendor/qcom/opensource/audio-hal/st-hal-ar
+SOONG_NINJA=ninja
+USE_RBE=true
+SOONG_ONLY=false
+SOONG_INCREMENTAL_ANALYSIS=false
+============================================
+20:14:58 Build sandboxing disabled due to nsjail error.
+hardware/qcom/display/config/display-product.mk:244: warning: "Using smmu proxy"
+hardware/qcom/display/config/display-product.mk:244: warning: "Using smmu proxy"
+20:15:01 Build sandboxing disabled due to nsjail error.
+hardware/qcom/display/config/display-product.mk:244: warning: "Using smmu proxy"
+hardware/qcom/display/config/display-product.mk:244: warning: "Using smmu proxy"
+20:15:04 Build sandboxing disabled due to nsjail error.
+hardware/qcom/display/config/display-product.mk:244: warning: "Using smmu proxy"
+hardware/qcom/display/config/display-product.mk:244: warning: "Using smmu proxy"
+
+[m[1m[34mStarting compilation[m
+
+20:15:07 Build sandboxing disabled due to nsjail error.
+Starting ninja...
+hardware/qcom/display/config/display-product.mk:244: warning: "Using smmu proxy"
+Running product configuration...
+hardware/qcom/display/config/display-product.mk:244: warning: "Using smmu proxy"
+============================================
+PLATFORM_VERSION_CODENAME=REL
+PLATFORM_VERSION=17
+PRODUCT_SOURCE_ROOT_DIRS=-prebuilts/misc/protobuf_vendorcompat -platform_testing/libraries/sdv -platform_testing/tests/sdv -platform_testing/libraries/automotive/display_safety -platform_testing/tests/automotive/display_safety -device/generic/trusty/microdroid
+AOSPA_VERSION=calcite-unofficial-giulia-20261102
+TARGET_PRODUCT=aospa_giulia
+TARGET_BUILD_VARIANT=userdebug
+TARGET_ARCH=arm64
+TARGET_ARCH_VARIANT=armv8-2a-dotprod
+TARGET_CPU_VARIANT=generic
+HOST_OS=linux
+HOST_OS_EXTRA=Linux-7.0.0-42-generic-x86_64-Ubuntu-24.04.5-LTS
+HOST_CROSS_OS=windows
+BUILD_ID=CQ2A.260820.002-CP2A.260605.016
+OUT_DIR=out
+PRODUCT_SOONG_NAMESPACES=vendor/oplus/camera/giulia/blobs device/oneplus/giulia vendor/sony/dolby hardware/nxp/keymint/generic hardware/nxp/weaver/generic vendor/oneplus/ir hardware/oplus/overlay device/oneplus/sm8650-common hardware/oplus vendor/oneplus/sm8650-oss/vendor.oplus.hardware.touch@2.0-service vendor/oneplus/sm8650-common vendor/oneplus/giulia vendor/google/gms vendor/qcom/common/vendor/adreno/u vendor/qcom/common/system/alarm device/qcom/common/vendor/alarm vendor/qcom/common/vendor/alarm vendor/qcom/common/system/audio vendor/qcom/common/system/av vendor/qcom/common/system/bt vendor/qcom/common/system/display vendor/qcom/common/vendor/display vendor/qcom/common/system/gps device/qcom/common/vendor/gps device/qcom/common/system/overlay device/qcom/common/vendor/overlay vendor/qcom/common/system/perf device/qcom/common/vendor/perf vendor/qcom/common/vendor/perf vendor/qcom/common/system/telephony device/qcom/common/vendor/telephony vendor/qcom/opensource/data-ipa-cfg-mgr device/qcom/common/vendor/usb vendor/qcom/common/system/wfd device/qcom/common/vendor/wlan hardware/qcom/wlan/qcwcn vendor/qcom/opensource/data-ipa-cfg-mgr vendor/qcom/common/vendor/wlan device/qcom/common vendor/qcom/opensource/audio-hal/st-hal-ar
+SOONG_NINJA=ninja
+USE_RBE=true
+SOONG_ONLY=false
+SOONG_INCREMENTAL_ANALYSIS=true
+============================================
+[100% 1/1] bootstrap blueprint
+Running globs...
+
+Globs changed, rerunning soong...
+One culprit glob (may be more): frameworks/base/packages/SystemUI/res/**/* (excluding 9 other patterns)
+[100% 2/2] analyzing Android.bp files and generating ninja file at out/soong/build.aospa_giulia.ninja
+Clang SA is not enabled
+No need to regenerate ninja file
+out/soong/late-aospa_giulia.mk was modified, regenerating...
+[100% 3/3] initializing Make module parser
+hardware/qcom/display/config/display-product.mk:244: warning: "Using smmu proxy"
+[  5% 4/75] including out/soong/installs-aospa_giulia.mk
+[  6% 5/75] including out/soong/Android-aospa_giulia.mk
+[  8% 6/75] including build/make/target/board/android-info.mk
+[  9% 7/75] including device/amlogic/yukawa/Android.mk
+[ 10% 8/75] including device/qcom/common/Android.mk
+[ 12% 9/75] including device/qcom/qssi/Android.mk
+[ 13% 10/75] including device/qcom/qssi_64/Android.mk
+[ 14% 11/75] including device/qcom/qssi_64go/Android.mk
+[ 16% 12/75] including device/qcom/qssi_tiny/Android.mk
+[ 17% 13/75] including device/qcom/qssi_tiny_32go/Android.mk
+[ 18% 14/75] including device/qcom/wlan/neo61/Android.mk
+[ 20% 15/75] including disregard/Android.mk
+Skipping Android.mk under disregard
+[ 21% 16/75] including hardware/broadcom/libbt/Android.mk
+[ 22% 17/75] including hardware/broadcom/wlan/bcmdhd/Android.mk
+[ 24% 18/75] including hardware/lineage/compat/interfaces/_backend/radio/config/Android.mk
+[ 25% 19/75] including hardware/qcom/bootctrl/Android.mk
+[ 26% 20/75] including hardware/qcom/display/Android.mk
+[ 28% 21/75] including hardware/qcom/gps/Android.mk
+[ 29% 22/75] including hardware/qcom/wlan/Android.mk
+[ 30% 23/75] including hardware/synaptics/wlan/synadhd/Android.mk
+[ 32% 24/75] including kernel/Android.mk
+Skipping Android.mk under kernel
+[ 33% 25/75] including proprietary_vendor_sony_dolby/Android.mk
+[ 34% 26/75] including vendor/aospa/prebuilt/pixel/charger/Android.mk
+[ 36% 27/75] including vendor/google/gms/Android.mk
+[ 37% 28/75] including vendor/oneplus/giulia/Android.mk
+[ 38% 29/75] including vendor/oneplus/ir/Android.mk
+[ 40% 30/75] including vendor/oneplus/sm8650-common/Android.mk
+[ 41% 31/75] including vendor/oplus/camera/giulia/blobs/Android.mk
+[ 42% 32/75] including vendor/qcom/common/system/alarm/Android.mk
+[ 44% 33/75] including vendor/qcom/common/system/audio/Android.mk
+[ 45% 34/75] including vendor/qcom/common/system/av/Android.mk
+[ 46% 35/75] including vendor/qcom/common/system/bt/Android.mk
+[ 48% 36/75] including vendor/qcom/common/system/display/Android.mk
+[ 49% 37/75] including vendor/qcom/common/system/gps/Android.mk
+[ 50% 38/75] including vendor/qcom/common/system/nfc/Android.mk
+[ 52% 39/75] including vendor/qcom/common/system/perf/Android.mk
+[ 53% 40/75] including vendor/qcom/common/system/telephony/Android.mk
+[ 54% 41/75] including vendor/qcom/common/system/wfd/Android.mk
+[ 56% 42/75] including vendor/qcom/common/vendor/adreno/r/Android.mk
+[ 57% 43/75] including vendor/qcom/common/vendor/adreno/s/Android.mk
+[ 58% 44/75] including vendor/qcom/common/vendor/adreno/t/Android.mk
+[ 60% 45/75] including vendor/qcom/common/vendor/adreno/u/Android.mk
+[ 61% 46/75] including vendor/qcom/common/vendor/alarm/Android.mk
+[ 62% 47/75] including vendor/qcom/common/vendor/charging/Android.mk
+[ 64% 48/75] including vendor/qcom/common/vendor/display/Android.mk
+[ 65% 49/75] including vendor/qcom/common/vendor/dsprpcd/Android.mk
+[ 66% 50/75] including vendor/qcom/common/vendor/gps-legacy/Android.mk
+[ 68% 51/75] including vendor/qcom/common/vendor/keymaster/Android.mk
+[ 69% 52/75] including vendor/qcom/common/vendor/media/5.10/Android.mk
+[ 70% 53/75] including vendor/qcom/common/vendor/media/5.4/Android.mk
+[ 72% 54/75] including vendor/qcom/common/vendor/media/legacy/Android.mk
+[ 73% 55/75] including vendor/qcom/common/vendor/nfc/Android.mk
+[ 74% 56/75] including vendor/qcom/common/vendor/perf/Android.mk
+[ 76% 57/75] including vendor/qcom/common/vendor/qseecomd-legacy/Android.mk
+[ 77% 58/75] including vendor/qcom/common/vendor/qseecomd/Android.mk
+[ 78% 59/75] including vendor/qcom/common/vendor/wlan-legacy/Android.mk
+[ 80% 60/75] including vendor/qcom/common/vendor/wlan/Android.mk
+[ 81% 61/75] including vendor/qcom/opensource/commonsys-intf/audio/Android.mk
+[ 82% 62/75] including vendor/qcom/opensource/commonsys/audio/Android.mk
+[ 84% 63/75] including vendor/qcom/opensource/commonsys/dataservices/Android.mk
+[ 85% 64/75] including vendor/qcom/opensource/commonsys/nfc/Android.mk
+[ 86% 65/75] including vendor/qcom/opensource/core-utils-vendor/qspaframework/Android.mk
+[ 88% 66/75] including vendor/qcom/opensource/core-utils/Android.mk
+[ 89% 67/75] including vendor/qcom/opensource/data-ipa-cfg-mgr/ipanat/test/Android.mk
+[ 90% 68/75] including vendor/qcom/opensource/dataservices/datatop/Android.mk
+[ 92% 69/75] including vendor/qcom/opensource/ecosw/nordic_hal/Android.mk
+[ 93% 70/75] including vendor/qcom/opensource/mmc-utils/Android.mk
+[ 94% 71/75] including vendor/qcom/opensource/power/Android.mk
+[ 96% 72/75] including vendor/qcom/opensource/recovery-ext/Android.mk
+[ 97% 73/75] including vendor/qcom/opensource/softap/softap/sdk/Android.mk
+[ 98% 74/75] including vendor/sony/dolby/Android.mk
+[100% 75/75] including out/soong/late-aospa_giulia.mk
+[100% 76/76] finishing Make module rules
+[100% 77/77] finishing Make module rules: Adding module dependencies
+[100% 78/78] finishing Make packaging rules
+[ 74% 79/106] including build/make/core/tasks/art.mk
+[ 75% 80/106] including build/make/core/tasks/build_custom_images.mk
+[ 76% 81/106] including build/make/core/tasks/dex_preopt_check.mk
+[ 77% 82/106] including build/make/core/tasks/find-shareduid-violation.mk
+[ 78% 83/106] including build/make/core/tasks/fontchain_lint.mk
+[ 79% 84/106] including build/make/core/tasks/host_init_verifier.mk
+[ 80% 85/106] including build/make/core/tasks/meta-lic.mk
+[ 81% 86/106] including build/make/core/tasks/module-info.mk
+[ 82% 87/106] including build/make/core/tasks/oem_image.mk
+[ 83% 88/106] including build/make/core/tasks/offline-sdk-docs.mk
+[ 83% 89/106] including build/make/core/tasks/platform_availability_check.mk
+[ 84% 90/106] including build/make/core/tasks/ramdisk_snapshot.mk
+[ 85% 91/106] including build/make/core/tasks/sdv.mk
+[ 86% 92/106] including build/make/core/tasks/vendor_module_check.mk
+[ 87% 93/106] including build/make/core/tasks/with-license.mk
+[ 88% 94/106] including vendor/aospa/build/tasks/kernel.mk
+[ 89% 95/106] including vendor/qcom/build/tasks/QMAA_enforcement.mk
+[ 90% 96/106] including vendor/qcom/build/tasks/QSSI_violators.mk
+[ 91% 97/106] including vendor/qcom/build/tasks/generate_extra_images.mk
+[ 92% 98/106] including vendor/qcom/build/tasks/generate_vendor_bundle.mk
+[ 93% 99/106] including vendor/qcom/build/tasks/vendor_prop_context_restriction.mk
+[ 94% 100/106] including device/amlogic/yukawa/build/tasks/dtimages.mk
+[ 95% 101/106] including device/generic/goldfish/build/tasks/combine_initramfs.mk
+[ 96% 102/106] including device/qcom/qssi_64/build/tasks/symlink_system_dlkm.mk
+[ 97% 103/106] including device/qcom/qssi_64go/build/tasks/symlink_system_dlkm.mk
+[ 98% 104/106] including device/qcom/qssi_tiny/build/tasks/symlink_system_dlkm.mk
+[ 99% 105/106] including device/qcom/qssi_tiny_32go/build/tasks/symlink_system_dlkm.mk
+[100% 106/106] finishing Make packaging rules
+[100% 107/107] finishing Make packaging rules: Adding phony targets
+[100% 108/108] finishing Make packaging rules: Checking licensing and SBOM
+[100% 109/109] writing make module actions
+out/soong/installs-aospa_giulia.mk:213209: warning: overriding commands for target `out/target/product/giulia/vendor/etc/init/android.hardware.authsecret-service.nxp.rc'
+out/soong/installs-aospa_giulia.mk:213205: warning: ignoring old commands for target `out/target/product/giulia/vendor/etc/init/android.hardware.authsecret-service.nxp.rc'
+out/soong/installs-aospa_giulia.mk:213693: warning: overriding commands for target `out/target/product/giulia/vendor/etc/init/android.hardware.security.keymint-service.strongbox.nxp.rc'
+out/soong/installs-aospa_giulia.mk:213689: warning: ignoring old commands for target `out/target/product/giulia/vendor/etc/init/android.hardware.security.keymint-service.strongbox.nxp.rc'
+out/soong/installs-aospa_giulia.mk:213865: warning: overriding commands for target `out/target/product/giulia/vendor/etc/init/android.hardware.weaver-service.nxp.rc'
+out/soong/installs-aospa_giulia.mk:213861: warning: ignoring old commands for target `out/target/product/giulia/vendor/etc/init/android.hardware.weaver-service.nxp.rc'
+out/soong/installs-aospa_giulia.mk:254106: warning: overriding commands for target `out/target/product/giulia/vendor/etc/vintf/manifest/android.hardware.authsecret-service.nxp.xml'
+out/soong/installs-aospa_giulia.mk:254104: warning: ignoring old commands for target `out/target/product/giulia/vendor/etc/vintf/manifest/android.hardware.authsecret-service.nxp.xml'
+out/soong/installs-aospa_giulia.mk:254270: warning: overriding commands for target `out/target/product/giulia/vendor/etc/vintf/manifest/android.hardware.weaver-service.nxp.xml'
+out/soong/installs-aospa_giulia.mk:66232: warning: ignoring old commands for target `out/target/product/giulia/vendor/etc/vintf/manifest/android.hardware.weaver-service.nxp.xml'
+vendor/qcom/opensource/core-utils/build/AndroidBoardCommon.mk:39: warning: overriding commands for target `out/target/product/giulia/vendor/firmware_mnt'
+vendor/aospa/build/core/mkdir.mk:22: warning: ignoring old commands for target `out/target/product/giulia/vendor/firmware_mnt'
+vendor/qcom/opensource/core-utils/build/AndroidBoardCommon.mk:46: warning: overriding commands for target `out/target/product/giulia/vendor/bt_firmware'
+vendor/aospa/build/core/mkdir.mk:22: warning: ignoring old commands for target `out/target/product/giulia/vendor/bt_firmware'
+vendor/qcom/opensource/core-utils/build/AndroidBoardCommon.mk:53: warning: overriding commands for target `out/target/product/giulia/vendor/dsp'
+vendor/aospa/build/core/mkdir.mk:22: warning: ignoring old commands for target `out/target/product/giulia/vendor/dsp'
+build/make/core/Makefile:139: warning: overriding commands for target `out/target/product/giulia/vendor/etc/batching.conf'
+out/soong/installs-aospa_giulia.mk:75907: warning: ignoring old commands for target `out/target/product/giulia/vendor/etc/batching.conf'
+build/make/core/Makefile:139: warning: overriding commands for target `out/target/product/giulia/vendor/etc/gnss_antenna_info.conf'
+out/soong/installs-aospa_giulia.mk:108110: warning: ignoring old commands for target `out/target/product/giulia/vendor/etc/gnss_antenna_info.conf'
+build/make/core/Makefile:139: warning: overriding commands for target `out/target/product/giulia/vendor/etc/gps.conf'
+out/soong/installs-aospa_giulia.mk:108350: warning: ignoring old commands for target `out/target/product/giulia/vendor/etc/gps.conf'
+No need to regenerate ninja file
+Starting ninja...
+[ 45% 110/243 6m50s remaining] //frameworks/base/packages/SystemUI:SystemUI-res aapt2 compile frameworks/base/packages/SystemUI/res 22
+[ 45% 111/243 6m50s remaining] //frameworks/base/packages/SystemUI:SystemUI-res aapt2 compile frameworks/base/packages/SystemUI/res 21
+[ 46% 112/243 6m50s remaining] //frameworks/base/packages/SystemUI:SystemUI-res aapt2 compile frameworks/base/packages/SystemUI/res 19
+[ 46% 113/243 6m50s remaining] //frameworks/base/packages/SystemUI:SystemUI-res aapt2 compile frameworks/base/packages/SystemUI/res 18
+[ 46% 114/243 6m50s remaining] //frameworks/base/packages/SystemUI:SystemUI-res aapt2 compile frameworks/base/packages/SystemUI/res 20
+[ 47% 115/243 6m50s remaining] //frameworks/base/packages/SystemUI:SystemUI-res aapt2 compile frameworks/base/packages/SystemUI/res 17
+[ 47% 116/243 6m50s remaining] //frameworks/base/packages/SystemUI:SystemUI-res overlay resource file list
+[ 48% 117/243 6m47s remaining] //frameworks/base/packages/SystemUI:SystemUI-res aapt2 link
+[ 48% 118/243 6m46s remaining] //frameworks/base/packages/SystemUI:SystemUI-res ResourceProcessorBusyBox
+[ 48% 119/243 6m46s remaining] //frameworks/base/packages/SystemUI/pods/qs/panels/ui:com.android.systemui.qs.panels.ui_api aapt2 link
+[ 49% 120/243 6m46s remaining] //frameworks/base/packages/SystemUI/pods/common/ui/compose:com.android.systemui.common.ui.compose_api aapt2 link
+[ 49% 121/243 6m46s remaining] //frameworks/base/packages/SystemUI/pods/statusbar/chips/ui:com.android.systemui.statusbar.chips.ui_api aapt2 link
+[ 50% 122/243 6m46s remaining] //frameworks/base/packages/SystemUI/pods/qs/panels/ui:com.android.systemui.qs.panels.ui_api ResourceProcessorBusyBox
+[ 50% 123/243 6m46s remaining] //frameworks/base/packages/SystemUI/pods/common/ui/compose:com.android.systemui.common.ui.compose_api ResourceProcessorBusyBox
+[ 51% 124/243 6m46s remaining] //frameworks/base/packages/SystemUI/pods/statusbar/chips/ui:com.android.systemui.statusbar.chips.ui_api ResourceProcessorBusyBox
+[ 51% 125/243 6m45s remaining] //frameworks/base/packages/SystemUI/pods/notifications/intelligence/rules/ui:com.android.systemui.notifications.intelligence.rules.ui_main aapt2 link
+[ 51% 126/243 6m45s remaining] //frameworks/base/libs/serial/accessdialog:SerialPortAccessDialog aapt2 link
+[ 52% 127/243 6m45s remaining] //frameworks/base/packages/SystemUI/pods/notifications/intelligence/rules/ui:com.android.systemui.notifications.intelligence.rules.ui_main ResourceProcessorBusyBox
+[ 52% 128/243 6m45s remaining] //frameworks/base/libs/serial/accessdialog:SerialPortAccessDialog ResourceProcessorBusyBox
+[ 53% 129/243 6m44s remaining] //frameworks/base/packages/SystemUI:SystemUI-core aapt2 link
+[ 53% 130/243 6m43s remaining] //frameworks/base/packages/SystemUI:SystemUI-core ResourceProcessorBusyBox
+[ 53% 131/243 6m42s remaining] //frameworks/base/packages/SystemUI:SystemUI-application aapt2 link
+[ 54% 132/243 6m42s remaining] //frameworks/base/packages/SystemUI:SystemUI overlay resource file list
+[ 54% 133/243 6m41s remaining] //frameworks/base/packages/SystemUI:SystemUI-application ResourceProcessorBusyBox
+[ 55% 134/243 6m39s remaining] //frameworks/base/packages/SystemUI/pods/common/ui/compose:com.android.systemui.common.ui.compose_api kotlinc
+[ 56% 135/241 6m39s remaining] //frameworks/base/packages/SystemUI/pods/qs/panels/ui:com.android.systemui.qs.panels.ui_api kotlinc
+[ 61% 136/221 6m39s remaining] //frameworks/base/libs/serial/accessdialog:SerialPortAccessDialog kotlinc
+[ 62% 137/219 6m37s remaining] //frameworks/base/packages/SystemUI/pods/statusbar/chips/ui:com.android.systemui.statusbar.chips.ui_api kotlinc
+[ 70% 138/196 6m36s remaining] //frameworks/base/packages/SystemUI:SystemUI aapt2 link
+[ 70% 139/196 6m35s remaining] //frameworks/base/packages/SystemUI:SystemUI merge assets from dependencies
+[ 71% 140/196 6m35s remaining] Copy: out/target/common/obj/APPS/SystemUI_intermediates/package-export.apk
+[ 71% 141/196 6m34s remaining] //vendor/aospa/axion/ax_compose:ax_compose kotlinc
+vendor/aospa/axion/ax_compose/src/com/android/axion/compose/sheet/BottomSheetDialog.kt:142:13: warning: 'var statusBarColor: Int' is deprecated. Deprecated in Java.
+            statusBarColor = Color.Transparent.toArgb()
+            ^^^^^^^^^^^^^^
+[ 72% 142/196 6m34s remaining] //frameworks/base/packages/SystemUI:SystemUI ResourceProcessorBusyBox
+[ 72% 143/196 6m34s remaining] //frameworks/base/packages/SystemUI/pods/notifications/intelligence/rules/ui:com.android.systemui.notifications.intelligence.rules.ui_main kapt stubs
+[ 73% 144/196 6m34s remaining] //vendor/aospa/axion/ax_compose:ax_compose jarjar
+[ 73% 145/196 6m34s remaining] //vendor/aospa/axion/ax_compose:ax_compose jarjar
+[ 74% 146/196 6m31s remaining] //frameworks/base/packages/SystemUI:SystemUI convert to proto
+[ 75% 147/196 6m31s remaining] //frameworks/base/packages/SystemUI/pods/notifications/intelligence/rules/ui:com.android.systemui.notifications.intelligence.rules.ui_main turbine apt
+[ 75% 148/196 6m22s remaining] //frameworks/base/packages/SystemUI/pods/notifications/intelligence/rules/ui:com.android.systemui.notifications.intelligence.rules.ui_main kotlinc
+[ 76% 149/194 6m19s remaining] //frameworks/base/packages/SystemUI/pods/notifications/intelligence/rules/ui:com.android.systemui.notifications.intelligence.rules.ui_main turbine
+[ 83% 150/179 6m19s remaining] //frameworks/base/packages/SystemUI/pods/notifications/intelligence/rules/ui:com.android.systemui.notifications.intelligence.rules.ui_main javac
+[ 84% 151/178 5m14s remaining] //frameworks/base/packages/SystemUI:SystemUI-core ksp annotation processing
+[ 85% 152/178 4m6s remaining] //frameworks/base/packages/SystemUI:SystemUI-core kotlinc
+FAILED: out/soong/.intermediates/frameworks/base/packages/SystemUI/SystemUI-core/android_common/kotlin/SystemUI-core.jar out/soong/.intermediates/frameworks/base/packages/SystemUI/SystemUI-core/android_common/kotlin_headers/SystemUI-core.jar out/soong/.intermediates/frameworks/base/packages/SystemUI/SystemUI-core/android_common/kotlin/SystemUI-core.pc_state
+out/host/linux-x86/bin/find_input_delta --target "out/soong/.intermediates/frameworks/base/packages/SystemUI/SystemUI-core/android_common/kotlin/SystemUI-core.jar" --inputs_file "out/soong/.intermediates/frameworks/base/packages/SystemUI/SystemUI-core/android_common/kotlin/SystemUI-core.jar.rsp" --new_state "out/soong/.intermediates/frameworks/base/packages/SystemUI/SystemUI-core/android_common/kotlin/SystemUI-core.pc_state.new" --prior_state "out/soong/.intermediates/frameworks/base/packages/SystemUI/SystemUI-core/android_common/kotlin/SystemUI-core.pc_state" --inspect out/soong/.intermediates/frameworks/base/packages/SystemUI/SystemUI-core/android_common/gen/aidl/aidl0.srcjar out/soong/.intermediates/frameworks/base/packages/SystemUI/SystemUI-core/android_common/ksp/ksp-java-sources.srcjar out/soong/.intermediates/frameworks/base/packages/SystemUI/SystemUI-core/android_common/ksp/ksp-kotlin-sources.srcjar --version 2 > out/soong/.intermediates/frameworks/base/packages/SystemUI/SystemUI-core/android_common/kotlin/SystemUI-core.source_diff && rm -rf "out/soong/.intermediates/frameworks/base/packages/SystemUI/SystemUI-core/android_common/kotlinc/classes" "out/soong/.intermediates/frameworks/base/packages/SystemUI/SystemUI-core/android_common/kotlinc/header_classes" "out/soong/.intermediates/frameworks/base/packages/SystemUI/SystemUI-core/android_common/kotlinc/srcJars" "out/soong/.intermediates/frameworks/base/packages/SystemUI/SystemUI-core/android_common/kotlinc-build.xml" "out/soong/.intermediates/frameworks/base/packages/SystemUI/SystemUI-core/android_common/kotlinc/empty" && mkdir -p "out/soong/.intermediates/frameworks/base/packages/SystemUI/SystemUI-core/android_common/kotlinc/classes" "out/soong/.intermediates/frameworks/base/packages/SystemUI/SystemUI-core/android_common/kotlinc/header_classes" "out/soong/.intermediates/frameworks/base/packages/SystemUI/SystemUI-core/android_common/kotlinc/empty" && mkdir -p out/soong/.intermediates/frameworks/base/packages/SystemUI/SystemUI-core/android_common/kotlinc/srcJars && out/host/linux-x86/bin/zipsync -d out/soong/.intermediates/frameworks/base/packages/SystemUI/SystemUI-core/android_common/kotlinc/srcJars -l out/soong/.intermediates/frameworks/base/packages/SystemUI/SystemUI-core/android_common/kotlinc/srcJars/list -f "*.java" -f "*.kt" out/soong/.intermediates/frameworks/base/packages/SystemUI/SystemUI-core/android_common/gen/aidl/aidl0.srcjar out/soong/.intermediates/frameworks/base/packages/SystemUI/SystemUI-core/android_common/ksp/ksp-java-sources.srcjar out/soong/.intermediates/frameworks/base/packages/SystemUI/SystemUI-core/android_common/ksp/ksp-kotlin-sources.srcjar && out/host/linux-x86/bin/gen-kotlin-build-file --classpath "out/soong/.intermediates/frameworks/base/packages/SystemUI/SystemUI-core/android_common/kotlinc/classpath.rsp"  --name "frameworks__base__packages__SystemUI__android_common__SystemUI-core" --out_dir "out/soong/.intermediates/frameworks/base/packages/SystemUI/SystemUI-core/android_common/kotlinc/classes" --srcs "out/soong/.intermediates/frameworks/base/packages/SystemUI/SystemUI-core/android_common/kotlin/SystemUI-core.jar.rsp" --srcs "out/soong/.intermediates/frameworks/base/packages/SystemUI/SystemUI-core/android_common/kotlinc/srcJars/list"  --out "out/soong/.intermediates/frameworks/base/packages/SystemUI/SystemUI-core/android_common/kotlinc-build.xml" && external/kotlinc/bin/kotlinc   -J--add-opens=java.base/java.util=ALL-UNNAMED -J-Xmx8192M  -Xjvm-default=all -opt-in=kotlinx.coroutines.ExperimentalCoroutinesApi -P plugin:androidx.compose.compiler.plugins.kotlin:sourceInformation=true -Xsuppress-version-warnings -Xconsistent-data-class-copy-visibility -Xsam-conversions=class -no-stdlib -no-jdk -jvm-target 21 -Xplugin=out/soong/.intermediates/external/kotlin-compose-compiler/kotlin-compose-compiler-hosted/linux_glibc_common/local-combined/kotlin-compose-compiler-hosted.jar  -Xbuild-file=out/soong/.intermediates/frameworks/base/packages/SystemUI/SystemUI-core/android_common/kotlinc-build.xml  -kotlin-home out/soong/.intermediates/frameworks/base/packages/SystemUI/SystemUI-core/android_common/kotlinc/empty  -Xplugin=external/kotlinc/lib/jvm-abi-gen.jar  -P plugin:org.jetbrains.kotlin.jvm.abi:outputDir=out/soong/.intermediates/frameworks/base/packages/SystemUI/SystemUI-core/android_common/kotlinc/header_classes && out/host/linux-x86/bin/soong_zip -jar  -o out/soong/.intermediates/frameworks/base/packages/SystemUI/SystemUI-core/android_common/kotlin/SystemUI-core.jar -C out/soong/.intermediates/frameworks/base/packages/SystemUI/SystemUI-core/android_common/kotlinc/classes -D out/soong/.intermediates/frameworks/base/packages/SystemUI/SystemUI-core/android_common/kotlinc/classes -write_if_changed && out/host/linux-x86/bin/soong_zip -jar  -o out/soong/.intermediates/frameworks/base/packages/SystemUI/SystemUI-core/android_common/kotlin_headers/SystemUI-core.jar -C out/soong/.intermediates/frameworks/base/packages/SystemUI/SystemUI-core/android_common/kotlinc/header_classes -D out/soong/.intermediates/frameworks/base/packages/SystemUI/SystemUI-core/android_common/kotlinc/header_classes -write_if_changed && rm -rf "out/soong/.intermediates/frameworks/base/packages/SystemUI/SystemUI-core/android_common/kotlinc/srcJars" "out/soong/.intermediates/frameworks/base/packages/SystemUI/SystemUI-core/android_common/kotlinc/classes" "out/soong/.intermediates/frameworks/base/packages/SystemUI/SystemUI-core/android_common/kotlinc/header_classes"  && mv out/soong/.intermediates/frameworks/base/packages/SystemUI/SystemUI-core/android_common/kotlin/SystemUI-core.pc_state.new out/soong/.intermediates/frameworks/base/packages/SystemUI/SystemUI-core/android_common/kotlin/SystemUI-core.pc_state && rm out/soong/.intermediates/frameworks/base/packages/SystemUI/SystemUI-core/android_common/kotlin/SystemUI-core.source_diff
+frameworks/base/packages/SystemUI/compose/features/src/com/android/systemui/shade/ui/composable/ShadeHeader.kt:163:30: error: unresolved reference 'Dp'.
+        val StatusBarHeight: Dp
+                             ^^
+vendor/aospa/axion/ax_systemui/src/com/android/systemui/qs/ax/fragment/AxQsFragmentCompose.kt:114:54: error: unresolved reference 'TileRevealFlag'.
+import com.android.compose.animation.scene.mechanics.TileRevealFlag
+                                                     ^^^^^^^^^^^^^^
+vendor/aospa/axion/ax_systemui/src/com/android/systemui/qs/ax/fragment/AxQsFragmentCompose.kt:115:54: error: unresolved reference 'rememberGestureContext'.
+import com.android.compose.animation.scene.mechanics.rememberGestureContext
+                                                     ^^^^^^^^^^^^^^^^^^^^^^
+vendor/aospa/axion/ax_systemui/src/com/android/systemui/qs/ax/fragment/AxQsFragmentCompose.kt:179:47: error: unresolved reference 'ShadeWindowGoesAround'.
+import com.android.systemui.shade.shared.flag.ShadeWindowGoesAround
+                                              ^^^^^^^^^^^^^^^^^^^^^
+vendor/aospa/axion/ax_systemui/src/com/android/systemui/qs/ax/fragment/AxQsFragmentCompose.kt:534:50: error: unresolved reference 'rememberGestureContext'.
+                            val gestureContext = rememberGestureContext()
+                                                 ^^^^^^^^^^^^^^^^^^^^^^
+vendor/aospa/axion/ax_systemui/src/com/android/systemui/qs/ax/fragment/AxQsFragmentCompose.kt:537:63: error: unresolved reference 'TileRevealFlag'.
+                                Modifier.fillMaxSize().thenIf(TileRevealFlag.isEnabled) {
+                                                              ^^^^^^^^^^^^^^
+vendor/aospa/axion/ax_systemui/src/com/android/systemui/qs/ax/fragment/AxQsFragmentCompose.kt:702:5: error: 'setForceQsEvent' overrides nothing.
+    override fun setForceQsEvent(forceQsEvent: Boolean) {
+    ^^^^^^^^
+vendor/aospa/axion/ax_systemui/src/com/android/systemui/qs/ax/fragment/AxQsFragmentCompose.kt:706:5: error: 'setHeaderListening' overrides nothing.
+    override fun setHeaderListening(listening: Boolean) {
+    ^^^^^^^^
+vendor/aospa/axion/ax_systemui/src/com/android/systemui/qs/ax/fragment/AxQsFragmentCompose.kt:710:5: error: 'notifyCustomizeChanged' overrides nothing.
+    override fun notifyCustomizeChanged() {
+    ^^^^^^^^
+vendor/aospa/axion/ax_systemui/src/com/android/systemui/qs/ax/fragment/AxQsFragmentCompose.kt:722:5: error: 'getHeightDiff' overrides nothing.
+    override fun getHeightDiff(): Int {
+    ^^^^^^^^
+vendor/aospa/axion/ax_systemui/src/com/android/systemui/qs/ax/fragment/AxQsFragmentCompose.kt:726:5: error: 'getHeader' overrides nothing.
+    override fun getHeader(): View? {
+    ^^^^^^^^
+vendor/aospa/axion/ax_systemui/src/com/android/systemui/qs/ax/fragment/AxQsFragmentCompose.kt:857:25: error: unresolved reference 'ShadeWindowGoesAround'.
+                    if (ShadeWindowGoesAround.isEnabled) {
+                        ^^^^^^^^^^^^^^^^^^^^^
+vendor/aospa/axion/ax_systemui/src/com/android/systemui/qs/ax/fragment/AxQsFragmentCompose.kt:953:45: error: unresolved reference 'rememberGestureContext'.
+                val contentGestureContext = rememberGestureContext()
+                                            ^^^^^^^^^^^^^^^^^^^^^^
+vendor/aospa/axion/ax_systemui/src/com/android/systemui/qs/ax/fragment/AxQsFragmentCompose.kt:957:52: error: unresolved reference 'TileRevealFlag'.
+                        Modifier.weight(1f).thenIf(TileRevealFlag.isEnabled) {
+                                                   ^^^^^^^^^^^^^^
+vendor/aospa/axion/ax_systemui/src/com/android/systemui/qs/ax/fragment/AxQsFragmentCompose.kt:1118:26: error: unresolved reference 'VolumeSlider'.
+        Element(Elements.VolumeSlider, modifier = modifier.fillMaxWidth()) {
+                         ^^^^^^^^^^^^
+vendor/aospa/axion/ax_systemui/src/com/android/systemui/qs/ax/fragment/viewmodel/AxQsFragmentComposeViewModel.kt:53:54: error: unresolved reference 'QS_PANEL'.
+import com.android.systemui.media.dagger.MediaModule.QS_PANEL
+                                                     ^^^^^^^^
+vendor/aospa/axion/ax_systemui/src/com/android/systemui/qs/ax/fragment/viewmodel/AxQsFragmentComposeViewModel.kt:54:54: error: unresolved reference 'QUICK_QS_PANEL'.
+import com.android.systemui.media.dagger.MediaModule.QUICK_QS_PANEL
+                                                     ^^^^^^^^^^^^^^
+vendor/aospa/axion/ax_systemui/src/com/android/systemui/qs/ax/fragment/viewmodel/AxQsFragmentComposeViewModel.kt:128:12: error: unresolved reference 'QUICK_QS_PANEL'.
+    @Named(QUICK_QS_PANEL) val qqsMediaHost: MediaHost,
+           ^^^^^^^^^^^^^^
+vendor/aospa/axion/ax_systemui/src/com/android/systemui/qs/ax/fragment/viewmodel/AxQsFragmentComposeViewModel.kt:129:12: error: unresolved reference 'QS_PANEL'.
+    @Named(QS_PANEL) val qsMediaHost: MediaHost,
+           ^^^^^^^^
+vendor/aospa/axion/ax_systemui/src/com/android/systemui/qs/ax/ui/controls/AxBrightnessSlider.kt:53:40: error: unresolved reference 'shared'.
+import com.android.systemui.brightness.shared.model.GammaBrightness
+                                       ^^^^^^
+vendor/aospa/axion/ax_systemui/src/com/android/systemui/qs/ax/ui/controls/AxBrightnessSlider.kt:190:72: error: unresolved reference 'GammaBrightness'.
+                coroutineScope.launch { viewModel.onDrag(Drag.Dragging(GammaBrightness(value))) }
+                                                                       ^^^^^^^^^^^^^^^
+vendor/aospa/axion/ax_systemui/src/com/android/systemui/qs/ax/ui/controls/AxBrightnessSlider.kt:193:71: error: unresolved reference 'GammaBrightness'.
+                coroutineScope.launch { viewModel.onDrag(Drag.Stopped(GammaBrightness(gamma))) }
+                                                                      ^^^^^^^^^^^^^^^
+vendor/aospa/axion/ax_systemui/src/com/android/systemui/qs/ax/ui/controls/AxQsSliderControl.kt:84:40: error: unresolved reference 'shared'.
+import com.android.systemui.brightness.shared.model.GammaBrightness
+                                       ^^^^^^
+vendor/aospa/axion/ax_systemui/src/com/android/systemui/qs/ax/ui/controls/AxQsSliderControl.kt:101:35: error: unresolved reference 'PolicyRestriction'.
+import com.android.systemui.utils.PolicyRestriction
+                                  ^^^^^^^^^^^^^^^^^
+vendor/aospa/axion/ax_systemui/src/com/android/systemui/qs/ax/ui/controls/AxQsSliderControl.kt:379:28: error: unresolved reference 'PolicyRestriction'.
+            initialValue = PolicyRestriction.NoRestriction
+                           ^^^^^^^^^^^^^^^^^
+vendor/aospa/axion/ax_systemui/src/com/android/systemui/qs/ax/ui/controls/AxQsSliderControl.kt:381:38: error: unresolved reference 'PolicyRestriction'.
+    val restricted = restriction as? PolicyRestriction.Restricted
+                                     ^^^^^^^^^^^^^^^^^
+vendor/aospa/axion/ax_systemui/src/com/android/systemui/qs/ax/ui/controls/AxQsSliderControl.kt:411:84: error: argument type mismatch: actual type is 'Any', but 'PolicyRestriction.Restricted' was expected.
+                        Modifier.clickable { viewModel.showPolicyRestrictionDialog(restricted) }
+                                                                                   ^^^^^^^^^^
+vendor/aospa/axion/ax_systemui/src/com/android/systemui/qs/ax/ui/controls/AxQsSliderControl.kt:448:72: error: unresolved reference 'GammaBrightness'.
+                coroutineScope.launch { viewModel.onDrag(Drag.Dragging(GammaBrightness(value))) }
+                                                                       ^^^^^^^^^^^^^^^
+vendor/aospa/axion/ax_systemui/src/com/android/systemui/qs/ax/ui/controls/AxQsSliderControl.kt:454:71: error: unresolved reference 'GammaBrightness'.
+                coroutineScope.launch { viewModel.onDrag(Drag.Stopped(GammaBrightness(value))) }
+                                                                      ^^^^^^^^^^^^^^^
+vendor/aospa/axion/ax_systemui/src/com/android/systemui/qs/ax/ui/edit/AxQsEditTile.kt:46:17: error: no parameter with name 'state' found.
+                state = STATE_INACTIVE,
+                ^^^^^
+vendor/aospa/axion/ax_systemui/src/com/android/systemui/qs/ax/ui/edit/AxQsEditTile.kt:47:17: error: no parameter with name 'handlesLongClick' found.
+                handlesLongClick = true,
+                ^^^^^^^^^^^^^^^^
+vendor/aospa/axion/ax_systemui/src/com/android/systemui/qs/ax/ui/edit/AxQsEditTile.kt:48:17: error: no parameter with name 'handlesSecondaryClick' found.
+                handlesSecondaryClick = isDualTarget,
+                ^^^^^^^^^^^^^^^^^^^^^
+vendor/aospa/axion/ax_systemui/src/com/android/systemui/qs/ax/ui/edit/AxQsEditTile.kt:50:17: error: no value passed for parameter 'visualState'.
+                accessibilityUiState =
+                ^^^^^^^^^^^^^^^^^^^^^^
+vendor/aospa/axion/ax_systemui/src/com/android/systemui/qs/ax/ui/edit/AxQsEditTile.kt:50:17: error: no value passed for parameter 'handlesMainClick'.
+                accessibilityUiState =
+                ^^^^^^^^^^^^^^^^^^^^^^
+vendor/aospa/axion/ax_systemui/src/com/android/systemui/qs/ax/ui/edit/AxQsEditTile.kt:50:17: error: no value passed for parameter 'handlesSettingsClick'.
+                accessibilityUiState =
+                ^^^^^^^^^^^^^^^^^^^^^^
+vendor/aospa/axion/ax_systemui/src/com/android/systemui/qs/ax/ui/edit/AxQsEditTile.kt:50:17: error: no value passed for parameter 'handlesToggleClick'.
+                accessibilityUiState =
+                ^^^^^^^^^^^^^^^^^^^^^^
+vendor/aospa/axion/ax_systemui/src/com/android/systemui/qs/ax/ui/grid/AxEditStackedTile.kt:235:56: error: unresolved reference 'handlesSecondaryClick'.
+                                isDualTarget = uiState.handlesSecondaryClick,
+                                                       ^^^^^^^^^^^^^^^^^^^^^
+vendor/aospa/axion/ax_systemui/src/com/android/systemui/qs/ax/ui/grid/AxGridItemContent.kt:333:50: error: unresolved reference 'mediaCarousel'.
+                            key = Media.Elements.mediaCarousel,
+                                                 ^^^^^^^^^^^^^
+vendor/aospa/axion/ax_systemui/src/com/android/systemui/qs/ax/ui/grid/AxLiveTile.kt:58:55: error: unresolved reference 'tileHapticsViewModelFactoryProvider'.
+                viewModel.quickQuickSettingsViewModel.tileHapticsViewModelFactoryProvider,
+                                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+vendor/aospa/axion/ax_systemui/src/com/android/systemui/qs/ax/ui/grid/AxOneGrid.kt:307:43: error: unresolved reference 'resetTiles'.
+                        editModeViewModel.resetTiles()
+                                          ^^^^^^^^^^
+vendor/aospa/axion/ax_systemui/src/com/android/systemui/qs/ax/ui/grid/AxStackedTile.kt:59:54: error: unresolved reference 'TileRevealFlag'.
+import com.android.compose.animation.scene.mechanics.TileRevealFlag
+                                                     ^^^^^^^^^^^^^^
+vendor/aospa/axion/ax_systemui/src/com/android/systemui/qs/ax/ui/grid/AxStackedTile.kt:104:13: error: unresolved reference 'TileRevealFlag'.
+        if (TileRevealFlag.isEnabled) {
+            ^^^^^^^^^^^^^^
+vendor/aospa/axion/ax_systemui/src/com/android/systemui/qs/ax/ui/grid/AxStackedTile.kt:113:51: error: unresolved reference 'tileHapticsViewModelFactoryProvider'.
+            viewModel.quickQuickSettingsViewModel.tileHapticsViewModelFactoryProvider
+                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+vendor/aospa/axion/ax_systemui/src/com/android/systemui/qs/ax/ui/grid/AxStackedTile.kt:207:53: error: unresolved reference 'state'.
+    val effectiveClickable = isClickable && uiState.state != STATE_UNAVAILABLE
+                                                    ^^^^^
+vendor/aospa/axion/ax_systemui/src/com/android/systemui/qs/ax/ui/grid/AxStackedTile.kt:208:32: error: unresolved reference 'handlesSecondaryClick'.
+    val isDualTarget = uiState.handlesSecondaryClick
+                               ^^^^^^^^^^^^^^^^^^^^^
+vendor/aospa/axion/ax_systemui/src/com/android/systemui/qs/ax/ui/grid/AxStackedTile.kt:219:51: error: unresolved reference 'tileHapticsViewModelFactoryProvider'.
+            viewModel.quickQuickSettingsViewModel.tileHapticsViewModelFactoryProvider
+                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+vendor/aospa/axion/ax_systemui/src/com/android/systemui/qs/ax/ui/grid/AxStackedTile.kt:242:28: error: unresolved reference 'handlesLongClick'.
+        }.takeIf { uiState.handlesLongClick }
+                           ^^^^^^^^^^^^^^^^
+vendor/aospa/axion/ax_systemui/src/com/android/systemui/qs/ax/ui/grid/AxStackedTile.kt:277:33: error: unresolved reference 'state'.
+            tileState = uiState.state,
+                                ^^^^^
+vendor/aospa/axion/ax_systemui/src/com/android/systemui/qs/ax/ui/grid/AxTile.kt:82:45: error: unresolved reference 'TileHapticsViewModelFactoryProvider'.
+import com.android.systemui.haptics.msdl.qs.TileHapticsViewModelFactoryProvider
+                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+vendor/aospa/axion/ax_systemui/src/com/android/systemui/qs/ax/ui/grid/AxTile.kt:118:42: error: unresolved reference 'TileHapticsViewModelFactoryProvider'.
+    tileHapticsViewModelFactoryProvider: TileHapticsViewModelFactoryProvider,
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+vendor/aospa/axion/ax_systemui/src/com/android/systemui/qs/ax/ui/grid/AxTile.kt:138:57: error: unresolved reference 'state'.
+        val effectiveClickable = isClickable && uiState.state != STATE_UNAVAILABLE
+                                                        ^^^^^
+vendor/aospa/axion/ax_systemui/src/com/android/systemui/qs/ax/ui/grid/AxTile.kt:139:36: error: unresolved reference 'handlesSecondaryClick'.
+        val isDualTarget = uiState.handlesSecondaryClick
+                                   ^^^^^^^^^^^^^^^^^^^^^
+vendor/aospa/axion/ax_systemui/src/com/android/systemui/qs/ax/ui/grid/AxTile.kt:149:54: error: unresolved reference 'getHapticsViewModelFactory'.
+                tileHapticsViewModelFactoryProvider?.getHapticsViewModelFactory()?.create(tile)
+                                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^
+vendor/aospa/axion/ax_systemui/src/com/android/systemui/qs/ax/ui/grid/AxTile.kt:165:59: error: unresolved reference 'handlesLongClick'.
+            }.takeIf { !useLongClickToSettings || uiState.handlesLongClick }
+                                                          ^^^^^^^^^^^^^^^^
+vendor/aospa/axion/ax_systemui/src/com/android/systemui/qs/ax/ui/grid/AxTile.kt:221:37: error: unresolved reference 'handlesSecondaryClick'.
+    isDualTarget: Boolean = uiState.handlesSecondaryClick,
+                                    ^^^^^^^^^^^^^^^^^^^^^
+vendor/aospa/axion/ax_systemui/src/com/android/systemui/qs/ax/ui/grid/AxTile.kt:324:49: error: unresolved reference 'state'.
+                            tileState = uiState.state,
+                                                ^^^^^
+vendor/aospa/axion/ax_systemui/src/com/android/systemui/qs/ax/ui/grid/AxTile.kt:573:49: error: unresolved reference 'state'.
+            return dualTargetTileColors(uiState.state)
+                                                ^^^^^
+vendor/aospa/axion/ax_systemui/src/com/android/systemui/qs/ax/ui/grid/AxTile.kt:575:30: error: unresolved reference 'state'.
+        return when (uiState.state) {
+                             ^^^^^
+vendor/aospa/axion/ax_systemui/src/com/android/systemui/qs/ax/ui/header/AxQuickSettingsHeader.kt:130:42: error: unresolved reference 'onBatteryClicked'.
+                    onClick = viewModel::onBatteryClicked,
+                                         ^^^^^^^^^^^^^^^^
+vendor/aospa/axion/ax_systemui/src/com/android/systemui/qs/ax/ui/header/AxQuickSettingsHeader.kt:169:13: error: no value passed for parameter 'systemStatusIconBlocklistInteractor'.
+            modifier = modifier,
+            ^^^^^^^^^^^^^^^^^^^^
+vendor/aospa/axion/ax_systemui/src/com/android/systemui/qs/ax/ui/header/AxQuickSettingsHeader.kt:179:34: error: unresolved reference 'configChangeToken'.
+        LaunchedEffect(viewModel.configChangeToken) {
+                                 ^^^^^^^^^^^^^^^^^
+vendor/aospa/axion/ax_systemui/src/com/android/systemui/qs/ax/ui/header/AxQuickSettingsHeader.kt:180:27: error: unresolved reference 'configChangeToken'.
+            if (viewModel.configChangeToken > 0) {
+                          ^^^^^^^^^^^^^^^^^
+vendor/aospa/axion/ax_systemui/src/com/android/systemui/qs/ax/ui/header/AxQuickSettingsHeader.kt:232:60: error: unresolved reference 'onDateClicked'.
+        modifier = modifier.clickable(onClick = viewModel::onDateClicked),
+                                                           ^^^^^^^^^^^^^
+vendor/aospa/axion/ax_systemui/src/com/android/systemui/qs/ax/ui/header/AxQuickSettingsHeader.kt:489:73: error: unresolved reference 'BatteryTestTagLegacy'.
+            modifier = batteryModifier.sysuiResTag(ShadeHeader.TestTags.BatteryTestTagLegacy),
+                                                                        ^^^^^^^^^^^^^^^^^^^^
+vendor/aospa/axion/ax_systemui/src/com/android/systemui/qs/ax/ui/media/AxMediaRouteButton.kt:108:55: error: assignment type mismatch: actual type is 'CharSequence', but 'String' was expected.
+                    .semantics { contentDescription = outputDescription }
+                                                      ^^^^^^^^^^^^^^^^^
+vendor/aospa/axion/ax_systemui/src/com/android/systemui/qs/ax/ui/media/AxMediaRouteButton.kt:210:55: error: assignment type mismatch: actual type is 'CharSequence', but 'String' was expected.
+                    .semantics { contentDescription = outputDescription }
+                                                      ^^^^^^^^^^^^^^^^^
+vendor/aospa/axion/ax_systemui/src/com/android/systemui/qs/ax/ui/media/AxMediaRouteButton.kt:245:17: error: none of the following candidates is applicable:
+fun Text(text: String, modifier: Modifier = ..., color: Color = ..., autoSize: TextAutoSize? = ..., fontSize: TextUnit = ..., fontStyle: FontStyle? = ..., fontWeight: FontWeight? = ..., fontFamily: FontFamily? = ..., letterSpacing: TextUnit = ..., textDecoration: TextDecoration? = ..., textAlign: TextAlign? = ..., lineHeight: TextUnit = ..., overflow: TextOverflow = ..., softWrap: Boolean = ..., maxLines: Int = ..., minLines: Int = ..., onTextLayout: ((TextLayoutResult) -> Unit)? = ..., style: TextStyle = ...): Unit
+fun Text(text: String, color: ColorProducer, modifier: Modifier = ..., autoSize: TextAutoSize? = ..., fontSize: TextUnit = ..., fontStyle: FontStyle? = ..., fontWeight: FontWeight? = ..., fontFamily: FontFamily? = ..., letterSpacing: TextUnit = ..., textDecoration: TextDecoration? = ..., textAlign: TextAlign? = ..., lineHeight: TextUnit = ..., overflow: TextOverflow = ..., softWrap: Boolean = ..., maxLines: Int = ..., minLines: Int = ..., onTextLayout: ((TextLayoutResult) -> Unit)? = ..., style: TextStyle = ...): Unit
+fun Text(text: AnnotatedString, modifier: Modifier = ..., color: Color = ..., autoSize: TextAutoSize? = ..., fontSize: TextUnit = ..., fontStyle: FontStyle? = ..., fontWeight: FontWeight? = ..., fontFamily: FontFamily? = ..., letterSpacing: TextUnit = ..., textDecoration: TextDecoration? = ..., textAlign: TextAlign? = ..., lineHeight: TextUnit = ..., overflow: TextOverflow = ..., softWrap: Boolean = ..., maxLines: Int = ..., minLines: Int = ..., inlineContent: Map<String, InlineTextContent> = ..., onTextLayout: (TextLayoutResult) -> Unit = ..., style: TextStyle = ...): Unit
+fun Text(text: AnnotatedString, color: ColorProducer, modifier: Modifier = ..., autoSize: TextAutoSize? = ..., fontSize: TextUnit = ..., fontStyle: FontStyle? = ..., fontWeight: FontWeight? = ..., fontFamily: FontFamily? = ..., letterSpacing: TextUnit = ..., textDecoration: TextDecoration? = ..., textAlign: TextAlign? = ..., lineHeight: TextUnit = ..., overflow: TextOverflow = ..., softWrap: Boolean = ..., maxLines: Int = ..., minLines: Int = ..., inlineContent: Map<String, InlineTextContent> = ..., onTextLayout: (TextLayoutResult) -> Unit = ..., style: TextStyle = ...): Unit
+                Text(
+                ^^^^
+vendor/aospa/axion/ax_systemui/src/com/android/systemui/qs/ax/ui/media/AxNonQsGridExpandedContent.kt:75:72: error: classifier 'data class SecondaryActionsOnly : MediaCardActionButtonLayout' does not have a companion object, so it cannot be used as an expression.
+            session?.actionButtonLayout != MediaCardActionButtonLayout.SecondaryActionsOnly
+                                                                       ^^^^^^^^^^^^^^^^^^^^
+vendor/aospa/axion/ax_systemui/src/com/android/systemui/qs/ax/ui/media/MediaOverscrollToDismiss.kt:43:36: error: cannot access 'class NestedDraggableRootNode : DelegatingNode': it is internal in file.
+import com.android.compose.gesture.NestedDraggableRootNode
+                                   ^^^^^^^^^^^^^^^^^^^^^^^
+vendor/aospa/axion/ax_systemui/src/com/android/systemui/qs/ax/ui/media/MediaOverscrollToDismiss.kt:103:18: error: cannot access 'class NestedDraggableRootNode : DelegatingNode': it is internal in file.
+        delegate(NestedDraggableRootNode(this, Orientation.Horizontal, null, enabled, true))
+                 ^^^^^^^^^^^^^^^^^^^^^^^
+vendor/aospa/axion/ax_systemui/src/com/android/systemui/qs/ax/ui/media/MediaOverscrollToDismiss.kt:112:22: error: cannot access 'class NestedDraggableRootNode : DelegatingNode': it is internal in file.
+        delegateNode.update(this, Orientation.Horizontal, null, enabled, true)
+                     ^^^^^^
+vendor/aospa/axion/ax_systemui/src/com/android/systemui/qs/ax/ui/panels/AxQsPanels.kt:228:23: error: unresolved reference 'foregroundServicesViewModel'.
+            viewModel.foregroundServicesViewModel?.let { model ->
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+vendor/aospa/axion/ax_systemui/src/com/android/systemui/qs/ax/ui/panels/AxQsPanels.kt:228:52: error: cannot infer type for this parameter. Specify it explicitly.
+            viewModel.foregroundServicesViewModel?.let { model ->
+                                                   ^^^
+vendor/aospa/axion/ax_systemui/src/com/android/systemui/qs/ax/ui/panels/AxQsPanels.kt:228:58: error: cannot infer type for this parameter. Specify it explicitly.
+            viewModel.foregroundServicesViewModel?.let { model ->
+                                                         ^^^^^
+vendor/aospa/axion/ax_systemui/src/com/android/systemui/qs/ax/ui/panels/AxQsPanels.kt:232:27: error: unresolved reference 'onClick'.
+                    model.onClick(context, source)
+                          ^^^^^^^
+vendor/aospa/axion/ax_systemui/src/com/android/systemui/qs/ax/ui/panels/AxQsPanels.kt:258:30: error: unresolved reference 'icon'.
+                icon = model.icon,
+                             ^^^^
+vendor/aospa/axion/ax_systemui/src/com/android/systemui/qs/ax/ui/panels/AxQsPanels.kt:265:30: error: unresolved reference 'foregroundServicesCount'.
+                text = model.foregroundServicesCount.toString(),
+                             ^^^^^^^^^^^^^^^^^^^^^^^
+vendor/aospa/axion/ax_systemui/src/com/android/systemui/qs/ax/ui/panels/AxQsSceneTransitions.kt:64:33: error: unresolved reference 'mediaCarousel'.
+            fade(Media.Elements.mediaCarousel)
+                                ^^^^^^^^^^^^^
+vendor/aospa/axion/ax_systemui/src/com/android/systemui/qs/ax/ui/panels/AxQsSceneTransitions.kt:65:38: error: unresolved reference 'mediaCarousel'.
+            translate(Media.Elements.mediaCarousel, y = 48.dp)
+                                     ^^^^^^^^^^^^^
+vendor/aospa/axion/ax_systemui/src/com/android/systemui/qs/ax/ui/panels/AxQsSceneTransitions.kt:69:29: error: unresolved reference 'mediaCarousel'.
+        fade(Media.Elements.mediaCarousel)
+                            ^^^^^^^^^^^^^
+vendor/aospa/axion/ax_systemui/src/com/android/systemui/qs/ax/ui/panels/AxQsSceneTransitions.kt:126:28: error: unresolved reference 'VolumeSlider'.
+    sharedElement(Elements.VolumeSlider, enabled = false)
+                           ^^^^^^^^^^^^
+ninja: build stopped: subcommand failed.
+20:20:20 ninja failed with: exit status 1
+
+[0;31m#### failed to build some targets (05:16 (mm:ss)) ####
+[00m
+[m[1m[31mBuild failed![m
+

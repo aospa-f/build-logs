@@ -1,0 +1,6 @@
+SystemUI: Hide legacy media controls and keep separate notifications
+
+Force MediaControlsInComposeFlag on so the legacy notification media
+card is not attached, while the Axion QS media card remains the single
+media surface. Also stop QS from intercepting downward drags below the
+status bar in separate mode so the notification page stays notifications.

@@ -1,0 +1,9 @@
+SystemUI: Restore Axion separate shade routing
+
+Wire AxQsShadePolicy into QuickSettingsControllerImpl and add the
+notification stack visibility helpers used by the Axion panel. This
+makes the separate QS panel setting affect gesture routing, notification
+visibility and shade collapse instead of only changing the internal
+layout.
+
+Hooks ported from AxionOS 2.9.

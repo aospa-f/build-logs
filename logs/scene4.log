@@ -1,0 +1,98 @@
+=== SystemUI media compile start Wed Nov  4 06:42:14 AM UTC 2026 ===
+SystemUI
+[m[1m[34mSetting up the environment[m
+
+including vendor/aospa/vendorsetup.sh
+including vendor/google/gms/vendorsetup.sh
+including vendor/oplus/camera/vendorsetup.sh
+including vendor/qcom/opensource/core-utils/vendorsetup.sh
+including vendor/qcom/sdclang/config/vendorsetup.sh
+
+[m[1m[32mBuilding AOSPA calcite for giulia[m
+[m[32mStart time: Wed Nov  4 06:42:15 AM UTC 2026[m
+
+[m[1m[34mLunching giulia[m [m[36m(Including dependencies sync)[m
+
+Release not specified, defaulting to cp2a build
+No changes were necessary to the barista recipe.
+No ingredients need to be brewed.
+06:42:18 Build sandboxing disabled due to nsjail error.
+hardware/qcom/display/config/display-product.mk:244: warning: "Using smmu proxy"
+hardware/qcom/display/config/display-product.mk:244: warning: "Using smmu proxy"
+
+============================================
+PLATFORM_VERSION_CODENAME=REL
+PLATFORM_VERSION=17
+PRODUCT_SOURCE_ROOT_DIRS=-prebuilts/misc/protobuf_vendorcompat -platform_testing/libraries/sdv -platform_testing/tests/sdv -platform_testing/libraries/automotive/display_safety -platform_testing/tests/automotive/display_safety -device/generic/trusty/microdroid
+AOSPA_VERSION=calcite-unofficial-giulia-20261104
+TARGET_PRODUCT=aospa_giulia
+TARGET_BUILD_VARIANT=userdebug
+TARGET_ARCH=arm64
+TARGET_ARCH_VARIANT=armv8-2a-dotprod
+TARGET_CPU_VARIANT=generic
+HOST_OS=linux
+HOST_OS_EXTRA=Linux-7.0.0-42-generic-x86_64-Ubuntu-24.04.5-LTS
+HOST_CROSS_OS=windows
+BUILD_ID=CQ2A.260820.002-CP2A.260605.016
+OUT_DIR=out
+PRODUCT_SOONG_NAMESPACES=vendor/oplus/camera/giulia/blobs device/oneplus/giulia vendor/sony/dolby hardware/nxp/keymint/generic hardware/nxp/weaver/generic vendor/oneplus/ir hardware/oplus/overlay device/oneplus/sm8650-common hardware/oplus vendor/oneplus/sm8650-oss/vendor.oplus.hardware.touch@2.0-service vendor/oneplus/sm8650-common vendor/oneplus/giulia vendor/google/gms vendor/qcom/common/vendor/adreno/u vendor/qcom/common/system/alarm device/qcom/common/vendor/alarm vendor/qcom/common/vendor/alarm vendor/qcom/common/system/audio vendor/qcom/common/system/av vendor/qcom/common/system/bt vendor/qcom/common/system/display vendor/qcom/common/vendor/display vendor/qcom/common/system/gps device/qcom/common/vendor/gps device/qcom/common/system/overlay device/qcom/common/vendor/overlay vendor/qcom/common/system/perf device/qcom/common/vendor/perf vendor/qcom/common/vendor/perf vendor/qcom/common/system/telephony device/qcom/common/vendor/telephony vendor/qcom/opensource/data-ipa-cfg-mgr device/qcom/common/vendor/usb vendor/qcom/common/system/wfd device/qcom/common/vendor/wlan hardware/qcom/wlan/qcwcn vendor/qcom/opensource/data-ipa-cfg-mgr vendor/qcom/common/vendor/wlan device/qcom/common vendor/qcom/opensource/audio-hal/st-hal-ar
+SOONG_NINJA=ninja
+USE_RBE=true
+SOONG_ONLY=false
+SOONG_INCREMENTAL_ANALYSIS=false
+============================================
+06:42:22 Build sandboxing disabled due to nsjail error.
+hardware/qcom/display/config/display-product.mk:244: warning: "Using smmu proxy"
+hardware/qcom/display/config/display-product.mk:244: warning: "Using smmu proxy"
+06:42:25 Build sandboxing disabled due to nsjail error.
+hardware/qcom/display/config/display-product.mk:244: warning: "Using smmu proxy"
+hardware/qcom/display/config/display-product.mk:244: warning: "Using smmu proxy"
+06:42:27 Build sandboxing disabled due to nsjail error.
+hardware/qcom/display/config/display-product.mk:244: warning: "Using smmu proxy"
+hardware/qcom/display/config/display-product.mk:244: warning: "Using smmu proxy"
+
+[m[1m[34mStarting compilation[m
+
+Starting ninja...
+06:42:29 Build sandboxing disabled due to nsjail error.
+hardware/qcom/display/config/display-product.mk:244: warning: "Using smmu proxy"
+Running product configuration...
+hardware/qcom/display/config/display-product.mk:244: warning: "Using smmu proxy"
+============================================
+PLATFORM_VERSION_CODENAME=REL
+PLATFORM_VERSION=17
+PRODUCT_SOURCE_ROOT_DIRS=-prebuilts/misc/protobuf_vendorcompat -platform_testing/libraries/sdv -platform_testing/tests/sdv -platform_testing/libraries/automotive/display_safety -platform_testing/tests/automotive/display_safety -device/generic/trusty/microdroid
+AOSPA_VERSION=calcite-unofficial-giulia-20261104
+TARGET_PRODUCT=aospa_giulia
+TARGET_BUILD_VARIANT=userdebug
+TARGET_ARCH=arm64
+TARGET_ARCH_VARIANT=armv8-2a-dotprod
+TARGET_CPU_VARIANT=generic
+HOST_OS=linux
+HOST_OS_EXTRA=Linux-7.0.0-42-generic-x86_64-Ubuntu-24.04.5-LTS
+HOST_CROSS_OS=windows
+BUILD_ID=CQ2A.260820.002-CP2A.260605.016
+OUT_DIR=out
+PRODUCT_SOONG_NAMESPACES=vendor/oplus/camera/giulia/blobs device/oneplus/giulia vendor/sony/dolby hardware/nxp/keymint/generic hardware/nxp/weaver/generic vendor/oneplus/ir hardware/oplus/overlay device/oneplus/sm8650-common hardware/oplus vendor/oneplus/sm8650-oss/vendor.oplus.hardware.touch@2.0-service vendor/oneplus/sm8650-common vendor/oneplus/giulia vendor/google/gms vendor/qcom/common/vendor/adreno/u vendor/qcom/common/system/alarm device/qcom/common/vendor/alarm vendor/qcom/common/vendor/alarm vendor/qcom/common/system/audio vendor/qcom/common/system/av vendor/qcom/common/system/bt vendor/qcom/common/system/display vendor/qcom/common/vendor/display vendor/qcom/common/system/gps device/qcom/common/vendor/gps device/qcom/common/system/overlay device/qcom/common/vendor/overlay vendor/qcom/common/system/perf device/qcom/common/vendor/perf vendor/qcom/common/vendor/perf vendor/qcom/common/system/telephony device/qcom/common/vendor/telephony vendor/qcom/opensource/data-ipa-cfg-mgr device/qcom/common/vendor/usb vendor/qcom/common/system/wfd device/qcom/common/vendor/wlan hardware/qcom/wlan/qcwcn vendor/qcom/opensource/data-ipa-cfg-mgr vendor/qcom/common/vendor/wlan device/qcom/common vendor/qcom/opensource/audio-hal/st-hal-ar
+SOONG_NINJA=ninja
+USE_RBE=true
+SOONG_ONLY=false
+SOONG_INCREMENTAL_ANALYSIS=true
+============================================
+[100% 1/1] bootstrap blueprint
+Running globs...
+ninja: no work to do.
+No need to regenerate ninja file
+No need to regenerate ninja file
+No need to regenerate ninja file
+Starting ninja...
+[  6% 2/29 6m44s remaining] //frameworks/base/packages/SystemUI:SystemUI-core ksp annotation processing
+06:43:50 Got signal: hangup
+06:43:53 Still alive, killing subprocesses...
+06:43:53 ninja failed with: signal: killed
+[ 10% 3/29 6m29s remaining] //frameworks/base/packages/SystemUI:SystemUI-core kotlinc
+FAILED: out/soong/.intermediates/frameworks/base/packages/SystemUI/SystemUI-core/android_common/kotlin/SystemUI-core.jar out/soong/.intermediates/frameworks/base/packages/SystemUI/SystemUI-core/android_common/kotlin_headers/SystemUI-core.jar out/soong/.intermediates/frameworks/base/packages/SystemUI/SystemUI-core/android_common/kotlin/SystemUI-core.pc_state
+out/host/linux-x86/bin/find_input_delta --target "out/soong/.intermediates/frameworks/base/packages/SystemUI/SystemUI-core/android_common/kotlin/SystemUI-core.jar" --inputs_file "out/soong/.intermediates/frameworks/base/packages/SystemUI/SystemUI-core/android_common/kotlin/SystemUI-core.jar.rsp" --new_state "out/soong/.intermediates/frameworks/base/packages/SystemUI/SystemUI-core/android_common/kotlin/SystemUI-core.pc_state.new" --prior_state "out/soong/.intermediates/frameworks/base/packages/SystemUI/SystemUI-core/android_common/kotlin/SystemUI-core.pc_state" --inspect out/soong/.intermediates/frameworks/base/packages/SystemUI/SystemUI-core/android_common/gen/aidl/aidl0.srcjar out/soong/.intermediates/frameworks/base/packages/SystemUI/SystemUI-core/android_common/ksp/ksp-java-sources.srcjar out/soong/.intermediates/frameworks/base/packages/SystemUI/SystemUI-core/android_common/ksp/ksp-kotlin-sources.srcjar --version 2 > out/soong/.intermediates/frameworks/base/packages/SystemUI/SystemUI-core/android_common/kotlin/SystemUI-core.source_diff && rm -rf "out/soong/.intermediates/frameworks/base/packages/SystemUI/SystemUI-core/android_common/kotlinc/classes" "out/soong/.intermediates/frameworks/base/packages/SystemUI/SystemUI-core/android_common/kotlinc/header_classes" "out/soong/.intermediates/frameworks/base/packages/SystemUI/SystemUI-core/android_common/kotlinc/srcJars" "out/soong/.intermediates/frameworks/base/packages/SystemUI/SystemUI-core/android_common/kotlinc-build.xml" "out/soong/.intermediates/frameworks/base/packages/SystemUI/SystemUI-core/android_common/kotlinc/empty" && mkdir -p "out/soong/.intermediates/frameworks/base/packages/SystemUI/SystemUI-core/android_common/kotlinc/classes" "out/soong/.intermediates/frameworks/base/packages/SystemUI/SystemUI-core/android_common/kotlinc/header_classes" "out/soong/.intermediates/frameworks/base/packages/SystemUI/SystemUI-core/android_common/kotlinc/empty" && mkdir -p out/soong/.intermediates/frameworks/base/packages/SystemUI/SystemUI-core/android_common/kotlinc/srcJars && out/host/linux-x86/bin/zipsync -d out/soong/.intermediates/frameworks/base/packages/SystemUI/SystemUI-core/android_common/kotlinc/srcJars -l out/soong/.intermediates/frameworks/base/packages/SystemUI/SystemUI-core/android_common/kotlinc/srcJars/list -f "*.java" -f "*.kt" out/soong/.intermediates/frameworks/base/packages/SystemUI/SystemUI-core/android_common/gen/aidl/aidl0.srcjar out/soong/.intermediates/frameworks/base/packages/SystemUI/SystemUI-core/android_common/ksp/ksp-java-sources.srcjar out/soong/.intermediates/frameworks/base/packages/SystemUI/SystemUI-core/android_common/ksp/ksp-kotlin-sources.srcjar && out/host/linux-x86/bin/gen-kotlin-build-file --classpath "out/soong/.intermediates/frameworks/base/packages/SystemUI/SystemUI-core/android_common/kotlinc/classpath.rsp"  --name "frameworks__base__packages__SystemUI__android_common__SystemUI-core" --out_dir "out/soong/.intermediates/frameworks/base/packages/SystemUI/SystemUI-core/android_common/kotlinc/classes" --srcs "out/soong/.intermediates/frameworks/base/packages/SystemUI/SystemUI-core/android_common/kotlin/SystemUI-core.jar.rsp" --srcs "out/soong/.intermediates/frameworks/base/packages/SystemUI/SystemUI-core/android_common/kotlinc/srcJars/list"  --out "out/soong/.intermediates/frameworks/base/packages/SystemUI/SystemUI-core/android_common/kotlinc-build.xml" && external/kotlinc/bin/kotlinc   -J--add-opens=java.base/java.util=ALL-UNNAMED -J-Xmx8192M  -Xjvm-default=all -opt-in=kotlinx.coroutines.ExperimentalCoroutinesApi -P plugin:androidx.compose.compiler.plugins.kotlin:sourceInformation=true -Xsuppress-version-warnings -Xconsistent-data-class-copy-visibility -Xsam-conversions=class -no-stdlib -no-jdk -jvm-target 21 -Xplugin=out/soong/.intermediates/external/kotlin-compose-compiler/kotlin-compose-compiler-hosted/linux_glibc_common/local-combined/kotlin-compose-compiler-hosted.jar  -Xbuild-file=out/soong/.intermediates/frameworks/base/packages/SystemUI/SystemUI-core/android_common/kotlinc-build.xml  -kotlin-home out/soong/.intermediates/frameworks/base/packages/SystemUI/SystemUI-core/android_common/kotlinc/empty  -Xplugin=external/kotlinc/lib/jvm-abi-gen.jar  -P plugin:org.jetbrains.kotlin.jvm.abi:outputDir=out/soong/.intermediates/frameworks/base/packages/SystemUI/SystemUI-core/android_common/kotlinc/header_classes && out/host/linux-x86/bin/soong_zip -jar  -o out/soong/.intermediates/frameworks/base/packages/SystemUI/SystemUI-core/android_common/kotlin/SystemUI-core.jar -C out/soong/.intermediates/frameworks/base/packages/SystemUI/SystemUI-core/android_common/kotlinc/classes -D out/soong/.intermediates/frameworks/base/packages/SystemUI/SystemUI-core/android_common/kotlinc/classes -write_if_changed && out/host/linux-x86/bin/soong_zip -jar  -o out/soong/.intermediates/frameworks/base/packages/SystemUI/SystemUI-core/android_common/kotlin_headers/SystemUI-core.jar -C out/soong/.intermediates/frameworks/base/packages/SystemUI/SystemUI-core/android_common/kotlinc/header_classes -D out/soong/.intermediates/frameworks/base/packages/SystemUI/SystemUI-core/android_common/kotlinc/header_classes -write_if_changed && rm -rf "out/soong/.intermediates/frameworks/base/packages/SystemUI/SystemUI-core/android_common/kotlinc/srcJars" "out/soong/.intermediates/frameworks/base/packages/SystemUI/SystemUI-core/android_common/kotlinc/classes" "out/soong/.intermediates/frameworks/base/packages/SystemUI/SystemUI-core/android_common/kotlinc/header_classes"  && mv out/soong/.intermediates/frameworks/base/packages/SystemUI/SystemUI-core/android_common/kotlin/SystemUI-core.pc_state.new out/soong/.intermediates/frameworks/base/packages/SystemUI/SystemUI-core/android_common/kotlin/SystemUI-core.pc_state && rm out/soong/.intermediates/frameworks/base/packages/SystemUI/SystemUI-core/android_common/kotlin/SystemUI-core.source_diff
+error: action cancelled when ninja exited
+06:43:53 soong bootstrap with shutdown failed with: context canceled
+

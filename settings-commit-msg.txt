@@ -1,0 +1,5 @@
+Settings: Add Device manager section
+
+Add a top-level Device manager entry that opens the AxionParts
+performance dashboard with App optimisation, Background Manager,
+Kernel Manager and RAM Plus.

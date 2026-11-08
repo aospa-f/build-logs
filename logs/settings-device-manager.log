@@ -1,0 +1,440 @@
+=== Settings compile start Wed Nov  4 04:59:55 AM UTC 2026 ===
+Settings
+[m[1m[34mSetting up the environment[m
+
+including vendor/aospa/vendorsetup.sh
+including vendor/google/gms/vendorsetup.sh
+including vendor/oplus/camera/vendorsetup.sh
+including vendor/qcom/opensource/core-utils/vendorsetup.sh
+including vendor/qcom/sdclang/config/vendorsetup.sh
+
+[m[1m[32mBuilding AOSPA calcite for giulia[m
+[m[32mStart time: Wed Nov  4 04:59:56 AM UTC 2026[m
+
+[m[1m[34mLunching giulia[m [m[36m(Including dependencies sync)[m
+
+Release not specified, defaulting to cp2a build
+No changes were necessary to the barista recipe.
+No ingredients need to be brewed.
+04:59:58 Build sandboxing disabled due to nsjail error.
+hardware/qcom/display/config/display-product.mk:244: warning: "Using smmu proxy"
+hardware/qcom/display/config/display-product.mk:244: warning: "Using smmu proxy"
+
+============================================
+PLATFORM_VERSION_CODENAME=REL
+PLATFORM_VERSION=17
+PRODUCT_SOURCE_ROOT_DIRS=-prebuilts/misc/protobuf_vendorcompat -platform_testing/libraries/sdv -platform_testing/tests/sdv -platform_testing/libraries/automotive/display_safety -platform_testing/tests/automotive/display_safety -device/generic/trusty/microdroid
+AOSPA_VERSION=calcite-unofficial-giulia-20261104
+TARGET_PRODUCT=aospa_giulia
+TARGET_BUILD_VARIANT=userdebug
+TARGET_ARCH=arm64
+TARGET_ARCH_VARIANT=armv8-2a-dotprod
+TARGET_CPU_VARIANT=generic
+HOST_OS=linux
+HOST_OS_EXTRA=Linux-7.0.0-42-generic-x86_64-Ubuntu-24.04.5-LTS
+HOST_CROSS_OS=windows
+BUILD_ID=CQ2A.260820.002-CP2A.260605.016
+OUT_DIR=out
+PRODUCT_SOONG_NAMESPACES=vendor/oplus/camera/giulia/blobs device/oneplus/giulia vendor/sony/dolby hardware/nxp/keymint/generic hardware/nxp/weaver/generic vendor/oneplus/ir hardware/oplus/overlay device/oneplus/sm8650-common hardware/oplus vendor/oneplus/sm8650-oss/vendor.oplus.hardware.touch@2.0-service vendor/oneplus/sm8650-common vendor/oneplus/giulia vendor/google/gms vendor/qcom/common/vendor/adreno/u vendor/qcom/common/system/alarm device/qcom/common/vendor/alarm vendor/qcom/common/vendor/alarm vendor/qcom/common/system/audio vendor/qcom/common/system/av vendor/qcom/common/system/bt vendor/qcom/common/system/display vendor/qcom/common/vendor/display vendor/qcom/common/system/gps device/qcom/common/vendor/gps device/qcom/common/system/overlay device/qcom/common/vendor/overlay vendor/qcom/common/system/perf device/qcom/common/vendor/perf vendor/qcom/common/vendor/perf vendor/qcom/common/system/telephony device/qcom/common/vendor/telephony vendor/qcom/opensource/data-ipa-cfg-mgr device/qcom/common/vendor/usb vendor/qcom/common/system/wfd device/qcom/common/vendor/wlan hardware/qcom/wlan/qcwcn vendor/qcom/opensource/data-ipa-cfg-mgr vendor/qcom/common/vendor/wlan device/qcom/common vendor/qcom/opensource/audio-hal/st-hal-ar
+SOONG_NINJA=ninja
+USE_RBE=true
+SOONG_ONLY=false
+SOONG_INCREMENTAL_ANALYSIS=false
+============================================
+05:00:00 Build sandboxing disabled due to nsjail error.
+hardware/qcom/display/config/display-product.mk:244: warning: "Using smmu proxy"
+hardware/qcom/display/config/display-product.mk:244: warning: "Using smmu proxy"
+05:00:04 Build sandboxing disabled due to nsjail error.
+hardware/qcom/display/config/display-product.mk:244: warning: "Using smmu proxy"
+hardware/qcom/display/config/display-product.mk:244: warning: "Using smmu proxy"
+05:00:07 Build sandboxing disabled due to nsjail error.
+hardware/qcom/display/config/display-product.mk:244: warning: "Using smmu proxy"
+hardware/qcom/display/config/display-product.mk:244: warning: "Using smmu proxy"
+
+[m[1m[34mStarting compilation[m
+
+05:00:09 Build sandboxing disabled due to nsjail error.
+Starting ninja...
+hardware/qcom/display/config/display-product.mk:244: warning: "Using smmu proxy"
+Running product configuration...
+hardware/qcom/display/config/display-product.mk:244: warning: "Using smmu proxy"
+============================================
+PLATFORM_VERSION_CODENAME=REL
+PLATFORM_VERSION=17
+PRODUCT_SOURCE_ROOT_DIRS=-prebuilts/misc/protobuf_vendorcompat -platform_testing/libraries/sdv -platform_testing/tests/sdv -platform_testing/libraries/automotive/display_safety -platform_testing/tests/automotive/display_safety -device/generic/trusty/microdroid
+AOSPA_VERSION=calcite-unofficial-giulia-20261104
+TARGET_PRODUCT=aospa_giulia
+TARGET_BUILD_VARIANT=userdebug
+TARGET_ARCH=arm64
+TARGET_ARCH_VARIANT=armv8-2a-dotprod
+TARGET_CPU_VARIANT=generic
+HOST_OS=linux
+HOST_OS_EXTRA=Linux-7.0.0-42-generic-x86_64-Ubuntu-24.04.5-LTS
+HOST_CROSS_OS=windows
+BUILD_ID=CQ2A.260820.002-CP2A.260605.016
+OUT_DIR=out
+PRODUCT_SOONG_NAMESPACES=vendor/oplus/camera/giulia/blobs device/oneplus/giulia vendor/sony/dolby hardware/nxp/keymint/generic hardware/nxp/weaver/generic vendor/oneplus/ir hardware/oplus/overlay device/oneplus/sm8650-common hardware/oplus vendor/oneplus/sm8650-oss/vendor.oplus.hardware.touch@2.0-service vendor/oneplus/sm8650-common vendor/oneplus/giulia vendor/google/gms vendor/qcom/common/vendor/adreno/u vendor/qcom/common/system/alarm device/qcom/common/vendor/alarm vendor/qcom/common/vendor/alarm vendor/qcom/common/system/audio vendor/qcom/common/system/av vendor/qcom/common/system/bt vendor/qcom/common/system/display vendor/qcom/common/vendor/display vendor/qcom/common/system/gps device/qcom/common/vendor/gps device/qcom/common/system/overlay device/qcom/common/vendor/overlay vendor/qcom/common/system/perf device/qcom/common/vendor/perf vendor/qcom/common/vendor/perf vendor/qcom/common/system/telephony device/qcom/common/vendor/telephony vendor/qcom/opensource/data-ipa-cfg-mgr device/qcom/common/vendor/usb vendor/qcom/common/system/wfd device/qcom/common/vendor/wlan hardware/qcom/wlan/qcwcn vendor/qcom/opensource/data-ipa-cfg-mgr vendor/qcom/common/vendor/wlan device/qcom/common vendor/qcom/opensource/audio-hal/st-hal-ar
+SOONG_NINJA=ninja
+USE_RBE=true
+SOONG_ONLY=false
+SOONG_INCREMENTAL_ANALYSIS=true
+============================================
+[100% 1/1] bootstrap blueprint
+Running globs...
+ninja: no work to do.
+$(shell date -u +%Y%m%d) was changed, regenerating...
+hardware/qcom/display/config/display-product.mk:244: warning: "Using smmu proxy"
+$(shell date -u +%Y%m%d) was changed, regenerating...
+[100% 2/2] initializing Make module parser
+hardware/qcom/display/config/display-product.mk:244: warning: "Using smmu proxy"
+[  4% 3/74] including out/soong/installs-aospa_giulia.mk
+[  5% 4/74] including out/soong/Android-aospa_giulia.mk
+[  6% 5/74] including build/make/target/board/android-info.mk
+[  8% 6/74] including device/amlogic/yukawa/Android.mk
+[  9% 7/74] including device/qcom/common/Android.mk
+[ 10% 8/74] including device/qcom/qssi/Android.mk
+[ 12% 9/74] including device/qcom/qssi_64/Android.mk
+[ 13% 10/74] including device/qcom/qssi_64go/Android.mk
+[ 14% 11/74] including device/qcom/qssi_tiny/Android.mk
+[ 16% 12/74] including device/qcom/qssi_tiny_32go/Android.mk
+[ 17% 13/74] including device/qcom/wlan/neo61/Android.mk
+[ 18% 14/74] including disregard/Android.mk
+Skipping Android.mk under disregard
+[ 20% 15/74] including hardware/broadcom/libbt/Android.mk
+[ 21% 16/74] including hardware/broadcom/wlan/bcmdhd/Android.mk
+[ 22% 17/74] including hardware/lineage/compat/interfaces/_backend/radio/config/Android.mk
+[ 24% 18/74] including hardware/qcom/bootctrl/Android.mk
+[ 25% 19/74] including hardware/qcom/display/Android.mk
+[ 27% 20/74] including hardware/qcom/gps/Android.mk
+[ 28% 21/74] including hardware/qcom/wlan/Android.mk
+[ 29% 22/74] including hardware/synaptics/wlan/synadhd/Android.mk
+[ 31% 23/74] including kernel/Android.mk
+Skipping Android.mk under kernel
+[ 32% 24/74] including proprietary_vendor_sony_dolby/Android.mk
+[ 33% 25/74] including vendor/aospa/prebuilt/pixel/charger/Android.mk
+[ 35% 26/74] including vendor/google/gms/Android.mk
+[ 36% 27/74] including vendor/oneplus/giulia/Android.mk
+[ 37% 28/74] including vendor/oneplus/ir/Android.mk
+[ 39% 29/74] including vendor/oneplus/sm8650-common/Android.mk
+[ 40% 30/74] including vendor/oplus/camera/giulia/blobs/Android.mk
+[ 41% 31/74] including vendor/qcom/common/system/alarm/Android.mk
+[ 43% 32/74] including vendor/qcom/common/system/audio/Android.mk
+[ 44% 33/74] including vendor/qcom/common/system/av/Android.mk
+[ 45% 34/74] including vendor/qcom/common/system/bt/Android.mk
+[ 47% 35/74] including vendor/qcom/common/system/display/Android.mk
+[ 48% 36/74] including vendor/qcom/common/system/gps/Android.mk
+[ 50% 37/74] including vendor/qcom/common/system/nfc/Android.mk
+[ 51% 38/74] including vendor/qcom/common/system/perf/Android.mk
+[ 52% 39/74] including vendor/qcom/common/system/telephony/Android.mk
+[ 54% 40/74] including vendor/qcom/common/system/wfd/Android.mk
+[ 55% 41/74] including vendor/qcom/common/vendor/adreno/r/Android.mk
+[ 56% 42/74] including vendor/qcom/common/vendor/adreno/s/Android.mk
+[ 58% 43/74] including vendor/qcom/common/vendor/adreno/t/Android.mk
+[ 59% 44/74] including vendor/qcom/common/vendor/adreno/u/Android.mk
+[ 60% 45/74] including vendor/qcom/common/vendor/alarm/Android.mk
+[ 62% 46/74] including vendor/qcom/common/vendor/charging/Android.mk
+[ 63% 47/74] including vendor/qcom/common/vendor/display/Android.mk
+[ 64% 48/74] including vendor/qcom/common/vendor/dsprpcd/Android.mk
+[ 66% 49/74] including vendor/qcom/common/vendor/gps-legacy/Android.mk
+[ 67% 50/74] including vendor/qcom/common/vendor/keymaster/Android.mk
+[ 68% 51/74] including vendor/qcom/common/vendor/media/5.10/Android.mk
+[ 70% 52/74] including vendor/qcom/common/vendor/media/5.4/Android.mk
+[ 71% 53/74] including vendor/qcom/common/vendor/media/legacy/Android.mk
+[ 72% 54/74] including vendor/qcom/common/vendor/nfc/Android.mk
+[ 74% 55/74] including vendor/qcom/common/vendor/perf/Android.mk
+[ 75% 56/74] including vendor/qcom/common/vendor/qseecomd-legacy/Android.mk
+[ 77% 57/74] including vendor/qcom/common/vendor/qseecomd/Android.mk
+[ 78% 58/74] including vendor/qcom/common/vendor/wlan-legacy/Android.mk
+[ 79% 59/74] including vendor/qcom/common/vendor/wlan/Android.mk
+[ 81% 60/74] including vendor/qcom/opensource/commonsys-intf/audio/Android.mk
+[ 82% 61/74] including vendor/qcom/opensource/commonsys/audio/Android.mk
+[ 83% 62/74] including vendor/qcom/opensource/commonsys/dataservices/Android.mk
+[ 85% 63/74] including vendor/qcom/opensource/commonsys/nfc/Android.mk
+[ 86% 64/74] including vendor/qcom/opensource/core-utils-vendor/qspaframework/Android.mk
+[ 87% 65/74] including vendor/qcom/opensource/core-utils/Android.mk
+[ 89% 66/74] including vendor/qcom/opensource/data-ipa-cfg-mgr/ipanat/test/Android.mk
+[ 90% 67/74] including vendor/qcom/opensource/dataservices/datatop/Android.mk
+[ 91% 68/74] including vendor/qcom/opensource/ecosw/nordic_hal/Android.mk
+[ 93% 69/74] including vendor/qcom/opensource/mmc-utils/Android.mk
+[ 94% 70/74] including vendor/qcom/opensource/power/Android.mk
+[ 95% 71/74] including vendor/qcom/opensource/recovery-ext/Android.mk
+[ 97% 72/74] including vendor/qcom/opensource/softap/softap/sdk/Android.mk
+[ 98% 73/74] including vendor/sony/dolby/Android.mk
+[100% 74/74] including out/soong/late-aospa_giulia.mk
+[100% 75/75] finishing Make module rules
+[100% 76/76] finishing Make module rules: Adding module dependencies
+[100% 77/77] finishing Make packaging rules
+[ 74% 78/105] including build/make/core/tasks/art.mk
+[ 75% 79/105] including build/make/core/tasks/build_custom_images.mk
+[ 76% 80/105] including build/make/core/tasks/dex_preopt_check.mk
+[ 77% 81/105] including build/make/core/tasks/find-shareduid-violation.mk
+[ 78% 82/105] including build/make/core/tasks/fontchain_lint.mk
+[ 79% 83/105] including build/make/core/tasks/host_init_verifier.mk
+[ 80% 84/105] including build/make/core/tasks/meta-lic.mk
+[ 80% 85/105] including build/make/core/tasks/module-info.mk
+[ 81% 86/105] including build/make/core/tasks/oem_image.mk
+[ 82% 87/105] including build/make/core/tasks/offline-sdk-docs.mk
+[ 83% 88/105] including build/make/core/tasks/platform_availability_check.mk
+[ 84% 89/105] including build/make/core/tasks/ramdisk_snapshot.mk
+[ 85% 90/105] including build/make/core/tasks/sdv.mk
+[ 86% 91/105] including build/make/core/tasks/vendor_module_check.mk
+[ 87% 92/105] including build/make/core/tasks/with-license.mk
+[ 88% 93/105] including vendor/aospa/build/tasks/kernel.mk
+[ 89% 94/105] including vendor/qcom/build/tasks/QMAA_enforcement.mk
+[ 90% 95/105] including vendor/qcom/build/tasks/QSSI_violators.mk
+[ 91% 96/105] including vendor/qcom/build/tasks/generate_extra_images.mk
+[ 92% 97/105] including vendor/qcom/build/tasks/generate_vendor_bundle.mk
+[ 93% 98/105] including vendor/qcom/build/tasks/vendor_prop_context_restriction.mk
+[ 94% 99/105] including device/amlogic/yukawa/build/tasks/dtimages.mk
+[ 95% 100/105] including device/generic/goldfish/build/tasks/combine_initramfs.mk
+[ 96% 101/105] including device/qcom/qssi_64/build/tasks/symlink_system_dlkm.mk
+[ 97% 102/105] including device/qcom/qssi_64go/build/tasks/symlink_system_dlkm.mk
+[ 98% 103/105] including device/qcom/qssi_tiny/build/tasks/symlink_system_dlkm.mk
+[ 99% 104/105] including device/qcom/qssi_tiny_32go/build/tasks/symlink_system_dlkm.mk
+[100% 105/105] finishing Make packaging rules
+[100% 106/106] finishing Make packaging rules: Adding phony targets
+[100% 107/107] finishing Make packaging rules: Checking licensing and SBOM
+[100% 108/108] writing make module actions
+out/soong/installs-aospa_giulia.mk:213241: warning: overriding commands for target `out/target/product/giulia/vendor/etc/init/android.hardware.authsecret-service.nxp.rc'
+out/soong/installs-aospa_giulia.mk:213237: warning: ignoring old commands for target `out/target/product/giulia/vendor/etc/init/android.hardware.authsecret-service.nxp.rc'
+out/soong/installs-aospa_giulia.mk:213725: warning: overriding commands for target `out/target/product/giulia/vendor/etc/init/android.hardware.security.keymint-service.strongbox.nxp.rc'
+out/soong/installs-aospa_giulia.mk:213721: warning: ignoring old commands for target `out/target/product/giulia/vendor/etc/init/android.hardware.security.keymint-service.strongbox.nxp.rc'
+out/soong/installs-aospa_giulia.mk:213897: warning: overriding commands for target `out/target/product/giulia/vendor/etc/init/android.hardware.weaver-service.nxp.rc'
+out/soong/installs-aospa_giulia.mk:213893: warning: ignoring old commands for target `out/target/product/giulia/vendor/etc/init/android.hardware.weaver-service.nxp.rc'
+out/soong/installs-aospa_giulia.mk:254138: warning: overriding commands for target `out/target/product/giulia/vendor/etc/vintf/manifest/android.hardware.authsecret-service.nxp.xml'
+out/soong/installs-aospa_giulia.mk:254136: warning: ignoring old commands for target `out/target/product/giulia/vendor/etc/vintf/manifest/android.hardware.authsecret-service.nxp.xml'
+out/soong/installs-aospa_giulia.mk:254302: warning: overriding commands for target `out/target/product/giulia/vendor/etc/vintf/manifest/android.hardware.weaver-service.nxp.xml'
+out/soong/installs-aospa_giulia.mk:66244: warning: ignoring old commands for target `out/target/product/giulia/vendor/etc/vintf/manifest/android.hardware.weaver-service.nxp.xml'
+vendor/qcom/opensource/core-utils/build/AndroidBoardCommon.mk:39: warning: overriding commands for target `out/target/product/giulia/vendor/firmware_mnt'
+vendor/aospa/build/core/mkdir.mk:22: warning: ignoring old commands for target `out/target/product/giulia/vendor/firmware_mnt'
+vendor/qcom/opensource/core-utils/build/AndroidBoardCommon.mk:46: warning: overriding commands for target `out/target/product/giulia/vendor/bt_firmware'
+vendor/aospa/build/core/mkdir.mk:22: warning: ignoring old commands for target `out/target/product/giulia/vendor/bt_firmware'
+vendor/qcom/opensource/core-utils/build/AndroidBoardCommon.mk:53: warning: overriding commands for target `out/target/product/giulia/vendor/dsp'
+vendor/aospa/build/core/mkdir.mk:22: warning: ignoring old commands for target `out/target/product/giulia/vendor/dsp'
+build/make/core/Makefile:139: warning: overriding commands for target `out/target/product/giulia/vendor/etc/batching.conf'
+out/soong/installs-aospa_giulia.mk:75923: warning: ignoring old commands for target `out/target/product/giulia/vendor/etc/batching.conf'
+build/make/core/Makefile:139: warning: overriding commands for target `out/target/product/giulia/vendor/etc/gnss_antenna_info.conf'
+out/soong/installs-aospa_giulia.mk:108126: warning: ignoring old commands for target `out/target/product/giulia/vendor/etc/gnss_antenna_info.conf'
+build/make/core/Makefile:139: warning: overriding commands for target `out/target/product/giulia/vendor/etc/gps.conf'
+out/soong/installs-aospa_giulia.mk:108366: warning: ignoring old commands for target `out/target/product/giulia/vendor/etc/gps.conf'
+No need to regenerate ninja file
+Starting ninja...
+[ 76% 109/142 4m32s remaining] //packages/apps/Settings:Settings-core aapt2 compile packages/apps/Settings/res 26
+[ 77% 110/142 4m32s remaining] //packages/apps/Settings:Settings-core overlay resource file list
+[ 78% 111/142 4m23s remaining] //packages/apps/Settings:Settings-core aapt2 link
+warn: removing resource com.android.settings:array/accessibility_button_gesture_selector_titles without required default value.
+warn: removing resource com.android.settings:array/long_press_timeout_selector_titles without required default value.
+warn: removing resource com.android.settings:string/accessibility_button_gesture_description without required default value.
+warn: removing resource com.android.settings:string/accessibility_button_gesture_title without required default value.
+warn: removing resource com.android.settings:string/accessibility_button_or_gesture_title without required default value.
+warn: removing resource com.android.settings:string/accessibility_force_invert_summary without required default value.
+warn: removing resource com.android.settings:string/accessibility_force_invert_title without required default value.
+warn: removing resource com.android.settings:string/accessibility_magnification_switch_shortcut_message without required default value.
+warn: removing resource com.android.settings:string/accessibility_magnification_switch_shortcut_negative_button without required default value.
+warn: removing resource com.android.settings:string/accessibility_magnification_switch_shortcut_positive_button without required default value.
+warn: removing resource com.android.settings:string/accessibility_magnification_switch_shortcut_title without required default value.
+warn: removing resource com.android.settings:string/accessibility_shortcut_edit_screen_summary_two_finger_double_tap without required default value.
+warn: removing resource com.android.settings:string/accessibility_shortcut_edit_screen_title_two_finger_double_tap without required default value.
+warn: removing resource com.android.settings:string/accessibility_shortcut_two_finger_double_tap_keyword without required default value.
+warn: removing resource com.android.settings:string/accessibility_toggle_large_pointer_icon_summary without required default value.
+warn: removing resource com.android.settings:string/accessibility_toggle_large_pointer_icon_title without required default value.
+warn: removing resource com.android.settings:string/accessibility_tutorial_dialog_message_gesture_settings without required default value.
+warn: removing resource com.android.settings:string/accessibility_tutorial_dialog_message_gesture_settings_talkback without required default value.
+warn: removing resource com.android.settings:string/accessibility_tutorial_dialog_title_gesture_settings without required default value.
+warn: removing resource com.android.settings:string/accessibility_tutorial_dialog_title_two_finger_double without required default value.
+warn: removing resource com.android.settings:string/accessibilty_autoclick_delay_unit_second without required default value.
+warn: removing resource com.android.settings:string/accessibilty_autoclick_preference_subtitle_long_delay without required default value.
+warn: removing resource com.android.settings:string/accessibilty_autoclick_preference_subtitle_medium_delay without required default value.
+warn: removing resource com.android.settings:string/accessibilty_autoclick_preference_subtitle_short_delay without required default value.
+warn: removing resource com.android.settings:string/add_virtual_keyboard without required default value.
+warn: removing resource com.android.settings:string/aspect_ratio_experiment_label without required default value.
+warn: removing resource com.android.settings:string/aspect_ratio_experiment_title without required default value.
+warn: removing resource com.android.settings:string/aspect_ratio_experimental_label without required default value.
+warn: removing resource com.android.settings:string/aspect_ratio_experimental_title without required default value.
+warn: removing resource com.android.settings:string/aspect_ratio_labs_label without required default value.
+warn: removing resource com.android.settings:string/aspect_ratio_labs_title without required default value.
+warn: removing resource com.android.settings:string/auto_brightness_content_description_title without required default value.
+warn: removing resource com.android.settings:string/available_virtual_keyboard_category without required default value.
+warn: removing resource com.android.settings:string/battery_usage_time_info_and_battery_level without required default value.
+warn: removing resource com.android.settings:string/bluetooth_broadcast_dialog_broadcast_app without required default value.
+warn: removing resource com.android.settings:string/bluetooth_broadcast_dialog_broadcast_message without required default value.
+warn: removing resource com.android.settings:string/bluetooth_broadcast_dialog_find_message without required default value.
+warn: removing resource com.android.settings:string/bluetooth_broadcast_dialog_title without required default value.
+warn: removing resource com.android.settings:string/bluetooth_find_broadcast without required default value.
+warn: removing resource com.android.settings:string/bluetooth_find_broadcast_button_leave without required default value.
+warn: removing resource com.android.settings:string/bluetooth_find_broadcast_button_scan without required default value.
+warn: removing resource com.android.settings:string/bluetooth_find_broadcast_summary without required default value.
+warn: removing resource com.android.settings:string/bluetooth_find_broadcast_title without required default value.
+warn: removing resource com.android.settings:string/bounce_keys_dialog_option_200 without required default value.
+warn: removing resource com.android.settings:string/bounce_keys_dialog_option_400 without required default value.
+warn: removing resource com.android.settings:string/bounce_keys_dialog_option_600 without required default value.
+warn: removing resource com.android.settings:string/bt_le_audio_qr_code_is_not_valid_format without required default value.
+warn: removing resource com.android.settings:string/bt_le_audio_scan_qr_code_scanner without required default value.
+warn: removing resource com.android.settings:string/builtin_keyboard_settings_title without required default value.
+warn: removing resource com.android.settings:string/category_name_about_satellite_messaging without required default value.
+warn: removing resource com.android.settings:string/confirm_format_ext4_text without required default value.
+warn: removing resource com.android.settings:string/confirm_format_ext4_title without required default value.
+warn: removing resource com.android.settings:string/connected_group without required default value.
+warn: removing resource com.android.settings:string/contacts_storage_no_account_set without required default value.
+warn: removing resource com.android.settings:string/default_keyboard_layout without required default value.
+warn: removing resource com.android.settings:string/desc_notice_device_locale_settings_change without required default value.
+warn: removing resource com.android.settings:string/doze_always_on_title without required default value.
+warn: removing resource com.android.settings:string/even_dimmer_display_summary without required default value.
+warn: removing resource com.android.settings:string/even_dimmer_display_title without required default value.
+warn: removing resource com.android.settings:string/external_display_off without required default value.
+warn: removing resource com.android.settings:string/external_display_on without required default value.
+warn: removing resource com.android.settings:string/find_broadcast_join_broadcast_error without required default value.
+warn: removing resource com.android.settings:string/find_broadcast_password_dialog_connection_error without required default value.
+warn: removing resource com.android.settings:string/find_broadcast_password_dialog_password_error without required default value.
+warn: removing resource com.android.settings:string/flash_notifications_summary_on_camera without required default value.
+warn: removing resource com.android.settings:string/flash_notifications_summary_on_camera_and_screen without required default value.
+warn: removing resource com.android.settings:string/flash_notifications_summary_on_screen without required default value.
+warn: removing resource com.android.settings:string/group_connected_device_media_device_title without required default value.
+warn: removing resource com.android.settings:string/hardkeyboard_category without required default value.
+warn: removing resource com.android.settings:string/imei_multi_sim_primary without required default value.
+warn: removing resource com.android.settings:string/imei_primary without required default value.
+warn: removing resource com.android.settings:string/keyboard_and_input_methods_category without required default value.
+warn: removing resource com.android.settings:string/keyboard_category_title without required default value.
+warn: removing resource com.android.settings:string/keyboard_layout_default_label without required default value.
+warn: removing resource com.android.settings:string/keyboard_layout_dialog_setup_button without required default value.
+warn: removing resource com.android.settings:string/keyboard_layout_dialog_switch_hint without required default value.
+warn: removing resource com.android.settings:string/keyboard_layout_dialog_title without required default value.
+warn: removing resource com.android.settings:string/keyboard_repeat_key_summary without required default value.
+warn: removing resource com.android.settings:string/keyboard_repeat_key_title without required default value.
+warn: removing resource com.android.settings:string/keyboard_settings_category without required default value.
+warn: removing resource com.android.settings:string/keyboard_settings_title without required default value.
+warn: removing resource com.android.settings:string/keyboard_shortcuts_helper_summary without required default value.
+warn: removing resource com.android.settings:string/keywords_virtual_keyboard without required default value.
+warn: removing resource com.android.settings:string/language_keyboard_settings_title without required default value.
+warn: removing resource com.android.settings:string/location_indicator_settings_description without required default value.
+warn: removing resource com.android.settings:string/location_indicator_settings_title without required default value.
+warn: removing resource com.android.settings:string/location_settings_footer_location_off without required default value.
+warn: removing resource com.android.settings:string/manage_zen_access_title without required default value.
+warn: removing resource com.android.settings:string/media_controls_recommendations_description without required default value.
+warn: removing resource com.android.settings:string/media_controls_recommendations_title without required default value.
+warn: removing resource com.android.settings:string/meid_multi_sim_primary without required default value.
+warn: removing resource com.android.settings:string/meid_primary without required default value.
+warn: removing resource com.android.settings:string/mobile_network_sim_name without required default value.
+warn: removing resource com.android.settings:string/more_about_satellite_messaging without required default value.
+warn: removing resource com.android.settings:string/nls_feature_settings_summary without required default value.
+warn: removing resource com.android.settings:string/notification_channel_summary_low_lock without required default value.
+warn: removing resource com.android.settings:string/notification_channel_summary_low_status without required default value.
+warn: removing resource com.android.settings:string/notification_channel_summary_low_status_lock without required default value.
+warn: removing resource com.android.settings:string/notification_listener_disable_warning_summary without required default value.
+warn: removing resource com.android.settings:string/preview_pager_content_description without required default value.
+warn: removing resource com.android.settings:string/satellite_setting_summary_more_information without required default value.
+warn: removing resource com.android.settings:string/satellite_setting_title without required default value.
+warn: removing resource com.android.settings:string/search_bar_account_avatar_content_description without required default value.
+warn: removing resource com.android.settings:string/see_all_available_group without required default value.
+warn: removing resource com.android.settings:string/selective_stay_awake_summary without required default value.
+warn: removing resource com.android.settings:string/selective_stay_awake_title without required default value.
+warn: removing resource com.android.settings:string/sound_dashboard_summary_with_dnd without required default value.
+warn: removing resource com.android.settings:string/storage_summary without required default value.
+warn: removing resource com.android.settings:string/summary_supported_service without required default value.
+warn: removing resource com.android.settings:string/title_about_satellite_setting without required default value.
+warn: removing resource com.android.settings:string/trackpad_go_back_summary without required default value.
+warn: removing resource com.android.settings:string/trackpad_go_back_title without required default value.
+warn: removing resource com.android.settings:string/trackpad_go_home_summary without required default value.
+warn: removing resource com.android.settings:string/trackpad_go_home_title without required default value.
+warn: removing resource com.android.settings:string/trackpad_notifications_summary without required default value.
+warn: removing resource com.android.settings:string/trackpad_notifications_title without required default value.
+warn: removing resource com.android.settings:string/trackpad_recent_apps_summary without required default value.
+warn: removing resource com.android.settings:string/trackpad_recent_apps_title without required default value.
+warn: removing resource com.android.settings:string/trackpad_switch_apps_summary without required default value.
+warn: removing resource com.android.settings:string/trackpad_switch_apps_title without required default value.
+warn: removing resource com.android.settings:string/virtual_keyboard_category without required default value.
+warn: removing resource com.android.settings:string/virtual_keyboards_for_work_title without required default value.
+warn: removing resource com.android.settings:string/vpn_password without required default value.
+warn: removing resource com.android.settings:string/vpn_username without required default value.
+warn: removing resource com.android.settings:string/wifi_advanced_toggle_description_collapsed without required default value.
+warn: removing resource com.android.settings:string/wifi_scan_always_confirm_allow without required default value.
+warn: removing resource com.android.settings:string/wifi_shared without required default value.
+warn: removing resource com.android.settings:string/zen_access_detail_switch without required default value.
+warn: removing resource com.android.settings:string/zen_access_empty_text without required default value.
+warn: removing resource com.android.settings:string/zen_access_revoke_warning_dialog_summary without required default value.
+warn: removing resource com.android.settings:string/zen_access_revoke_warning_dialog_title without required default value.
+warn: removing resource com.android.settings:string/zen_access_warning_dialog_summary without required default value.
+warn: removing resource com.android.settings:string/zen_access_warning_dialog_title without required default value.
+warn: removing resource com.android.settings:string/zen_category_behavior without required default value.
+warn: removing resource com.android.settings:string/zen_category_schedule without required default value.
+warn: removing resource com.android.settings:string/zen_custom_settings_dialog_ok without required default value.
+warn: removing resource com.android.settings:string/zen_custom_settings_dialog_review_schedule without required default value.
+warn: removing resource com.android.settings:string/zen_custom_settings_dialog_title without required default value.
+warn: removing resource com.android.settings:string/zen_custom_settings_duration_header without required default value.
+warn: removing resource com.android.settings:string/zen_custom_settings_notifications_header without required default value.
+warn: removing resource com.android.settings:string/zen_interruption_level_priority without required default value.
+warn: removing resource com.android.settings:string/zen_mode_add without required default value.
+warn: removing resource com.android.settings:string/zen_mode_and_condition without required default value.
+warn: removing resource com.android.settings:string/zen_mode_automation_suggestion_summary without required default value.
+warn: removing resource com.android.settings:string/zen_mode_automation_suggestion_title without required default value.
+warn: removing resource com.android.settings:string/zen_mode_block_effect_summary_all without required default value.
+warn: removing resource com.android.settings:string/zen_mode_block_effect_summary_none without required default value.
+warn: removing resource com.android.settings:string/zen_mode_block_effect_summary_screen_off without required default value.
+warn: removing resource com.android.settings:string/zen_mode_block_effect_summary_screen_on without required default value.
+warn: removing resource com.android.settings:string/zen_mode_block_effect_summary_some without required default value.
+warn: removing resource com.android.settings:string/zen_mode_block_effect_summary_sound without required default value.
+warn: removing resource com.android.settings:string/zen_mode_blocked_effects_footer without required default value.
+warn: removing resource com.android.settings:string/zen_mode_button_turn_off without required default value.
+warn: removing resource com.android.settings:string/zen_mode_button_turn_on without required default value.
+warn: removing resource com.android.settings:string/zen_mode_custom_messages_footer without required default value.
+warn: removing resource com.android.settings:string/zen_mode_no_exceptions without required default value.
+warn: removing resource com.android.settings:string/zen_mode_other_options without required default value.
+warn: removing resource com.android.settings:string/zen_mode_restrict_notifications_category without required default value.
+warn: removing resource com.android.settings:string/zen_mode_restrict_notifications_custom without required default value.
+warn: removing resource com.android.settings:string/zen_mode_restrict_notifications_disable_custom without required default value.
+warn: removing resource com.android.settings:string/zen_mode_restrict_notifications_enable_custom without required default value.
+warn: removing resource com.android.settings:string/zen_mode_restrict_notifications_hide without required default value.
+warn: removing resource com.android.settings:string/zen_mode_restrict_notifications_hide_footer without required default value.
+warn: removing resource com.android.settings:string/zen_mode_restrict_notifications_hide_summary without required default value.
+warn: removing resource com.android.settings:string/zen_mode_restrict_notifications_mute without required default value.
+warn: removing resource com.android.settings:string/zen_mode_restrict_notifications_mute_footer without required default value.
+warn: removing resource com.android.settings:string/zen_mode_restrict_notifications_mute_summary without required default value.
+warn: removing resource com.android.settings:string/zen_mode_schedule_category_title without required default value.
+warn: removing resource com.android.settings:string/zen_mode_schedule_title without required default value.
+warn: removing resource com.android.settings:string/zen_mode_settings_category without required default value.
+warn: removing resource com.android.settings:string/zen_mode_settings_dnd_automatic_rule without required default value.
+warn: removing resource com.android.settings:string/zen_mode_settings_dnd_automatic_rule_app without required default value.
+warn: removing resource com.android.settings:string/zen_mode_settings_dnd_custom_settings_footer_link without required default value.
+warn: removing resource com.android.settings:string/zen_mode_settings_dnd_manual_end_time without required default value.
+warn: removing resource com.android.settings:string/zen_mode_settings_dnd_manual_indefinite without required default value.
+warn: removing resource com.android.settings:string/zen_mode_sound_summary_off without required default value.
+warn: removing resource com.android.settings:string/zen_mode_sound_summary_on without required default value.
+warn: removing resource com.android.settings:string/zen_mode_sound_summary_on_with_info without required default value.
+warn: removing resource com.android.settings:string/zen_mode_summary_combination without required default value.
+warn: removing resource com.android.settings:string/zen_mode_use_automatic_rule without required default value.
+warn: removing resource com.android.settings:string/zen_modes_summary_none_active without required default value.
+warn: removing resource com.android.settings:string/zen_settings_general without required default value.
+warn: removing resource com.android.settings:string/zen_sound_footer without required default value.
+[ 78% 112/142 4m23s remaining] //packages/apps/Settings:Settings overlay resource file list
+[ 79% 113/142 4m23s remaining] //packages/apps/Settings:Settings-core extract assets from built resource file
+[ 80% 114/142 4m22s remaining] //packages/apps/Settings:Settings-core ResourceProcessorBusyBox
+[ 84% 115/136 4m14s remaining] //packages/apps/Settings:Settings aapt2 link
+[ 85% 116/136 4m14s remaining] //packages/apps/Settings:Settings merge assets from dependencies
+[ 86% 117/136 4m14s remaining] Copy: out/target/common/obj/APPS/Settings_intermediates/package-export.apk
+[ 86% 118/136 4m14s remaining] //packages/apps/Settings:Settings__aospa_giulia__auto_generated_rro_vendor aapt2 link
+[ 87% 119/136 4m14s remaining] //packages/apps/Settings:Settings ResourceProcessorBusyBox
+[ 89% 120/134 4m14s remaining] //packages/apps/Settings:Settings__aospa_giulia__auto_generated_rro_vendor signapk
+[ 90% 121/134 4m14s remaining] Copy: out/target/product/giulia/obj/APPS/Settings__aospa_giulia__auto_generated_rro_vendor_intermediates/package.apk
+[ 91% 122/134 4m14s remaining] Install: out/target/product/giulia/vendor/overlay/Settings__aospa_giulia__auto_generated_rro_vendor.apk
+[ 91% 123/134 4m13s remaining] //packages/apps/Settings:Settings r8
+Warning: An API level of 37 is not supported by this compiler. Please use an API level of 36 or earlier)
+Warning: Missing class com.google.android.appfunctions.AppFunctionContext (referenced from: java.lang.Object com.google.android.appfunctions.schema.common.v1.devicestate.AdjustNumericDeviceStateItemByPercentage.adjustNumericDeviceStateItemByPercentage(com.google.android.appfunctions.AppFunctionContext, com.google.android.appfunctions.schema.common.v1.devicestate.AdjustNumericDeviceStateItemByPercentageParams, kotlin.coroutines.Continuation) and 12 other contexts)
+Missing class com.google.android.appfunctions.schema.common.AppFunctionSchemaDefinition (referenced from: com.google.android.appfunctions.schema.common.v1.devicestate.AdjustNumericDeviceStateItemByPercentage and 12 other contexts)
+[ 92% 124/134 4m13s remaining] verify depfile
+[ 93% 125/134 4m13s remaining] //packages/apps/Settings:Settings align
+[ 94% 126/134 4m13s remaining] //packages/apps/Settings:Settings for dex resources
+[ 94% 127/134 4m13s remaining] //packages/apps/Settings:Settings align
+[ 95% 128/134 4m13s remaining] out/host/linux-x86/bin/merge_zips out/soong/.intermediates/packages/apps/Settings/Settings/android_common/Settings-unsigned.apk out/soong/.intermediates/packages/apps/Settings/Settings/android_common/dex-withres-aligned/Settings.jar out/soong/.intermediates/packages/apps/Settings/Settings/android_common/package-res.apk
+[ 96% 129/134 4m5s remaining] //packages/apps/Settings:Settings dexpreopt
+[ 97% 130/134 4m5s remaining] Install: out/target/product/giulia/system_ext/priv-app/Settings/oat/arm64/Settings.odex
+[ 97% 131/134 4m5s remaining] Install: out/target/product/giulia/system_ext/priv-app/Settings/oat/arm64/Settings.vdex
+[ 98% 132/134 4m5s remaining] //packages/apps/Settings:Settings signapk
+[ 99% 133/134 4m5s remaining] Copy: out/target/product/giulia/obj/APPS/Settings_intermediates/package.apk
+[100% 134/134 4m5s remaining] Install: out/target/product/giulia/system_ext/priv-app/Settings/Settings.apk
+
+[0;32m#### build completed successfully (02:09 (mm:ss)) ####
+[00m
+
+[m[1m[32mTotal time elapsed:[m [m[32m2 minutes (140.483761310 seconds)[m
+
+=== Settings compile done Wed Nov  4 05:02:17 AM UTC 2026 ===

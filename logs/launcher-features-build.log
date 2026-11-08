@@ -1,0 +1,385 @@
+=== Launching Launcher3 feature compile at Mon Nov  2 01:52:56 PM UTC 2026 ===
+Launcher3QuickStep
+[m[1m[34mSetting up the environment[m
+
+including vendor/aospa/vendorsetup.sh
+including vendor/google/gms/vendorsetup.sh
+including vendor/oplus/camera/vendorsetup.sh
+including vendor/qcom/opensource/core-utils/vendorsetup.sh
+including vendor/qcom/sdclang/config/vendorsetup.sh
+
+[m[1m[32mBuilding AOSPA calcite for giulia[m
+[m[32mStart time: Mon Nov  2 01:52:57 PM UTC 2026[m
+
+[m[1m[34mLunching giulia[m [m[36m(Including dependencies sync)[m
+
+Release not specified, defaulting to cp2a build
+No changes were necessary to the barista recipe.
+No ingredients need to be brewed.
+13:52:59 Build sandboxing disabled due to nsjail error.
+hardware/qcom/display/config/display-product.mk:244: warning: "Using smmu proxy"
+hardware/qcom/display/config/display-product.mk:244: warning: "Using smmu proxy"
+
+============================================
+PLATFORM_VERSION_CODENAME=REL
+PLATFORM_VERSION=17
+PRODUCT_SOURCE_ROOT_DIRS=-prebuilts/misc/protobuf_vendorcompat -platform_testing/libraries/sdv -platform_testing/tests/sdv -platform_testing/libraries/automotive/display_safety -platform_testing/tests/automotive/display_safety -device/generic/trusty/microdroid
+AOSPA_VERSION=calcite-unofficial-giulia-20261102
+TARGET_PRODUCT=aospa_giulia
+TARGET_BUILD_VARIANT=userdebug
+TARGET_ARCH=arm64
+TARGET_ARCH_VARIANT=armv8-2a-dotprod
+TARGET_CPU_VARIANT=generic
+HOST_OS=linux
+HOST_OS_EXTRA=Linux-7.0.0-42-generic-x86_64-Ubuntu-24.04.5-LTS
+HOST_CROSS_OS=windows
+BUILD_ID=CQ2A.260820.002-CP2A.260605.016
+OUT_DIR=out
+PRODUCT_SOONG_NAMESPACES=vendor/oplus/camera/giulia/blobs device/oneplus/giulia vendor/sony/dolby hardware/nxp/keymint/generic hardware/nxp/weaver/generic vendor/oneplus/ir hardware/oplus/overlay device/oneplus/sm8650-common hardware/oplus vendor/oneplus/sm8650-common vendor/oneplus/giulia vendor/google/gms vendor/qcom/common/vendor/adreno/u vendor/qcom/common/system/alarm device/qcom/common/vendor/alarm vendor/qcom/common/vendor/alarm vendor/qcom/common/system/audio vendor/qcom/common/system/av vendor/qcom/common/system/bt vendor/qcom/common/system/display vendor/qcom/common/vendor/display vendor/qcom/common/system/gps device/qcom/common/vendor/gps device/qcom/common/system/overlay device/qcom/common/vendor/overlay vendor/qcom/common/system/perf device/qcom/common/vendor/perf vendor/qcom/common/vendor/perf vendor/qcom/common/system/telephony device/qcom/common/vendor/telephony vendor/qcom/opensource/data-ipa-cfg-mgr device/qcom/common/vendor/usb vendor/qcom/common/system/wfd device/qcom/common/vendor/wlan hardware/qcom/wlan/qcwcn vendor/qcom/opensource/data-ipa-cfg-mgr vendor/qcom/common/vendor/wlan device/qcom/common vendor/qcom/opensource/audio-hal/st-hal-ar
+SOONG_NINJA=ninja
+USE_RBE=true
+SOONG_ONLY=false
+SOONG_INCREMENTAL_ANALYSIS=false
+============================================
+13:53:02 Build sandboxing disabled due to nsjail error.
+hardware/qcom/display/config/display-product.mk:244: warning: "Using smmu proxy"
+hardware/qcom/display/config/display-product.mk:244: warning: "Using smmu proxy"
+13:53:05 Build sandboxing disabled due to nsjail error.
+hardware/qcom/display/config/display-product.mk:244: warning: "Using smmu proxy"
+hardware/qcom/display/config/display-product.mk:244: warning: "Using smmu proxy"
+13:53:08 Build sandboxing disabled due to nsjail error.
+hardware/qcom/display/config/display-product.mk:244: warning: "Using smmu proxy"
+hardware/qcom/display/config/display-product.mk:244: warning: "Using smmu proxy"
+
+[m[1m[34mStarting compilation[m
+
+Starting ninja...
+13:53:10 Build sandboxing disabled due to nsjail error.
+hardware/qcom/display/config/display-product.mk:244: warning: "Using smmu proxy"
+Running product configuration...
+hardware/qcom/display/config/display-product.mk:244: warning: "Using smmu proxy"
+============================================
+PLATFORM_VERSION_CODENAME=REL
+PLATFORM_VERSION=17
+PRODUCT_SOURCE_ROOT_DIRS=-prebuilts/misc/protobuf_vendorcompat -platform_testing/libraries/sdv -platform_testing/tests/sdv -platform_testing/libraries/automotive/display_safety -platform_testing/tests/automotive/display_safety -device/generic/trusty/microdroid
+AOSPA_VERSION=calcite-unofficial-giulia-20261102
+TARGET_PRODUCT=aospa_giulia
+TARGET_BUILD_VARIANT=userdebug
+TARGET_ARCH=arm64
+TARGET_ARCH_VARIANT=armv8-2a-dotprod
+TARGET_CPU_VARIANT=generic
+HOST_OS=linux
+HOST_OS_EXTRA=Linux-7.0.0-42-generic-x86_64-Ubuntu-24.04.5-LTS
+HOST_CROSS_OS=windows
+BUILD_ID=CQ2A.260820.002-CP2A.260605.016
+OUT_DIR=out
+PRODUCT_SOONG_NAMESPACES=vendor/oplus/camera/giulia/blobs device/oneplus/giulia vendor/sony/dolby hardware/nxp/keymint/generic hardware/nxp/weaver/generic vendor/oneplus/ir hardware/oplus/overlay device/oneplus/sm8650-common hardware/oplus vendor/oneplus/sm8650-common vendor/oneplus/giulia vendor/google/gms vendor/qcom/common/vendor/adreno/u vendor/qcom/common/system/alarm device/qcom/common/vendor/alarm vendor/qcom/common/vendor/alarm vendor/qcom/common/system/audio vendor/qcom/common/system/av vendor/qcom/common/system/bt vendor/qcom/common/system/display vendor/qcom/common/vendor/display vendor/qcom/common/system/gps device/qcom/common/vendor/gps device/qcom/common/system/overlay device/qcom/common/vendor/overlay vendor/qcom/common/system/perf device/qcom/common/vendor/perf vendor/qcom/common/vendor/perf vendor/qcom/common/system/telephony device/qcom/common/vendor/telephony vendor/qcom/opensource/data-ipa-cfg-mgr device/qcom/common/vendor/usb vendor/qcom/common/system/wfd device/qcom/common/vendor/wlan hardware/qcom/wlan/qcwcn vendor/qcom/opensource/data-ipa-cfg-mgr vendor/qcom/common/vendor/wlan device/qcom/common vendor/qcom/opensource/audio-hal/st-hal-ar
+SOONG_NINJA=ninja
+USE_RBE=true
+SOONG_ONLY=false
+SOONG_INCREMENTAL_ANALYSIS=true
+============================================
+[100% 1/1] bootstrap blueprint
+Running globs...
+
+Globs changed, rerunning soong...
+One culprit glob (may be more): packages/apps/Launcher3/res/**/* (excluding 9 other patterns)
+[100% 2/2] analyzing Android.bp files and generating ninja file at out/soong/build.aospa_giulia.ninja
+Clang SA is not enabled
+No need to regenerate ninja file
+out/soong/late-aospa_giulia.mk was modified, regenerating...
+[100% 3/3] initializing Make module parser
+hardware/qcom/display/config/display-product.mk:244: warning: "Using smmu proxy"
+[  5% 4/75] including out/soong/installs-aospa_giulia.mk
+[  6% 5/75] including out/soong/Android-aospa_giulia.mk
+[  8% 6/75] including build/make/target/board/android-info.mk
+[  9% 7/75] including device/amlogic/yukawa/Android.mk
+[ 10% 8/75] including device/qcom/common/Android.mk
+[ 12% 9/75] including device/qcom/qssi/Android.mk
+[ 13% 10/75] including device/qcom/qssi_64/Android.mk
+[ 14% 11/75] including device/qcom/qssi_64go/Android.mk
+[ 16% 12/75] including device/qcom/qssi_tiny/Android.mk
+[ 17% 13/75] including device/qcom/qssi_tiny_32go/Android.mk
+[ 18% 14/75] including device/qcom/wlan/neo61/Android.mk
+[ 20% 15/75] including disregard/Android.mk
+Skipping Android.mk under disregard
+[ 21% 16/75] including hardware/broadcom/libbt/Android.mk
+[ 22% 17/75] including hardware/broadcom/wlan/bcmdhd/Android.mk
+[ 24% 18/75] including hardware/lineage/compat/interfaces/_backend/radio/config/Android.mk
+[ 25% 19/75] including hardware/qcom/bootctrl/Android.mk
+[ 26% 20/75] including hardware/qcom/display/Android.mk
+[ 28% 21/75] including hardware/qcom/gps/Android.mk
+[ 29% 22/75] including hardware/qcom/wlan/Android.mk
+[ 30% 23/75] including hardware/synaptics/wlan/synadhd/Android.mk
+[ 32% 24/75] including kernel/Android.mk
+Skipping Android.mk under kernel
+[ 33% 25/75] including proprietary_vendor_sony_dolby/Android.mk
+[ 34% 26/75] including vendor/aospa/prebuilt/pixel/charger/Android.mk
+[ 36% 27/75] including vendor/google/gms/Android.mk
+[ 37% 28/75] including vendor/oneplus/giulia/Android.mk
+[ 38% 29/75] including vendor/oneplus/ir/Android.mk
+[ 40% 30/75] including vendor/oneplus/sm8650-common/Android.mk
+[ 41% 31/75] including vendor/oplus/camera/giulia/blobs/Android.mk
+[ 42% 32/75] including vendor/qcom/common/system/alarm/Android.mk
+[ 44% 33/75] including vendor/qcom/common/system/audio/Android.mk
+[ 45% 34/75] including vendor/qcom/common/system/av/Android.mk
+[ 46% 35/75] including vendor/qcom/common/system/bt/Android.mk
+[ 48% 36/75] including vendor/qcom/common/system/display/Android.mk
+[ 49% 37/75] including vendor/qcom/common/system/gps/Android.mk
+[ 50% 38/75] including vendor/qcom/common/system/nfc/Android.mk
+[ 52% 39/75] including vendor/qcom/common/system/perf/Android.mk
+[ 53% 40/75] including vendor/qcom/common/system/telephony/Android.mk
+[ 54% 41/75] including vendor/qcom/common/system/wfd/Android.mk
+[ 56% 42/75] including vendor/qcom/common/vendor/adreno/r/Android.mk
+[ 57% 43/75] including vendor/qcom/common/vendor/adreno/s/Android.mk
+[ 58% 44/75] including vendor/qcom/common/vendor/adreno/t/Android.mk
+[ 60% 45/75] including vendor/qcom/common/vendor/adreno/u/Android.mk
+[ 61% 46/75] including vendor/qcom/common/vendor/alarm/Android.mk
+[ 62% 47/75] including vendor/qcom/common/vendor/charging/Android.mk
+[ 64% 48/75] including vendor/qcom/common/vendor/display/Android.mk
+[ 65% 49/75] including vendor/qcom/common/vendor/dsprpcd/Android.mk
+[ 66% 50/75] including vendor/qcom/common/vendor/gps-legacy/Android.mk
+[ 68% 51/75] including vendor/qcom/common/vendor/keymaster/Android.mk
+[ 69% 52/75] including vendor/qcom/common/vendor/media/5.10/Android.mk
+[ 70% 53/75] including vendor/qcom/common/vendor/media/5.4/Android.mk
+[ 72% 54/75] including vendor/qcom/common/vendor/media/legacy/Android.mk
+[ 73% 55/75] including vendor/qcom/common/vendor/nfc/Android.mk
+[ 74% 56/75] including vendor/qcom/common/vendor/perf/Android.mk
+[ 76% 57/75] including vendor/qcom/common/vendor/qseecomd-legacy/Android.mk
+[ 77% 58/75] including vendor/qcom/common/vendor/qseecomd/Android.mk
+[ 78% 59/75] including vendor/qcom/common/vendor/wlan-legacy/Android.mk
+[ 80% 60/75] including vendor/qcom/common/vendor/wlan/Android.mk
+[ 81% 61/75] including vendor/qcom/opensource/commonsys-intf/audio/Android.mk
+[ 82% 62/75] including vendor/qcom/opensource/commonsys/audio/Android.mk
+[ 84% 63/75] including vendor/qcom/opensource/commonsys/dataservices/Android.mk
+[ 85% 64/75] including vendor/qcom/opensource/commonsys/nfc/Android.mk
+[ 86% 65/75] including vendor/qcom/opensource/core-utils-vendor/qspaframework/Android.mk
+[ 88% 66/75] including vendor/qcom/opensource/core-utils/Android.mk
+[ 89% 67/75] including vendor/qcom/opensource/data-ipa-cfg-mgr/ipanat/test/Android.mk
+[ 90% 68/75] including vendor/qcom/opensource/dataservices/datatop/Android.mk
+[ 92% 69/75] including vendor/qcom/opensource/ecosw/nordic_hal/Android.mk
+[ 93% 70/75] including vendor/qcom/opensource/mmc-utils/Android.mk
+[ 94% 71/75] including vendor/qcom/opensource/power/Android.mk
+[ 96% 72/75] including vendor/qcom/opensource/recovery-ext/Android.mk
+[ 97% 73/75] including vendor/qcom/opensource/softap/softap/sdk/Android.mk
+[ 98% 74/75] including vendor/sony/dolby/Android.mk
+[100% 75/75] including out/soong/late-aospa_giulia.mk
+[100% 76/76] finishing Make module rules
+[100% 77/77] finishing Make module rules: Adding module dependencies
+[100% 78/78] finishing Make packaging rules
+[ 74% 79/106] including build/make/core/tasks/art.mk
+[ 75% 80/106] including build/make/core/tasks/build_custom_images.mk
+[ 76% 81/106] including build/make/core/tasks/dex_preopt_check.mk
+[ 77% 82/106] including build/make/core/tasks/find-shareduid-violation.mk
+[ 78% 83/106] including build/make/core/tasks/fontchain_lint.mk
+[ 79% 84/106] including build/make/core/tasks/host_init_verifier.mk
+[ 80% 85/106] including build/make/core/tasks/meta-lic.mk
+[ 81% 86/106] including build/make/core/tasks/module-info.mk
+[ 82% 87/106] including build/make/core/tasks/oem_image.mk
+[ 83% 88/106] including build/make/core/tasks/offline-sdk-docs.mk
+[ 83% 89/106] including build/make/core/tasks/platform_availability_check.mk
+[ 84% 90/106] including build/make/core/tasks/ramdisk_snapshot.mk
+[ 85% 91/106] including build/make/core/tasks/sdv.mk
+[ 86% 92/106] including build/make/core/tasks/vendor_module_check.mk
+[ 87% 93/106] including build/make/core/tasks/with-license.mk
+[ 88% 94/106] including vendor/aospa/build/tasks/kernel.mk
+[ 89% 95/106] including vendor/qcom/build/tasks/QMAA_enforcement.mk
+[ 90% 96/106] including vendor/qcom/build/tasks/QSSI_violators.mk
+[ 91% 97/106] including vendor/qcom/build/tasks/generate_extra_images.mk
+[ 92% 98/106] including vendor/qcom/build/tasks/generate_vendor_bundle.mk
+[ 93% 99/106] including vendor/qcom/build/tasks/vendor_prop_context_restriction.mk
+[ 94% 100/106] including device/amlogic/yukawa/build/tasks/dtimages.mk
+[ 95% 101/106] including device/generic/goldfish/build/tasks/combine_initramfs.mk
+[ 96% 102/106] including device/qcom/qssi_64/build/tasks/symlink_system_dlkm.mk
+[ 97% 103/106] including device/qcom/qssi_64go/build/tasks/symlink_system_dlkm.mk
+[ 98% 104/106] including device/qcom/qssi_tiny/build/tasks/symlink_system_dlkm.mk
+[ 99% 105/106] including device/qcom/qssi_tiny_32go/build/tasks/symlink_system_dlkm.mk
+[100% 106/106] finishing Make packaging rules
+[100% 107/107] finishing Make packaging rules: Adding phony targets
+[100% 108/108] finishing Make packaging rules: Checking licensing and SBOM
+[100% 109/109] writing make module actions
+out/soong/installs-aospa_giulia.mk:213213: warning: overriding commands for target `out/target/product/giulia/vendor/etc/init/android.hardware.authsecret-service.nxp.rc'
+out/soong/installs-aospa_giulia.mk:213209: warning: ignoring old commands for target `out/target/product/giulia/vendor/etc/init/android.hardware.authsecret-service.nxp.rc'
+out/soong/installs-aospa_giulia.mk:213697: warning: overriding commands for target `out/target/product/giulia/vendor/etc/init/android.hardware.security.keymint-service.strongbox.nxp.rc'
+out/soong/installs-aospa_giulia.mk:213693: warning: ignoring old commands for target `out/target/product/giulia/vendor/etc/init/android.hardware.security.keymint-service.strongbox.nxp.rc'
+out/soong/installs-aospa_giulia.mk:213869: warning: overriding commands for target `out/target/product/giulia/vendor/etc/init/android.hardware.weaver-service.nxp.rc'
+out/soong/installs-aospa_giulia.mk:213865: warning: ignoring old commands for target `out/target/product/giulia/vendor/etc/init/android.hardware.weaver-service.nxp.rc'
+out/soong/installs-aospa_giulia.mk:254015: warning: overriding commands for target `out/target/product/giulia/vendor/lib64/android.hardware.media.c2@1.0.so'
+out/soong/installs-aospa_giulia.mk:54744: warning: ignoring old commands for target `out/target/product/giulia/vendor/lib64/android.hardware.media.c2@1.0.so'
+out/soong/installs-aospa_giulia.mk:254112: warning: overriding commands for target `out/target/product/giulia/vendor/etc/vintf/manifest/android.hardware.authsecret-service.nxp.xml'
+out/soong/installs-aospa_giulia.mk:254110: warning: ignoring old commands for target `out/target/product/giulia/vendor/etc/vintf/manifest/android.hardware.authsecret-service.nxp.xml'
+out/soong/installs-aospa_giulia.mk:254276: warning: overriding commands for target `out/target/product/giulia/vendor/etc/vintf/manifest/android.hardware.weaver-service.nxp.xml'
+out/soong/installs-aospa_giulia.mk:66232: warning: ignoring old commands for target `out/target/product/giulia/vendor/etc/vintf/manifest/android.hardware.weaver-service.nxp.xml'
+vendor/qcom/opensource/core-utils/build/AndroidBoardCommon.mk:39: warning: overriding commands for target `out/target/product/giulia/vendor/firmware_mnt'
+vendor/aospa/build/core/mkdir.mk:22: warning: ignoring old commands for target `out/target/product/giulia/vendor/firmware_mnt'
+vendor/qcom/opensource/core-utils/build/AndroidBoardCommon.mk:46: warning: overriding commands for target `out/target/product/giulia/vendor/bt_firmware'
+vendor/aospa/build/core/mkdir.mk:22: warning: ignoring old commands for target `out/target/product/giulia/vendor/bt_firmware'
+vendor/qcom/opensource/core-utils/build/AndroidBoardCommon.mk:53: warning: overriding commands for target `out/target/product/giulia/vendor/dsp'
+vendor/aospa/build/core/mkdir.mk:22: warning: ignoring old commands for target `out/target/product/giulia/vendor/dsp'
+build/make/core/Makefile:139: warning: overriding commands for target `out/target/product/giulia/vendor/etc/batching.conf'
+out/soong/installs-aospa_giulia.mk:75907: warning: ignoring old commands for target `out/target/product/giulia/vendor/etc/batching.conf'
+build/make/core/Makefile:139: warning: overriding commands for target `out/target/product/giulia/vendor/etc/gnss_antenna_info.conf'
+out/soong/installs-aospa_giulia.mk:108110: warning: ignoring old commands for target `out/target/product/giulia/vendor/etc/gnss_antenna_info.conf'
+build/make/core/Makefile:139: warning: overriding commands for target `out/target/product/giulia/vendor/etc/gps.conf'
+out/soong/installs-aospa_giulia.mk:108350: warning: ignoring old commands for target `out/target/product/giulia/vendor/etc/gps.conf'
+No need to regenerate ninja file
+Starting ninja...
+[ 27% 110/407] //prebuilts/sdk/current/androidx/m2repository/androidx/compose/ui/ui-tooling-data-android/1.12.0-alpha01:androidx.compose.ui_ui-tooling-data aapt2 compile zip
+[ 27% 111/407] //prebuilts/sdk/current/androidx/m2repository/androidx/compose/ui/ui-tooling-android/1.12.0-alpha01:androidx.compose.ui_ui-tooling aapt2 compile zip
+[ 27% 112/407] //prebuilts/sdk/current/androidx/m2repository/androidx/appsearch/appsearch-platform-storage/1.2.0-alpha01:androidx.appsearch_appsearch-platform-storage aapt2 compile zip
+[ 27% 113/407] //prebuilts/sdk/current/androidx/m2repository/androidx/appfunctions/appfunctions/1.0.0-alpha08:androidx.appfunctions_appfunctions aapt2 compile zip
+[ 28% 114/407] //prebuilts/sdk/current/androidx/m2repository/androidx/appfunctions/appfunctions-service/1.0.0-alpha08:androidx.appfunctions_appfunctions-service aapt2 compile zip
+[ 28% 115/407] //prebuilts/sdk/current/androidx/m2repository/androidx/compose/ui/ui-tooling-data-android/1.12.0-alpha01:androidx.compose.ui_ui-tooling-data overlay resource file list
+[ 28% 116/407] //prebuilts/sdk/current/androidx/m2repository/androidx/compose/ui/ui-tooling-android/1.12.0-alpha01:androidx.compose.ui_ui-tooling overlay resource file list
+[ 28% 117/407] //prebuilts/sdk/current/androidx/m2repository/androidx/appsearch/appsearch-platform-storage/1.2.0-alpha01:androidx.appsearch_appsearch-platform-storage overlay resource file list
+[ 28% 118/407] //packages/apps/Launcher3/modules/widgetpicker:widget_picker_shared_data_types raw classpath.rsp
+[ 29% 119/407] //packages/apps/Launcher3/modules/widgetpicker:widget_picker_cui_reporter raw classpath.rsp
+[ 29% 120/407] //packages/apps/Launcher3/modules/widgetpicker:widget_picker_event_listeners raw classpath.rsp
+[ 29% 121/407] //packages/apps/Launcher3/modules/widgetpicker:widget_picker_ui_data_types raw classpath.rsp
+[ 29% 122/407] //packages/apps/Launcher3/modules/widgetpicker:widget_picker_ui_theme raw classpath.rsp
+[ 30% 123/407] //prebuilts/sdk/current/androidx/m2repository/androidx/appfunctions/appfunctions/1.0.0-alpha08:androidx.appfunctions_appfunctions overlay resource file list
+[ 30% 124/407] //prebuilts/sdk/current/androidx/m2repository/androidx/compose/ui/ui-tooling-data-android/1.12.0-alpha01:androidx.compose.ui_ui-tooling-data unzip AAR
+[ 30% 125/407] //packages/apps/Launcher3/modules/widgetpicker:widget_picker_ui_components raw classpath.rsp
+[ 30% 126/407] //prebuilts/sdk/current/androidx/m2repository/androidx/appfunctions/appfunctions/1.0.0-alpha08:androidx.appfunctions_appfunctions unzip AAR
+[ 31% 127/407] //prebuilts/sdk/current/androidx/m2repository/androidx/appsearch/appsearch-platform-storage/1.2.0-alpha01:androidx.appsearch_appsearch-platform-storage unzip AAR
+[ 31% 128/407] //packages/apps/Launcher3/modules/widgetpicker:widget_picker_ui_components raw classpath.rsp
+[ 31% 129/407] //prebuilts/sdk/current/androidx/m2repository/androidx/appfunctions/appfunctions-service/1.0.0-alpha08:androidx.appfunctions_appfunctions-service overlay resource file list
+[ 31% 130/407] //prebuilts/sdk/current/androidx/m2repository/androidx/compose/ui/ui-tooling-android/1.12.0-alpha01:androidx.compose.ui_ui-tooling unzip AAR
+[ 32% 131/407] //packages/apps/Launcher3/modules/widgetpicker:widget_picker_dagger_annotations raw classpath.rsp
+[ 32% 132/407] //packages/apps/Launcher3/modules/widgetpicker:widget_picker_data_repositories raw classpath.rsp
+[ 32% 133/407] //packages/apps/Launcher3/modules/widgetpicker:widget_picker_ui_components raw classpath.rsp
+[ 32% 134/407] //frameworks/base/libs/appfunctions:com.android.extensions.appfunctions.stubs.from-text everything gather aconfig flags
+[ 33% 135/407] //packages/apps/Launcher3/modules/widgetpicker:widget_picker_ui_theme aapt2 compile packages/apps/Launcher3/modules/widgetpicker/res
+[ 33% 136/407] //packages/apps/Launcher3/modules/widgetpicker:widget_picker_shared_data_types aapt2 compile packages/apps/Launcher3/modules/widgetpicker/res
+[ 33% 137/407] //packages/apps/Launcher3/modules/widgetpicker:widget_picker_cui_reporter aapt2 compile packages/apps/Launcher3/modules/widgetpicker/res
+[ 33% 138/407] //packages/apps/Launcher3/modules/widgetpicker:widget_picker_event_listeners aapt2 compile packages/apps/Launcher3/modules/widgetpicker/res
+[ 34% 139/407] //packages/apps/Launcher3/modules/widgetpicker:widget_picker_ui_data_types aapt2 compile packages/apps/Launcher3/modules/widgetpicker/res
+[ 34% 140/407] //packages/apps/Launcher3/modules/widgetpicker:widget_picker_data_repositories aapt2 compile packages/apps/Launcher3/modules/widgetpicker/res
+[ 34% 141/407] //packages/apps/Launcher3/modules/widgetpicker:widget_picker_domain_layer aapt2 compile packages/apps/Launcher3/modules/widgetpicker/res
+[ 34% 142/407] //packages/apps/Launcher3/modules/widgetpicker:widget_picker_dagger_annotations aapt2 compile packages/apps/Launcher3/modules/widgetpicker/res
+[ 35% 143/407] //frameworks/base/libs/appfunctions:com.android.extensions.appfunctions.stubs.from-text raw metalava.sbox.textproto
+[ 35% 144/407] //frameworks/base/libs/appfunctions:com.android.extensions.appfunctions.stubs.from-text raw metalava.sbox.rbe_inputs.list
+[ 35% 145/407] //packages/apps/Launcher3/modules/widgetpicker:widget_picker_ui_theme overlay resource file list
+[ 35% 146/407] //packages/apps/Launcher3/modules/widgetpicker:widget_picker_shared_data_types overlay resource file list
+[ 36% 147/407] //packages/apps/Launcher3/modules/widgetpicker:widget_picker_cui_reporter overlay resource file list
+[ 36% 148/407] //packages/apps/Launcher3/modules/widgetpicker:widget_picker_event_listeners overlay resource file list
+[ 36% 149/407] //packages/apps/Launcher3/modules/widgetpicker:widget_picker_ui_components aapt2 compile packages/apps/Launcher3/modules/widgetpicker/res
+[ 36% 150/407] //packages/apps/Launcher3/modules/widgetpicker:widget_picker_ui_data_types overlay resource file list
+[ 37% 151/407] //packages/apps/Launcher3/modules/widgetpicker:widget_picker_data_repositories overlay resource file list
+[ 37% 152/407] //packages/apps/Launcher3/modules/widgetpicker:widget_picker_domain_layer overlay resource file list
+[ 37% 153/407] //packages/apps/Launcher3/modules/widgetpicker:widget_picker_dagger_annotations resource file list
+[ 37% 154/407] //packages/apps/Launcher3/modules/widgetpicker:widget_picker_domain_layer raw classpath.rsp
+[ 38% 155/407] //packages/apps/Launcher3/modules/widgetpicker:widget_picker_ui_components raw classpath.rsp
+[ 38% 156/407] //packages/apps/Launcher3/modules/widgetpicker:widget_picker_ui aapt2 compile packages/apps/Launcher3/modules/widgetpicker/res
+[ 38% 157/407] //packages/apps/Launcher3/modules/concurrent:launcher-executor-qualifiers raw classpath.rsp
+[ 38% 158/407] //packages/apps/Launcher3/modules/widgetpicker:widget_picker_ui_components overlay resource file list
+[ 39% 159/407] //packages/apps/Launcher3/modules/widgetpicker:widget_picker_ui raw classpath.rsp
+[ 39% 160/407] //frameworks/base/core/java:protolog-group raw repackaging.txt
+[ 39% 161/407] //external/kotlinx.coroutines:kotlinx_coroutines_guava raw classpath.rsp
+[ 39% 162/407] //packages/apps/Launcher3/modules/widgetpicker:widget_picker_ui overlay resource file list
+[ 40% 163/407] //packages/apps/Launcher3/modules/concurrent:launcher-executors-module raw classpath.rsp
+[ 40% 164/407] //packages/apps/Launcher3/modules/widgetpicker:widget_picker_ui raw classpath.rsp
+[ 40% 165/407] //packages/apps/Launcher3/aconfig:com_android_launcher3_flags aconfig_text
+[ 40% 166/407] //packages/providers/MediaProvider:mediaprovider_flags aconfig_text
+[ 41% 167/407] //packages/apps/Launcher3:launcher-quickstep_protolog-groups raw repackaging.txt
+[ 41% 168/407] //packages/apps/Launcher3/modules/appfunctions:workspace-functions raw classpath.rsp
+[ 41% 169/407] //prebuilts/sdk/current/androidx/m2repository/androidx/appfunctions/appfunctions-compiler/1.0.0-alpha08:androidx.appfunctions_appfunctions-compiler combine local prebuilt implementation jars [linux_glibc common]
+[ 41% 170/407] //packages/apps/Launcher3/modules/widgetpicker:widget_picker_ui raw classpath.rsp
+[ 42% 171/407] //prebuilts/sdk/current/androidx/m2repository/androidx/appfunctions/appfunctions-service/1.0.0-alpha08:androidx.appfunctions_appfunctions-service unzip AAR
+[ 42% 172/407] //packages/apps/Launcher3/modules/widgetpicker:widget_picker_component aapt2 compile packages/apps/Launcher3/modules/widgetpicker/res
+[ 42% 173/407] //packages/apps/Launcher3:Launcher3ResLib aapt2 compile packages/apps/Launcher3/res
+[ 42% 174/407] //packages/apps/Launcher3:Launcher3ResLib aapt2 compile packages/apps/Launcher3/res 3
+[ 42% 175/407] //packages/apps/Launcher3/modules/widgetpicker:widget_picker_dagger_annotations fix manifest
+[ 43% 176/407] //packages/apps/Launcher3/modules/widgetpicker:widget_picker_shared_data_types fix manifest
+[ 43% 177/407] //packages/apps/Launcher3/modules/widgetpicker:widget_picker_event_listeners fix manifest
+[ 43% 178/407] //packages/apps/Launcher3/modules/widgetpicker:widget_picker_ui_theme fix manifest
+[ 43% 179/407] //packages/apps/Launcher3/modules/widgetpicker:widget_picker_ui_components fix manifest
+[ 44% 180/407] //packages/apps/Launcher3/modules/widgetpicker:widget_picker_domain_layer fix manifest
+[ 44% 181/407] //packages/apps/Launcher3:Launcher3ResLib aapt2 compile vendor/aospa/overlay/static/packages/apps/Launcher3/res
+[ 44% 182/407] //packages/apps/Launcher3/modules/widgetpicker:widget_picker_data_repositories fix manifest
+[ 44% 183/407] //packages/apps/Launcher3/modules/widgetpicker:widget_picker_ui fix manifest
+[ 45% 184/407] //packages/apps/Launcher3/modules/widgetpicker:widget_picker_cui_reporter fix manifest
+[ 45% 185/407] //packages/apps/Launcher3/modules/widgetpicker:widget_picker_ui_data_types fix manifest
+[ 45% 186/407] //packages/apps/Launcher3:Launcher3ResLib fix manifest
+[ 45% 187/407] //frameworks/libs/systemui/cuebarlib:cuebarlib fix manifest
+[ 46% 188/407] //packages/apps/Launcher3/modules/widgetpicker:widget_picker_component fix manifest
+[ 46% 189/407] //packages/apps/Launcher3/modules/appfunctions:workspace-functions fix manifest
+[ 46% 190/407] //packages/apps/Launcher3:Launcher3QuickStepLib fix manifest
+[ 46% 191/407] //packages/apps/Launcher3:Launcher3ResLib aapt2 compile vendor/aospa/overlay/static/packages/apps/Launcher3/res 2
+[ 47% 192/407] //packages/apps/Launcher3:QuickstepResLib fix manifest
+[ 47% 193/407] //packages/apps/Launcher3/shared:launcher-testing-shared fix manifest
+[ 47% 194/407] //packages/apps/Launcher3:Launcher3ResLib aapt2 compile vendor/aospa/overlay/static/packages/apps/Launcher3/res 3
+[ 47% 195/407] //packages/apps/Launcher3/modules/widgetpicker:widget_picker_component overlay resource file list
+[ 48% 196/407] //packages/apps/Launcher3:Launcher3ResLib aapt2 compile vendor/aospa/overlay/static/packages/apps/Launcher3/res 4
+[ 48% 197/407] //packages/apps/Launcher3:Launcher3ResLib aapt2 compile vendor/aospa/overlay/static/packages/apps/Launcher3/res 8
+[ 48% 198/407] //packages/apps/Launcher3:Launcher3ResLib aapt2 compile vendor/aospa/overlay/static/packages/apps/Launcher3/res 7
+[ 48% 199/407] //packages/apps/Launcher3:Launcher3ResLib aapt2 compile vendor/aospa/overlay/static/packages/apps/Launcher3/res 6
+[ 49% 200/407] //packages/apps/Launcher3:QuickstepResLib aapt2 compile packages/apps/Launcher3/quickstep/res 2
+[ 49% 201/407] //packages/apps/Launcher3:QuickstepResLib aapt2 compile packages/apps/Launcher3/quickstep/res
+[ 49% 202/407] //packages/apps/Launcher3:Launcher3ResLib aapt2 compile vendor/aospa/overlay/static/packages/apps/Launcher3/res 5
+[ 49% 203/407] //packages/apps/Launcher3:Launcher3ResLib aapt2 compile packages/apps/Launcher3/res 5
+[ 50% 204/407] //packages/apps/Launcher3/modules/concurrent:launcher-executors-module raw classpath.rsp
+[ 50% 205/407] //frameworks/base/libs/appfunctions:com.android.extensions.appfunctions.stubs.from-text everything metalava flags config
+[ 50% 206/407] //frameworks/libs/systemui/cuebarlib:cuebarlib aapt2 link
+[ 50% 207/407] //packages/apps/Launcher3/shared:launcher-testing-shared aapt2 link
+[ 51% 208/407] //packages/apps/Launcher3/modules/widgetpicker:widget_picker_ui raw classpath.rsp
+[ 51% 209/407] //packages/apps/Launcher3/modules/appfunctions:workspace-functions raw classpath.rsp
+[ 51% 210/407] //frameworks/base/libs/computercontrol:com.android.extensions.computercontrol raw repackaging.txt
+[ 51% 211/407] //frameworks/libs/systemui/cuebarlib:cuebarlib raw classpath.rsp
+[ 52% 212/407] //packages/apps/Launcher3:launcher-build-config raw genrule.sbox.textproto
+[ 52% 213/407] cp out/soong/.intermediates/packages/apps/Launcher3/launcher-build-config-tool/linux_glibc_x86_64/launcher-build-config-tool
+[ 52% 214/407] //packages/apps/Launcher3/dagger:launcher-dagger-qualifiers raw repackaging.txt
+[ 52% 215/407] //packages/apps/Launcher3:launcher-quickstep-processed-protolog-src raw genrule.sbox.textproto
+[ 53% 216/407] //packages/apps/Launcher3:Launcher3ResLib aapt2 compile packages/apps/Launcher3/res 4
+FAILED: out/soong/.intermediates/packages/apps/Launcher3/Launcher3ResLib/android_common/aapt2/packages/apps/Launcher3/res/layout_overview_panel.xml.flat out/soong/.intermediates/packages/apps/Launcher3/Launcher3ResLib/android_common/aapt2/packages/apps/Launcher3/res/layout_page_indicator_dots_with_arrows.xml.flat out/soong/.intermediates/packages/apps/Launcher3/Launcher3ResLib/android_common/aapt2/packages/apps/Launcher3/res/layout_predicted_app_icon.xml.flat out/soong/.intermediates/packages/apps/Launcher3/Launcher3ResLib/android_common/aapt2/packages/apps/Launcher3/res/layout_preference_radio.xml.flat out/soong/.intermediates/packages/apps/Launcher3/Launcher3ResLib/android_common/aapt2/packages/apps/Launcher3/res/layout_preference_widget_icons_preview.xml.flat out/soong/.intermediates/packages/apps/Launcher3/Launcher3ResLib/android_common/aapt2/packages/apps/Launcher3/res/layout_preference_widget_switch_compat.xml.flat out/soong/.intermediates/packages/apps/Launcher3/Launcher3ResLib/android_common/aapt2/packages/apps/Launcher3/res/layout_private_space_divider.xml.flat out/soong/.intermediates/packages/apps/Launcher3/Launcher3ResLib/android_common/aapt2/packages/apps/Launcher3/res/layout_private_space_header.xml.flat out/soong/.intermediates/packages/apps/Launcher3/Launcher3ResLib/android_common/aapt2/packages/apps/Launcher3/res/layout_private_space_mask_view.xml.flat out/soong/.intermediates/packages/apps/Launcher3/Launcher3ResLib/android_common/aapt2/packages/apps/Launcher3/res/layout_qsb_container_hotseat.xml.flat out/soong/.intermediates/packages/apps/Launcher3/Launcher3ResLib/android_common/aapt2/packages/apps/Launcher3/res/layout_search_container_all_apps.xml.flat out/soong/.intermediates/packages/apps/Launcher3/Launcher3ResLib/android_common/aapt2/packages/apps/Launcher3/res/layout_search_results_rv_layout.xml.flat out/soong/.intermediates/packages/apps/Launcher3/Launcher3ResLib/android_common/aapt2/packages/apps/Launcher3/res/layout_secondary_launcher.xml.flat out/soong/.intermediates/packages/apps/Launcher3/Launcher3ResLib/android_common/aapt2/packages/apps/Launcher3/res/layout_settings_activity.xml.flat out/soong/.intermediates/packages/apps/Launcher3/Launcher3ResLib/android_common/aapt2/packages/apps/Launcher3/res/layout_snackbar.xml.flat out/soong/.intermediates/packages/apps/Launcher3/Launcher3ResLib/android_common/aapt2/packages/apps/Launcher3/res/layout_system_shortcut.xml.flat out/soong/.intermediates/packages/apps/Launcher3/Launcher3ResLib/android_common/aapt2/packages/apps/Launcher3/res/layout_system_shortcut_content.xml.flat out/soong/.intermediates/packages/apps/Launcher3/Launcher3ResLib/android_common/aapt2/packages/apps/Launcher3/res/layout_system_shortcut_icon_only.xml.flat out/soong/.intermediates/packages/apps/Launcher3/Launcher3ResLib/android_common/aapt2/packages/apps/Launcher3/res/layout_system_shortcut_icon_only_end.xml.flat out/soong/.intermediates/packages/apps/Launcher3/Launcher3ResLib/android_common/aapt2/packages/apps/Launcher3/res/layout_system_shortcut_icon_only_start.xml.flat out/soong/.intermediates/packages/apps/Launcher3/Launcher3ResLib/android_common/aapt2/packages/apps/Launcher3/res/layout_system_shortcut_icons_container.xml.flat out/soong/.intermediates/packages/apps/Launcher3/Launcher3ResLib/android_common/aapt2/packages/apps/Launcher3/res/layout_system_shortcut_rows_container.xml.flat out/soong/.intermediates/packages/apps/Launcher3/Launcher3ResLib/android_common/aapt2/packages/apps/Launcher3/res/layout_system_shortcut_spacer.xml.flat out/soong/.intermediates/packages/apps/Launcher3/Launcher3ResLib/android_common/aapt2/packages/apps/Launcher3/res/layout_user_folder_icon_normalized.xml.flat out/soong/.intermediates/packages/apps/Launcher3/Launcher3ResLib/android_common/aapt2/packages/apps/Launcher3/res/layout_widget_picker_activity.xml.flat out/soong/.intermediates/packages/apps/Launcher3/Launcher3ResLib/android_common/aapt2/packages/apps/Launcher3/res/layout_widget_shortcut_container.xml.flat out/soong/.intermediates/packages/apps/Launcher3/Launcher3ResLib/android_common/aapt2/packages/apps/Launcher3/res/layout_work_apps_edu.xml.flat out/soong/.intermediates/packages/apps/Launcher3/Launcher3ResLib/android_common/aapt2/packages/apps/Launcher3/res/layout_work_apps_paused.xml.flat out/soong/.intermediates/packages/apps/Launcher3/Launcher3ResLib/android_common/aapt2/packages/apps/Launcher3/res/layout_work_mode_fab.xml.flat out/soong/.intermediates/packages/apps/Launcher3/Launcher3ResLib/android_common/aapt2/packages/apps/Launcher3/res/layout_work_mode_utility_view.xml.flat out/soong/.intermediates/packages/apps/Launcher3/Launcher3ResLib/android_common/aapt2/packages/apps/Launcher3/res/layout_workspace_screen.xml.flat out/soong/.intermediates/packages/apps/Launcher3/Launcher3ResLib/android_common/aapt2/packages/apps/Launcher3/res/layout_workspace_screen_foldable.xml.flat out/soong/.intermediates/packages/apps/Launcher3/Launcher3ResLib/android_common/aapt2/packages/apps/Launcher3/res/raw_downgrade_schema.json.flat out/soong/.intermediates/packages/apps/Launcher3/Launcher3ResLib/android_common/aapt2/packages/apps/Launcher3/res/values_aospa_config.arsc.flat out/soong/.intermediates/packages/apps/Launcher3/Launcher3ResLib/android_common/aapt2/packages/apps/Launcher3/res/values_aospa_strings.arsc.flat out/soong/.intermediates/packages/apps/Launcher3/Launcher3ResLib/android_common/aapt2/packages/apps/Launcher3/res/values_attrs.arsc.flat out/soong/.intermediates/packages/apps/Launcher3/Launcher3ResLib/android_common/aapt2/packages/apps/Launcher3/res/values_colors.arsc.flat out/soong/.intermediates/packages/apps/Launcher3/Launcher3ResLib/android_common/aapt2/packages/apps/Launcher3/res/values_config.arsc.flat out/soong/.intermediates/packages/apps/Launcher3/Launcher3ResLib/android_common/aapt2/packages/apps/Launcher3/res/values_dimens.arsc.flat out/soong/.intermediates/packages/apps/Launcher3/Launcher3ResLib/android_common/aapt2/packages/apps/Launcher3/res/values_id.arsc.flat out/soong/.intermediates/packages/apps/Launcher3/Launcher3ResLib/android_common/aapt2/packages/apps/Launcher3/res/values_neoteric_config.arsc.flat out/soong/.intermediates/packages/apps/Launcher3/Launcher3ResLib/android_common/aapt2/packages/apps/Launcher3/res/values_neoteric_strings.arsc.flat out/soong/.intermediates/packages/apps/Launcher3/Launcher3ResLib/android_common/aapt2/packages/apps/Launcher3/res/values_strings.arsc.flat out/soong/.intermediates/packages/apps/Launcher3/Launcher3ResLib/android_common/aapt2/packages/apps/Launcher3/res/values_styles.arsc.flat out/soong/.intermediates/packages/apps/Launcher3/Launcher3ResLib/android_common/aapt2/packages/apps/Launcher3/res/values-af_strings.arsc.flat out/soong/.intermediates/packages/apps/Launcher3/Launcher3ResLib/android_common/aapt2/packages/apps/Launcher3/res/values-am_strings.arsc.flat out/soong/.intermediates/packages/apps/Launcher3/Launcher3ResLib/android_common/aapt2/packages/apps/Launcher3/res/values-ar_strings.arsc.flat out/soong/.intermediates/packages/apps/Launcher3/Launcher3ResLib/android_common/aapt2/packages/apps/Launcher3/res/values-as_strings.arsc.flat out/soong/.intermediates/packages/apps/Launcher3/Launcher3ResLib/android_common/aapt2/packages/apps/Launcher3/res/values-az_strings.arsc.flat out/soong/.intermediates/packages/apps/Launcher3/Launcher3ResLib/android_common/aapt2/packages/apps/Launcher3/res/values-b+sr+Latn_strings.arsc.flat out/soong/.intermediates/packages/apps/Launcher3/Launcher3ResLib/android_common/aapt2/packages/apps/Launcher3/res/values-be_strings.arsc.flat out/soong/.intermediates/packages/apps/Launcher3/Launcher3ResLib/android_common/aapt2/packages/apps/Launcher3/res/values-bg_strings.arsc.flat out/soong/.intermediates/packages/apps/Launcher3/Launcher3ResLib/android_common/aapt2/packages/apps/Launcher3/res/values-bn_strings.arsc.flat out/soong/.intermediates/packages/apps/Launcher3/Launcher3ResLib/android_common/aapt2/packages/apps/Launcher3/res/values-bs_strings.arsc.flat out/soong/.intermediates/packages/apps/Launcher3/Launcher3ResLib/android_common/aapt2/packages/apps/Launcher3/res/values-ca_strings.arsc.flat out/soong/.intermediates/packages/apps/Launcher3/Launcher3ResLib/android_common/aapt2/packages/apps/Launcher3/res/values-cs_strings.arsc.flat out/soong/.intermediates/packages/apps/Launcher3/Launcher3ResLib/android_common/aapt2/packages/apps/Launcher3/res/values-da_strings.arsc.flat out/soong/.intermediates/packages/apps/Launcher3/Launcher3ResLib/android_common/aapt2/packages/apps/Launcher3/res/values-de_strings.arsc.flat out/soong/.intermediates/packages/apps/Launcher3/Launcher3ResLib/android_common/aapt2/packages/apps/Launcher3/res/values-el_strings.arsc.flat out/soong/.intermediates/packages/apps/Launcher3/Launcher3ResLib/android_common/aapt2/packages/apps/Launcher3/res/values-en-rAU_strings.arsc.flat out/soong/.intermediates/packages/apps/Launcher3/Launcher3ResLib/android_common/aapt2/packages/apps/Launcher3/res/values-en-rCA_strings.arsc.flat out/soong/.intermediates/packages/apps/Launcher3/Launcher3ResLib/android_common/aapt2/packages/apps/Launcher3/res/values-en-rGB_strings.arsc.flat out/soong/.intermediates/packages/apps/Launcher3/Launcher3ResLib/android_common/aapt2/packages/apps/Launcher3/res/values-en-rIN_strings.arsc.flat out/soong/.intermediates/packages/apps/Launcher3/Launcher3ResLib/android_common/aapt2/packages/apps/Launcher3/res/values-en-rXC_strings.arsc.flat out/soong/.intermediates/packages/apps/Launcher3/Launcher3ResLib/android_common/aapt2/packages/apps/Launcher3/res/values-es_strings.arsc.flat out/soong/.intermediates/packages/apps/Launcher3/Launcher3ResLib/android_common/aapt2/packages/apps/Launcher3/res/values-es-rUS_strings.arsc.flat out/soong/.intermediates/packages/apps/Launcher3/Launcher3ResLib/android_common/aapt2/packages/apps/Launcher3/res/values-et_strings.arsc.flat out/soong/.intermediates/packages/apps/Launcher3/Launcher3ResLib/android_common/aapt2/packages/apps/Launcher3/res/values-eu_strings.arsc.flat out/soong/.intermediates/packages/apps/Launcher3/Launcher3ResLib/android_common/aapt2/packages/apps/Launcher3/res/values-fa_strings.arsc.flat out/soong/.intermediates/packages/apps/Launcher3/Launcher3ResLib/android_common/aapt2/packages/apps/Launcher3/res/values-fi_strings.arsc.flat out/soong/.intermediates/packages/apps/Launcher3/Launcher3ResLib/android_common/aapt2/packages/apps/Launcher3/res/values-fr_strings.arsc.flat out/soong/.intermediates/packages/apps/Launcher3/Launcher3ResLib/android_common/aapt2/packages/apps/Launcher3/res/values-fr-rCA_strings.arsc.flat out/soong/.intermediates/packages/apps/Launcher3/Launcher3ResLib/android_common/aapt2/packages/apps/Launcher3/res/values-gl_strings.arsc.flat out/soong/.intermediates/packages/apps/Launcher3/Launcher3ResLib/android_common/aapt2/packages/apps/Launcher3/res/values-gu_strings.arsc.flat out/soong/.intermediates/packages/apps/Launcher3/Launcher3ResLib/android_common/aapt2/packages/apps/Launcher3/res/values-hi_strings.arsc.flat out/soong/.intermediates/packages/apps/Launcher3/Launcher3ResLib/android_common/aapt2/packages/apps/Launcher3/res/values-hr_strings.arsc.flat out/soong/.intermediates/packages/apps/Launcher3/Launcher3ResLib/android_common/aapt2/packages/apps/Launcher3/res/values-hu_strings.arsc.flat out/soong/.intermediates/packages/apps/Launcher3/Launcher3ResLib/android_common/aapt2/packages/apps/Launcher3/res/values-hy_strings.arsc.flat out/soong/.intermediates/packages/apps/Launcher3/Launcher3ResLib/android_common/aapt2/packages/apps/Launcher3/res/values-in_strings.arsc.flat out/soong/.intermediates/packages/apps/Launcher3/Launcher3ResLib/android_common/aapt2/packages/apps/Launcher3/res/values-is_strings.arsc.flat out/soong/.intermediates/packages/apps/Launcher3/Launcher3ResLib/android_common/aapt2/packages/apps/Launcher3/res/values-it_strings.arsc.flat out/soong/.intermediates/packages/apps/Launcher3/Launcher3ResLib/android_common/aapt2/packages/apps/Launcher3/res/values-iw_strings.arsc.flat out/soong/.intermediates/packages/apps/Launcher3/Launcher3ResLib/android_common/aapt2/packages/apps/Launcher3/res/values-ja_strings.arsc.flat out/soong/.intermediates/packages/apps/Launcher3/Launcher3ResLib/android_common/aapt2/packages/apps/Launcher3/res/values-ka_strings.arsc.flat out/soong/.intermediates/packages/apps/Launcher3/Launcher3ResLib/android_common/aapt2/packages/apps/Launcher3/res/values-kk_strings.arsc.flat out/soong/.intermediates/packages/apps/Launcher3/Launcher3ResLib/android_common/aapt2/packages/apps/Launcher3/res/values-km_strings.arsc.flat out/soong/.intermediates/packages/apps/Launcher3/Launcher3ResLib/android_common/aapt2/packages/apps/Launcher3/res/values-kn_strings.arsc.flat out/soong/.intermediates/packages/apps/Launcher3/Launcher3ResLib/android_common/aapt2/packages/apps/Launcher3/res/values-ko_strings.arsc.flat out/soong/.intermediates/packages/apps/Launcher3/Launcher3ResLib/android_common/aapt2/packages/apps/Launcher3/res/values-ky_strings.arsc.flat out/soong/.intermediates/packages/apps/Launcher3/Launcher3ResLib/android_common/aapt2/packages/apps/Launcher3/res/values-land_dimens.arsc.flat out/soong/.intermediates/packages/apps/Launcher3/Launcher3ResLib/android_common/aapt2/packages/apps/Launcher3/res/values-land_styles.arsc.flat out/soong/.intermediates/packages/apps/Launcher3/Launcher3ResLib/android_common/aapt2/packages/apps/Launcher3/res/values-ldrtl_lineage_config.arsc.flat out/soong/.intermediates/packages/apps/Launcher3/Launcher3ResLib/android_common/aapt2/packages/apps/Launcher3/res/values-ldrtl_menu_icon_pack.arsc.flat out/soong/.intermediates/packages/apps/Launcher3/Launcher3ResLib/android_common/aapt2/packages/apps/Launcher3/res/values-ldrtl_strings.arsc.flat out/soong/.intermediates/packages/apps/Launcher3/Launcher3ResLib/android_common/aapt2/packages/apps/Launcher3/res/values-lo_strings.arsc.flat out/soong/.intermediates/packages/apps/Launcher3/Launcher3ResLib/android_common/aapt2/packages/apps/Launcher3/res/values-lt_strings.arsc.flat out/soong/.intermediates/packages/apps/Launcher3/Launcher3ResLib/android_common/aapt2/packages/apps/Launcher3/res/values-lv_strings.arsc.flat out/soong/.intermediates/packages/apps/Launcher3/Launcher3ResLib/android_common/aapt2/packages/apps/Launcher3/res/values-mk_strings.arsc.flat out/soong/.intermediates/packages/apps/Launcher3/Launcher3ResLib/android_common/aapt2/packages/apps/Launcher3/res/values-ml_strings.arsc.flat out/soong/.intermediates/packages/apps/Launcher3/Launcher3ResLib/android_common/aapt2/packages/apps/Launcher3/res/values-mn_strings.arsc.flat
+out/host/linux-x86/bin/aapt2 compile -o out/soong/.intermediates/packages/apps/Launcher3/Launcher3ResLib/android_common/aapt2/packages/apps/Launcher3/res --pseudo-localize --feature-flags @out/soong/.intermediates/frameworks/base/android.security.flags-aconfig/aconfig-flags.txt --feature-flags @out/soong/.intermediates/packages/apps/Launcher3/aconfig/com_android_launcher3_flags/aconfig-flags.txt --feature-flags @out/soong/.intermediates/packages/providers/MediaProvider/mediaprovider_flags/aconfig-flags.txt packages/apps/Launcher3/res/layout/overview_panel.xml packages/apps/Launcher3/res/layout/page_indicator_dots_with_arrows.xml packages/apps/Launcher3/res/layout/predicted_app_icon.xml packages/apps/Launcher3/res/layout/preference_radio.xml packages/apps/Launcher3/res/layout/preference_widget_icons_preview.xml packages/apps/Launcher3/res/layout/preference_widget_switch_compat.xml packages/apps/Launcher3/res/layout/private_space_divider.xml packages/apps/Launcher3/res/layout/private_space_header.xml packages/apps/Launcher3/res/layout/private_space_mask_view.xml packages/apps/Launcher3/res/layout/qsb_container_hotseat.xml packages/apps/Launcher3/res/layout/search_container_all_apps.xml packages/apps/Launcher3/res/layout/search_results_rv_layout.xml packages/apps/Launcher3/res/layout/secondary_launcher.xml packages/apps/Launcher3/res/layout/settings_activity.xml packages/apps/Launcher3/res/layout/snackbar.xml packages/apps/Launcher3/res/layout/system_shortcut.xml packages/apps/Launcher3/res/layout/system_shortcut_content.xml packages/apps/Launcher3/res/layout/system_shortcut_icon_only.xml packages/apps/Launcher3/res/layout/system_shortcut_icon_only_end.xml packages/apps/Launcher3/res/layout/system_shortcut_icon_only_start.xml packages/apps/Launcher3/res/layout/system_shortcut_icons_container.xml packages/apps/Launcher3/res/layout/system_shortcut_rows_container.xml packages/apps/Launcher3/res/layout/system_shortcut_spacer.xml packages/apps/Launcher3/res/layout/user_folder_icon_normalized.xml packages/apps/Launcher3/res/layout/widget_picker_activity.xml packages/apps/Launcher3/res/layout/widget_shortcut_container.xml packages/apps/Launcher3/res/layout/work_apps_edu.xml packages/apps/Launcher3/res/layout/work_apps_paused.xml packages/apps/Launcher3/res/layout/work_mode_fab.xml packages/apps/Launcher3/res/layout/work_mode_utility_view.xml packages/apps/Launcher3/res/layout/workspace_screen.xml packages/apps/Launcher3/res/layout/workspace_screen_foldable.xml packages/apps/Launcher3/res/raw/downgrade_schema.json packages/apps/Launcher3/res/values/aospa_config.xml packages/apps/Launcher3/res/values/aospa_strings.xml packages/apps/Launcher3/res/values/attrs.xml packages/apps/Launcher3/res/values/colors.xml packages/apps/Launcher3/res/values/config.xml packages/apps/Launcher3/res/values/dimens.xml packages/apps/Launcher3/res/values/id.xml packages/apps/Launcher3/res/values/neoteric_config.xml packages/apps/Launcher3/res/values/neoteric_strings.xml packages/apps/Launcher3/res/values/strings.xml packages/apps/Launcher3/res/values/styles.xml packages/apps/Launcher3/res/values-af/strings.xml packages/apps/Launcher3/res/values-am/strings.xml packages/apps/Launcher3/res/values-ar/strings.xml packages/apps/Launcher3/res/values-as/strings.xml packages/apps/Launcher3/res/values-az/strings.xml packages/apps/Launcher3/res/values-b+sr+Latn/strings.xml packages/apps/Launcher3/res/values-be/strings.xml packages/apps/Launcher3/res/values-bg/strings.xml packages/apps/Launcher3/res/values-bn/strings.xml packages/apps/Launcher3/res/values-bs/strings.xml packages/apps/Launcher3/res/values-ca/strings.xml packages/apps/Launcher3/res/values-cs/strings.xml packages/apps/Launcher3/res/values-da/strings.xml packages/apps/Launcher3/res/values-de/strings.xml packages/apps/Launcher3/res/values-el/strings.xml packages/apps/Launcher3/res/values-en-rAU/strings.xml packages/apps/Launcher3/res/values-en-rCA/strings.xml packages/apps/Launcher3/res/values-en-rGB/strings.xml packages/apps/Launcher3/res/values-en-rIN/strings.xml packages/apps/Launcher3/res/values-en-rXC/strings.xml packages/apps/Launcher3/res/values-es/strings.xml packages/apps/Launcher3/res/values-es-rUS/strings.xml packages/apps/Launcher3/res/values-et/strings.xml packages/apps/Launcher3/res/values-eu/strings.xml packages/apps/Launcher3/res/values-fa/strings.xml packages/apps/Launcher3/res/values-fi/strings.xml packages/apps/Launcher3/res/values-fr/strings.xml packages/apps/Launcher3/res/values-fr-rCA/strings.xml packages/apps/Launcher3/res/values-gl/strings.xml packages/apps/Launcher3/res/values-gu/strings.xml packages/apps/Launcher3/res/values-hi/strings.xml packages/apps/Launcher3/res/values-hr/strings.xml packages/apps/Launcher3/res/values-hu/strings.xml packages/apps/Launcher3/res/values-hy/strings.xml packages/apps/Launcher3/res/values-in/strings.xml packages/apps/Launcher3/res/values-is/strings.xml packages/apps/Launcher3/res/values-it/strings.xml packages/apps/Launcher3/res/values-iw/strings.xml packages/apps/Launcher3/res/values-ja/strings.xml packages/apps/Launcher3/res/values-ka/strings.xml packages/apps/Launcher3/res/values-kk/strings.xml packages/apps/Launcher3/res/values-km/strings.xml packages/apps/Launcher3/res/values-kn/strings.xml packages/apps/Launcher3/res/values-ko/strings.xml packages/apps/Launcher3/res/values-ky/strings.xml packages/apps/Launcher3/res/values-land/dimens.xml packages/apps/Launcher3/res/values-land/styles.xml packages/apps/Launcher3/res/values-ldrtl/lineage_config.xml packages/apps/Launcher3/res/values-ldrtl/menu_icon_pack.xml packages/apps/Launcher3/res/values-ldrtl/strings.xml packages/apps/Launcher3/res/values-lo/strings.xml packages/apps/Launcher3/res/values-lt/strings.xml packages/apps/Launcher3/res/values-lv/strings.xml packages/apps/Launcher3/res/values-mk/strings.xml packages/apps/Launcher3/res/values-ml/strings.xml packages/apps/Launcher3/res/values-mn/strings.xml
+packages/apps/Launcher3/res/values-ldrtl/menu_icon_pack.xml:16: error: root element must be <resources>.
+packages/apps/Launcher3/res/values-ldrtl/menu_icon_pack.xml: error: file failed to compile.
+[ 53% 217/407] //packages/apps/Launcher3/modules/widgetpicker:widget_picker_dagger_annotations aapt2 link
+[ 53% 218/407] //packages/apps/Launcher3/modules/widgetpicker:widget_picker_cui_reporter aapt2 link
+[ 53% 219/407] //packages/apps/Launcher3/modules/widgetpicker:widget_picker_shared_data_types aapt2 link
+[ 54% 220/407] //packages/apps/Launcher3:QuickstepResLib aapt2 compile packages/apps/Launcher3/quickstep/res 3
+[ 54% 221/407] //packages/apps/Launcher3:QuickstepResLib aapt2 compile packages/apps/Launcher3/quickstep/res 4
+[ 54% 222/407] //prebuilts/sdk/current/androidx:androidx.appfunctions_appfunctions-compiler-plugin for javac [linux_glibc common]
+[ 54% 223/407] //packages/apps/Launcher3:launcher_log_protos_lite protoc
+[ 55% 224/407] //packages/apps/Launcher3/modules/widgetpicker:widget_picker_ui_theme aapt2 link
+[ 55% 225/407] //packages/apps/Launcher3/modules/widgetpicker:widget_picker_cui_reporter merge manifest
+[ 55% 226/407] //prebuilts/sdk/current/androidx/m2repository/androidx/appsearch/appsearch-platform-storage/1.2.0-alpha01:androidx.appsearch_appsearch-platform-storage aapt2 link
+[ 55% 227/407] //prebuilts/sdk/current/androidx/m2repository/androidx/appsearch/appsearch-platform-storage/1.2.0-alpha01:androidx.appsearch_appsearch-platform-storage ResourceProcessorBusyBox
+[ 56% 228/407] //prebuilts/sdk/current/androidx/m2repository/androidx/compose/ui/ui-tooling-data-android/1.12.0-alpha01:androidx.compose.ui_ui-tooling-data aapt2 link
+[ 56% 229/407] //prebuilts/sdk/current/androidx/m2repository/androidx/compose/ui/ui-tooling-android/1.12.0-alpha01:androidx.compose.ui_ui-tooling ResourceProcessorBusyBox
+[ 56% 230/407] //prebuilts/sdk/current/androidx/m2repository/androidx/compose/ui/ui-tooling-data-android/1.12.0-alpha01:androidx.compose.ui_ui-tooling-data ResourceProcessorBusyBox
+[ 56% 231/407] //prebuilts/sdk/current/androidx/m2repository/androidx/appfunctions/appfunctions/1.0.0-alpha08:androidx.appfunctions_appfunctions ResourceProcessorBusyBox
+[ 57% 232/407] //packages/apps/Launcher3/modules/widgetpicker:widget_picker_domain_layer merge manifest
+[ 57% 233/407] //packages/apps/Launcher3/modules/widgetpicker:widget_picker_shared_data_types merge manifest
+[ 57% 234/407] //packages/apps/Launcher3/modules/widgetpicker:widget_picker_event_listeners merge manifest
+[ 57% 235/407] //packages/apps/Launcher3/modules/widgetpicker:widget_picker_data_repositories merge manifest
+[ 57% 236/407] //packages/apps/Launcher3/modules/widgetpicker:widget_picker_ui_data_types merge manifest
+[ 58% 237/407] //packages/apps/Launcher3/shared:launcher-testing-shared ResourceProcessorBusyBox
+[ 58% 238/407] //packages/apps/Launcher3/modules/widgetpicker:widget_picker_ui_theme merge manifest
+[ 58% 239/407] //packages/apps/Launcher3/modules/widgetpicker:widget_picker_ui_components merge manifest
+[ 58% 240/407] //prebuilts/sdk/current/androidx/m2repository/androidx/appfunctions/appfunctions-service/1.0.0-alpha08:androidx.appfunctions_appfunctions-service ResourceProcessorBusyBox
+[ 59% 241/407] //frameworks/libs/systemui/cuebarlib:cuebarlib ResourceProcessorBusyBox
+[ 59% 242/407] //packages/apps/Launcher3/modules/widgetpicker:widget_picker_ui merge manifest
+[ 59% 243/407] //packages/apps/Launcher3:LauncherPluginLib turbine
+[ 59% 244/407] //packages/apps/Launcher3/modules/widgetpicker:widget_picker_component merge manifest
+[ 60% 245/407] //packages/apps/Launcher3/modules/appfunctions:workspace-functions merge manifest
+[ 60% 246/407] //packages/apps/Launcher3:LauncherPluginLib javac
+[ 60% 247/407] //packages/providers/MediaProvider:mediaprovider_exported_aconfig_flag_lib turbine apt
+[ 60% 248/407] //packages/apps/Launcher3:Launcher3ResLib aapt2 compile packages/apps/Launcher3/res 2
+[ 61% 249/407] //frameworks/base/core/java:protolog-group turbine
+[ 61% 250/407] //frameworks/base/core/java:protolog-group javac
+[ 61% 251/407] //packages/apps/Launcher3/dagger:launcher-dagger-qualifiers javac
+[ 61% 252/407] //packages/apps/Launcher3/dagger:launcher-dagger-qualifiers turbine
+[ 62% 253/407] //frameworks/base/libs/computercontrol:com.android.extensions.computercontrol turbine
+[ 62% 254/407] //frameworks/base/libs/computercontrol:com.android.extensions.computercontrol javac
+[ 62% 255/407] //packages/apps/Launcher3/modules/concurrent:launcher-executor-qualifiers kotlinc
+[ 62% 256/407] //external/kotlinx.coroutines:kotlinx_coroutines_guava kotlinc
+[ 63% 257/407] //frameworks/base/libs/appfunctions:com.android.extensions.appfunctions.stubs.from-text metalava merged text
+ninja: build stopped: subcommand failed.
+13:56:41 ninja failed with: exit status 1
+
+[0;31m#### failed to build some targets (03:35 (mm:ss)) ####
+[00m
+[m[1m[31mBuild failed![m
+

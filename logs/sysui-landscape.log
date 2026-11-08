@@ -1,0 +1,139 @@
+=== SystemUI media compile start Tue Nov  3 01:31:13 PM UTC 2026 ===
+SystemUI
+[m[1m[34mSetting up the environment[m
+
+including vendor/aospa/vendorsetup.sh
+including vendor/google/gms/vendorsetup.sh
+including vendor/oplus/camera/vendorsetup.sh
+including vendor/qcom/opensource/core-utils/vendorsetup.sh
+including vendor/qcom/sdclang/config/vendorsetup.sh
+
+[m[1m[32mBuilding AOSPA calcite for giulia[m
+[m[32mStart time: Tue Nov  3 01:31:14 PM UTC 2026[m
+
+[m[1m[34mLunching giulia[m [m[36m(Including dependencies sync)[m
+
+Release not specified, defaulting to cp2a build
+No changes were necessary to the barista recipe.
+No ingredients need to be brewed.
+13:31:15 Build sandboxing disabled due to nsjail error.
+hardware/qcom/display/config/display-product.mk:244: warning: "Using smmu proxy"
+hardware/qcom/display/config/display-product.mk:244: warning: "Using smmu proxy"
+
+============================================
+PLATFORM_VERSION_CODENAME=REL
+PLATFORM_VERSION=17
+PRODUCT_SOURCE_ROOT_DIRS=-prebuilts/misc/protobuf_vendorcompat -platform_testing/libraries/sdv -platform_testing/tests/sdv -platform_testing/libraries/automotive/display_safety -platform_testing/tests/automotive/display_safety -device/generic/trusty/microdroid
+AOSPA_VERSION=calcite-unofficial-giulia-20261103
+TARGET_PRODUCT=aospa_giulia
+TARGET_BUILD_VARIANT=userdebug
+TARGET_ARCH=arm64
+TARGET_ARCH_VARIANT=armv8-2a-dotprod
+TARGET_CPU_VARIANT=generic
+HOST_OS=linux
+HOST_OS_EXTRA=Linux-7.0.0-42-generic-x86_64-Ubuntu-24.04.5-LTS
+HOST_CROSS_OS=windows
+BUILD_ID=CQ2A.260820.002-CP2A.260605.016
+OUT_DIR=out
+PRODUCT_SOONG_NAMESPACES=vendor/oplus/camera/giulia/blobs device/oneplus/giulia vendor/sony/dolby hardware/nxp/keymint/generic hardware/nxp/weaver/generic vendor/oneplus/ir hardware/oplus/overlay device/oneplus/sm8650-common hardware/oplus vendor/oneplus/sm8650-oss/vendor.oplus.hardware.touch@2.0-service vendor/oneplus/sm8650-common vendor/oneplus/giulia vendor/google/gms vendor/qcom/common/vendor/adreno/u vendor/qcom/common/system/alarm device/qcom/common/vendor/alarm vendor/qcom/common/vendor/alarm vendor/qcom/common/system/audio vendor/qcom/common/system/av vendor/qcom/common/system/bt vendor/qcom/common/system/display vendor/qcom/common/vendor/display vendor/qcom/common/system/gps device/qcom/common/vendor/gps device/qcom/common/system/overlay device/qcom/common/vendor/overlay vendor/qcom/common/system/perf device/qcom/common/vendor/perf vendor/qcom/common/vendor/perf vendor/qcom/common/system/telephony device/qcom/common/vendor/telephony vendor/qcom/opensource/data-ipa-cfg-mgr device/qcom/common/vendor/usb vendor/qcom/common/system/wfd device/qcom/common/vendor/wlan hardware/qcom/wlan/qcwcn vendor/qcom/opensource/data-ipa-cfg-mgr vendor/qcom/common/vendor/wlan device/qcom/common vendor/qcom/opensource/audio-hal/st-hal-ar
+SOONG_NINJA=ninja
+USE_RBE=true
+SOONG_ONLY=false
+SOONG_INCREMENTAL_ANALYSIS=false
+============================================
+13:31:17 Build sandboxing disabled due to nsjail error.
+hardware/qcom/display/config/display-product.mk:244: warning: "Using smmu proxy"
+hardware/qcom/display/config/display-product.mk:244: warning: "Using smmu proxy"
+13:31:21 Build sandboxing disabled due to nsjail error.
+hardware/qcom/display/config/display-product.mk:244: warning: "Using smmu proxy"
+hardware/qcom/display/config/display-product.mk:244: warning: "Using smmu proxy"
+13:31:24 Build sandboxing disabled due to nsjail error.
+hardware/qcom/display/config/display-product.mk:244: warning: "Using smmu proxy"
+hardware/qcom/display/config/display-product.mk:244: warning: "Using smmu proxy"
+
+[m[1m[34mStarting compilation[m
+
+Starting ninja...
+13:31:27 Build sandboxing disabled due to nsjail error.
+hardware/qcom/display/config/display-product.mk:244: warning: "Using smmu proxy"
+Running product configuration...
+hardware/qcom/display/config/display-product.mk:244: warning: "Using smmu proxy"
+============================================
+PLATFORM_VERSION_CODENAME=REL
+PLATFORM_VERSION=17
+PRODUCT_SOURCE_ROOT_DIRS=-prebuilts/misc/protobuf_vendorcompat -platform_testing/libraries/sdv -platform_testing/tests/sdv -platform_testing/libraries/automotive/display_safety -platform_testing/tests/automotive/display_safety -device/generic/trusty/microdroid
+AOSPA_VERSION=calcite-unofficial-giulia-20261103
+TARGET_PRODUCT=aospa_giulia
+TARGET_BUILD_VARIANT=userdebug
+TARGET_ARCH=arm64
+TARGET_ARCH_VARIANT=armv8-2a-dotprod
+TARGET_CPU_VARIANT=generic
+HOST_OS=linux
+HOST_OS_EXTRA=Linux-7.0.0-42-generic-x86_64-Ubuntu-24.04.5-LTS
+HOST_CROSS_OS=windows
+BUILD_ID=CQ2A.260820.002-CP2A.260605.016
+OUT_DIR=out
+PRODUCT_SOONG_NAMESPACES=vendor/oplus/camera/giulia/blobs device/oneplus/giulia vendor/sony/dolby hardware/nxp/keymint/generic hardware/nxp/weaver/generic vendor/oneplus/ir hardware/oplus/overlay device/oneplus/sm8650-common hardware/oplus vendor/oneplus/sm8650-oss/vendor.oplus.hardware.touch@2.0-service vendor/oneplus/sm8650-common vendor/oneplus/giulia vendor/google/gms vendor/qcom/common/vendor/adreno/u vendor/qcom/common/system/alarm device/qcom/common/vendor/alarm vendor/qcom/common/vendor/alarm vendor/qcom/common/system/audio vendor/qcom/common/system/av vendor/qcom/common/system/bt vendor/qcom/common/system/display vendor/qcom/common/vendor/display vendor/qcom/common/system/gps device/qcom/common/vendor/gps device/qcom/common/system/overlay device/qcom/common/vendor/overlay vendor/qcom/common/system/perf device/qcom/common/vendor/perf vendor/qcom/common/vendor/perf vendor/qcom/common/system/telephony device/qcom/common/vendor/telephony vendor/qcom/opensource/data-ipa-cfg-mgr device/qcom/common/vendor/usb vendor/qcom/common/system/wfd device/qcom/common/vendor/wlan hardware/qcom/wlan/qcwcn vendor/qcom/opensource/data-ipa-cfg-mgr vendor/qcom/common/vendor/wlan device/qcom/common vendor/qcom/opensource/audio-hal/st-hal-ar
+SOONG_NINJA=ninja
+USE_RBE=true
+SOONG_ONLY=false
+SOONG_INCREMENTAL_ANALYSIS=true
+============================================
+[100% 1/1] bootstrap blueprint
+Running globs...
+ninja: no work to do.
+No need to regenerate ninja file
+No need to regenerate ninja file
+No need to regenerate ninja file
+Starting ninja...
+[  1% 2/127 11m59s remaining] //frameworks/base/packages/SystemUI:SystemUI-res aapt2 compile frameworks/base/packages/SystemUI/res 19
+[  2% 3/127 11m59s remaining] //frameworks/base/packages/SystemUI:SystemUI-res overlay resource file list
+[  3% 4/127 11m56s remaining] //frameworks/base/packages/SystemUI:SystemUI-res aapt2 link
+[  3% 5/127 11m55s remaining] //frameworks/base/packages/SystemUI:SystemUI-res ResourceProcessorBusyBox
+[  4% 6/127 11m55s remaining] //frameworks/base/packages/SystemUI/pods/statusbar/chips/ui:com.android.systemui.statusbar.chips.ui_api aapt2 link
+[  5% 7/127 11m55s remaining] //frameworks/base/packages/SystemUI/pods/qs/panels/ui:com.android.systemui.qs.panels.ui_api aapt2 link
+[  6% 8/127 11m55s remaining] //frameworks/base/packages/SystemUI/pods/common/ui/compose:com.android.systemui.common.ui.compose_api aapt2 link
+[  7% 9/127 11m55s remaining] //frameworks/base/packages/SystemUI/pods/statusbar/chips/ui:com.android.systemui.statusbar.chips.ui_api ResourceProcessorBusyBox
+[  8% 10/121 11m55s remaining] //frameworks/base/packages/SystemUI/pods/qs/panels/ui:com.android.systemui.qs.panels.ui_api ResourceProcessorBusyBox
+[ 11% 11/100 11m55s remaining] //frameworks/base/packages/SystemUI/pods/common/ui/compose:com.android.systemui.common.ui.compose_api ResourceProcessorBusyBox
+[ 15% 12/79 11m55s remaining] //frameworks/base/libs/serial/accessdialog:SerialPortAccessDialog aapt2 link
+[ 16% 13/79 11m55s remaining] //frameworks/base/packages/SystemUI/pods/notifications/intelligence/rules/ui:com.android.systemui.notifications.intelligence.rules.ui_main aapt2 link
+[ 17% 14/79 11m54s remaining] //frameworks/base/packages/SystemUI/pods/notifications/intelligence/rules/ui:com.android.systemui.notifications.intelligence.rules.ui_main ResourceProcessorBusyBox
+[ 26% 15/56 11m54s remaining] //frameworks/base/libs/serial/accessdialog:SerialPortAccessDialog ResourceProcessorBusyBox
+[ 30% 16/53 11m54s remaining] //frameworks/base/packages/SystemUI:SystemUI-core aapt2 link
+[ 32% 17/53 11m53s remaining] //frameworks/base/packages/SystemUI:SystemUI-core ResourceProcessorBusyBox
+[ 40% 18/45 11m53s remaining] //frameworks/base/packages/SystemUI:SystemUI-application aapt2 link
+[ 42% 19/45 11m53s remaining] //frameworks/base/packages/SystemUI:SystemUI overlay resource file list
+[ 44% 20/45 11m52s remaining] //frameworks/base/packages/SystemUI:SystemUI-application ResourceProcessorBusyBox
+[ 52% 21/40 11m48s remaining] //frameworks/base/packages/SystemUI:SystemUI aapt2 link
+[ 55% 22/40 11m48s remaining] //frameworks/base/packages/SystemUI:SystemUI merge assets from dependencies
+[ 57% 23/40 11m48s remaining] Copy: out/target/common/obj/APPS/SystemUI_intermediates/package-export.apk
+[ 60% 24/40 11m47s remaining] //frameworks/base/packages/SystemUI:SystemUI ResourceProcessorBusyBox
+[ 65% 25/38 11m45s remaining] //frameworks/base/packages/SystemUI:SystemUI convert to proto
+[ 68% 26/38 9m18s remaining] //frameworks/base/packages/SystemUI:SystemUI r8
+Warning: An API level of 37 is not supported by this compiler. Please use an API level of 36 or earlier)
+Warning in ./out/soong/.intermediates/frameworks/base/packages/SystemUI/SystemUI/android_common/withres/SystemUI.jar:android/gui/BorderSettings.class:
+Type android.gui.BorderSettings is defined by both the program: ./out/soong/.intermediates/frameworks/base/packages/SystemUI/SystemUI/android_common/withres/SystemUI.jar:android/gui/BorderSettings.class and the library: out/soong/.intermediates/frameworks/base/framework/android_common/repackaged-jarjar/turbine/framework.jar:android/gui/BorderSettings.class
+Warning in ./out/soong/.intermediates/frameworks/base/packages/SystemUI/SystemUI/android_common/withres/SystemUI.jar:android/gui/BoxShadowSettings$BoxShadowParams.class:
+Type android.gui.BoxShadowSettings$BoxShadowParams is defined by both the program: ./out/soong/.intermediates/frameworks/base/packages/SystemUI/SystemUI/android_common/withres/SystemUI.jar:android/gui/BoxShadowSettings$BoxShadowParams.class and the library: out/soong/.intermediates/frameworks/base/framework/android_common/repackaged-jarjar/turbine/framework.jar:android/gui/BoxShadowSettings$BoxShadowParams.class
+Warning in ./out/soong/.intermediates/frameworks/base/packages/SystemUI/SystemUI/android_common/withres/SystemUI.jar:android/gui/BoxShadowSettings.class:
+Type android.gui.BoxShadowSettings is defined by both the program: ./out/soong/.intermediates/frameworks/base/packages/SystemUI/SystemUI/android_common/withres/SystemUI.jar:android/gui/BoxShadowSettings.class and the library: out/soong/.intermediates/frameworks/base/framework/android_common/repackaged-jarjar/turbine/framework.jar:android/gui/BoxShadowSettings.class
+[ 71% 27/38 9m18s remaining] verify depfile
+[ 73% 28/38 9m18s remaining] //frameworks/base/packages/SystemUI:SystemUI align
+[ 76% 29/38 9m18s remaining] //frameworks/base/packages/SystemUI:SystemUI for dex resources
+[ 78% 30/38 9m18s remaining] //frameworks/base/packages/SystemUI:SystemUI align
+[ 81% 31/38 9m17s remaining] //frameworks/base/packages/SystemUI:SystemUI convert to binary
+[ 84% 32/38 9m17s remaining] out/host/linux-x86/bin/merge_zips out/soong/.intermediates/frameworks/base/packages/SystemUI/SystemUI/android_common/SystemUI-unsigned.apk out/soong/.intermediates/frameworks/base/packages/SystemUI/SystemUI/android_common/dex-withres-aligned/SystemUI.jar out/soong/.intermediates/frameworks/base/packages/SystemUI/SystemUI/android_common/package-res.apk.binary.out.apk
+[ 86% 33/38 9m12s remaining] //frameworks/base/packages/SystemUI:SystemUI signapk
+[ 89% 34/38 9m12s remaining] Copy: out/target/product/giulia/obj/APPS/SystemUI_intermediates/package.apk
+[ 92% 35/38 9m11s remaining] Install: out/target/product/giulia/system_ext/priv-app/SystemUI/SystemUI.apk
+[ 94% 36/38 9m9s remaining] //frameworks/base/packages/SystemUI:SystemUI dexpreopt
+[ 97% 37/38 9m9s remaining] Install: out/target/product/giulia/system_ext/priv-app/SystemUI/oat/arm64/SystemUI.odex
+[100% 38/38 9m9s remaining] Install: out/target/product/giulia/system_ext/priv-app/SystemUI/oat/arm64/SystemUI.vdex
+
+[0;32m#### build completed successfully (03:14 (mm:ss)) ####
+[00m
+
+[m[1m[32mTotal time elapsed:[m [m[32m3 minutes (206.587002062 seconds)[m
+
+=== SystemUI media compile done Tue Nov  3 01:34:40 PM UTC 2026 ===
