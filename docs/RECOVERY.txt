@@ -1,0 +1,13 @@
+Known-good images from the last working Ronard build (Oct 31).
+
+If fastboot is available:
+  fastboot devices
+  fastboot flash dtbo dtbo.img
+  fastboot flash boot boot.img
+  fastboot flash init_boot init_boot.img
+  fastboot flash vendor_boot vendor_boot.img
+  fastboot reboot
+
+If adb is available and rooted, check the active slot first:
+  adb shell getprop ro.boot.slot_suffix
+Then dd the matching boot/init_boot/vendor_boot/dtbo partitions from /data/local/tmp.
